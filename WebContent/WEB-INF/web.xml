@@ -5,15 +5,5 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-    
-	<servlet>
-		<servlet-name>HelloServlet</servlet-name>
-		<servlet-class>cryptocap.HelloServlet</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>HelloServlet</servlet-name>
-		<url-pattern>/hello</url-pattern>
-	</servlet-mapping>
 
 </web-app>

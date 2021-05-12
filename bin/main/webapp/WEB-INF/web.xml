@@ -7,7 +7,7 @@
     
 	<servlet>
 		<servlet-name>HelloServlet</servlet-name>
-		<servlet-class>cryptocap.HelloServlet</servlet-class>
+		<servlet-class>main.cryptocap.HelloServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>

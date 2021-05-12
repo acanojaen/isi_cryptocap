@@ -1,4 +1,4 @@
-package cryptocap;
+package main.cryptocap;
 
 import java.io.IOException;
 

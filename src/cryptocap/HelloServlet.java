@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServlet;
 
 @WebServlet(
-	    name = "HelloServlet",
+	    name = "HelloWorld",
 	    urlPatterns = {"/hello"}
 	)
 

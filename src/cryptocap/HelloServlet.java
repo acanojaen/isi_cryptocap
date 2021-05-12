@@ -1,6 +1,6 @@
 package cryptocap;
 
-import java.io.*;
+import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +14,12 @@ import javax.servlet.http.HttpServlet;
 public class HelloServlet extends HttpServlet
 {
 
-	public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public void doGet (HttpServletRequest request, HttpServletResponse response) throws IOException
 	{
 		// Set response content type
 		response.setContentType("text/html");

@@ -1,8 +1,15 @@
 package cryptocap;
 
 import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*; 
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet(
+	    name = "HelloServlet",
+	    urlPatterns = {"/hello"}
+	)
 
 public class HelloServlet extends HttpServlet
 {
@@ -11,9 +18,9 @@ public class HelloServlet extends HttpServlet
 	{
 		// Set response content type
 		response.setContentType("text/html");
+		response.setCharacterEncoding("UTF-8");
 		// Respuesta del servlet
-		PrintWriter out = response.getWriter();
-		out.println("<h1>" + message + "</h1>");
+		response.getWriter().println("Hello World! Servlet working");
 	}
 }
 

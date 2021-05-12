@@ -30,7 +30,7 @@
     
           <div class="starter-template">
             <h1>Cryptocap</h1>
-            <p class="lead">Página de prueba.</p>
+            <img src="dist/img/coin.png"/>
           </div>
     
         </main><!-- /.container -->

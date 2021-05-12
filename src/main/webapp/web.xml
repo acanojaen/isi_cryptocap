@@ -11,7 +11,7 @@
     
 	<servlet>
 		<servlet-name>HelloWorld</servlet-name>
-		<servlet-class>HelloServlet</servlet-class>
+		<servlet-class>cryptocap.HelloServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>

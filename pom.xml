@@ -26,7 +26,7 @@
 
   </dependencies>
   <build>
-    <finalName>webappRunnerSample</finalName>
+    <finalName>src</finalName>
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>

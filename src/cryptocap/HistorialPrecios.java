@@ -1,4 +1,4 @@
-package main.webapp.cryptocap;
+package cryptocap;
 
 import java.util.Date;
 

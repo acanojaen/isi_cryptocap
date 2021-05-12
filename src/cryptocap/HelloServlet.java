@@ -8,7 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServlet;
 
-@WebServlet("/hello")
+@WebServlet(
+	    name = "HelloServlet",
+	    urlPatterns = {"/hello"}
+	)
+
 public class HelloServlet extends HttpServlet
 {
 
@@ -23,7 +27,7 @@ public class HelloServlet extends HttpServlet
 		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
 		// Respuesta del servlet
-		response.getWriter().println("<h2>Hello World! Servlet working</h2>");
+		response.getWriter().println("Hello World! Servlet working");
 	}
 }
 

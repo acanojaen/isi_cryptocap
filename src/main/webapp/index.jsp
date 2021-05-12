@@ -1,9 +1,15 @@
 <html>
-    <header>
-        <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-        <link href="css/style.css" rel="stylesheet" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+    <link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+    <style lang="en" type="text/css" id="dark-mode-custom-style"></style>
+    <style lang="en" type="text/css" id="dark-mode-native-style"></style>
+    
+    <head>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <script src="js/bootstrap.bundle.js" crossorigin="anonymous"></script>
-    </header>
+    </head>
 
     <body>
 

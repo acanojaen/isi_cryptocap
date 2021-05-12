@@ -6,12 +6,12 @@
     </welcome-file-list>
     
 	<servlet>
-		<servlet-name>HelloServlet</servlet-name>
+		<servlet-name>MyServlet</servlet-name>
 		<servlet-class>main.webapp.cryptocap.HelloServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>HelloServlet</servlet-name>
+		<servlet-name>MyServlet</servlet-name>
 		<url-pattern>/hello</url-pattern>
 	</servlet-mapping>
 

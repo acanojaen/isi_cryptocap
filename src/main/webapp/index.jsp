@@ -1,6 +1,7 @@
 <html>
     <header>
         <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <link href="css/style.css" rel="stylesheet" crossorigin="anonymous">
         <script src="js/bootstrap.bundle.js" crossorigin="anonymous"></script>
     </header>
 

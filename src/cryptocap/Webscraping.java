@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.jsoup.*;
 import org.jsoup.Connection.Response;
 import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 
 public class Webscraping {
 	
@@ -28,7 +29,9 @@ public class Webscraping {
 		if(code == 200) {
 			// cargamos el html de la página
 			Document doc = html(url);
-			return doc.outerHtml();
+			
+			Elements element = doc.select("div.css-1vuj9rf");
+			return element.html();
 		} else {
 			return "null";
 		}

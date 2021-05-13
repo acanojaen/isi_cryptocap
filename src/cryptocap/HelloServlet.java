@@ -22,5 +22,9 @@ public class HelloServlet extends HttpServlet {
         response.setContentType("text/plan");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().println("Hello App working!\r\n");
+        
+        Webscraping w;
+        w = new Webscraping("alberto");
+        w.Binance();
     }
 }

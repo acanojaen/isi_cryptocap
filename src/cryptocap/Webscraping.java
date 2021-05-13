@@ -20,7 +20,7 @@ public class Webscraping {
 	// Scraping - Binance
 	
 	public String Binance() throws IOException {
-		String url = "https://www.binance.com/es/markets";
+		String url = "https://coinranking.com/es";
 		int code;
 		
 		code = connect(url);
@@ -30,7 +30,7 @@ public class Webscraping {
 			// cargamos el html de la página
 			Document doc = html(url);
 			
-			Elements element = doc.select("div.css");
+			Elements element = doc.select(":not(thead) tr");
 			return element.html();
 		} else {
 			return "null";

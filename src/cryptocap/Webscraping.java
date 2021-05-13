@@ -30,7 +30,7 @@ public class Webscraping {
 			// cargamos el html de la página
 			Document doc = html(url);
 			
-			Elements element = doc.select(":not(thead) tr");
+			Elements element = doc.select(":not(thead) tr.table__cell table__cell--3-of-8 table__cell--s-5-of-10");
 			return element.html();
 		} else {
 			return "null";

@@ -17,16 +17,16 @@ public class Webscraping {
 
 	// Scraping - Binance
 	
-	void Binance() throws IOException {
+	public int Binance() throws IOException {
 		String url = "https://www.binance.com/es/markets";
 		int code;
 		
 		code = connect(url);
 		
 		if(code == 200) {
-			System.out.println("Conexión correcta");
+			return 1;
 		} else {
-			System.out.println("Conexión errónea");
+			return 0;
 		}
 	}		
 	

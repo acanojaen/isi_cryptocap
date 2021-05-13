@@ -25,6 +25,6 @@ public class HelloServlet extends HttpServlet {
         
         Webscraping w;
         w = new Webscraping("alberto");
-        w.Binance();
+        response.getWriter().println(w.Binance());
     }
 }

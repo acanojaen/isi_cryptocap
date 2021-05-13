@@ -30,7 +30,7 @@ public class Webscraping {
 			// cargamos el html de la página
 			Document doc = html(url);
 			
-			Elements element = doc.select("div");
+			Elements element = doc.select("div.css-1uly3p5");
 			return element.html();
 		} else {
 			return "null";

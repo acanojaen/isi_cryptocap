@@ -43,7 +43,7 @@ public class Webscraping {
 				
 				
 				Criptomoneda c = new Criptomoneda(nombre, acronimo, precio);
-				c.toString();
+				System.out.println(c.toString());
 				
 				criptos.add(c);
 			}

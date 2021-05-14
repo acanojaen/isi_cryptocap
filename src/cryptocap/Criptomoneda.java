@@ -100,7 +100,9 @@ public class Criptomoneda
 	public void setWeb(String web) {
 		this.web = web;
 	}
-	
-	
 
+	@Override
+	public String toString() {
+		return "Criptomoneda [nombre=" + nombre + ", acronimo=" + acronimo + ", volumen=" + volumen + "]";
+	}
 }

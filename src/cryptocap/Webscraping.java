@@ -1,6 +1,7 @@
 package cryptocap;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.jsoup.*;
 import org.jsoup.Connection.Response;
@@ -21,8 +22,10 @@ public class Webscraping {
 	// Scraping - Coinranking.com/es
 	public String Binance() throws IOException {
 		String url = "https://coinranking.com/es";
-		String nombre_criptomoneda = null;
 		int code;
+		ArrayList<Criptomoneda> criptos;
+		
+		criptos = new ArrayList<Criptomoneda>();
 		
 		code = connect(url);
 		
@@ -34,10 +37,16 @@ public class Webscraping {
 			Elements element = doc.select(":not(thead) tr.table__row.table__row--click.table__row--full-width");
 			
 			for (Element elem : element) {
-				nombre_criptomoneda = elem.getElementsByClass("profile__link").text();
+				String nombre = elem.getElementsByClass("profile__link").text();
+				String acronimo = elem.getElementsByClass("profile__subtitle").text();
+				String precio = elem.getElementsByClass("div.valuta.valuta--light").text();
+				
+				
+				Criptomoneda c = new Criptomoneda();
+				criptos.add(c);
 			}
 			
-			return nombre_criptomoneda;
+			return criptos.toString();
 			
 		} else {
 			return "null";

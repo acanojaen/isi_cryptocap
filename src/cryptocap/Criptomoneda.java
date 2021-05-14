@@ -3,9 +3,11 @@ package cryptocap;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class criptomoneda 
+public class Criptomoneda 
 {	
 	String nombre;
+	String acronimo;
+	String img;
 	float volumen;
 	float capitalizacion;
 	float suministro_circulacion;
@@ -15,8 +17,10 @@ public class criptomoneda
 	String web;
 	ArrayList<HistorialPrecios> historial;
 
-	public criptomoneda(String nombre, float volumen, float capitalizacion, float suministro_circulacion, int rango, String descripcion, Date fecha_emision, String web) {
+	public Criptomoneda(String nombre, String acronimo, String img, float volumen, float capitalizacion, float suministro_circulacion, int rango, String descripcion, Date fecha_emision, String web) {
 		this.historial = new ArrayList<HistorialPrecios>();
+		this.acronimo = acronimo;
+		this.img = img;
 		this.nombre = nombre;
 		this.volumen = volumen;
 		this.capitalizacion = capitalizacion;

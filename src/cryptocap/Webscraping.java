@@ -48,7 +48,7 @@ public class Webscraping {
 				criptos.add(c);
 			}
 			
-			return criptos.toString();
+			return element.html();
 			
 		} else {
 			return "null";

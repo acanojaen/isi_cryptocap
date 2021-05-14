@@ -42,7 +42,7 @@ public class Webscraping {
 				String precio = elem.getElementsByClass("div.valuta.valuta--light").text();
 				
 				
-				Criptomoneda c = new Criptomoneda();
+				Criptomoneda c = new Criptomoneda(nombre, acronimo, precio);
 				criptos.add(c);
 			}
 			

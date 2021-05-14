@@ -31,6 +31,12 @@ public class Criptomoneda
 		this.web = web;
 	}
 
+	public Criptomoneda(String nombre, String acronimo, String volumen) {
+		this.nombre = nombre;
+		this.acronimo = acronimo;
+		this.volumen = Float.parseFloat(volumen);
+	}
+
 	public String getNombre() {
 		return nombre;
 	}

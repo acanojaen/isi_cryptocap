@@ -18,9 +18,9 @@ public class Criptomoneda
 	String web;
 	ArrayList<HistorialPrecios> historial;
 
-	public Criptomoneda(){
-		this.nombre = "TEST";
-		this.acronimo = "TEST";
+	public Criptomoneda(String msg){
+		this.nombre = msg;
+		this.acronimo = msg;
 	}
 
 	public Criptomoneda(String nombre, String acronimo, String volumen, String capitalizacion, String urlImagen) {

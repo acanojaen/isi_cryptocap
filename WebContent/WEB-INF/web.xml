@@ -5,6 +5,14 @@
         <param-name>jdbcURL</param-name>
         <param-value>jdbc:mysql://go4wfmmyetu3gkvm:qvqtmle58bq9wcrq@lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/fbj6jfrdn8y5rorn</param-value>
     </context-param>
+    <context-param>
+        <param-name>jdbcUsername</param-name>
+        <param-value>go4wfmmyetu3gkvm</param-value>
+    </context-param>
+    <context-param>
+        <param-name>jdbcPassword</param-name>
+        <param-value>qvqtmle58bq9wcrq!</param-value>
+    </context-param>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

@@ -22,11 +22,17 @@ public class HelloServlet extends HttpServlet {
         response.setContentType("text/plan");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().println("Hello App working!\r\n");
-        
-        Webscraping w;
-        w = new Webscraping("BTC");
+        test(request, response);
+    }
 
-        Criptomoneda c = new Criptomoneda(w.Binance("BTC"));
-        response.getWriter().println("Hola mundo" + c.toString());
+    public void test (HttpServletRequest request, HttpServletResponse response)  
+            throws ServletException, IOException {
+        Webscraping w;
+        Criptomoneda c;
+        
+        w = new Webscraping("BTC");
+        c = new Criptomoneda(w.Binance("BTC"));
+
+        response.getWriter().println(c.toString());
     }
 }

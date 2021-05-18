@@ -40,9 +40,10 @@ public class Webscraping {
 				String nombre = elem.getElementsByClass("profile__link").text();
 				String acronimo = elem.getElementsByClass("profile__subtitle").text();
 				String precio = elem.getElementsByClass("div.valuta.valuta--light").text();
+				String capitalizacion = elem.getElementsByClass("div.valuta.valuta--light").text();
+				String urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
 				
-				
-				Criptomoneda c = new Criptomoneda(nombre, acronimo, precio);
+				Criptomoneda c = new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen);
 				System.out.println(c.toString());
 				
 				criptos.add(c);
@@ -55,6 +56,9 @@ public class Webscraping {
 		}
 	}		
 	
+	public ArrayList<Producto> getListaCriptomonedas(){
+    	return this.criptos;
+    }
 
 	public static int connect(String url) throws IOException {
 		Response res;

@@ -39,9 +39,9 @@ public class Webscraping {
 			for (Element elem : element) {
 				nombre = elem.getElementsByClass("profile__link").text();
 				acronimo = elem.getElementsByClass("profile__subtitle").text();
-				precio = elem.getElementsByClass("div.valuta.valuta--light").text();
-				capitalizacion = elem.getElementsByClass("div.valuta.valuta--light").text();
-				urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
+				precio = elem.getElementsByClass("valuta.valuta--light").text();
+				capitalizacion = elem.getElementsByClass("valuta.valuta--light").text();
+				urlImagen = elem.getElementsByClass("profile__logo-background").text();
 
 				if(elem.getElementsByClass("profile__subtitle").text().equals(acron)){
 					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));

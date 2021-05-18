@@ -109,7 +109,7 @@ public class Criptomoneda
 
 	@Override
 	public String toString() {
-		return "Criptomoneda: nombre=" + nombre + ", acronimo=" + acronimo + "]";
+		return "{nombre : " + nombre + ", acronimo : " + acronimo + ", volumen : " + volumen + ", capitalizacion : " + capitalizacion + ", urlImagen : " + urlImagen + "}";
 	}
 
 }

@@ -23,7 +23,7 @@ public class HelloServlet extends HttpServlet {
         //w = new Webscraping("BTC");
         //w.Binance("BTC");
         
-        response.getWriter().println(w.Binance("BTC").toString());
+        response.getWriter().println(w.Binance("XRP").toString());
     }
 
 }

@@ -37,15 +37,15 @@ public class Webscraping {
 			Elements element = doc.select(":not(thead) tr.table__row.table__row--click.table__row--full-width");
 			
 			for (Element elem : element) {
-				nombre = (String) elem.getElementsByClass("profile__link").text();
+				nombre = elem.getElementsByClass("profile__link").text();
 				acronimo = elem.getElementsByClass("profile__subtitle").text();
-				precio = (String) elem.getElementsByClass("div.valuta.valuta--light").text();
-				capitalizacion = (String) elem.getElementsByClass("div.valuta.valuta--light").text();
-				urlImagen = (String) elem.getElementsByClass("profile__logo-background").attr("src");
+				precio = elem.getElementsByClass("div.valuta.valuta--light").text();
+				capitalizacion = elem.getElementsByClass("div.valuta.valuta--light").text();
+				urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
 
-				//if(acron == acronimo){
-					return (new Criptomoneda(nombre, ((Object)elem.getElementsByClass("profile__subtitle").text()).getClass().getSimpleName(), precio, capitalizacion, urlImagen));
-				//}
+				if(elem.getElementsByClass("profile__subtitle").text().equals(acron)){
+					return (new Criptomoneda("BIEN!!"));
+				}
 			}
 			
 			return (new Criptomoneda("No se ha encontrado la moneda " + acron));

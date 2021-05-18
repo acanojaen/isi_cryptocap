@@ -18,6 +18,10 @@ public class Criptomoneda
 	String web;
 	ArrayList<HistorialPrecios> historial;
 
+	public Criptomoneda(){
+		this.acronimo = "AAAA";
+	}
+
 	public Criptomoneda(String nombre, String acronimo, String volumen, String capitalizacion, String urlImagen) {
 		this.nombre = nombre;
 		this.acronimo = acronimo;
@@ -36,6 +40,10 @@ public class Criptomoneda
 
 	public String getNombre() {
 		return nombre;
+	}
+
+	public String getAcronimo() {
+		return acronimo;
 	}
 
 	public void setNombre(String nombre) {
@@ -100,6 +108,7 @@ public class Criptomoneda
 
 	@Override
 	public String toString() {
-		return "Criptomoneda [nombre=" + nombre + ", acronimo=" + acronimo + ", volumen=" + volumen + "]";
+		return "Criptomoneda acronimo=" + acronimo + "]";
 	}
+
 }

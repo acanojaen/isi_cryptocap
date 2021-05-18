@@ -19,14 +19,12 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/plain");
-        String nombre = "BTC";
         //Webscraping w;
-        Criptomoneda c;
-        c = new Criptomoneda(nombre);
+        Criptomoneda c = new Criptomoneda();
         //w = new Webscraping("BTC");
         //w.Binance("BTC");
         
-        response.getWriter().println(c.getAcronimo());
+        response.getWriter().println(c.toString());
     }
 
 }

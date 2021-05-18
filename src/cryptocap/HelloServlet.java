@@ -1,7 +1,6 @@
 package cryptocap;
 
 import java.io.IOException;
-import com.google.gson.Gson;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,10 +24,7 @@ public class HelloServlet extends HttpServlet {
         //w = new Webscraping("BTC");
         //w.Binance("BTC");
         
-        Gson gson = new Gson();
-        String json = gson.toJson(c);
-
-        response.getWriter().println(json);
+        response.getWriter().println(c.getAcronimo());
     }
 
 }

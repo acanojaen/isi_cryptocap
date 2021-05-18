@@ -20,10 +20,11 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json");
-        Webscraping w;
-        Criptomoneda c;
-        w = new Webscraping("BTC");
-        c = new Criptomoneda(w.Binance("BTC"));
+        //Webscraping w;
+        Criptomoneda c = new Criptomoneda("BTC");
+        //w = new Webscraping("BTC");
+        //w.Binance("BTC");
+        
         Gson gson = new Gson();
         String json = gson.toJson(c);
 

@@ -19,7 +19,7 @@ public class Webscraping {
 	}
 
 	// Scraping - Coinranking.com/es
-	public Criptomoneda Binance(String acron) throws IOException {
+	public String Binance(String acron) throws IOException {
 		String url = "https://coinranking.com/es";
 		int code;
 		
@@ -40,14 +40,15 @@ public class Webscraping {
 					String capitalizacion = elem.getElementsByClass("div.valuta.valuta--light").text();
 					String urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
 					
-					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));
+					return nombre;
+					// return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));
 				}
 			}
 			
-			return null;
+			return "AAAA";
 			
 		} else {
-			return null;
+			return "AAAA";
 		}
 	}		
 	

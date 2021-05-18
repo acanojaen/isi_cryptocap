@@ -20,7 +20,7 @@ public class Webscraping {
 	}
 
 	// Scraping - Coinranking.com/es
-	public String CoinRanking() throws IOException {
+	public String Binance() throws IOException {
 		String url = "https://coinranking.com/es";
 		int code;
 		ArrayList<Criptomoneda> criptos;

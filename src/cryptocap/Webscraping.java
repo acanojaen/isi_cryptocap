@@ -17,7 +17,6 @@ public class Webscraping {
 	String capitalizacion;
 	String urlImagen;
 
-
 	Webscraping () {
 		this.nombre = "TEST";
 	}
@@ -39,9 +38,9 @@ public class Webscraping {
 			for (Element elem : element) {
 				nombre = elem.getElementsByClass("profile__link").text();
 				acronimo = elem.getElementsByClass("profile__subtitle").text();
-				precio = elem.getElementsByClass("valuta valuta--light").text();
+				precio = elem.getElementsByClass("valuta valuta--light").ownText();
 				capitalizacion = elem.getElementsByClass("valuta valuta--light").text();
-				urlImagen = elem.getElementsByClass("table__logo").src();
+				urlImagen = elem.getElementsByClass("table__logo").ownText();
 
 				if(elem.getElementsByClass("profile__subtitle").text().equals(acron)){
 					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));

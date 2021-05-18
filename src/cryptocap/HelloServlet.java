@@ -18,7 +18,7 @@ public class HelloServlet extends HttpServlet {
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/json");
+        response.setContentType("text/plain");
         //Webscraping w;
         Criptomoneda c = new Criptomoneda("BTC");
         //w = new Webscraping("BTC");

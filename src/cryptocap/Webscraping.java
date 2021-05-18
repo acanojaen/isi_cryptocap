@@ -34,13 +34,13 @@ public class Webscraping {
 			
 			for (Element elem : element) {
 				String nombre = elem.getElementsByClass("profile__link").text();
-				String acronimo = elem.getElementsByClass("profile__subtitle").text();
+				String acronimo = "BTC";
 				//String precio = elem.getElementsByClass("div.valuta.valuta--light").text();
 				//String capitalizacion = elem.getElementsByClass("div.valuta.valuta--light").text();
 				//String urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
 
 				if(acron == acronimo){
-					return (new Criptomoneda(acronimo));
+					return (new Criptomoneda(elem.getElementsByClass("profile__subtitle").text()));
 				}
 			}
 			

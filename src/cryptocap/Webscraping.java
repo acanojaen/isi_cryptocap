@@ -12,6 +12,10 @@ import org.jsoup.select.Elements;
 public class Webscraping {
 	
 	String nombre;
+	String acronimo;
+	String precio;
+	String capitalizacion;
+	String urlImagen;
 
 
 	Webscraping () {
@@ -33,14 +37,14 @@ public class Webscraping {
 			Elements element = doc.select(":not(thead) tr.table__row.table__row--click.table__row--full-width");
 			
 			for (Element elem : element) {
-				String nombre = elem.getElementsByClass("profile__link").text();
-				String acronimo = "BTC";
-				//String precio = elem.getElementsByClass("div.valuta.valuta--light").text();
-				//String capitalizacion = elem.getElementsByClass("div.valuta.valuta--light").text();
-				//String urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
+				nombre = elem.getElementsByClass("profile__link").text();
+				acronimo = elem.getElementsByClass("profile__subtitle").text();
+				precio = elem.getElementsByClass("div.valuta.valuta--light").text();
+				capitalizacion = elem.getElementsByClass("div.valuta.valuta--light").text();
+				urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
 
 				if(acron == acronimo){
-					return (new Criptomoneda(elem.getElementsByClass("profile__subtitle").text()));
+					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));
 				}
 			}
 			

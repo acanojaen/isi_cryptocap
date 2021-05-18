@@ -42,7 +42,7 @@ public class Webscraping {
 				String acronimo = "BTC";
 
 				if(acron == acronimo){
-					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));
+					return (new Criptomoneda(acronimo));
 				}
 			}
 			

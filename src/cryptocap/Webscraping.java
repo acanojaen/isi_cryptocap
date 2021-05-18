@@ -33,6 +33,7 @@ public class Webscraping {
 			Elements element = doc.select(":not(thead) tr.table__row.table__row--click.table__row--full-width");
 			
 			for (Element elem : element) {
+				if(elem.getElementsByClass("profile__subtitle").text() == "BTC"){
 					String nombre = elem.getElementsByClass("profile__link").text();
 					String acronimo = elem.getElementsByClass("profile__subtitle").text();
 					String precio = elem.getElementsByClass("div.valuta.valuta--light").text();
@@ -40,6 +41,7 @@ public class Webscraping {
 					String urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
 
 					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));
+				}
 			}
 			
 			return (new Criptomoneda("No se ha encontrado la moneda" + acron));

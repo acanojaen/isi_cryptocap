@@ -20,11 +20,10 @@ public class HelloServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/plain");
         Webscraping w = new Webscraping();
-        Criptomoneda c = new Criptomoneda();
         //w = new Webscraping("BTC");
         //w.Binance("BTC");
         
-        response.getWriter().println(c.toString());
+        response.getWriter().println(w.Binance("BTC"));
     }
 
 }

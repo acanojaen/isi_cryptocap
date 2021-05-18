@@ -44,7 +44,7 @@ public class Webscraping {
 				urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
 
 				if(elem.getElementsByClass("profile__subtitle").text().equals(acron)){
-					return (new Criptomoneda("BIEN!!"));
+					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));
 				}
 			}
 			

@@ -27,6 +27,6 @@ public class HelloServlet extends HttpServlet {
         w = new Webscraping("BTC");
 
         Criptomoneda c = new Criptomoneda(w.Binance("BTC"));
-        response.getWriter().println(c.toString());
+        response.getWriter().println("Hola mundo" + c.toString());
     }
 }

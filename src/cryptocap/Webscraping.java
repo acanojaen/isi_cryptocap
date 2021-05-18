@@ -43,7 +43,7 @@ public class Webscraping {
 				capitalizacion = elem.getElementsByClass("div.valuta.valuta--light").text();
 				urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
 
-				if(acron == acronimo){
+				if(acron === acronimo){
 					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));
 				}
 			}

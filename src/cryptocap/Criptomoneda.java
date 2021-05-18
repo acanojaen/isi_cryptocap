@@ -10,8 +10,8 @@ public class Criptomoneda
 	String img;
 	String volumen;
 	String capitalizacion;
-	float suministro_circulacion;
-	int rango;
+	String suministro_circulacion;
+	String rango;
 	String descripcion;
 	Date fecha_emision;
 	String urlImagen;
@@ -42,35 +42,35 @@ public class Criptomoneda
 		this.nombre = nombre;
 	}
 
-	public float getVolumen() {
+	public String getVolumen() {
 		return volumen;
 	}
 
-	public void setVolumen(float volumen) {
+	public void setVolumen(String volumen) {
 		this.volumen = volumen;
 	}
 
-	public float getCapitalizacion() {
+	public String getCapitalizacion() {
 		return capitalizacion;
 	}
 
-	public void setCapitalizacion(float capitalizacion) {
+	public void setCapitalizacion(String capitalizacion) {
 		this.capitalizacion = capitalizacion;
 	}
 
-	public float getSuministro_circulacion() {
+	public String getSuministro_circulacion() {
 		return suministro_circulacion;
 	}
 
-	public void setSuministro_circulacion(float suministro_circulacion) {
+	public void setSuministro_circulacion(String suministro_circulacion) {
 		this.suministro_circulacion = suministro_circulacion;
 	}
 
-	public int getRango() {
+	public String getRango() {
 		return rango;
 	}
 
-	public void setRango(int rango) {
+	public void setRango(String rango) {
 		this.rango = rango;
 	}
 

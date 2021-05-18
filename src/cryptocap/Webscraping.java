@@ -37,13 +37,13 @@ public class Webscraping {
 			Elements element = doc.select(":not(thead) tr.table__row.table__row--click.table__row--full-width");
 			
 			for (Element elem : element) {
-				nombre = elem.getElementsByClass("profile__link").text();
-				acronimo = elem.getElementsByClass("profile__subtitle").text();
-				precio = elem.getElementsByClass("div.valuta.valuta--light").text();
-				capitalizacion = elem.getElementsByClass("div.valuta.valuta--light").text();
-				urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
+				nombre = (String) elem.getElementsByClass("profile__link").text();
+				acronimo = (String) elem.getElementsByClass("profile__subtitle").text();
+				precio = (String) elem.getElementsByClass("div.valuta.valuta--light").text();
+				capitalizacion = (String) elem.getElementsByClass("div.valuta.valuta--light").text();
+				urlImagen = (String) elem.getElementsByClass("profile__logo-background").attr("src");
 
-				if(acron === acronimo){
+				if(acron == acronimo){
 					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));
 				}
 			}

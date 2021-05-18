@@ -20,7 +20,7 @@ public class Webscraping {
 	}
 
 	// Scraping - Coinranking.com/es
-	public String Binance() throws IOException {
+	public String CoinRanking() throws IOException {
 		String url = "https://coinranking.com/es";
 		int code;
 		ArrayList<Criptomoneda> criptos;
@@ -31,7 +31,7 @@ public class Webscraping {
 		
 		// acceso correcto
 		if(code == 200) {
-			// cargamos el html de la página
+			// cargamos el html de la pï¿½gina
 			Document doc = html(url);
 			
 			Elements element = doc.select(":not(thead) tr.table__row.table__row--click.table__row--full-width");

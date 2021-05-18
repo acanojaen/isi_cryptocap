@@ -38,14 +38,14 @@ public class Webscraping {
 			
 			for (Element elem : element) {
 				nombre = (String) elem.getElementsByClass("profile__link").text();
-				acronimo = (String) elem.getElementsByClass("profile__subtitle").text();
+				acronimo = elem.getElementsByClass("profile__subtitle").text();
 				precio = (String) elem.getElementsByClass("div.valuta.valuta--light").text();
 				capitalizacion = (String) elem.getElementsByClass("div.valuta.valuta--light").text();
 				urlImagen = (String) elem.getElementsByClass("profile__logo-background").attr("src");
 
-				if(acron == acronimo){
-					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));
-				}
+				//if(acron == acronimo){
+					return (new Criptomoneda(nombre, ((Object)elem.getElementsByClass("profile__subtitle").text()).getClass().getSimpleName(), precio, capitalizacion, urlImagen));
+				//}
 			}
 			
 			return (new Criptomoneda("No se ha encontrado la moneda " + acron));

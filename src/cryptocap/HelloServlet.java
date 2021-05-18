@@ -24,7 +24,9 @@ public class HelloServlet extends HttpServlet {
         response.getWriter().println("Hello App working!\r\n");
         
         Webscraping w;
-        w = new Webscraping("alberto");
-        response.getWriter().println(w.Binance());
+        w = new Webscraping("BTC");
+
+        Criptomoneda c = w.Binance("BTC");
+        response.getWriter().println(c.toString());
     }
 }

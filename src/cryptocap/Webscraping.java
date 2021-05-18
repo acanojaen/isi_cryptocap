@@ -20,7 +20,7 @@ public class Webscraping {
 	}
 
 	// Scraping - Coinranking.com/es
-	public String Binance() throws IOException {
+	public Criptomoneda Binance(String acron) throws IOException {
 		String url = "https://coinranking.com/es";
 		int code;
 		ArrayList<Criptomoneda> criptos;
@@ -37,16 +37,15 @@ public class Webscraping {
 			Elements element = doc.select(":not(thead) tr.table__row.table__row--click.table__row--full-width");
 			
 			for (Element elem : element) {
-				String nombre = elem.getElementsByClass("profile__link").text();
-				String acronimo = elem.getElementsByClass("profile__subtitle").text();
-				String precio = elem.getElementsByClass("div.valuta.valuta--light").text();
-				String capitalizacion = elem.getElementsByClass("div.valuta.valuta--light").text();
-				String urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
-				
-				Criptomoneda c = new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen);
-				System.out.println(c.toString());
-				
-				criptos.add(c);
+				if(acron == elem.getElementsByClass("profile__subtitle").text()){
+					String nombre = elem.getElementsByClass("profile__link").text();
+					String acronimo = elem.getElementsByClass("profile__subtitle").text();
+					String precio = elem.getElementsByClass("div.valuta.valuta--light").text();
+					String capitalizacion = elem.getElementsByClass("div.valuta.valuta--light").text();
+					String urlImagen = elem.getElementsByClass("profile__logo-background").attr("src");
+					
+					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));
+				}
 			}
 			
 			return element.html();

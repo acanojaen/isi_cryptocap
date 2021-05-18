@@ -19,8 +19,8 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/plain");
-        //Webscraping w;
-        Criptomoneda c = new Criptomoneda();
+        Webscraping w = new Webscraping();
+        Criptomoneda c = new Criptomoneda(w.Binance("BTC"));
         //w = new Webscraping("BTC");
         //w.Binance("BTC");
         

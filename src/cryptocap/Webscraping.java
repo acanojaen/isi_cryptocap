@@ -14,9 +14,8 @@ public class Webscraping {
 	String nombre;
 
 
-	Webscraping (String nombre) {
-		this.nombre = nombre;
-		
+	Webscraping () {
+		this.nombre = "TEST";		
 	}
 
 	// Scraping - Coinranking.com/es

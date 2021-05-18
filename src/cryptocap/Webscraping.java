@@ -42,7 +42,7 @@ public class Webscraping {
 					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));
 			}
 			
-			return (new Criptomoneda("No se ha encontrado la moneda" + acron, ));
+			return (new Criptomoneda("No se ha encontrado la moneda" + acron));
 			
 		} else {
 			return (new Criptomoneda("Codigo != 200"));

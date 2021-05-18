@@ -21,7 +21,8 @@ public class HelloServlet extends HttpServlet {
         response.setContentType("text/plain");
         String nombre = "BTC";
         //Webscraping w;
-        Criptomoneda c = new Criptomoneda(nombre);
+        Criptomoneda c;
+        c = new Criptomoneda(nombre);
         //w = new Webscraping("BTC");
         //w.Binance("BTC");
         

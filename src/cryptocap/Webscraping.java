@@ -15,7 +15,7 @@ public class Webscraping {
 
 
 	Webscraping () {
-		this.nombre = "TEST";		
+		this.nombre = "TEST";
 	}
 
 	// Scraping - Coinranking.com/es

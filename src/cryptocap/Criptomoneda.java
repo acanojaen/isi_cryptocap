@@ -19,6 +19,7 @@ public class Criptomoneda
 	ArrayList<HistorialPrecios> historial;
 
 	public Criptomoneda(){
+		this.nombre = "TEST";
 		this.acronimo = "TEST";
 	}
 

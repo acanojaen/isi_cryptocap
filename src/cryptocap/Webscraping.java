@@ -55,9 +55,9 @@ public class Webscraping {
 		}
 	}		
 	
-	public ArrayList<Producto> getListaCriptomonedas(){
+	/*public ArrayList<Producto> getListaCriptomonedas(){
     	return this.criptos;
-    }
+    }*/
 
 	public static int connect(String url) throws IOException {
 		Response res;

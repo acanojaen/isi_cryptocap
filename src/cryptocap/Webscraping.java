@@ -23,9 +23,6 @@ public class Webscraping {
 	public Criptomoneda Binance(String acron) throws IOException {
 		String url = "https://coinranking.com/es";
 		int code;
-		ArrayList<Criptomoneda> criptos;
-		
-		criptos = new ArrayList<Criptomoneda>();
 		
 		code = connect(url);
 		
@@ -48,14 +45,14 @@ public class Webscraping {
 				}
 			}
 			
-			return element.html();
+			return null;
 			
 		} else {
-			return "null";
+			return null;
 		}
 	}		
 	
-	/*public ArrayList<Producto> getListaCriptomonedas(){
+	/*public ArrayList<Criptomoneda> getListaCriptomonedas(){
     	return this.criptos;
     }*/
 

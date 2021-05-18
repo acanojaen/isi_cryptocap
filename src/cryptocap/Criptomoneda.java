@@ -8,33 +8,30 @@ public class Criptomoneda
 	String nombre;
 	String acronimo;
 	String img;
-	float volumen;
-	float capitalizacion;
+	String volumen;
+	String capitalizacion;
 	float suministro_circulacion;
 	int rango;
 	String descripcion;
 	Date fecha_emision;
+	String urlImagen;
 	String web;
 	ArrayList<HistorialPrecios> historial;
 
-	public Criptomoneda(String nombre, String acronimo, String img, float volumen, float capitalizacion, float suministro_circulacion, int rango, String descripcion, Date fecha_emision, String web) {
-		this.historial = new ArrayList<HistorialPrecios>();
-		this.acronimo = acronimo;
-		this.img = img;
+	public Criptomoneda(String nombre, String acronimo, String volumen, String capitalizacion, String urlImagen) {
 		this.nombre = nombre;
+		this.acronimo = acronimo;
 		this.volumen = volumen;
 		this.capitalizacion = capitalizacion;
-		this.suministro_circulacion = suministro_circulacion;
-		this.rango = rango;
-		this.descripcion = descripcion;
-		this.fecha_emision = fecha_emision;
-		this.web = web;
+		this.urlImagen = urlImagen;
 	}
 
-	public Criptomoneda(String nombre, String acronimo, String volumen) {
-		this.nombre = nombre;
-		this.acronimo = acronimo;
-		this.volumen = Float.parseFloat(volumen);
+	public Criptomoneda(Criptomoneda c) {
+		this.nombre = c.nombre;
+		this.acronimo = c.acronimo;
+		this.volumen = c.volumen;
+		this.capitalizacion = c.capitalizacion;
+		this.urlImagen = c.urlImagen;
 	}
 
 	public String getNombre() {

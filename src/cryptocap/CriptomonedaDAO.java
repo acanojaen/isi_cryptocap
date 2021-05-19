@@ -45,9 +45,11 @@ public class CriptomonedaDAO
                 throw new SQLException(e);
             } 
 
-            jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+            jdbcConnection = DriverManager.getConnection("jdbc:mysql://lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/fbj6jfrdn8y5rorn", "go4wfmmyetu3gkvm", "qvqtmle58bq9wcrq");
         }
     }
+
+    
 
     protected void disconnect() throws SQLException {
         if (jdbcConnection != null && !jdbcConnection.isClosed()){

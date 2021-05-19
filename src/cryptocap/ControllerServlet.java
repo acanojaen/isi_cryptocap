@@ -52,7 +52,7 @@ public class ControllerServlet extends HttpServlet {
     }
 
     public void main(HttpServletRequest request, HttpServletResponse response){
-        CriptomonedaDAO.test();
+        c.test();
     }
 
     public void setCore(CriptomonedaDAO c){

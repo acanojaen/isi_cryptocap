@@ -44,7 +44,11 @@ public class CriptomonedaDAO
             } 
 
             jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+
+            return jdbcConnection;
         }
+
+        return jdbcConnection;
     }
 
     protected void disconnect() throws SQLException {
@@ -60,7 +64,7 @@ public class CriptomonedaDAO
             disconnect();
             return "Conexión realizada correctamente";
         }
-        
+
         disconnect();
         return "JDBC no se ha podido conectar";
     }

@@ -20,7 +20,7 @@ public class CriptomonedaDAO
     private String jdbcURL;
     private String jdbcUsername;
     private String jdbcPassword;
-    private Connection jdbcConnection;
+    private Connection jdbcConnection = null;
     
     public CriptomonedaDAO(String url, String user, String password){
         this.jdbcURL = url;
@@ -45,6 +45,8 @@ public class CriptomonedaDAO
                 return("Error: "+e.getMessage());
             }
         }
+
+        return "NADA";
     }
 
     protected void disconnect() throws SQLException {
@@ -55,9 +57,6 @@ public class CriptomonedaDAO
 
     public String test() throws SQLException {
         return connect();
-
-        disconnect();
-
     }
 
 

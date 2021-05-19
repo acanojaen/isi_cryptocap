@@ -51,11 +51,8 @@ public class ControllerServlet extends HttpServlet {
         }
     }
 
-    public void main(HttpServletRequest request, HttpServletResponse response){
+    public void main(HttpServletRequest request, HttpServletResponse response) 
+            throws SQLException {
         c.test();
-    }
-
-    public void setCore(CriptomonedaDAO c){
-        this.c = c;
     }
 }

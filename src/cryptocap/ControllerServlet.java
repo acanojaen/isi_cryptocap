@@ -54,6 +54,10 @@ public class ControllerServlet extends HttpServlet {
     public void main(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException, ServletException {
         response.setContentType("text/html");
-        response.getWriter().println(c.test());
+        try {
+            response.getWriter().println(c.test());
+        } catch (Throwable theException){
+    	    response.getWriter().println(theException); 
+    	}	
     }
 }

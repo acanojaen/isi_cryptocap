@@ -37,12 +37,12 @@ public class ControllerServlet extends HttpServlet {
         try {
             switch(elegido){
                 case "/coinmarket":
-                    main();
+                    main(request, response);
                 
                 break;
                 
                 default:
-                    main();
+                    main(request, response);
                 
                 break;
             }

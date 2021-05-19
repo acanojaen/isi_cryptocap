@@ -47,7 +47,7 @@ public class CriptomonedaDAO
         }
     }
 
-    public boolean test(Criptomoneda c) throws SQLException {
+    public boolean test() throws SQLException {
         connect();
 
 

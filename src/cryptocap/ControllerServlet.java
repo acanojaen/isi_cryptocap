@@ -49,13 +49,13 @@ public class ControllerServlet extends HttpServlet {
                 
                 break;
             }
-        } catch (SQLException | URISyntaxException e){
+        } catch (SQLException | URISyntaxException | ClassNotFoundException e){
             throw new ServletException(e);
         }
     }
 
     public void main(HttpServletRequest request, HttpServletResponse response) 
-            throws SQLException, IOException, URISyntaxException {
+            throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
         response.setContentType("text/html");
         ArrayList<Criptomoneda> lista = new ArrayList<Criptomoneda>();
         //Criptomoneda cr = new Criptomoneda("BTC");

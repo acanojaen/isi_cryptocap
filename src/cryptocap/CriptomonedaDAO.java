@@ -52,7 +52,7 @@ public class CriptomonedaDAO
         }
     }
 
-    public ArrayList<Criptomoneda> test() throws SQLException, IOException, URISyntaxException {
+    public ArrayList<Criptomoneda> test() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
 		
     	connect();
         ArrayList<String> lista = new ArrayList<String>();

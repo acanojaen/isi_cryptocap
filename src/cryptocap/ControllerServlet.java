@@ -1,6 +1,7 @@
 package cryptocap;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -54,18 +55,15 @@ public class ControllerServlet extends HttpServlet {
     }
 
     public void main(HttpServletRequest request, HttpServletResponse response) 
-            throws SQLException, IOException {
+            throws SQLException, IOException, URISyntaxException {
         response.setContentType("text/html");
-        try {
-            ArrayList<Criptomoneda> lista = new ArrayList<Criptomoneda>();
-            //Criptomoneda cr = new Criptomoneda("BTC");
-            //lista.add(cr);
-            lista = c.test();
-            for(int i=0; i<lista.size();i++){
-                response.getWriter().println(lista.get(i).toString());
-            }
-        } catch (Throwable theException){
-            response.getWriter().println("ERROR:" + theException); 
+        ArrayList<Criptomoneda> lista = new ArrayList<Criptomoneda>();
+        //Criptomoneda cr = new Criptomoneda("BTC");
+        //lista.add(cr);
+        lista = c.test();
+        
+        for(int i=0; i<lista.size();i++){
+            response.getWriter().println(lista.get(i).toString());
         }
     
     }

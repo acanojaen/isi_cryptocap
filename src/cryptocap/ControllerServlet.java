@@ -22,7 +22,7 @@ public class ControllerServlet extends HttpServlet {
 		String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
 		String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
 
-        setCore(new CriptomonedaDAO(jdbcURL, jdbcUsername, jdbcPassword));
+        Criptomoneda c = new CriptomonedaDAO(jdbcURL, jdbcUsername, jdbcPassword);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 

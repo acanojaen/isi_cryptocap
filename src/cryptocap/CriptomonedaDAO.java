@@ -1,5 +1,6 @@
 package cryptocap;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.sql.*;

@@ -1,6 +1,8 @@
 package cryptocap;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.sql.*;
@@ -37,16 +39,14 @@ public class CriptomonedaDAO
         this.jdbcPassword = c.jdbcPassword;
     }
 
-    protected void connect() throws SQLException {
-        if (jdbcConnection == null || jdbcConnection.isClosed()) {
-            try {
-                Class.forName("com.mysql.jdbc.Driver"); 
-            } catch(ClassNotFoundException e){
-                throw new SQLException(e);
-            } 
+    private static Connection connect() throws SQLException, URISyntaxException {
+    	URI jdbUri = new URI("mysql://go4wfmmyetu3gkvm:qvqtmle58bq9wcrq@lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/fbj6jfrdn8y5rorn");
+    	String username = jdbUri.getUserInfo().split(":")[0];
+        String password = jdbUri.getUserInfo().split(":")[1];
+        String port = String.valueOf(jdbUri.getPort());
+        String jdbUrl = "jdbc:mysql://" + jdbUri.getHost() + ":" + port + jdbUri.getPath();
 
-            jdbcConnection = DriverManager.getConnection("jdbc:mysql://lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/fbj6jfrdn8y5rorn", "go4wfmmyetu3gkvm", "qvqtmle58bq9wcrq");
-        }
+        return DriverManager.getConnection(jdbUrl, username, password);
     }
 
     
@@ -58,7 +58,15 @@ public class CriptomonedaDAO
     }
 
     public ArrayList<Criptomoneda> test() throws SQLException, IOException {
-        connect();
+        try {
+			connect();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         ArrayList<String> lista = new ArrayList<String>();
         lista.add("BTC");
         lista.add("ETH");

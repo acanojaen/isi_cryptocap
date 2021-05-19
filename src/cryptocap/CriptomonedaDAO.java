@@ -45,8 +45,6 @@ public class CriptomonedaDAO
             } catch (Exception e){
                 return("Error: "+e.getMessage());
             }
-
-            return "NADA";
         }
 
         return "NADA";

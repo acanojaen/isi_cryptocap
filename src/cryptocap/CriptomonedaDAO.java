@@ -52,13 +52,12 @@ public class CriptomonedaDAO
         }
     }
 
-    public int test() throws SQLException {
+    public static void test() throws SQLException {
         connect();
 
 
         disconnect();
 
-        return 0;
     }
 
 

@@ -56,8 +56,6 @@ public class ControllerServlet extends HttpServlet {
         response.setContentType("text/html");
         try {
             response.getWriter().println(c.test());
-
-            response.close();
         } catch (Throwable theException){
     	     System.out.println(theException); 
     	}	

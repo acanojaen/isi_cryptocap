@@ -39,10 +39,10 @@ public class ControllerServlet extends HttpServlet {
             switch(elegido){
                 case "/cm":
                     try {
-                        ArrayList<String> lista = new ArrayList<String>();
+                        ArrayList<Criptomoneda> lista = new ArrayList<Criptomoneda>();
                         lista = c.test();
                         for(int i=0; i<lista.size();i++){
-                            response.getWriter().println(lista.get(i));
+                            response.getWriter().println(lista.get(i).toString());
                         }
 
                     } catch (Throwable theException){

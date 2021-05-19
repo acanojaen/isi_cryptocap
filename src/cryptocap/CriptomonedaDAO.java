@@ -57,16 +57,16 @@ public class CriptomonedaDAO
         }
     }
 
-    public ArrayList<String> test() throws SQLException {
+    public ArrayList<Criptomoneda> test() throws SQLException {
         connect();
         ArrayList<String> lista = new ArrayList<String>();
         lista.add("BTC");
         lista.add("ETH");
-        ArrayList<String> criptos = new ArrayList<String>();
+        ArrayList<Criptomoneda> criptos = new ArrayList<Criptomoneda>();
 
         for(int i=0; i<lista.size(); i++){
             Webscraping it = new Webscraping();
-            criptos.add(it.Coinranking(lista.get(i)).toString());
+            criptos.add(it.Coinranking(lista.get(i)));
         }
 
         disconnect();

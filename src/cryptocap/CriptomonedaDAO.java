@@ -21,7 +21,7 @@ public class CriptomonedaDAO
     private String jdbcURL;
     private String jdbcUsername;
     private String jdbcPassword;
-    private Connection jdbcConnection = null;
+    private Connection jdbcConnection;
     
     public CriptomonedaDAO(String url, String user, String password){
         this.jdbcURL = url;

@@ -52,11 +52,11 @@ public class ControllerServlet extends HttpServlet {
     }
 
     public void main(HttpServletRequest request, HttpServletResponse response) 
-            throws SQLException, IOException, ServletException {
+            throws SQLException, IOException {
         response.setContentType("text/html");
         try {
             c.test();
-            response.getWriter().println("OK");
+            response.sendRedirect("index.jsp");
         } catch (Throwable theException){
     	     System.out.println(theException); 
     	}	

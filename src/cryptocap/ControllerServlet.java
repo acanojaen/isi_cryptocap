@@ -49,7 +49,7 @@ public class ControllerServlet extends HttpServlet {
                 
                 break;
             }
-        } catch (SQLException e){
+        } catch (SQLException | URISyntaxException e){
             throw new ServletException(e);
         }
     }

@@ -57,16 +57,21 @@ public class CriptomonedaDAO
         }
     }
 
-    public String test() throws SQLException {
-        Connection con = connect();
+    public ArrayList<Criptomoneda> test() throws SQLException {
+        connect();
+        ArrayList<String> lista = new ArrayList<String>();
+        lista.add("BTC");
+        lista.add("ETH");
+        ArrayList<String> criptos = new ArrayList<String>();
 
-        if(con != null){
-            disconnect();
-            return "Conexión realizada correctamente";
+        for(int i=0; i<lista.size(); i++){
+            Webscraping it = new Webscraping();
+            criptos.add(it.Coinranking(lista.get(i)).toString());
         }
 
         disconnect();
-        return "JDBC no se ha podido conectar";
+
+        return criptos;
     }
 
 

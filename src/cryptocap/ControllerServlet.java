@@ -36,9 +36,19 @@ public class ControllerServlet extends HttpServlet {
 
         try {
             switch(elegido){
-                case "/coinmarket":
-                    main(request, response);
-                
+                case "/cm":
+                    try {
+                        ArrayList<String> lista = new ArrayList<String>();
+                        lista = c.test();
+                        for(int i=0; i<lista.size();i++){
+                            response.getWriter().println(lista.get(i));
+                        }
+
+                    } catch (Throwable theException){
+    	                System.out.println(theException); 
+                    }
+    	    	
+                    
                 break;
                 
                 default:

@@ -2,6 +2,7 @@ package cryptocap;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,7 +41,7 @@ public class CriptomonedaDAO
                 Class.forName("com.mysql.jdbc.Driver"); 
                 jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
             } catch(SQLException e){
-                return("Error sql: "+e.getMessage());
+                System.out.println("Error sql: "+e.getMessage());
             } 
         }
 
@@ -56,8 +57,6 @@ public class CriptomonedaDAO
         String conexion = connect();
 
         disconnect();
-
-        return conexion;
     }
 
 

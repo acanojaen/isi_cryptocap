@@ -57,16 +57,9 @@ public class CriptomonedaDAO
         }
     }
 
-    public ArrayList<Criptomoneda> test() throws SQLException, IOException {
-        try {
-			connect();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    public ArrayList<Criptomoneda> test() throws SQLException, IOException, URISyntaxException {
+		
+    	connect();
         ArrayList<String> lista = new ArrayList<String>();
         lista.add("BTC");
         lista.add("ETH");

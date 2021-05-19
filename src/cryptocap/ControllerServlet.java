@@ -57,7 +57,9 @@ public class ControllerServlet extends HttpServlet {
         response.setContentType("text/html");
         try {
             ArrayList<Criptomoneda> lista = new ArrayList<Criptomoneda>();
-            lista = c.test();
+            Criptomoneda cr = new Criptomoneda("BTC");
+            lista.add(cr);
+            //lista = c.test();
             for(int i=0; i<lista.size();i++){
                 response.getWriter().println(lista.get(i).toString());
             }

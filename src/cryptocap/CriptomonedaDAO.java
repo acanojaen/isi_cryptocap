@@ -23,10 +23,10 @@ public class CriptomonedaDAO
     private Connection jdbcConnection;
     static ResultSet res = null;
     
-    public CriptomonedaDAO (String jdbcURL, String jdbcUsername, String jdbcPassword){
-        this.jdbcURL = jdbcURL;
-        this.jdbcUsername = jdbcUsername;  
-        this.jdbcPassword = jdbcPassword;
+    public CriptomonedaDAO (CriptomonedaDAO c){
+        this.jdbcURL = c.jdbcURL;
+        this.jdbcUsername = c.jdbcUsername;  
+        this.jdbcPassword = c.jdbcPassword;
     }
 
     protected void connect() throws SQLException {

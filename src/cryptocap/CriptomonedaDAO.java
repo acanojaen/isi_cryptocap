@@ -59,7 +59,8 @@ public class CriptomonedaDAO
         if(con != null){
             disconnect();
             return "Conexión realizada correctamente";
-
+        }
+        
         disconnect();
         return "JDBC no se ha podido conectar";
     }

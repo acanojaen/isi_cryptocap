@@ -39,14 +39,9 @@ public class CriptomonedaDAO
         this.jdbcPassword = c.jdbcPassword;
     }
 
-    private static Connection connect() throws SQLException, URISyntaxException {
-    	URI jdbUri = new URI("mysql://go4wfmmyetu3gkvm:qvqtmle58bq9wcrq@lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/fbj6jfrdn8y5rorn?sslmode=require&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
-    	String username = jdbUri.getUserInfo().split(":")[0];
-        String password = jdbUri.getUserInfo().split(":")[1];
-        String port = String.valueOf(jdbUri.getPort());
-        String jdbUrl = "jdbc:mysql://" + jdbUri.getHost() + ":" + port + jdbUri.getPath();
-
-        return DriverManager.getConnection(jdbUrl, username, password);
+    protected Connection connect() throws SQLException, URISyntaxException, ClassNotFoundException {
+    	Class.forName("com.mysql.cj.jdbc.Driver");
+        return DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
     }
 
     

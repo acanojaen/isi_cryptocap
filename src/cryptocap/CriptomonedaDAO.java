@@ -35,7 +35,7 @@ public class CriptomonedaDAO
         this.jdbcPassword = c.jdbcPassword;
     }
 
-    protected void connect() throws SQLException {
+    protected Connection connect() throws SQLException {
         if (jdbcConnection == null || jdbcConnection.isClosed()) {
             try {
                 Class.forName("com.mysql.jdbc.Driver"); 
@@ -53,10 +53,15 @@ public class CriptomonedaDAO
         }
     }
 
-    public void test() throws SQLException {
-        connect();
+    public String test() throws SQLException {
+        Connection con = connect();
+
+        if(con != null){
+            disconnect();
+            return "Conexión realizada correctamente";
 
         disconnect();
+        return "JDBC no se ha podido conectar";
     }
 
 

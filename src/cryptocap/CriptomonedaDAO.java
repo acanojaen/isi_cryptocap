@@ -54,7 +54,7 @@ public class CriptomonedaDAO
     }
 
     public void test() throws SQLException {
-        String conexion = connect();
+        connect();
 
         disconnect();
     }

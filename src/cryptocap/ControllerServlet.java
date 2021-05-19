@@ -42,7 +42,7 @@ public class ControllerServlet extends HttpServlet {
                 break;
                 
                 default:
-                    main(request, response);
+                    response.getWriter().println("hola mundo");
                 
                 break;
             }

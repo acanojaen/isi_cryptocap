@@ -57,7 +57,7 @@ public class CriptomonedaDAO
         }
     }
 
-    public ArrayList<Criptomoneda> test() throws SQLException {
+    public ArrayList<String> test() throws SQLException {
         connect();
         ArrayList<String> lista = new ArrayList<String>();
         lista.add("BTC");

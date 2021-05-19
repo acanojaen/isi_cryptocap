@@ -39,9 +39,17 @@ public class CriptomonedaDAO
         this.jdbcPassword = c.jdbcPassword;
     }
 
-    protected Connection connect() throws SQLException, URISyntaxException, ClassNotFoundException {
-    	Class.forName("com.mysql.cj.jdbc.Driver");
-        return DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+    protected Connection connect() throws SQLException {
+    	try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+	        return DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+		return null;
     }
 
     

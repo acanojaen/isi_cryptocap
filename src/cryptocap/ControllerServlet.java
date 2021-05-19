@@ -21,7 +21,7 @@ public class ControllerServlet extends HttpServlet {
      * están definidos en web.xml
 	 */
     public void init() throws ServletException {
-        String jdbcURL = "jdbc:mysql://lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/fbj6jfrdn8y5rorn?useTimeZone=true&serverTimezone=UTC&autoReconnect=true&useSSL=false";
+        String jdbcURL = "jdbc:mysql://lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/fbj6jfrdn8y5rorn";
 		String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
 		String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
 

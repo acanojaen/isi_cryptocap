@@ -39,8 +39,7 @@ public class ControllerServlet extends HttpServlet {
             switch(elegido){
                 case "/cm":
                     main(request, response);
-    	    	
-                    
+    	    	                    
                 break;
                 
                 default:
@@ -63,7 +62,7 @@ public class ControllerServlet extends HttpServlet {
                 response.getWriter().println(lista.get(i).toString());
             }
         } catch (Throwable theException){
-            System.out.println(theException); 
+            response.getWriter().println("ERROR:" + theException); 
         }
     
     }

@@ -34,15 +34,15 @@ public class CriptomonedaDAO
         this.jdbcPassword = c.jdbcPassword;
     }
 
-    protected void connect() throws SQLException {
+    protected String connect() throws SQLException {
         if (jdbcConnection == null || jdbcConnection.isClosed()) {
             try {
                 Class.forName("com.mysql.jdbc.Driver"); 
                 jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
             } catch(SQLException e){
-                System.out.println("Error sql: "+e.getMessage());
+                return("Error sql: "+e.getMessage());
             } catch (Exception e){
-                System.out.println("Error: "+e.getMessage());
+                return("Error: "+e.getMessage());
             }
         }
     }
@@ -53,9 +53,8 @@ public class CriptomonedaDAO
         }
     }
 
-    public void test() throws SQLException {
-		response.setContentType("text/html");
-        connect();
+    public String test() throws SQLException {
+        return connect();
 
         disconnect();
 

@@ -6,7 +6,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.sql.*;
-import com.mysql.jdbc.*;
+import com.mysql.jdbc.Driver;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,7 +40,7 @@ public class CriptomonedaDAO
     }
 
     private static Connection connect() throws SQLException, URISyntaxException {
-    	URI jdbUri = new URI("mysql://go4wfmmyetu3gkvm:qvqtmle58bq9wcrq@lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/fbj6jfrdn8y5rorn");
+    	URI jdbUri = new URI("mysql://go4wfmmyetu3gkvm:qvqtmle58bq9wcrq@lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/fbj6jfrdn8y5rorn?sslmode=require&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
     	String username = jdbUri.getUserInfo().split(":")[0];
         String password = jdbUri.getUserInfo().split(":")[1];
         String port = String.valueOf(jdbUri.getPort());

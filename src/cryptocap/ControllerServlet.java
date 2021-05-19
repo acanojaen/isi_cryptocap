@@ -22,8 +22,8 @@ public class ControllerServlet extends HttpServlet {
 	 */
     public void init() throws ServletException {
         String jdbcURL = "jdbc:mysql://lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/fbj6jfrdn8y5rorn";
-		String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
-		String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
+		String jdbcUsername = "go4wfmmyetu3gkvm";
+		String jdbcPassword = "e7pnet4zo6qcfwy8";
 
         CriptomonedaDAO c = new CriptomonedaDAO(jdbcURL, jdbcUsername, jdbcPassword);
     }

@@ -55,7 +55,7 @@ public class ControllerServlet extends HttpServlet {
             throws SQLException, IOException {
         response.setContentType("text/html");
         try {
-            c.test();
+            response.getWriter().println(c.test());
             response.sendRedirect("index.jsp");
         } catch (Throwable theException){
     	     System.out.println(theException); 

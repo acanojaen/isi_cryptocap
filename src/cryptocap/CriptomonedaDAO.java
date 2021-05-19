@@ -41,7 +41,7 @@ public class CriptomonedaDAO
                 jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
             } catch(SQLException e){
                 System.out.println("Error sql: "+e.getMessage());
-            }catch (Exception e){
+            } catch (Exception e){
                 System.out.println("Error: "+e.getMessage());
             }
         }
@@ -54,6 +54,7 @@ public class CriptomonedaDAO
     }
 
     public void test() throws SQLException {
+		response.setContentType("text/html");
         connect();
 
         disconnect();

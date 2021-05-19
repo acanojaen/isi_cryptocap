@@ -52,7 +52,7 @@ public class ControllerServlet extends HttpServlet {
     }
 
     public void main(HttpServletRequest request, HttpServletResponse response) 
-            throws SQLException {
+            throws SQLException, IOException, ServletException {
         c.test();
     }
 }

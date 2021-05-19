@@ -38,11 +38,12 @@ public class CriptomonedaDAO
         if (jdbcConnection == null || jdbcConnection.isClosed()) {
             try {
                 Class.forName("com.mysql.jdbc.Driver"); 
-            } catch (ClassNotFoundException e){
-                throw new SQLException(e);
+                jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+            } catch(SQLException e){
+                System.out.println("Error sql: "+e.getMessage());
+            }catch (Exception e){
+                System.out.println("Error: "+e.getMessage());
             }
-
-            jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
         }
     }
 
@@ -54,7 +55,6 @@ public class CriptomonedaDAO
 
     public void test() throws SQLException {
         connect();
-
 
         disconnect();
 

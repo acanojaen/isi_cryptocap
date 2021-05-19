@@ -39,11 +39,14 @@ public class CriptomonedaDAO
             try {
                 Class.forName("com.mysql.jdbc.Driver"); 
                 jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+                return("Conectado");
             } catch(SQLException e){
                 return("Error sql: "+e.getMessage());
             } catch (Exception e){
                 return("Error: "+e.getMessage());
             }
+
+            return "NADA";
         }
 
         return "NADA";
@@ -56,7 +59,11 @@ public class CriptomonedaDAO
     }
 
     public String test() throws SQLException {
-        return connect();
+        String conexion = connect();
+
+        disconnect();
+
+        return conexion;
     }
 
 

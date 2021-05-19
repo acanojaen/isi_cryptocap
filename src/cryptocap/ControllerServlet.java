@@ -38,16 +38,7 @@ public class ControllerServlet extends HttpServlet {
         try {
             switch(elegido){
                 case "/cm":
-                    try {
-                        ArrayList<Criptomoneda> lista = new ArrayList<Criptomoneda>();
-                        lista = c.test();
-                        for(int i=0; i<lista.size();i++){
-                            response.getWriter().println(lista.get(i).toString());
-                        }
-
-                    } catch (Throwable theException){
-    	                System.out.println(theException); 
-                    }
+                    main(request, response);
     	    	
                     
                 break;
@@ -65,7 +56,15 @@ public class ControllerServlet extends HttpServlet {
     public void main(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException {
         response.setContentType("text/html");
-        response.getWriter().println(c.test());
+        try {
+            ArrayList<Criptomoneda> lista = new ArrayList<Criptomoneda>();
+            lista = c.test();
+            for(int i=0; i<lista.size();i++){
+                response.getWriter().println(lista.get(i).toString());
+            }
+        } catch (Throwable theException){
+            System.out.println(theException); 
+        }
     
     }
 }

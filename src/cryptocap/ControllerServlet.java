@@ -19,7 +19,7 @@ public class ControllerServlet extends HttpServlet {
      * están definidos en web.xml
 	 */
     public void init() throws ServletException {
-        String jdbcURL = "jdbc:mysql://lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/fbj6jfrdn8y5rorn";
+        String jdbcURL = "jdbc:mysql://lmc8ixkebgaq22lo.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/fbj6jfrdn8y5rorn?useTimeZone=true&serverTimezone=UTC&autoReconnect=true&useSSL=false";
 		String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
 		String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
 
@@ -57,9 +57,9 @@ public class ControllerServlet extends HttpServlet {
         response.setContentType("text/html");
         try {
             ArrayList<Criptomoneda> lista = new ArrayList<Criptomoneda>();
-            Criptomoneda cr = new Criptomoneda("BTC");
-            lista.add(cr);
-            //lista = c.test();
+            //Criptomoneda cr = new Criptomoneda("BTC");
+            //lista.add(cr);
+            lista = c.test();
             for(int i=0; i<lista.size();i++){
                 response.getWriter().println(lista.get(i).toString());
             }

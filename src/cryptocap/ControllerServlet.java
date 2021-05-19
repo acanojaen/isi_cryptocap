@@ -51,7 +51,7 @@ public class ControllerServlet extends HttpServlet {
         }
     }
 
-    public void main(HttpServletRequest request, HttpServletResponse response, String site){
+    public void main(HttpServletRequest request, HttpServletResponse response){
         CriptomonedaDAO.test();
     }
 

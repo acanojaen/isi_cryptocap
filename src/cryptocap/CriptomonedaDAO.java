@@ -33,15 +33,9 @@ public class CriptomonedaDAO
         this.jdbcPassword = password;
     }
 
-    public CriptomonedaDAO (CriptomonedaDAO c){
-        this.jdbcURL = c.jdbcURL;
-        this.jdbcUsername = c.jdbcUsername;  
-        this.jdbcPassword = c.jdbcPassword;
-    }
-
     protected Connection connect() throws SQLException {
     	try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 			
 	        return DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 		} catch (ClassNotFoundException e) {

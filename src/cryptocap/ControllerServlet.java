@@ -37,12 +37,18 @@ public class ControllerServlet extends HttpServlet {
         try {
             switch(elegido){
                 case "/coinmarket":
-                    getScrap(request, response, "coinmaket")
-                    break;
+                    main();
+                
+                break;
+                
+                default:
+                    main();
+                
+                break;
             }
-
-
-        } catch ()
+        } catch (SQLException e){
+            throw new ServletException(e);
+        }
     }
 
     public void main(HttpServletRequest request, HttpServletResponse response, String site){

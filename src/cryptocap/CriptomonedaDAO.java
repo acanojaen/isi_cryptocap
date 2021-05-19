@@ -37,7 +37,7 @@ public class CriptomonedaDAO
                 throw new SQLException(e);
             }
 
-            jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword)
+            jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
         }
     }
 
@@ -50,7 +50,7 @@ public class CriptomonedaDAO
     public boolean test(Criptomoneda c) throws SQLException {
         connect();
 
-        
+
         disconnect();
     }
 

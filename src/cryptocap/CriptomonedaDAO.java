@@ -97,7 +97,7 @@ public class CriptomonedaDAO
     	
     }
     
-	public String test() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
+	public List<Criptomoneda> test() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
     	// Test: consiste en buscar la moneda que se quiere añadir
     	// si existe: --> UPDATE criptomonedas SET nombre = ?, precio = ?, capitalizacion = ?, url_datos = ? 
     	// si no existe: --> INSERT INTO criptomonedas (acronimo, nombre, precio, capitalizacion, url_datos) WHERE (?, ?, ?, ?, ?)
@@ -131,7 +131,7 @@ public class CriptomonedaDAO
             precio = "100";
             capitalizacion = "100";
             urlDatos = criptos.get(i).getUrlDatos();
-            ultAct = criptos.get(i).getUltimaActializacion();
+            ultAct = criptos.get(i).getUltimaActualizacion();
             
             
             // QUERY1: ¿Existe la moneda "i"?
@@ -180,7 +180,7 @@ public class CriptomonedaDAO
 
         disconnect();
 
-        return total;
+        return criptos;
     }
 
 

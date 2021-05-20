@@ -35,7 +35,7 @@ public class CriptomonedaDAO
 
     protected void connect() throws SQLException {
     	try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 	        jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

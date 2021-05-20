@@ -22,7 +22,7 @@ public class Webscraping {
 	String ultAct;
 
 	Webscraping () {
-		this.nombre = "TEST";
+		this.nombre = "";
 	}
 
 	// Scraping - Coinranking.com/es

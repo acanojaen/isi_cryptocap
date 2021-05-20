@@ -97,7 +97,7 @@ public class Webscraping {
 				//***********************CAMBIAR new Criptomoneda*****************
 				// buscamos la que nosotros queremos  
 				if(elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text().equals(acron)){
-					return (new Criptomoneda(acron, nombre, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct));
+					return (new Criptomoneda(element.html()));
 				}
 			}
 			

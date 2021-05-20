@@ -147,64 +147,7 @@ public class CriptomonedaDAO
             criptos.add(it.Investing(lista.get(i)));
             
         	acronimo = criptos.get(i).getAcronimo();
-        	nombre = criptos.get(i).getNombre();
-        	precio = criptos.get(i).getPrecio();
-        	capitalizacion = criptos.get(i).getCapMercado();
-        	vol24 = criptos.get(i).getVolumen24();
-        	volTotal = criptos.get(i).getVolumenTotal(); 
-        	lastdaychange = criptos.get(i).getVariacion24();
-        	sevendaychange = criptos.get(i).getVariacion7();
-        	ultAct = criptos.get(i).getUltimaActualizacion();
-        	
-    		sql = "SELECT * FROM criptomonedas";
-    		sql += " WHERE acronimo = ?";
-
-    		st = jdbcConnection.prepareStatement(sql);
-    		st.setString(1, acronimo);
-        	
-    		rs = st.executeQuery();
-    		// si FALSE --> INSERT
-    		if(!rs.next()) {
-    			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange)";
-    			sql += " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    			
-    			st = jdbcConnection.prepareStatement(sql);
-    			st.setString(1, acronimo);
-    			st.setString(2, nombre);
-    			st.setString(3, ultAct);
-    			st.setString(4, precio);
-    			st.setString(5, capitalizacion);
-    			st.setString(6, vol24);
-    			st.setString(7, volTotal);
-    			st.setString(8, lastdaychange);
-    			st.setString(9, sevendaychange);
-    			
-    			boolean rowInserted = st.executeUpdate() > 0;
-    			st.close();
-    			
-    		} else {
-    			// si TRUE --> UPDATE (existe)
-    			sql = "UPDATE criptomonedas SET"; 
-    			sql += " nombre = ?, ultAct = ?, precio = ?, capitalizacion = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
-    			
-    			st = jdbcConnection.prepareStatement(sql);
-    			st.setString(1, nombre);
-    			st.setString(2, ultAct);
-    			st.setString(3, precio);
-    			st.setString(4, capitalizacion);
-    			st.setString(5, vol24);
-    			st.setString(6, volTotal);
-    			st.setString(7, lastdaychange);
-    			st.setString(8, sevendaychange);
-    			st.setString(9, acronimo);
-    			
-    			boolean rowInserted = st.executeUpdate() > 0;
-    			st.close();
-    		}
-
         }
-
-        disconnect();
 
         return criptos;
     }

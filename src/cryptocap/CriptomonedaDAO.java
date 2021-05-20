@@ -64,7 +64,7 @@ public class CriptomonedaDAO
 		rs = st.executeQuery();
 
 		while(rs.next()) {
-			c.add(new Criptomoneda(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+			c.add(new Criptomoneda(rs.getString(2), rs.getString(1) , rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
 		}
 		
 		rs.close();

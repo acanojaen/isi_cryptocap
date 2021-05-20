@@ -100,7 +100,7 @@
           </button>
         </div>
         <div class="modal-body" id="scrap_body">
-            <%= response.getAttribute("list") %>
+            <%= (String)request.getAttribute("sharedId"); %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap()">Actualizar</button>
@@ -129,7 +129,6 @@
             url: "/cm",
             success: function(){
                 $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = $("body").attr("data-scrap");
             }
         });
       }

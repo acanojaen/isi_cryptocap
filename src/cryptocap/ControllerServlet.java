@@ -56,9 +56,6 @@ public class ControllerServlet extends HttpServlet {
                 case "/eliminar":
                 	delete(request, response);
                 break;
-                default:
-            		response.sendRedirect("list");
-                break;
             }
         } catch (SQLException | URISyntaxException | ClassNotFoundException e){
             throw new ServletException(e);

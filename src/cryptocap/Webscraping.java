@@ -23,7 +23,7 @@ public class Webscraping {
 
 	// Scraping - Coinranking.com/es
 	public Criptomoneda Coinranking(String acron) throws IOException {
-		String url = "https://coinranking.com/es";
+		String url = "https://coinranking.com";
 		int code;
 		
 		code = connect(url);

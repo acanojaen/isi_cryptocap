@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +39,9 @@ public class ControllerServlet extends HttpServlet {
 
         try {
             switch(elegido){
+            	case "/":
+            		list(request, response);
+            		
                 case "/cm":
                     main(request, response);
     	    	                    
@@ -53,11 +57,26 @@ public class ControllerServlet extends HttpServlet {
         }
     }
     
-	public void setDAO(CriptomonedaDAO c) {
+    private void setDAO(CriptomonedaDAO c) {
 		this.c = c;
 	}
+	
 
-    public void main(HttpServletRequest request, HttpServletResponse response) 
+	private void list(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		ArrayList<Criptomoneda> list = null;
+		try {
+			list = c.list();
+		} catch (SQLException e) {
+			throw new ServletException("No se han podido recuperar las criptomonedas", e);
+		}
+		
+		request.setAttribute("list", list);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		dispatcher.forward(request, response);
+	}
+
+    private void main(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
         response.setContentType("text/html");
         ArrayList<Criptomoneda> lista = new ArrayList<Criptomoneda>();

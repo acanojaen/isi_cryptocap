@@ -50,6 +50,31 @@ public class CriptomonedaDAO
             jdbcConnection.close();
         }
     }
+    
+    public ArrayList<Criptomoneda> list() throws SQLException{
+    	ArrayList<Criptomoneda> c = new ArrayList<Criptomoneda>();
+		String sql = "SELECT * FROM criptomonedas";
+		PreparedStatement st;
+		ResultSet rs;
+		
+    	connect();
+    	
+		st = jdbcConnection.prepareStatement(sql);
+		rs = st.executeQuery();
+
+		while(rs.next()) {
+			c.add(new Criptomoneda(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
+		}
+		
+		rs.close();
+		st.close();
+    	
+		disconnect();
+		return c;
+    	
+    }
+    
+    
 
     @SuppressWarnings("resource")
 	public ArrayList<Criptomoneda> test() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {

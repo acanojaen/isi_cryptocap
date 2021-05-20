@@ -74,7 +74,7 @@ public class ControllerServlet extends HttpServlet {
 			throw new ServletException("No se han podido recuperar las criptomonedas", e);
 		}
 		
-		request.setAttribute("list", list);
+		request.setAttribute("criptos", list);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		
 		dispatcher.forward(request, response);

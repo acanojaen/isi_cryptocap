@@ -44,7 +44,7 @@ public class Criptomoneda {
 		this.ultimaActualizacion = crip.getUltimaActializacion();
 	}
 
-	public Criptomoneda(String nom, String acron, String imag, String url, String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct){
+	Criptomoneda(String nom, String acron, String imag, String url, String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct){
 		this.nombre = nom;
 		this.acronimo = acron;
 		this.imagen = imag;
@@ -82,51 +82,51 @@ public class Criptomoneda {
 
 	/*-----------------------------------------Modificadores-----------------------------------------*/
 
-	void setNombre(String nom){
+	public void setNombre(String nom){
 		this.nombre = nom;
 	}
 
-	void setAcronimo(String acron){
+	public void setAcronimo(String acron){
 		this.acronimo = acron;
 	}
 
-	void setImagen(String imag){
+	public void setImagen(String imag){
 		this.imagen = imag;
 	}
 
-	void setUrlDatos(String url){
+	public void setUrlDatos(String url){
 		this.urlDatos = url;
 	}
 
-	void setPrecio(String prec){
+	public void setPrecio(String prec){
 		this.precio = prec;
 	}
 
-	void setCapMercado(String capMer){
+	public void setCapMercado(String capMer){
 		this.capMercado = capMer;
 	}
 
-	void setVolumen24(String vol24){
+	public void setVolumen24(String vol24){
 		this.volumen24 = vol24;
 	}
 
-	void setVolumenTotal(String volTotal){
+	public void setVolumenTotal(String volTotal){
 		this.volumenTotal = volTotal;
 	}
 
-	void setVariacion24(String var24){
+	public void setVariacion24(String var24){
 		this.variacion24 = var24;
 	}
 
-	void setVariacion7(String var7){
+	public void setVariacion7(String var7){
 		this.variacion7 = var7;
 	}
 
-	void setUltimaActualizacion(String ultAct){
+	public void setUltimaActualizacion(String ultAct){
 		this.ultimaActualizacion = ultAct;
 	}
 
-	void set(String nom, String acron, String imag, String url, String prec, String capMer,
+	public void set(String nom, String acron, String imag, String url, String prec, String capMer,
 				 String vol24, String volTotal, String var24, String var7){
 		this.nombre = nom;
 		this.acronimo = acron;
@@ -141,14 +141,14 @@ public class Criptomoneda {
 		this.variacion7 = var7;
 	}
 
-	void set(String nom, String acron, String imag, String url){
+	public void set(String nom, String acron, String imag, String url){
 		this.nombre = nom;
 		this.acronimo = acron;
 		this.imagen = imag;
 		this.urlDatos = url;
 	}
 
-	void set(String prec, String capMer, String vol24, String volTotal, String var24, String var7){
+	public void set(String prec, String capMer, String vol24, String volTotal, String var24, String var7){
 		this.precio = prec;
 		this.capMercado = capMer;
 		this.volumen24 = vol24;
@@ -159,47 +159,47 @@ public class Criptomoneda {
 
 	/*------------------------------------------Consultores------------------------------------------*/
 
-	String getNombre(){
+	public String getNombre(){
 		return nombre;
 	}
 
-	String getAcronimo(){
+	public String getAcronimo(){
 		return acronimo;
 	}
 
-	String getImagen(){
+	public String getImagen(){
 		return imagen;
 	}
 
-	String getUrlDatos(){
+	public String getUrlDatos(){
 		return urlDatos;
 	}
 
-	String getPrecio(){
+	public String getPrecio(){
 		return precio;
 	}
 
-	String getCapMercado(){
+	public String getCapMercado(){
 		return capMercado;
 	}
 
-	String getVolumen24(){
+	public String getVolumen24(){
 		return volumen24;
 	}
 
-	String getVolumenTotal(){
+	public String getVolumenTotal(){
 		return volumenTotal;
 	}
 
-	String getVariacion24(){
+	public String getVariacion24(){
 		return variacion24;
 	}
 
-	String getVariacion7(){
+	public String getVariacion7(){
 		return variacion7;
 	}
 
-	String getUltimaActializacion(){
+	public String getUltimaActializacion(){
 		return ultimaActualizacion;
 	}
 

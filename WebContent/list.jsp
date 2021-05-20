@@ -121,7 +121,19 @@
   <script src="/dist/js/script.min.js"></script>
   <script src="https://kit.fontawesome.com/7a8b17dfb3.js" crossorigin="anonymous"></script>
 
+  <script>
+      function scrap(){
+        $.ajax({
+            type: 'GET',
+            url: "/cm",
+            success: function(){
+                $('#scrap').modal('show');
+                document.getElementById("scrap_body").innerHTML = document.getElementById("ans").value;
+            }
+        });
+      }
 
+  </script>
 
 
 </body>

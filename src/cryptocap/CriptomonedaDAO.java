@@ -19,6 +19,27 @@ import java.sql.Statement;
 /**
  * CriptomonedaDAO.java
  * Operaciones CRUD sobre el TDA Criptomoneda.
+ * 
+ * 
+ * 
+ * 
+ * CREATE TABLE criptomonedas (
+ *  acronimo varchar(10) NOT NULL,
+ *  nombre varchar(128) NOT NULL,
+ *  urlDatos varchar(128),
+ *  ultAct varchar(128) NOT NULL,
+ *  precio varchar(128),
+ *  capitalizacion varchar(128),
+ *  vol24 varchar(128),
+ *  volTotal varchar(128),
+ *  lastdaychange varchar(128),
+ *  sevendaychange varchar(128),
+ *  PRIMARY KEY (acronimo),
+ *  UNIQUE KEY acronimo_UNIQUE (acronimo)
+ * ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+ *
+ *
+ *
  */
 
 public class CriptomonedaDAO 
@@ -27,6 +48,18 @@ public class CriptomonedaDAO
     private String jdbcUsername;
     private String jdbcPassword;
     private Connection jdbcConnection = null;
+    
+	String acronimo;
+	String nombre;
+	String urlDatos;
+	String ultAct;
+	String precio;
+	String capitalizacion;
+	String vol24;
+	String volTotal;
+	String lastdaychange;
+	String sevendaychange;
+	
     
     public CriptomonedaDAO(String url, String user, String password){
         this.jdbcURL = url;
@@ -96,7 +129,89 @@ public class CriptomonedaDAO
     	
     }
     
-	public String test() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
+    public List<Criptomoneda> investing () throws IOException, SQLException{
+    	List<String> lista = new ArrayList<>(); lista.add("BTC"); lista.add("ETH"); lista.add("USDT"); lista.add("ADA"); lista.add("BNB"); lista.add("DOGE");
+    	lista.add("DOT"); lista.add("HEX"); lista.add("ICP"); lista.add("USDC");
+    	List<Criptomoneda> criptos = new ArrayList<>();
+        Criptomoneda actual;
+        Webscraping it;
+		String sql;
+		PreparedStatement st;
+		ResultSet rs;
+		
+		connect();
+    	
+        // Recorremos la lista de criptomonedas
+        for(int i=0; i<lista.size(); i++){
+        	it = new Webscraping();
+            criptos.add(it.Investing(lista.get(i)));
+            
+        	acronimo = criptos.get(i).getAcronimo();
+        	nombre = criptos.get(i).getNombre();
+        	precio = criptos.get(i).getPrecio();
+        	capitalizacion = criptos.get(i).getCapMercado();
+        	vol24 = criptos.get(i).getVolumen24();
+        	volTotal = criptos.get(i).getVolumenTotal(); 
+        	lastdaychange = criptos.get(i).getVariacion24();
+        	sevendaychange = criptos.get(i).getVariacion7();
+        	ultAct = criptos.get(i).getUltimaActualizacion();
+        	
+    		sql = "SELECT * FROM criptomonedas";
+    		sql += " WHERE acronimo = ?";
+
+    		st = jdbcConnection.prepareStatement(sql);
+    		st.setString(1, acronimo);
+        	
+    		rs = st.executeQuery();
+    		// si FALSE --> INSERT
+    		if(!rs.next()) {
+    			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange)";
+    			sql += " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    			
+    			st = jdbcConnection.prepareStatement(sql);
+    			st.setString(1, acronimo);
+    			st.setString(2, nombre);
+    			st.setString(3, ultAct);
+    			st.setString(4, precio);
+    			st.setString(5, capitalizacion);
+    			st.setString(6, vol24);
+    			st.setString(7, volTotal);
+    			st.setString(8, lastdaychange);
+    			st.setString(9, sevendaychange);
+    			
+    			boolean rowInserted = st.executeUpdate() > 0;
+    			st.close();
+    			
+    		} else {
+    			// si TRUE --> UPDATE (existe)
+    			sql = "UPDATE criptomonedas SET"; 
+    			sql += " nombre = ?, ultAct = ?, precio = ?, capitalizacion = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
+    			
+    			st = jdbcConnection.prepareStatement(sql);
+    			st.setString(1, nombre);
+    			st.setString(2, ultAct);
+    			st.setString(3, precio);
+    			st.setString(4, capitalizacion);
+    			st.setString(5, vol24);
+    			st.setString(6, volTotal);
+    			st.setString(7, lastdaychange);
+    			st.setString(8, sevendaychange);
+    			st.setString(9, acronimo);
+    			
+    			boolean rowInserted = st.executeUpdate() > 0;
+    			st.close();
+    		}
+
+        }
+
+        disconnect();
+
+        return criptos;
+    }
+    
+    
+    
+	public List<Criptomoneda> coinranking() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
     	// Test: consiste en buscar la moneda que se quiere añadir
     	// si existe: --> UPDATE criptomonedas SET nombre = ?, precio = ?, capitalizacion = ?, url_datos = ? 
     	// si no existe: --> INSERT INTO criptomonedas (acronimo, nombre, precio, capitalizacion, url_datos) WHERE (?, ?, ?, ?, ?)
@@ -109,14 +224,6 @@ public class CriptomonedaDAO
 		PreparedStatement st;
 		ResultSet rs;
 		
-		// Variables de una criptomoneda
-		String total="";
-		String nombre;
-		String acronimo;
-		String precio;
-		String capitalizacion;
-		String urlDatos;
-		String ultAct;
 		
     	connect();
     	
@@ -127,8 +234,6 @@ public class CriptomonedaDAO
      
             nombre = criptos.get(i).getNombre();
             acronimo = criptos.get(i).getAcronimo();
-            precio = "100";
-            capitalizacion = "100";
             urlDatos = criptos.get(i).getUrlDatos();
             ultAct = criptos.get(i).getUltimaActualizacion();
             
@@ -143,16 +248,14 @@ public class CriptomonedaDAO
     		rs = st.executeQuery();
     		// si FALSE --> INSERT
     		if(!rs.next()) {
-    			sql = "INSERT INTO criptomonedas (acronimo, nombre, precio, capitalizacion, url_datos, ult_act)";
-    			sql += " VALUES (?, ?, ?, ?, ?, ?)";
+    			sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct)";
+    			sql += " VALUES (?, ?, ?, ?)";
     			
     			st = jdbcConnection.prepareStatement(sql);
     			st.setString(1, acronimo);
     			st.setString(2, nombre);
-    			st.setString(3, precio);
-    			st.setString(4, capitalizacion);
-    			st.setString(5, urlDatos);
-    			st.setString(6, ultAct);
+    			st.setString(3, urlDatos);
+    			st.setString(4, ultAct);
     			
     			boolean rowInserted = st.executeUpdate() > 0;
     			st.close();
@@ -160,26 +263,23 @@ public class CriptomonedaDAO
     		} else {
     			// si TRUE --> UPDATE (existe)
     			sql = "UPDATE criptomonedas SET"; 
-    			sql += " nombre = ?, precio = ?, capitalizacion = ?, url_datos = ?, ult_act = ? where acronimo = ?";
+    			sql += " nombre = ?, urlDatos = ?, ultAct = ? where acronimo = ?";
     			
     			st = jdbcConnection.prepareStatement(sql);
     			st.setString(1, nombre);
-    			st.setString(2, precio);
-    			st.setString(3, capitalizacion);
-    			st.setString(4, urlDatos);
-    			st.setString(5, ultAct);
-    			st.setString(6, acronimo);
+    			st.setString(2, urlDatos);
+    			st.setString(3, ultAct);
+    			st.setString(4, acronimo);
     			
     			boolean rowInserted = st.executeUpdate() > 0;
     			st.close();
     		}
-        	
-    		total += criptos.get(i).toString() + " ";
+
         }
 
         disconnect();
 
-        return total;
+        return criptos;
     }
 
 

@@ -58,7 +58,9 @@ public class Criptomoneda {
 		this.ultimaActualizacion = ultAct;
 	}
 
-	Criptomoneda(String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct){
+	Criptomoneda(String acron, String nombre, String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct){
+		this.acronimo = acron;
+		this.nombre = nombre;
 		this.precio = prec;
 		this.capMercado = capMer;
 		this.volumen24 = vol24;

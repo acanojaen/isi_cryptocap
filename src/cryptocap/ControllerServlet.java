@@ -40,8 +40,12 @@ public class ControllerServlet extends HttpServlet {
 
         try {
             switch(elegido){
-                case "/cm":
-                    main(request, response);              
+                case "/coinranking":
+                	coinranking(request, response);              
+                break;
+                
+                case "/investing":
+                	investing(request, response);              
                 break;
                 
                 case "/list":
@@ -88,11 +92,21 @@ public class ControllerServlet extends HttpServlet {
 	}
 	
 
-    private void main(HttpServletRequest request, HttpServletResponse response) 
+    private void coinranking(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException, URISyntaxException, ClassNotFoundException, ServletException {
-        String list = null;
+        List<Criptomoneda> list = new ArrayList<>();
         //Criptomoneda cr = new Criptomoneda("BTC");
         //lista.add(cr);
+        list = criptomonedaDAO.test();
+        
+        request.setAttribute("answer", list);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
+		dispatcher.forward(request, response);
+    }
+
+    private void investing(HttpServletRequest request, HttpServletResponse response) 
+            throws SQLException, IOException, URISyntaxException, ClassNotFoundException, ServletException {
+    	List<Criptomoneda> list = new ArrayList<>();
         list = criptomonedaDAO.test();
         
         request.setAttribute("answer", list);

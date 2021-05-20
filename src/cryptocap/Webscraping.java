@@ -84,6 +84,8 @@ public class Webscraping {
 			
 			// recorremos todas las criptomonedas
 			for (Element elem : element) {
+				acron = elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text();
+				nombre = elem.getElementsByClass("left bold elp name cryptoName first js-currency-name").text();
 				precio = elem.getElementsByClass("price js-currency-price").text();
 				capitalizacion = elem.getElementsByClass("js-market-cap").text();
 				vol24 = elem.getElementsByClass("js-24h-volume").text();
@@ -95,7 +97,7 @@ public class Webscraping {
 				//***********************CAMBIAR new Criptomoneda*****************
 				// buscamos la que nosotros queremos  
 				if(elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text().equals(acron)){
-					return (new Criptomoneda(precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct));
+					return (new Criptomoneda(acron, nombre, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct));
 				}
 			}
 			

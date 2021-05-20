@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServlet;
 
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private CriptomonedaDAO c;
+    private CriptomonedaDAO criptomonedaDAO;
 
     /**
 
@@ -53,6 +53,9 @@ public class ControllerServlet extends HttpServlet {
             		list(request, response);
                 break;
                 
+                case "/delete":
+                	delete(request, response);
+                
                 default:
             		response.sendRedirect("list");
                 break;
@@ -63,7 +66,7 @@ public class ControllerServlet extends HttpServlet {
     }
     
     private void setDAO(CriptomonedaDAO c) {
-		this.c = c;
+		this.criptomonedaDAO = c;
 	}
 	
 
@@ -71,7 +74,7 @@ public class ControllerServlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		List<Criptomoneda> list = new ArrayList<>();
 		try {
-			list = c.list();
+			list = criptomonedaDAO.list();
 		} catch (SQLException e) {
 			throw new ServletException("No se han podido recuperar las criptomonedas", e);
 		}
@@ -82,11 +85,21 @@ public class ControllerServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	
+	private void delete(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		String acron = request.getParameter("id");
+		Criptomoneda crip = new Criptomoneda(acron);
+		
+		criptomonedaDAO.remove(crip);
+		response.sendRedirect("list");
+		
+	}
+	
 	private void listString(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		List<Criptomoneda> list = new ArrayList<>();
 		try {
-			list = c.list();
+			list = criptomonedaDAO.list();
 		} catch (SQLException e) {
 			throw new ServletException("No se han podido recuperar las criptomonedas", e);
 		}
@@ -103,7 +116,7 @@ public class ControllerServlet extends HttpServlet {
         List<Criptomoneda> lista = new ArrayList<>();
         //Criptomoneda cr = new Criptomoneda("BTC");
         //lista.add(cr);
-        lista = c.test();
+        lista = criptomonedaDAO.test();
         
         for(int i=0; i<lista.size();i++){
             response.getWriter().println(lista.get(i).toString());

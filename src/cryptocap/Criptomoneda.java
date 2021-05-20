@@ -19,9 +19,8 @@ public class Criptomoneda
 	ArrayList<HistorialPrecios> historial;
 	String ultAct;
 
-	public Criptomoneda(String msg){
-		this.nombre = msg;
-		this.acronimo = msg;
+	public Criptomoneda(String acron){
+		this.acronimo = acron;
 	}
 
 	public Criptomoneda(String nombre, String acronimo, String volumen, String capitalizacion, String urlDatos, String ultAct) {

@@ -38,7 +38,7 @@
                     <div class="item">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3>${criptomoneda.acronimo}</h3>
+                                <h3 id="acronimo">${criptomoneda.acronimo}</h3>
                                 <h4 class="organization">${criptomoneda.nombre}</h4>
                                 <h4 class="organization" style="background: #c6a00c;">${criptomoneda.volumen}</h4>
                             </div>
@@ -46,7 +46,14 @@
                             <div class="col-md-6">
                                 <p class="text-muted">descripción de la criptomoneda</p>
                             </div>
-                            <div class="col-md-6"><a href="${criptomoneda.urlDatos}" target="_blank"><button class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button></a></div>
+                            <div class="col-md-6">
+                                <a href="${criptomoneda.urlDatos}" target="_blank">
+                                    <button class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button>
+                                </a>
+                                <a href="/delete?id=${criptomoneda.acronimo}" target="_blank">
+                                    <button class="removeItem" value="${criptomoneda.acronimo}" class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                   </c:forEach>
@@ -79,6 +86,7 @@
           </div>
       </section>
   </main>
+  
   <footer class="page-footer">
       <div class="container">
           <div class="links"><a href="#">ISI 2021</a><a href="#">Contáctanos</a><a href="#">Github</a></div>
@@ -89,6 +97,29 @@
   <script src="/dist/bootstrap/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
   <script src="/dist/js/script.min.js"></script>
+
+  
+<script>
+    
+jQuery(document).ready(function($) {
+    $("#removeItem").click(function () {
+        if (confirm("¿Estas seguro?")) {
+            var btn_val = $(this).val();
+            $.ajax({
+                url: '/delete?id=' + btn_val,
+                type: "GET",
+                success: function () {
+                    $(this).remove();
+                }
+            });
+        }
+    });
+});
+    </script>
+
+    
+
+
 </body>
 
 </html>

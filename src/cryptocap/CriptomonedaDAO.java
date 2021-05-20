@@ -75,6 +75,26 @@ public class CriptomonedaDAO
     	
     }
     
+    public boolean remove(Criptomoneda c) throws SQLException{
+		String sql = "DELETE FROM criptomonedas where acronimo = ?";
+		boolean stat;
+		PreparedStatement st;
+		
+    	connect();
+    	
+    	
+    	st = jdbcConnection.prepareStatement(sql);
+    	st.setString(1, c.getAcronimo());
+    		
+    	stat = st.executeUpdate() > 0;
+    		
+    	st.close();
+    	
+		disconnect();
+		return stat;
+    	
+    }
+    
 	public List<Criptomoneda> test() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
     	// Test: consiste en buscar la moneda que se quiere añadir
     	// si existe: --> UPDATE criptomonedas SET nombre = ?, precio = ?, capitalizacion = ?, url_datos = ? 

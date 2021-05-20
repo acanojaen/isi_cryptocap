@@ -5,8 +5,8 @@
 %>
 <html>
     <header>
-        <link href="${pageContext.request.conextPath}/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="${pageContext.request.conextPath}/dist/css/style.css" rel="stylesheet">
+        <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/dist/css/style.css" rel="stylesheet">
         <title></title>
     </header>
 

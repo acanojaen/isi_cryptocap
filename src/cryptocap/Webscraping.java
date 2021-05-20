@@ -80,8 +80,6 @@ public class Webscraping {
 			// cargamos el html de la p�gina
 			Document doc = html(url2);
 			
-			//***********************CAMBIAR doc.select*****************
-			// obtenemos la lista de las criptomonedas (1 p�gina)
 			Elements element = doc.select(":not(thead) genTbl.openTbl.js-all-crypto-table.mostActiveStockTbl.crossRatesTbl.allCryptoTlb.wideTbl.elpTbl.elp15");
 			
 			// recorremos todas las criptomonedas
@@ -92,11 +90,12 @@ public class Webscraping {
 				volTotal = elem.getElementsByClass("js-total-vol").text();
 				lastdaychange = elem.getElementsByClass("js-currency-change-24h redFont pid-1057391-pcp").text();
 				sevendaychange = elem.getElementsByClass("js-currency-change-7d redFont").text();
+				ultAct = getActualHour();
 
 				//***********************CAMBIAR new Criptomoneda*****************
 				// buscamos la que nosotros queremos  
 				if(elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text().equals(acron)){
-					return (new Criptomoneda(precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange));
+					return (new Criptomoneda(precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct));
 				}
 			}
 			

@@ -99,7 +99,7 @@
           </button>
         </div>
         <div class="modal-body" id="scrap_body">
-            <input type="hidden" id="ans" value="${answer}">
+            <%@ ${answer} %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap('${answer}')">Actualizar</button>

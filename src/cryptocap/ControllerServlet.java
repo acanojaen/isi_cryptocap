@@ -41,7 +41,8 @@ public class ControllerServlet extends HttpServlet {
             switch(elegido){
             	case "/":
             		list(request, response);
-            		
+            	case "/test":
+            		listString(request, response);
                 case "/cm":
                     main(request, response);
     	    	                    
@@ -75,6 +76,21 @@ public class ControllerServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		
 		dispatcher.forward(request, response);
+	}
+	
+	private void listString(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		ArrayList<Criptomoneda> list = null;
+		try {
+			list = c.list();
+		} catch (SQLException e) {
+			throw new ServletException("No se han podido recuperar las criptomonedas", e);
+		}
+		
+		for(int i=0;i<list.size();i++) {
+			response.getWriter().println(list.get(i).toString());
+		}
+		
 	}
 
     private void main(HttpServletRequest request, HttpServletResponse response) 

@@ -95,13 +95,13 @@ public class Webscraping {
                 ultAct = getActualHour();
 				
                 if(elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text().equals(acron)){
-                    return (new Criptomoneda(acron, nombre, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct));
+                    return (new Criptomoneda(acronimo, nombre, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct));
                 }
 
 			}
 			
 			// si no se encuentra
-			return (new Criptomoneda("No se ha encontrado la moneda " + acron));
+			return (new Criptomoneda(acron));
 			
 		} else {
 			// si el codigo no es 200 (�xito)

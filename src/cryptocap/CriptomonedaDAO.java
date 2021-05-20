@@ -25,7 +25,7 @@ public class CriptomonedaDAO
     private String jdbcURL;
     private String jdbcUsername;
     private String jdbcPassword;
-    private static Connection jdbcConnection = null;
+    private Connection jdbcConnection = null;
     
     public CriptomonedaDAO(String url, String user, String password){
         this.jdbcURL = url;
@@ -33,17 +33,14 @@ public class CriptomonedaDAO
         this.jdbcPassword = password;
     }
 
-    protected Connection connect() throws SQLException {
+    protected void connect() throws SQLException {
     	try {
 			Class.forName("com.mysql.jdbc.Driver");
-			
-	        return DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+	        jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
-		return null;
     }
 
     

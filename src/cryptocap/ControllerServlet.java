@@ -40,8 +40,8 @@ public class ControllerServlet extends HttpServlet {
 
         try {
             switch(elegido){
-            	case "/index.jsp":
-            		list(request, response);
+            	case "":
+            		response.sendRedirect("list");
             	break;
             	
             	case "/test":
@@ -53,7 +53,7 @@ public class ControllerServlet extends HttpServlet {
     	    	                    
                 break;
                 
-                default:
+                case "/list":
             		list(request, response);
                 break;
             }

@@ -87,7 +87,7 @@ public class CriptomonedaDAO
             
             // QUERY1: ¿Existe la moneda "i"?
     		sql = "SELECT * FROM criptomonedas";
-    		sql += "WHERE acronimo = ?";
+    		sql += " WHERE acronimo = ?";
     	
     		st = jdbcConnection.prepareStatement(sql);
     		st.setString(1, acronimo);
@@ -96,7 +96,7 @@ public class CriptomonedaDAO
     		// si FALSE --> INSERT
     		if(!rs.next()) {
     			sql = "INSERT INTO criptomonedas (acronimo, nombre, precio, capitalizacion, url_datos)";
-    			sql += "WHERE (?, ?, ?, ?, ?)";
+    			sql += " WHERE (?, ?, ?, ?, ?)";
     			
     			st = jdbcConnection.prepareStatement(sql);
     			st.setString(1, acronimo);
@@ -111,7 +111,7 @@ public class CriptomonedaDAO
     		} else {
     			// si TRUE --> UPDATE (existe)
     			sql = "UPDATE criptomonedas SET"; 
-    			sql += "nombre = ?, precio = ?, capitalizacion = ?, url_datos = ?";
+    			sql += " nombre = ?, precio = ?, capitalizacion = ?, url_datos = ?";
     			
     			st = jdbcConnection.prepareStatement(sql);
     			st.setString(1, nombre);

@@ -42,7 +42,7 @@ public class Webscraping {
 				acronimo = elem.getElementsByClass("profile__subtitle").text();
 				precio = elem.getElementsByClass("valuta valuta--light").text();
 				capitalizacion = elem.getElementsByClass("valuta valuta--light").text();
-				urlDatos = elem.getElementsByClass("profile__link").attr("href");
+				urlDatos = url + elem.getElementsByClass("profile__link").attr("href");
 
 				// buscamos la que nosotros queremos
 				if(elem.getElementsByClass("profile__subtitle").text().equals(acron)){

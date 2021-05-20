@@ -80,10 +80,12 @@ public class Webscraping {
 			// cargamos el html de la p�gina
 			Document doc = html(url2);
 			
-			Elements element = doc.select(":not(thead) genTbl.openTbl.js-all-crypto-table.mostActiveStockTbl.crossRatesTbl.allCryptoTlb.wideTbl.elpTbl.elp15");
+			// obtenemos la lista de las criptomonedas (1 p�gina)
+			Element table = doc.getElementById("tbody");
+			Elements elements = table.getElementsByTag("td");
 			
 			// recorremos todas las criptomonedas
-			for (Element elem : element) {
+			for (Element elem : elements) {
 				acron = elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text();
 				nombre = elem.getElementsByClass("left bold elp name cryptoName first js-currency-name").text();
 				precio = elem.getElementsByClass("price js-currency-price").text();
@@ -97,7 +99,7 @@ public class Webscraping {
 				//***********************CAMBIAR new Criptomoneda*****************
 				// buscamos la que nosotros queremos  
 				if(elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text().equals(acron)){
-					return (new Criptomoneda(element.html()));
+					return (new Criptomoneda(elements.html()));
 				}
 			}
 			

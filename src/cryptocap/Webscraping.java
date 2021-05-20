@@ -80,31 +80,11 @@ public class Webscraping {
 			// cargamos el html de la p�gina
 			Document doc = html(url2);
 			
-			// obtenemos la lista de las criptomonedas (1 p�gina)
-			Element table = doc.getElementById("tbody");
-			Elements elements = table.getElementsByTag("td");
+			Elements element = doc.select("table.genTbl.openTbl.js-all-crypto-table.mostActiveStockTbl.crossRatesTbl.allCryptoTlb.wideTbl.elpTbl.elp15");
 			
-			// recorremos todas las criptomonedas
-			for (Element elem : elements) {
-				acron = elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text();
-				nombre = elem.getElementsByClass("left bold elp name cryptoName first js-currency-name").text();
-				precio = elem.getElementsByClass("price js-currency-price").text();
-				capitalizacion = elem.getElementsByClass("js-market-cap").text();
-				vol24 = elem.getElementsByClass("js-24h-volume").text();
-				volTotal = elem.getElementsByClass("js-total-vol").text();
-				lastdaychange = elem.getElementsByClass("js-currency-change-24h redFont pid-1057391-pcp").text();
-				sevendaychange = elem.getElementsByClass("js-currency-change-7d redFont").text();
-				ultAct = getActualHour();
+			return (new Criptomoneda(element.html()));
+			
 
-				//***********************CAMBIAR new Criptomoneda*****************
-				// buscamos la que nosotros queremos  
-				if(elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text().equals(acron)){
-					return (new Criptomoneda(elements.html()));
-				}
-			}
-			
-			// si no se encuentra
-			return (new Criptomoneda("No se ha encontrado la moneda: " + acron));
 			
 		} else {
 			// si el codigo no es 200 (�xito)

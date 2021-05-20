@@ -17,18 +17,20 @@ public class Criptomoneda
 	String urlDatos;
 	String web;
 	ArrayList<HistorialPrecios> historial;
+	int ultAct;
 
 	public Criptomoneda(String msg){
 		this.nombre = msg;
 		this.acronimo = msg;
 	}
 
-	public Criptomoneda(String nombre, String acronimo, String volumen, String capitalizacion, String urlDatos) {
+	public Criptomoneda(String nombre, String acronimo, String volumen, String capitalizacion, String urlDatos, int ultAct) {
 		this.nombre = nombre;
 		this.acronimo = acronimo;
 		this.volumen = volumen;
 		this.capitalizacion = capitalizacion;
 		this.urlDatos = urlDatos;
+		this.ultAct = ultAct;
 	}
 
 	public Criptomoneda(Criptomoneda c) {
@@ -113,6 +115,10 @@ public class Criptomoneda
 
 	public String getUrlDatos() {
 		return urlDatos;
+	}
+	
+	public int getUltAct() {
+		return ultAct;
 	}
 
 	public void setUrlDatos(String urlDatos) {

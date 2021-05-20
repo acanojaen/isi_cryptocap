@@ -1,6 +1,7 @@
 package cryptocap;
 
 import java.io.IOException;
+import java.time.LocalTime;
 import java.util.List;
 
 import org.jsoup.*;
@@ -16,6 +17,7 @@ public class Webscraping {
 	String precio;
 	String capitalizacion;
 	String urlDatos;
+	int ultAct;
 
 	Webscraping () {
 		this.nombre = "TEST";
@@ -43,10 +45,11 @@ public class Webscraping {
 				precio = elem.getElementsByClass("valuta valuta--light").text();
 				capitalizacion = elem.getElementsByClass("valuta valuta--light").text();
 				urlDatos = url + elem.getElementsByClass("profile__link").attr("href");
+				ultAct = getActualHour();
 
 				// buscamos la que nosotros queremos
 				if(elem.getElementsByClass("profile__subtitle").text().equals(acron)){
-					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlDatos));
+					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlDatos, ultAct));
 				}
 			}
 			
@@ -74,6 +77,12 @@ public class Webscraping {
 		doc = Jsoup.connect(url).timeout(1000).get();
 		
 		return doc; 
+	}
+	
+	public int getActualHour() {
+		LocalTime now = LocalTime.now();
+		
+		return now.getHour();
 	}
 	
 	

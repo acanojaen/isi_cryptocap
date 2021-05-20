@@ -53,7 +53,7 @@ public class CriptomonedaDAO
     }
     
     public List<Criptomoneda> list() throws SQLException{
-    	List<Criptomoneda> c = null;
+    	List<Criptomoneda> c = new ArrayList<>();
 		String sql = "SELECT * FROM criptomonedas";
 		PreparedStatement st;
 		ResultSet rs;
@@ -82,8 +82,8 @@ public class CriptomonedaDAO
     	// Test: consiste en buscar la moneda que se quiere añadir
     	// si existe: --> UPDATE criptomonedas SET nombre = ?, precio = ?, capitalizacion = ?, url_datos = ? 
     	// si no existe: --> INSERT INTO criptomonedas (acronimo, nombre, precio, capitalizacion, url_datos) WHERE (?, ?, ?, ?, ?)
-        ArrayList<String> lista = new ArrayList<String>(); lista.add("BTC"); lista.add("ETH");
-        ArrayList<Criptomoneda> criptos = new ArrayList<Criptomoneda>();
+    	List<String> lista = new ArrayList<>(); lista.add("BTC"); lista.add("ETH");
+    	List<Criptomoneda> criptos = new ArrayList<>();
         Criptomoneda actual;
         Webscraping it;
 		String sql;

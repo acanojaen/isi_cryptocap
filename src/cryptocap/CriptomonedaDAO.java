@@ -126,8 +126,8 @@ public class CriptomonedaDAO
      
             nombre = criptos.get(i).getNombre();
             acronimo = criptos.get(i).getAcronimo();
-            precio = criptos.get(i).getVolumenTotal();
-            capitalizacion = criptos.get(i).getCapMercado();
+            precio = "100";
+            capitalizacion = "100";
             urlDatos = criptos.get(i).getUrlDatos();
             ultAct = criptos.get(i).getUltimaActializacion();
             

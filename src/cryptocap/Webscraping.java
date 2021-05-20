@@ -80,11 +80,11 @@ public class Webscraping {
 			// cargamos el html de la p�gina
 			Document doc = html(url2);
 			
-			Elements element = doc.select(":not(thead) tr");
+			Elements element = doc.select(":not(thead) table tbody tr td");
 			
 			// recorremos todas las criptomonedas
 			for (Element elem : element) {
-				acronimo = elem.select("td").text();
+				acronimo = elem.getElementsByClass("left bold elp name cryptoName first js-currency-name").text();
 				
 				return(new Criptomoneda(acronimo));
 

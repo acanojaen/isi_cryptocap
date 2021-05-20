@@ -52,8 +52,7 @@ public class ControllerServlet extends HttpServlet {
                 break;
                 
                 default:
-                    response.getWriter().println("hola mundo");
-                
+            		list(request, response);
                 break;
             }
         } catch (SQLException | URISyntaxException | ClassNotFoundException e){

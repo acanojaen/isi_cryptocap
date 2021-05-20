@@ -64,7 +64,7 @@ public class CriptomonedaDAO
 		rs = st.executeQuery();
 
 		while(rs.next()) {
-			c.add(new Criptomoneda(rs.getString(2), rs.getString(1) , rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+			c.add(new Criptomoneda(rs.getString(2), rs.getString(1) , " ", rs.getString(5), rs.getString(6)));
 		}
 		
 		rs.close();
@@ -126,10 +126,10 @@ public class CriptomonedaDAO
      
             nombre = criptos.get(i).getNombre();
             acronimo = criptos.get(i).getAcronimo();
-            precio = criptos.get(i).getVolumen();
-            capitalizacion = criptos.get(i).getCapitalizacion();
+            precio = criptos.get(i).getVolumenTotal();
+            capitalizacion = criptos.get(i).getCapMercado();
             urlDatos = criptos.get(i).getUrlDatos();
-            ultAct = criptos.get(i).getUltAct();
+            ultAct = criptos.get(i).getUltimaActializacion();
             
             
             // QUERY1: ¿Existe la moneda "i"?

@@ -108,6 +108,7 @@
     </div>
   </div>
 
+  <input type="hidden" id="answer" value="${answer}">
 
 
   <footer class="page-footer">
@@ -128,8 +129,7 @@
             url: "/cm",
             success: function(res){
                 $('#scrap').modal('show');
-                console.log(res);
-                //document.getElementById("scrap_body").innerHTML = answer;
+                document.getElementById("scrap_body").innerHTML = document.getElementById("answer");
             },
             error: function() {
                 $('#scrap').modal('show');

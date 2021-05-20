@@ -28,6 +28,12 @@ public class Criptomoneda {
 		this.acronimo = acronimo;
 		this.nombre = acronimo;
 	}
+	
+	public Criptomoneda(String acronimo, String ultAct) {
+		this.acronimo = acronimo;
+		this.nombre = acronimo;
+		this.ultimaActualizacion = ultAct;
+	}
 
 	public Criptomoneda(Criptomoneda crip){
 		this.nombre = crip.getNombre();

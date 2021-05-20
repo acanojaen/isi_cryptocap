@@ -72,6 +72,7 @@ public class Webscraping {
 	public Criptomoneda Investing(String acron) throws IOException {
 		String url2 = "https://es.investing.com/crypto/currencies";
 		int code;
+		ultAct = getActualHour();
 		
 		code = connect(url2);
 		
@@ -101,7 +102,7 @@ public class Webscraping {
 			}
 			
 			// si no se encuentra
-			return (new Criptomoneda(acron));
+			return (new Criptomoneda(acron, getActualHour()));
 			
 		} else {
 			// si el codigo no es 200 (�xito)

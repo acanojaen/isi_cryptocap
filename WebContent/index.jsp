@@ -1,9 +1,13 @@
-<%@ page contentType="text/css" %>
+<%@ page language="java" 
+    contentType="text/html; charset=windows-1256"
+    pageEncoding="windows-1256"
+    import="cryptocap.ControllerServlet"
+%>
 <html>
     <header>
         <link href="${pageContext.request.conextPath}/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="${pageContext.request.conextPath}/dist/css/style.css" rel="stylesheet">
-        <title><%= sectionTitle %></title>
+        <title></title>
     </header>
 
     <body>

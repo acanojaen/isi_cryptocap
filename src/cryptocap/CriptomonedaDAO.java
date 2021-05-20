@@ -78,7 +78,7 @@ public class CriptomonedaDAO
     
 
     @SuppressWarnings("resource")
-	public ArrayList<Criptomoneda> test() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
+	public List<Criptomoneda> test() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
     	// Test: consiste en buscar la moneda que se quiere añadir
     	// si existe: --> UPDATE criptomonedas SET nombre = ?, precio = ?, capitalizacion = ?, url_datos = ? 
     	// si no existe: --> INSERT INTO criptomonedas (acronimo, nombre, precio, capitalizacion, url_datos) WHERE (?, ?, ?, ?, ?)

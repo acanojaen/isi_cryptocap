@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.sql.*;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -83,7 +83,7 @@ public class ControllerServlet extends HttpServlet {
 	
 	private void listString(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		ArrayList<Criptomoneda> list = null;
+		List<Criptomoneda> list = null;
 		try {
 			list = c.list();
 		} catch (SQLException e) {
@@ -99,7 +99,7 @@ public class ControllerServlet extends HttpServlet {
     private void main(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
         response.setContentType("text/html");
-        ArrayList<Criptomoneda> lista = new ArrayList<Criptomoneda>();
+        List<Criptomoneda> lista = null;
         //Criptomoneda cr = new Criptomoneda("BTC");
         //lista.add(cr);
         lista = c.test();

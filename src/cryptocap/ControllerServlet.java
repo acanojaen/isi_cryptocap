@@ -40,11 +40,6 @@ public class ControllerServlet extends HttpServlet {
 
         try {
             switch(elegido){
-            	
-            	case "/test":
-            		listString(request, response);
-            	break;
-            	
                 case "/cm":
                     main(request, response);              
                 break;
@@ -92,20 +87,6 @@ public class ControllerServlet extends HttpServlet {
 
 	}
 	
-	private void listString(HttpServletRequest request, HttpServletResponse response)
-			throws SQLException, IOException, ServletException {
-		List<Criptomoneda> list = new ArrayList<>();
-		try {
-			list = criptomonedaDAO.list();
-		} catch (SQLException e) {
-			throw new ServletException("No se han podido recuperar las criptomonedas", e);
-		}
-		
-		for(int i=0;i<list.size();i++) {
-			response.getWriter().println(list.get(i).toString());
-		}
-		
-	}
 
     private void main(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException, URISyntaxException, ClassNotFoundException, ServletException {

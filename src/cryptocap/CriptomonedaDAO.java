@@ -54,6 +54,7 @@ public class CriptomonedaDAO
     
     public List<Criptomoneda> list() throws SQLException{
     	List<Criptomoneda> c = new ArrayList<>();
+    	Criptomoneda crip;
 		String sql = "SELECT * FROM criptomonedas";
 		PreparedStatement st;
 		ResultSet rs;
@@ -64,7 +65,8 @@ public class CriptomonedaDAO
 		rs = st.executeQuery();
 
 		while(rs.next()) {
-			c.add(new Criptomoneda(rs.getString(2), rs.getString(1), " ", rs.getString(5), rs.getString(6)));
+			crip = new Criptomoneda(rs.getString(2), rs.getString(1), "0", rs.getString(5), rs.getString(6));
+			c.add(crip);
 		}
 		
 		rs.close();

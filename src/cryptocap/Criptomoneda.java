@@ -27,22 +27,6 @@ public class Criptomoneda {
 	public Criptomoneda(String acronimo) {
 		this.acronimo = acronimo;
 	}
-	
-	public Criptomoneda(){
-		this.nombre = "";
-		this.acronimo = "";
-		this.imagen = "";
-		this.urlDatos = "";
-
-		this.precio = "";
-		this.capMercado = "";
-		this.volumen24 = "";
-		this.volumenTotal = "";
-		this.variacion24 = "";
-		this.variacion7 = "";
-
-		this.ultimaActualizacion = "";
-	}
 
 	public Criptomoneda(Criptomoneda crip){
 		this.nombre = crip.getNombre();

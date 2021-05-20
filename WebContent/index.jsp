@@ -1,7 +1,6 @@
 <%@ page language="java" 
-    contentType="text/html; charset=windows-1256"
-    pageEncoding="windows-1256"
-    import="cryptocap.Criptomoneda"
+    contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="cryptocap.Criptomoneda"
 %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -37,7 +36,7 @@
                   </div>
 
                   <!-- Mostramos las criptomonedas con JSP -->
-                  <c:forEach items="${list}" var="criptomoneda" >
+                  <c:forEach items="${list}" var="criptomoneda" step="1" begin="0">
                     <div class="item">
                         <div class="row">
                             <div class="col-md-6">

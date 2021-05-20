@@ -39,7 +39,7 @@ public class ControllerServlet extends HttpServlet {
 
         try {
             switch(elegido){
-            	case "/":
+            	case "/index.jsp":
             		list(request, response);
             	break;
             	case "/test":

@@ -113,7 +113,7 @@ public class ControllerServlet extends HttpServlet {
     private void main(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException, URISyntaxException, ClassNotFoundException, ServletException {
         response.setContentType("text/html");
-        String list = new ArrayList<>();
+        String list = null;
         //Criptomoneda cr = new Criptomoneda("BTC");
         //lista.add(cr);
         list = criptomonedaDAO.test();

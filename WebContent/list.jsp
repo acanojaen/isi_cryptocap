@@ -127,11 +127,9 @@
             type: 'GET',
             url: "/cm",
             success: function(res){
-                $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = msg;
+                document.getElementById("scrap_body").innerHTML = res;
             },
             error: function() {
-                $('#scrap').modal('show');
                 document.getElementById("scrap_body").innerHTML = "error";               
             }
         });

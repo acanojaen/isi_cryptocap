@@ -102,7 +102,7 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap()">Actualizar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap('${answer}')">Actualizar</button>
         </div>
       </div>
     </div>
@@ -122,13 +122,13 @@
   <script src="/dist/js/script.min.js"></script>
 
   <script>
-      function scrap(){
+      function scrap(answer){
         $.ajax({
             type: 'GET',
             url: "/cm",
             success: function(res){
                 $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = "<jsp:expression>answer</jsp:expression>";
+                document.getElementById("scrap_body").innerHTML = answer;
             },
             error: function() {
                 $('#scrap').modal('show');

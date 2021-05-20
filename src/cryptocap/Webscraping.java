@@ -15,7 +15,7 @@ public class Webscraping {
 	String acronimo;
 	String precio;
 	String capitalizacion;
-	String urlImagen;
+	String urlDatos;
 
 	Webscraping () {
 		this.nombre = "TEST";
@@ -33,30 +33,32 @@ public class Webscraping {
 			// cargamos el html de la pï¿½gina
 			Document doc = html(url);
 			
+			// obtenemos la lista de las criptomonedas (1 página)
 			Elements element = doc.select(":not(thead) tr.table__row.table__row--click.table__row--full-width");
 			
+			// recorremos todas las criptomonedas
 			for (Element elem : element) {
 				nombre = elem.getElementsByClass("profile__link").text();
 				acronimo = elem.getElementsByClass("profile__subtitle").text();
 				precio = elem.getElementsByClass("valuta valuta--light").text();
 				capitalizacion = elem.getElementsByClass("valuta valuta--light").text();
-				urlImagen = elem.getElementsByClass("profile__link").attr("href");
+				urlDatos = elem.getElementsByClass("profile__link").attr("href");
 
+				// buscamos la que nosotros queremos
 				if(elem.getElementsByClass("profile__subtitle").text().equals(acron)){
-					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlImagen));
+					return (new Criptomoneda(nombre, acronimo, precio, capitalizacion, urlDatos));
 				}
 			}
 			
+			// si no se encuentra
 			return (new Criptomoneda("No se ha encontrado la moneda " + acron));
 			
 		} else {
+			// si el codigo no es 200 (éxito)
 			return (new Criptomoneda("Codigo != 200"));
 		}
 	}		
 	
-	/*public ArrayList<Criptomoneda> getListaCriptomonedas(){
-    	return this.criptos;
-    }*/
 
 	public static int connect(String url) throws IOException {
 		Response res;

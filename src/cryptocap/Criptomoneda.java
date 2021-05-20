@@ -14,7 +14,7 @@ public class Criptomoneda
 	String rango;
 	String descripcion;
 	Date fecha_emision;
-	String urlImagen;
+	String urlDatos;
 	String web;
 	ArrayList<HistorialPrecios> historial;
 
@@ -23,12 +23,12 @@ public class Criptomoneda
 		this.acronimo = msg;
 	}
 
-	public Criptomoneda(String nombre, String acronimo, String volumen, String capitalizacion, String urlImagen) {
+	public Criptomoneda(String nombre, String acronimo, String volumen, String capitalizacion, String urlDatos) {
 		this.nombre = nombre;
 		this.acronimo = acronimo;
 		this.volumen = volumen;
 		this.capitalizacion = capitalizacion;
-		this.urlImagen = urlImagen;
+		this.urlDatos = urlDatos;
 	}
 
 	public Criptomoneda(Criptomoneda c) {
@@ -36,19 +36,31 @@ public class Criptomoneda
 		this.acronimo = c.acronimo;
 		this.volumen = c.volumen;
 		this.capitalizacion = c.capitalizacion;
-		this.urlImagen = c.urlImagen;
+		this.urlDatos = c.urlDatos;
 	}
 
 	public String getNombre() {
 		return nombre;
 	}
 
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	public String getAcronimo() {
 		return acronimo;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setAcronimo(String acronimo) {
+		this.acronimo = acronimo;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public String getVolumen() {
@@ -99,6 +111,14 @@ public class Criptomoneda
 		this.fecha_emision = fecha_emision;
 	}
 
+	public String getUrlDatos() {
+		return urlDatos;
+	}
+
+	public void setUrlDatos(String urlDatos) {
+		this.urlDatos = urlDatos;
+	}
+
 	public String getWeb() {
 		return web;
 	}
@@ -107,9 +127,17 @@ public class Criptomoneda
 		this.web = web;
 	}
 
+	public ArrayList<HistorialPrecios> getHistorial() {
+		return historial;
+	}
+
+	public void setHistorial(ArrayList<HistorialPrecios> historial) {
+		this.historial = historial;
+	}
+
 	@Override
 	public String toString() {
-		return "{nombre : " + nombre + ", acronimo : " + acronimo + ", volumen : " + volumen + ", capitalizacion : " + capitalizacion + ", urlImagen : " + urlImagen + "}";
+		return "{nombre : " + nombre + ", acronimo : " + acronimo + ", volumen : " + volumen + ", capitalizacion : " + capitalizacion + ", urlDatos : " + urlDatos + "}";
 	}
 
 }

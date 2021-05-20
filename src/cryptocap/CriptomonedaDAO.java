@@ -109,6 +109,7 @@ public class CriptomonedaDAO
 		ResultSet rs;
 		
 		// Variables de una criptomoneda
+		String total=null;
 		String nombre;
 		String acronimo;
 		String precio;
@@ -172,11 +173,12 @@ public class CriptomonedaDAO
     			st.close();
     		}
         	
+    		total = criptos.get(i).toString() + " ";
         }
 
         disconnect();
 
-        return criptos.toString();
+        return total;
     }
 
 

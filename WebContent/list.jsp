@@ -30,7 +30,7 @@
           <div class="container">
               <div class="work-experience group">
                   <div class="heading">
-                      <h2 class="text-capitalize text-center text-body">PRECIOS ACTUALIZADOS DE CRIPTOMONEDAS</h2>
+                    <a href="/list"><i class="fas fa-redo"></i></a><h2 class="text-capitalize text-center text-body">PRECIOS ACTUALIZADOS DE CRIPTOMONEDAS</h2>
                   </div>
 
                   <!-- Mostramos las criptomonedas con JSP -->
@@ -99,7 +99,7 @@
           </button>
         </div>
         <div class="modal-body" id="scrap_body">
-
+            <input type="hidden" id="ans" value="${answer}">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap('${answer}')">Actualizar</button>
@@ -107,8 +107,6 @@
       </div>
     </div>
   </div>
-
-  <input type="hidden" id="answer" value="${answer}">
 
 
   <footer class="page-footer">
@@ -128,13 +126,13 @@
         $.ajax({
             type: 'GET',
             url: "/cm",
-            success: function(res){
+            success: function(){
                 $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = document.getElementById("answer").value;
+                document.getElementById("scrap_body").innerHTML = document.getElementById("ans").value;
             },
             error: function() {
                 $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = "error";               
+                document.getElementById("scrap_body").innerHTML = "ERROR: Se ha producido un fallo.";               
             }
         });
       }

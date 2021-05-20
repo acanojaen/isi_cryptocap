@@ -106,7 +106,7 @@ jQuery(document).ready(function($) {
             var btn_val = $(this).val();
             $.ajax({
                 url: '/delete?id=' + btn_val,
-                type: "REMOVE",
+                type: "GET",
                 success: function () {
                     $(this).remove();
                 }

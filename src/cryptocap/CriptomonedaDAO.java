@@ -64,7 +64,7 @@ public class CriptomonedaDAO
 		rs = st.executeQuery();
 
 		while(rs.next()) {
-			c.add(new Criptomoneda(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6)));
+			c.add(new Criptomoneda(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
 		}
 		
 		rs.close();
@@ -94,7 +94,7 @@ public class CriptomonedaDAO
 		String precio;
 		String capitalizacion;
 		String urlDatos;
-		int ultAct;
+		String ultAct;
 		
     	connect();
     	
@@ -130,7 +130,7 @@ public class CriptomonedaDAO
     			st.setString(3, precio);
     			st.setString(4, capitalizacion);
     			st.setString(5, urlDatos);
-    			st.setInt(6, ultAct);
+    			st.setString(6, ultAct);
     			
     			boolean rowInserted = st.executeUpdate() > 0;
     			st.close();
@@ -145,7 +145,7 @@ public class CriptomonedaDAO
     			st.setString(2, precio);
     			st.setString(3, capitalizacion);
     			st.setString(4, urlDatos);
-    			st.setInt(5, ultAct);
+    			st.setString(5, ultAct);
     			
     			boolean rowInserted = st.executeUpdate() > 0;
     			st.close();

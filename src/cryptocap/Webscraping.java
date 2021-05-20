@@ -1,7 +1,9 @@
 package cryptocap;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 
 import org.jsoup.*;
@@ -17,7 +19,7 @@ public class Webscraping {
 	String precio;
 	String capitalizacion;
 	String urlDatos;
-	int ultAct;
+	String ultAct;
 
 	Webscraping () {
 		this.nombre = "TEST";
@@ -79,10 +81,11 @@ public class Webscraping {
 		return doc; 
 	}
 	
-	public int getActualHour() {
-		LocalTime now = LocalTime.now();
+	public String getActualHour() {
+		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+		Date date = new Date(System.currentTimeMillis());
 		
-		return now.getHour();
+		return formatter.format(date);
 	}
 	
 	

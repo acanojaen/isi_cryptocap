@@ -110,7 +110,7 @@ public class CriptomonedaDAO
 		ResultSet rs;
 		
 		// Variables de una criptomoneda
-		String total=null;
+		String total="";
 		String nombre;
 		String acronimo;
 		String precio;

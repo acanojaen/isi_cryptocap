@@ -40,8 +40,6 @@ public class Criptomoneda {
 		this.volumenTotal = crip.getVolumenTotal();
 		this.variacion24 = crip.getVariacion24();
 		this.variacion7 = crip.getVariacion7();
-
-		this.ultimaActualizacion = crip.getUltimaActializacion();
 	}
 
 	Criptomoneda(String nom, String acron, String imag, String url, String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct){

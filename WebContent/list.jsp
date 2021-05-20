@@ -30,7 +30,7 @@
           <div class="container">
               <div class="work-experience group">
                   <div class="heading">
-                    <a href="/list"><i class="fas fa-redo"></i></a><h2 class="text-capitalize text-center text-body">PRECIOS ACTUALIZADOS DE CRIPTOMONEDAS</h2>
+                    <h2 class="text-capitalize text-center text-body"><a href="/list"><i class="fas fa-redo"></i></a> - PRECIOS ACTUALIZADOS DE CRIPTOMONEDAS</h2>
                   </div>
 
                   <!-- Mostramos las criptomonedas con JSP -->

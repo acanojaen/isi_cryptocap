@@ -73,21 +73,21 @@
                         <div class="col-md-6"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div>
                         <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" type="button">Invocar</button></div>
                       </div>
-                  </div>
-              </div>
-              <div class="item">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3>Coinranking</h3>
-                        <h4 class="organization">Webscraping</h4>
+                  </div>>
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Coinranking</h3>
+                            <h4 class="organization">Webscraping</h4>
+                        </div>
+                        <div class="col-6"><span class="period">https://coinranking.com/</span></div>
                     </div>
-                    <div class="col-6"><span class="period">https://coinranking.com/</span></div>
+                    <div class="row">
+                    <div class="col-md-6"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div>
+                    <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" type="button">Invocar</button></div>
+                    </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-6"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div>
-                  <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" type="button">Invocar</button></div>
-                </div>
-              </div>
+            </div>
           </div>
       </section>
   </main>

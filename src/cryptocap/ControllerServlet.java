@@ -77,7 +77,7 @@ public class ControllerServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("criptos", list);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
 		
 		dispatcher.forward(request, response);
 	}

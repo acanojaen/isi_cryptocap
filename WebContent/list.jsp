@@ -127,6 +127,7 @@
             type: 'GET',
             url: "/cm",
             success: function(){
+                console.log('#{answer}');
                 $('#scrap').modal('show');
                 document.getElementById("scrap_body").innerHTML = document.getElementById("ans").value;
             }

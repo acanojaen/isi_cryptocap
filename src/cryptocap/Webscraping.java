@@ -18,13 +18,13 @@ public class Webscraping {
 	String acronimo;
 	String imagen;
 	String urlDatos;
-
+	String ultAct;
 	String precio;
 	String capitalizacion;
 	String vol24;
 	String volTotal;
-	String 24hchange;
-	String 7dchange;
+	String lastdaychange;
+	String sevendaychange;
 
 	Webscraping () {
 		this.nombre = "";
@@ -51,10 +51,11 @@ public class Webscraping {
 				acronimo = elem.getElementsByClass("profile__subtitle").text();
 				imagen = elem.getElementsByClass("profile__logo-background").text();
 				urlDatos = url + elem.getElementsByClass("profile__link").attr("href").text();
+				ultAct = getActualHour();
 
 				// buscamos la que nosotros queremos
 				if(elem.getElementsByClass("profile__subtitle").text().equals(acron)){
-					return (new Criptomoneda(nombre, acronimo, imagen, urlDatos));
+					return (new Criptomoneda(nombre, acronimo, imagen, urlDatos, ultAct));
 				}
 			}
 			
@@ -89,13 +90,13 @@ public class Webscraping {
 				capitalizacion = elem.getElementsByClass("js-market-cap").text();
 				vol24 = elem.getElementsByClass("js-24h-volume").text();
 				volTotal = elem.getElementsByClass("js-total-vol").text();
-				24hchange = elem.getElementsByClass("js-currency-change-24h redFont pid-1057391-pcp").text();
-				7dchange = elem.getElementsByClass("js-currency-change-7d redFont").text();
+				lastdaychange = elem.getElementsByClass("js-currency-change-24h redFont pid-1057391-pcp").text();
+				sevendaychange = elem.getElementsByClass("js-currency-change-7d redFont").text();
 
 				//***********************CAMBIAR new Criptomoneda*****************
 				// buscamos la que nosotros queremos  
 				if(elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text().equals(acron)){
-					return (new Criptomoneda(precio, capitalizacion, vol24, volTotal, 24hchange, 7dchange));
+					return (new Criptomoneda(precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange));
 				}
 			}
 			

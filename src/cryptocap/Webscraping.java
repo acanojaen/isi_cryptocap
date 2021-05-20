@@ -114,7 +114,7 @@ public class Webscraping {
 	public static int connect(String url) throws IOException {
 		Response res;
 		
-		res = Jsoup.connect(url).timeout(1000).execute();
+		res = Jsoup.connect(url).timeout(10*1000).execute();
 		
 		return res.statusCode();
 	}
@@ -122,7 +122,7 @@ public class Webscraping {
 	public static Document html(String url) throws IOException {
 		Document doc;
 		
-		doc = Jsoup.connect(url).timeout(1000).get();
+		doc = Jsoup.connect(url).timeout(10*1000).get();
 		
 		return doc; 
 	}

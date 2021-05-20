@@ -38,7 +38,7 @@
                     <div class="item">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3 id="nombre">${criptomoneda.getNombre}</h3>
+                                <h3 id="nombre">${criptomoneda.acronimo}</h3>
                                 <h4 class="organization">${criptomoneda.acronimo}</h4>
                                 <h4 class="organization" style="background: #c6a00c;">${criptomoneda.precio}</h4>
                             </div>
@@ -128,7 +128,6 @@
             url: "/cm",
             success: function(){
                 $('#scrap').modal('show');
-                console.log(document.getElementById("ans").value);
                 document.getElementById("scrap_body").innerHTML = document.getElementById("ans").value;
             },
             error: function() {

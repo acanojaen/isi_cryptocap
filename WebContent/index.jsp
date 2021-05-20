@@ -1,12 +1,12 @@
+<%@ page contentType="text/css" %>
 <html>
-   
     <head>
         <link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
         <link type="text/css" rel="stylesheet" id="dark-mode-general-link">
         <style lang="en" type="text/css" id="dark-mode-custom-style"></style>
         <style lang="en" type="text/css" id="dark-mode-native-style"></style>
-        <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="dist/css/style.css" rel="stylesheet">
+        <link href="${pageContext.request.conextPath}/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${pageContext.request.conextPath}/dist/css/style.css" rel="stylesheet">
     </head>
 
     <body>
@@ -40,7 +40,7 @@
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-        <script src="dist/js/bootstrap.min.js"></script>
+        <script src="${pageContext.request.conextPath}/dist/js/bootstrap.min.js"></script>
       
     
     </body>

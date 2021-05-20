@@ -41,8 +41,10 @@ public class ControllerServlet extends HttpServlet {
             switch(elegido){
             	case "/":
             		list(request, response);
+            	break;
             	case "/test":
             		listString(request, response);
+            	break;
                 case "/cm":
                     main(request, response);
     	    	                    

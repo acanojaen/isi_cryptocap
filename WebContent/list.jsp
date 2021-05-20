@@ -38,7 +38,7 @@
                     <div class="item">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3 id="nombre">${criptomoneda.nombre}</h3>
+                                <h3 id="nombre">${criptomoneda.getNombre}</h3>
                                 <h4 class="organization">${criptomoneda.acronimo}</h4>
                                 <h4 class="organization" style="background: #c6a00c;">${criptomoneda.precio}</h4>
                             </div>
@@ -99,10 +99,10 @@
           </button>
         </div>
         <div class="modal-body" id="scrap_body">
-            ${answer}
+
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap('${answer}')">Actualizar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap()">Actualizar</button>
         </div>
       </div>
     </div>
@@ -122,7 +122,7 @@
   <script src="https://kit.fontawesome.com/7a8b17dfb3.js" crossorigin="anonymous"></script>
 
   <script>
-      function scrap(answer){
+      function scrap(){
         $.ajax({
             type: 'GET',
             url: "/cm",

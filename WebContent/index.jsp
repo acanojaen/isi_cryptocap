@@ -1,10 +1,6 @@
 <%@ page contentType="text/css" %>
 <html>
     <header>
-        <link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
-        <link type="text/css" rel="stylesheet" id="dark-mode-general-link">
-        <style lang="en" type="text/css" id="dark-mode-custom-style"></style>
-        <style lang="en" type="text/css" id="dark-mode-native-style"></style>
         <link href="${pageContext.request.conextPath}/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="${pageContext.request.conextPath}/dist/css/style.css" rel="stylesheet">
         <title><%= sectionTitle %></title>

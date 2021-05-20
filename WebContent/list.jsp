@@ -128,7 +128,7 @@
             url: "/cm",
             success: function(res){
                 $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = res.answer;
+                document.getElementById("scrap_body").innerHTML = "<jsp:expression>answer</jsp:expression>";
             },
             error: function() {
                 $('#scrap').modal('show');

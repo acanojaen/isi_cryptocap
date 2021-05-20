@@ -40,21 +40,21 @@ public class ControllerServlet extends HttpServlet {
 
         try {
             switch(elegido){
-            	case "":
-            		response.sendRedirect("list");
-            	break;
             	
             	case "/test":
             		listString(request, response);
             	break;
             	
                 case "/cm":
-                    main(request, response);
-    	    	                    
+                    main(request, response);              
                 break;
                 
                 case "/list":
             		list(request, response);
+                break;
+                
+                case "index.jsp":
+            		response.sendRedirect("list");
                 break;
             }
         } catch (SQLException | URISyntaxException | ClassNotFoundException e){

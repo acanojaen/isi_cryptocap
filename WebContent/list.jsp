@@ -121,6 +121,7 @@
   <script src="/dist/bootstrap/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
   <script src="/dist/js/script.min.js"></script>
+  <script src="https://kit.fontawesome.com/7a8b17dfb3.js" crossorigin="anonymous"></script>
 
   <script>
       function scrap(answer){
@@ -129,7 +130,7 @@
             url: "/cm",
             success: function(res){
                 $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = document.getElementById("answer");
+                document.getElementById("scrap_body").innerHTML = document.getElementById("answer").value;
             },
             error: function() {
                 $('#scrap').modal('show');

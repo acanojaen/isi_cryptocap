@@ -48,10 +48,10 @@
                             </div>
                             <div class="col-md-6">
                                 <a href="${criptomoneda.urlDatos}" target="_blank">
-                                    <button class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button>
+                                    <button class="btn btn-secondary btn-sm float-right" type="button">mas información</button>
                                 </a>
-                                <a href="/eliminar?id=${criptomoneda.urlDatos}" target="_blank">
-                                    <button class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button>
+                                <a href="/eliminar?id=${criptomoneda.acronimo}">
+                                    <button class="btn btn-secondary btn-sm float-right" type="button">-</button>
                                 </a>
                             </div>
                         </div>

@@ -24,7 +24,7 @@ public class ControllerServlet extends HttpServlet {
 		String jdbcUsername = "go4wfmmyetu3gkvm";
 		String jdbcPassword = "e7pnet4zo6qcfwy8";
 
-        CriptomonedaDAO c = new CriptomonedaDAO(jdbcURL, jdbcUsername, jdbcPassword);
+        setDAO(new CriptomonedaDAO(jdbcURL, jdbcUsername, jdbcPassword));
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -52,6 +52,10 @@ public class ControllerServlet extends HttpServlet {
             throw new ServletException(e);
         }
     }
+    
+	public void setDAO(CriptomonedaDAO c) {
+		this.c = c;
+	}
 
     public void main(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException, URISyntaxException, ClassNotFoundException {

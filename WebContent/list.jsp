@@ -47,12 +47,18 @@
                                 <p class="text-muted">descripción de la criptomoneda</p>
                             </div>
                             <div class="col-md-6">
-                                <a href="${criptomoneda.urlDatos}" target="_blank">
-                                    <button class="btn btn-secondary btn-sm float-right" type="button">mas información</button>
-                                </a>
-                                <a href="/eliminar?id=<c:out value='${criptomoneda.acronimo}' />">
-                                    <button class="btn btn-secondary btn-sm float-right" type="button">-</button>
-                                </a>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+
+                                    <button type="button" class="btn btn-secondary">edit</button>
+                                    
+                                    <a href="/eliminar?id=<c:out value='${criptomoneda.acronimo}' />">
+                                        <button type="button" class="btn btn-secondary">remove</button>
+                                    </a>
+
+                                    <a href="${criptomoneda.urlDatos}" target="_blank"></a>
+                                    <button type="button" class="btn btn-secondary">see</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

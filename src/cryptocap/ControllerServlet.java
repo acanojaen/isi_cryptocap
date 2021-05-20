@@ -53,7 +53,7 @@ public class ControllerServlet extends HttpServlet {
             		list(request, response);
                 break;
                 
-                case "index.jsp":
+                default:
             		response.sendRedirect("list");
                 break;
             }

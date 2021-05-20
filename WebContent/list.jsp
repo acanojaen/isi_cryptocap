@@ -129,10 +129,6 @@
             success: function(){
                 $('#scrap').modal('show');
                 document.getElementById("scrap_body").innerHTML = document.getElementById("ans").value;
-            },
-            error: function() {
-                $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = "ERROR: Se ha producido un fallo.";               
             }
         });
       }

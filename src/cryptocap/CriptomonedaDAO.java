@@ -75,14 +75,12 @@ public class CriptomonedaDAO
     	
     }
     
-    
-
-    @SuppressWarnings("resource")
 	public List<Criptomoneda> test() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
     	// Test: consiste en buscar la moneda que se quiere añadir
     	// si existe: --> UPDATE criptomonedas SET nombre = ?, precio = ?, capitalizacion = ?, url_datos = ? 
     	// si no existe: --> INSERT INTO criptomonedas (acronimo, nombre, precio, capitalizacion, url_datos) WHERE (?, ?, ?, ?, ?)
-    	List<String> lista = new ArrayList<>(); lista.add("BTC"); lista.add("ETH");
+    	List<String> lista = new ArrayList<>(); lista.add("BTC"); lista.add("ETH"); lista.add("USDT"); lista.add("ADA"); lista.add("BNB"); lista.add("DOGE");
+    	lista.add("DOT"); lista.add("HEX"); lista.add("ICP"); lista.add("USDC");
     	List<Criptomoneda> criptos = new ArrayList<>();
         Criptomoneda actual;
         Webscraping it;

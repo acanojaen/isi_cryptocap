@@ -90,15 +90,14 @@ public class ControllerServlet extends HttpServlet {
 
     private void main(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException, URISyntaxException, ClassNotFoundException, ServletException {
-        response.setContentType("text/html");
         String list = null;
         //Criptomoneda cr = new Criptomoneda("BTC");
         //lista.add(cr);
         list = criptomonedaDAO.test();
         
-        request.setAttribute("answer", list);
+        response.getWriter().write(list);
+        
 		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
-
 		dispatcher.forward(request, response);
     }
 }

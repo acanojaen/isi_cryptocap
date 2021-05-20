@@ -100,7 +100,7 @@
           </button>
         </div>
         <div class="modal-body" id="scrap_body">
-            <%= request.getAttribute("answer") %>
+            <%= response.getAttribute("list") %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap()">Actualizar</button>

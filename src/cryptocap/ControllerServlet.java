@@ -111,7 +111,7 @@ public class ControllerServlet extends HttpServlet {
 	}
 
     private void main(HttpServletRequest request, HttpServletResponse response) 
-            throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
+            throws SQLException, IOException, URISyntaxException, ClassNotFoundException, ServletException {
         response.setContentType("text/html");
         List<Criptomoneda> list = new ArrayList<>();
         //Criptomoneda cr = new Criptomoneda("BTC");
@@ -121,6 +121,6 @@ public class ControllerServlet extends HttpServlet {
         request.setAttribute("json", list);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
 
-    
+		dispatcher.forward(request, response);
     }
 }

@@ -47,8 +47,8 @@
                                 <p class="text-muted">descripción de la criptomoneda</p>
                             </div>
                             <div class="col-md-6">
-                                    <a href="/eliminar?id=<c:out value='${criptomoneda.acronimo}' />" class="btn btn-info btn-sm float-right" role="button">see</a>
-                                    <a href="${criptomoneda.urlDatos}" class="btn btn-warning btn-sm float-right" role="button">see</a>
+                                    <a href="/eliminar?id=<c:out value='${criptomoneda.acronimo}' />" class="btn btn-info btn-sm float-right" role="button">remove</a>
+                                    <a href="${criptomoneda.urlDatos}" class="btn btn-warning btn-sm float-right" role="button" target="_blank">see</a>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                       </div>
                       <div class="row">
                         <div class="col-md-6"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div>
-                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" type="button">Invocar</button></div>
+                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap" data-toggle="modal" type="button">Invocar</button></div>
                       </div>
                   </div>>
                 <div class="item">
@@ -88,6 +88,28 @@
       </section>
   </main>
   
+
+  <div class="modal" id="scrap" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Resultado del webscraping</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <footer class="page-footer">
       <div class="container">
           <div class="links"><a href="#">ISI 2021</a><a href="#">Contáctanos</a><a href="#">Github</a></div>

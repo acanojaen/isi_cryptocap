@@ -75,7 +75,7 @@
                                 <li>Enlace para más información</li>
                             </ul>
                         </p></div>
-                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap" data-toggle="modal" type="button" data-whatever="coinranking.com">Invocar</button></div>
+                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_coinranking" data-toggle="modal" type="button" data-whatever="coinranking.com">Invocar</button></div>
                       </div>
                   </div>
                 <div class="item">

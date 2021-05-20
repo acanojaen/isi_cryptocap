@@ -98,7 +98,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="scrap_body">
 
         </div>
         <div class="modal-footer">
@@ -126,13 +126,13 @@
         $.ajax({
             type: 'GET',
             url: "/cm",
-            success: function(msg){
+            success: function(res){
                 $('#scrap').modal('show');
-                document.getElementByClass("modal-body").innerHTML = msg;
+                document.getElementById("scrap_body").innerHTML = msg;
             },
             error: function() {
                 $('#scrap').modal('show');
-                document.getElementByClass("modal-body").innerHTML = "error";               
+                document.getElementById("scrap_body").innerHTML = "error";               
             }
         });
       }

@@ -50,7 +50,7 @@
                                 <a href="${criptomoneda.urlDatos}" target="_blank">
                                     <button class="btn btn-secondary btn-sm float-right" type="button">mas información</button>
                                 </a>
-                                <a href="/eliminar?=<c:out value='${criptomoneda.acronimo}' />">
+                                <a href="/eliminar?id=<c:out value='${criptomoneda.acronimo}' />">
                                     <button class="btn btn-secondary btn-sm float-right" type="button">-</button>
                                 </a>
                             </div>

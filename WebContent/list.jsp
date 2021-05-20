@@ -40,7 +40,7 @@
                             <div class="col-md-6">
                                 <h3>${criptomoneda.acronimo}</h3>
                                 <h4 class="organization">${criptomoneda.nombre}</h4>
-                                <h4 class="organization" style="background: #c6a00c;">${criptomoneda.precio}</h4>
+                                <h4 class="organization" style="background: #c6a00c;">${criptomoneda.volumen}</h4>
                             </div>
                             <div class="col-md-6"><span class="period">Ultima actualizacion</span></div>
                             <div class="col-md-6">

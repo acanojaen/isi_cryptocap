@@ -81,14 +81,14 @@
                 <div class="item">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>Coinmarketcap</h3>
-                            <h4 class="organization">API</h4>
+                            <h3>Investing</h3>
+                            <h4 class="organization">Webscraping</h4>
                         </div>
-                        <div class="col-6"><span class="period">https://coinmarketcap.com/</span></div>
+                        <div class="col-6"><span class="period">https://investing.com/</span></div>
                     </div>
                     <div class="row">
                     <div class="col-md-6"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div>
-                    <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap" data-toggle="modal" type="button" data-whatever="coinmarketcap.com">Invocar</button></div>
+                    <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_investing" data-toggle="modal" type="button" data-whatever="investing.com">Invocar</button></div>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@
   </main>
   
 
-  <div class="modal" id="scrap" tabindex="-1" role="dialog">
+  <div class="modal" id="scrap_coinranking" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -110,12 +110,30 @@
             <%= request.getAttribute("answer") %>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap()">Actualizar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_coinranking()">Actualizar</button>
         </div>
       </div>
     </div>
   </div>
 
+  <div class="modal" id="scrap_investing" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Resultado del webscraping</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="scrap_body">
+            <%= request.getAttribute("answer") %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_investing()">Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="page-footer">
       <div class="container">
@@ -134,6 +152,21 @@
         $.ajax({
             type: 'GET',
             url: "/coinranking",
+            success: function(){
+                $('#scrap').modal('show');
+                document.getElementById("scrap_body").innerHTML = "OK: La extracción de datos en Coinranking.com se ha realizado correctamente.";
+            },
+            error: function(){
+                $('#scrap').modal('show');
+                document.getElementById("scrap_body").innerHTML = "ERROR: La extracción de datos no se ha realizado correctamente.";
+            }
+        });
+      }
+
+      function scrap_investing(){
+        $.ajax({
+            type: 'GET',
+            url: "/investing",
             success: function(){
                 $('#scrap').modal('show');
                 document.getElementById("scrap_body").innerHTML = "OK: La extracción de datos en Coinranking.com se ha realizado correctamente.";

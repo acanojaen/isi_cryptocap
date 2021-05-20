@@ -59,29 +59,34 @@
                   </c:forEach>
               </div>
               <div class="education group">
-                  <div class="heading">
-                      <h2 class="text-center">LAS MAS RELEVANTES</h2>
+                  <div class="heading">ACTUALIZACIAR DATOS</h2>
                   </div>
                   <div class="item">
                       <div class="row">
                           <div class="col-md-6">
-                              <h3>High School</h3>
-                              <h4 class="organization">Albert Einstein School</h4>
+                              <h3>Coinranking</h3>
+                              <h4 class="organization">Webscraping</h4>
                           </div>
-                          <div class="col-6"><span class="period">09/2005 - 05/2010</span></div>
+                          <div class="col-6"><span class="period">https://coinranking.com/</span></div>
                       </div>
-                      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
-                  </div>
-                  <div class="item">
                       <div class="row">
-                          <div class="col-md-6">
-                              <h3>Applied Physics</h3>
-                              <h4 class="organization">Stephen Hawking College</h4>
-                          </div>
-                          <div class="col-md-6"><span class="period">09/2010 - 06/2015</span></div>
+                        <div class="col-md-6"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div>
+                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" type="button">Invocar</button></div>
                       </div>
-                      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
                   </div>
+              </div>
+              <div class="item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Coinranking</h3>
+                        <h4 class="organization">Webscraping</h4>
+                    </div>
+                    <div class="col-6"><span class="period">https://coinranking.com/</span></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div>
+                  <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" type="button">Invocar</button></div>
+                </div>
               </div>
           </div>
       </section>

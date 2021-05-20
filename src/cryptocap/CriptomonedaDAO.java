@@ -96,7 +96,7 @@ public class CriptomonedaDAO
     		// si FALSE --> INSERT
     		if(!rs.next()) {
     			sql = "INSERT INTO criptomonedas (acronimo, nombre, precio, capitalizacion, url_datos)";
-    			sql += " WHERE (?, ?, ?, ?, ?)";
+    			sql += " VALUES (?, ?, ?, ?, ?)";
     			
     			st = jdbcConnection.prepareStatement(sql);
     			st.setString(1, acronimo);

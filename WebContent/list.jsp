@@ -128,6 +128,7 @@
             url: "/cm",
             success: function(){
                 $('#scrap').modal('show');
+                console.log(document.getElementById("ans").value);
                 document.getElementById("scrap_body").innerHTML = document.getElementById("ans").value;
             },
             error: function() {

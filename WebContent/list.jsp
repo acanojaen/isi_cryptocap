@@ -99,7 +99,6 @@
           </button>
         </div>
         <div class="modal-body" id="scrap_body">
-            <%= answer %>
             ${answer}
         </div>
         <div class="modal-footer">

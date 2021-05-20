@@ -80,7 +80,7 @@ public class Webscraping {
 			// cargamos el html de la p�gina
 			Document doc = html(url2);
 			
-			Elements element = doc.select(":not(thead) table tbody tr td");
+			Elements element = doc.select("table > tbody > tr:has(td)");
 			
 			// recorremos todas las criptomonedas
 			for (Element elem : element) {

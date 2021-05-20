@@ -67,16 +67,16 @@
                       </div>
                       <div class="row">
                         <div class="col-md-6"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div>
-                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap" data-toggle="modal" type="button">Invocar</button></div>
+                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap" data-toggle="modal" type="button" data-whatever="coinranking.com">Invocar</button></div>
                       </div>
-                  </div>>
+                  </div>
                 <div class="item">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>Coinranking</h3>
-                            <h4 class="organization">Webscraping</h4>
+                            <h3>Coinmarketcap</h3>
+                            <h4 class="organization">API</h4>
                         </div>
-                        <div class="col-6"><span class="period">https://coinranking.com/</span></div>
+                        <div class="col-6"><span class="period">https://coinmarketcap.com/</span></div>
                     </div>
                     <div class="row">
                     <div class="col-md-6"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div>
@@ -102,7 +102,7 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap()">Actualizar</button>
         </div>
       </div>
     </div>
@@ -121,7 +121,23 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
   <script src="/dist/js/script.min.js"></script>
 
- 
+  <script>
+      function scrap(){
+        $.ajax({
+            type: 'GET',
+            url: "/cm",
+            success: function(msg){
+                $('#scrap').modal('show');
+                document.getElementByClass("modal-body").innerHTML = msg;
+            },
+            error: function() {
+                $('#scrap').modal('show');
+                document.getElementByClass("modal-body").innerHTML = "error";               
+            }
+        });
+      }
+
+  </script>
 
 
 </body>

@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
 </header>
 
-<body>
+<body data-scrap="${answer}">
   <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
       <div class="container"><img src="/dist/img/small-logo.png"><a class="navbar-brand logo" href="#">&nbsp; cryptocap</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
          <div class="collapse navbar-collapse" id="navbarNav">
@@ -126,9 +126,9 @@
             type: 'GET',
             url: "/cm",
             success: function(){
-                console.log('#{answer}');
+                console.log($("body").attr("data-scrap"));
                 $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = document.getElementById("ans").value;
+                document.getElementById("scrap_body").innerHTML = $("body").attr("data-scrap");
             }
         });
       }

@@ -50,9 +50,7 @@
                                 <a href="${criptomoneda.urlDatos}" target="_blank">
                                     <button class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button>
                                 </a>
-                                <a href="/delete?id=${criptomoneda.acronimo}" target="_blank">
                                     <button value="${criptomoneda.acronimo}" class="btn btn-secondary btn-sm float-right removeItem" type="button">&gt;&gt;</button>
-                                </a>
                             </div>
                         </div>
                     </div>

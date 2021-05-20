@@ -7,19 +7,19 @@ public class Criptomoneda {
 
 	/*-----------------------------------------Variables-----------------------------------------*/
 
-	String nombre;
-	String acronimo;
-	String imagen;
-	String urlDatos;
+	protected String nombre;
+	protected String acronimo;
+	protected String imagen;
+	protected String urlDatos;
 
-	String precio;
-	String capMercado;
-	String volumen24;
-	String volumenTotal;
-	String variacion24;
-	String variacion7;
+	protected String precio;
+	protected String capMercado;
+	protected String volumen24;
+	protected String volumenTotal;
+	protected String variacion24;
+	protected String variacion7;
 
-	String ultimaActualizacion;
+	protected String ultimaActualizacion;
 
 
 	/*-----------------------------------------Constructores-----------------------------------------*/

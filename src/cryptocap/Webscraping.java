@@ -82,7 +82,7 @@ public class Webscraping {
 			
 			//***********************CAMBIAR doc.select*****************
 			// obtenemos la lista de las criptomonedas (1 p�gina)
-			Elements element = doc.select(":not(thead) tr.table__row.table__row--click.table__row--full-width");
+			Elements element = doc.select(":not(thead) genTbl.openTbl.js-all-crypto-table.mostActiveStockTbl.crossRatesTbl.allCryptoTlb.wideTbl.elpTbl.elp15");
 			
 			// recorremos todas las criptomonedas
 			for (Element elem : element) {

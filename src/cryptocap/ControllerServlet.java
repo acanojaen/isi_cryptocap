@@ -43,9 +43,11 @@ public class ControllerServlet extends HttpServlet {
             	case "/index.jsp":
             		list(request, response);
             	break;
+            	
             	case "/test":
             		listString(request, response);
             	break;
+            	
                 case "/cm":
                     main(request, response);
     	    	                    

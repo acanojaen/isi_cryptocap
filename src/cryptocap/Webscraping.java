@@ -104,7 +104,7 @@ public class Webscraping {
 			}
 			
 			// si no se encuentra
-			return (new Criptomoneda("No se ha encontrado la moneda: " + element.html()));
+			return (new Criptomoneda("No se ha encontrado la moneda: " + acron));
 			
 		} else {
 			// si el codigo no es 200 (�xito)

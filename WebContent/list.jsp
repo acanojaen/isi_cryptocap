@@ -51,7 +51,7 @@
                                     <button class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button>
                                 </a>
                                 <a href="/delete?id=${criptomoneda.acronimo}" target="_blank">
-                                    <button class="removeItem" value="${criptomoneda.acronimo}" class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button>
+                                    <button value="${criptomoneda.acronimo}" class="btn btn-secondary btn-sm float-right removeItem" type="button">&gt;&gt;</button>
                                 </a>
                             </div>
                         </div>
@@ -100,14 +100,13 @@
 
   
 <script>
-    
 jQuery(document).ready(function($) {
-    $("#removeItem").click(function () {
+    $("#btn.btn-secondary.btn-sm.float-right.removeItem").click(function () {
         if (confirm("¿Estas seguro?")) {
             var btn_val = $(this).val();
             $.ajax({
                 url: '/delete?id=' + btn_val,
-                type: "GET",
+                type: "REMOVE",
                 success: function () {
                     $(this).remove();
                 }
@@ -115,7 +114,7 @@ jQuery(document).ready(function($) {
         }
     });
 });
-    </script>
+</script>
 
     
 

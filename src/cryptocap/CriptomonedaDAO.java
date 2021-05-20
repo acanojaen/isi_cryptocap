@@ -174,7 +174,7 @@ public class CriptomonedaDAO
     			st.close();
     		}
         	
-    		total = criptos.get(i).toString() + " ";
+    		total += criptos.get(i).toString() + " ";
         }
 
         disconnect();

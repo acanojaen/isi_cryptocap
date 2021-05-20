@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -67,7 +68,7 @@ public class ControllerServlet extends HttpServlet {
 
 	private void list(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		ArrayList<Criptomoneda> list = null;
+		List<Criptomoneda> list = null;
 		try {
 			list = c.list();
 		} catch (SQLException e) {

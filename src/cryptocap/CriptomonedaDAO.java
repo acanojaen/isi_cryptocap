@@ -5,6 +5,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.sql.*;
 import com.mysql.jdbc.Driver;
 import java.sql.Connection;
@@ -51,8 +52,8 @@ public class CriptomonedaDAO
         }
     }
     
-    public ArrayList<Criptomoneda> list() throws SQLException{
-    	ArrayList<Criptomoneda> c = new ArrayList<Criptomoneda>();
+    public List<Criptomoneda> list() throws SQLException{
+    	List<Criptomoneda> c = null;
 		String sql = "SELECT * FROM criptomonedas";
 		PreparedStatement st;
 		ResultSet rs;

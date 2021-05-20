@@ -99,7 +99,25 @@
           </button>
         </div>
         <div class="modal-body" id="scrap_body">
-
+            <c:forEach items="${answer}" var="resultado">
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>${resultado.nombre}</h3>
+                            <h4 class="organization">${resultado.acronimo}</h4>
+                            <h4 class="organization" style="background: #c6a00c;">${resultado.precio}</h4>
+                        </div>
+                        <div class="col-md-6"><span class="period">${resultado.ultimaActualizacion}</span></div>
+                        <div class="col-md-6">
+                            <p class="text-muted">descripción de la resultado</p>
+                        </div>
+                        <div class="col-md-6">
+                                <a href="/eliminar?id=<c:out value='${resultado.acronimo}' />" class="btn btn-info btn-sm float-right" role="button">remove</a>
+                                <a href="${resultado.urlDatos}" class="btn btn-warning btn-sm float-right" role="button" target="_blank">see</a>
+                        </div>
+                    </div>
+                </div>
+              </c:forEach>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap()">Actualizar</button>

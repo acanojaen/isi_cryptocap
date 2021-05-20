@@ -50,7 +50,9 @@
                                 <a href="${criptomoneda.urlDatos}" target="_blank">
                                     <button class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button>
                                 </a>
-                                    <button value="${criptomoneda.acronimo}" class="btn btn-secondary btn-sm float-right removeItem" type="button">&gt;&gt;</button>
+                                <a href="/eliminar?id=${criptomoneda.urlDatos}" target="_blank">
+                                    <button class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -96,25 +98,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
   <script src="/dist/js/script.min.js"></script>
 
-  
-<script>
-jQuery(document).ready(function($) {
-    $("#btn.btn-secondary.btn-sm.float-right.removeItem").click(function () {
-        if (confirm("¿Estas seguro?")) {
-            var btn_val = $(this).val();
-            $.ajax({
-                url: '/delete?id=' + btn_val,
-                type: "GET",
-                success: function () {
-                    $(this).remove();
-                }
-            });
-        }
-    });
-});
-</script>
-
-    
+ 
 
 
 </body>

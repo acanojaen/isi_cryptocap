@@ -45,7 +45,7 @@
                             <div class="col-md-6">
                                 <p class="text-muted">descripción de la criptomoneda</p>
                             </div>
-                            <div class="col-md-6"><a href="${criptomoneda.url_archivo}" target="_blank"><button class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button></a></div>
+                            <div class="col-md-6"><a href="${criptomoneda.url_datos}" target="_blank"><button class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button></a></div>
                         </div>
                     </div>
                   </c:forEach>

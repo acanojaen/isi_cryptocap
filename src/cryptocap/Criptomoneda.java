@@ -24,6 +24,10 @@ public class Criptomoneda {
 
 	/*-----------------------------------------Constructores-----------------------------------------*/
 
+	public Criptomoneda(String acronimo) {
+		this.acronimo = acronimo;
+	}
+	
 	public Criptomoneda(){
 		nombre = "";
 		acronimo = "";

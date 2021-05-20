@@ -91,7 +91,7 @@ public class ControllerServlet extends HttpServlet {
 		Criptomoneda crip = new Criptomoneda(acron);
 		
 		criptomonedaDAO.remove(crip);
-
+		response.sendRedirect("list");
 		
 	}
 	

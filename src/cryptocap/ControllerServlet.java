@@ -109,8 +109,8 @@ public class ControllerServlet extends HttpServlet {
     	List<Criptomoneda> list = new ArrayList<>();
         list = criptomonedaDAO.investing();
         
-        request.setAttribute("answer", list);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
-		dispatcher.forward(request, response);
+        for(int i=0; i<list.size(); i++){
+        	response.getWriter().println(list.get(i).toString());
+        }
     }
 }

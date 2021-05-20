@@ -1,12 +1,14 @@
 <%@ page language="java" 
     contentType="text/html; charset=windows-1256"
     pageEncoding="windows-1256"
-    import="cryptocap.ControllerServlet"
+    import="cryptocap.Criptomoneda"
 %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
 <header>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>CV - cryptocap</title>
+  <title>CryptoCap | Inicio</title>
   <link rel="stylesheet" href="/dist/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
@@ -14,13 +16,13 @@
 
 <body>
   <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
-      <div class="container"><img src="/dist/assets/img/small-logo.png"><a class="navbar-brand logo" href="#">&nbsp; cryptocap</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+      <div class="container"><img src="/dist/img/small-logo.png"><a class="navbar-brand logo" href="#">&nbsp; cryptocap</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
           <div
               class="collapse navbar-collapse" id="navbarNav">
               <ul class="nav navbar-nav ml-auto">
                   <li class="nav-item"><a class="nav-link" href="projects-grid-cards.html">Inicio</a></li>
                   <li class="nav-item"><a class="nav-link active" href="cv.html">Administracion</a></li>
-                  <li class="nav-item"><a class="nav-link" href="hire-me.html">Información</a></li>
+                  <li class="nav-item"><a class="nav-link" href="hire-me.html">Informacion</a></li>
               </ul>
       </div>
       </div>
@@ -32,29 +34,23 @@
                   <div class="heading">
                       <h2 class="text-capitalize text-center text-body">PRECIOS ACTUALIZADOS DE CRIPTOMONEDAS</h2>
                   </div>
-                  <div class="item">
-                      <div class="row">
-                          <div class="col-md-6">
-                              <h3>Nombre criptomoneda</h3>
-                              <h4 class="organization">acronimo</h4>
-                          </div>
-                          <div class="col-md-6"><span class="period">Ultima actualizacion</span></div>
-                          <div class="col-md-6">
-                              <p class="text-muted">descripción de la criptomoneda</p>
-                          </div>
-                          <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button></div>
-                      </div>
-                  </div>
-                  <div class="item">
-                      <div class="row">
-                          <div class="col-6">
-                              <h3>Front End Developer</h3>
-                              <h4 class="organization">Innovative Org.</h4>
-                          </div>
-                          <div class="col-md-6"><span class="period">05/2015 - 12/2017</span></div>
-                      </div>
-                      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
-                  </div>
+
+                  <!-- Mostramos las criptomonedas con JSP -->
+                  <c:forEach items="${list}" var="criptomoneda" >
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>${criptomoneda.nombre}</h3>
+                                <h4 class="organization">${criptomoneda.acronimo}</h4>
+                            </div>
+                            <div class="col-md-6"><span class="period">Ultima actualizacion</span></div>
+                            <div class="col-md-6">
+                                <p class="text-muted">descripción de la criptomoneda</p>
+                            </div>
+                            <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" type="button">&gt;&gt;</button></div>
+                        </div>
+                    </div>
+                  </c:forEach>
               </div>
               <div class="education group">
                   <div class="heading">

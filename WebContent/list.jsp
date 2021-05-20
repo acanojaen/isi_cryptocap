@@ -99,6 +99,7 @@
           </button>
         </div>
         <div class="modal-body" id="scrap_body">
+            <%= request.getAttribute("answer") %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap()">Actualizar</button>
@@ -126,7 +127,7 @@
             type: 'GET',
             url: "/cm",
             success: function(){
-                console.log($("body").attr("data-scrap"));
+                console.log('#{answer}');
                 $('#scrap').modal('show');
                 document.getElementById("scrap_body").innerHTML = $("body").attr("data-scrap");
             }

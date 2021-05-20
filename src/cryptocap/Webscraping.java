@@ -80,11 +80,17 @@ public class Webscraping {
 			// cargamos el html de la p�gina
 			Document doc = html(url2);
 			
-			Elements element = doc.select("table.genTbl.openTbl.js-all-crypto-table.mostActiveStockTbl.crossRatesTbl.allCryptoTlb.wideTbl.elpTbl.elp15");
+			Elements element = doc.select(":not(thead) table.genTbl.openTbl.js-all-crypto-table.mostActiveStockTbl.crossRatesTbl.allCryptoTlb.wideTbl.elpTbl.elp15");
 			
-			return (new Criptomoneda(element.html()));
-			
+			// recorremos todas las criptomonedas
+			for (Element elem : element) {
+				return (new Criptomoneda(elem.html()));
 
+
+			}
+			
+			// si no se encuentra
+			return (new Criptomoneda("No se ha encontrado la moneda " + acron));
 			
 		} else {
 			// si el codigo no es 200 (�xito)

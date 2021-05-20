@@ -53,7 +53,7 @@ public class ControllerServlet extends HttpServlet {
             		list(request, response);
                 break;
                 
-                case "/delete":
+                case "/eliminar":
                 	delete(request, response);
                 
                 default:

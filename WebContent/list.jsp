@@ -38,8 +38,8 @@
                     <div class="item">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3 id="acronimo">${criptomoneda.acronimo}</h3>
-                                <h4 class="organization">${criptomoneda.nombre}</h4>
+                                <h3 id="nombre">${criptomoneda.nombre}</h3>
+                                <h4 class="organization">${criptomoneda.acronimo}</h4>
                                 <h4 class="organization" style="background: #c6a00c;">${criptomoneda.volumen}</h4>
                             </div>
                             <div class="col-md-6"><span class="period">${criptomoneda.ultAct}</span></div>

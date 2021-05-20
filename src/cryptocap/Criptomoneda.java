@@ -26,6 +26,7 @@ public class Criptomoneda {
 
 	public Criptomoneda(String acronimo) {
 		this.acronimo = acronimo;
+		this.nombre = acronimo;
 	}
 
 	public Criptomoneda(Criptomoneda crip){

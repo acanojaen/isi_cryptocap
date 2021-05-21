@@ -30,12 +30,13 @@
             <section class="portfolio-block cv">
                 <div class="container">
                     <div class="work-experience group">
-                        <div class="heading">
-                            <img class="responsive" src="${criptos.imagen}"/>
-                            <h3 class="text-center">${criptos.nombre}</h3>
-                            <h4 class="organization">${criptos.acronimo}</h4>
-                        </div>
                         <div class="item">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img class="responsive" src="${criptos.imagen}"/>
+                                    <h3 class="text-center text-capitalize text-body">${criptos.nombre}</h3> <h4 class="organization">${criptos.acronimo}</h4>                        
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Precio: </h3> <h4 class="organization">${criptos.precio}</h4>

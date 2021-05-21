@@ -34,13 +34,15 @@
                     <h2 class="text-capitalize text-center text-body">CONFIGURAR CRIPTOMONEDAS</h2>
                 </div>
                 <form>
+                    <c:set var="xv"></c:set>
+                    <c:forEach items="${criptos}" var="x">
+                        <c:if test="${not empty x}">
+                            <c:set var="xv" value="${x.acronimo}"></c:set>
+                        </c:if>
+                    </c:forEach>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Introduce la lista aqui:</label>
                         <textarea id="Resources" name="Resources" rows="10" cols="70">
-                            <c:forEach items="${criptos}" var="resource" varStatus="loop">
-                                <c:out value="${resource.acronimo}" ></c:out> 
-                                <c:if test="${!loop.last}">,</c:if>
-                            </c:forEach>
+                            ${xv}
                         </textarea>
 
                     </div>

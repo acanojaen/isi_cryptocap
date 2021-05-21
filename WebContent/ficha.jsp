@@ -36,8 +36,8 @@
                         <div class="item">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <img class="responsive" src="${criptos.imagen}"/>
                                     <h3 class="text-center text-capitalize text-body">${criptos.nombre}</h3> <h4 class="organization">${criptos.acronimo}</h4>                        
+                                    <img class="responsive" src="${criptos.imagen}"/>
                                 </div>
                             </div>
                             <div class="row">

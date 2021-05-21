@@ -147,7 +147,7 @@ public class CriptomonedaDAO
     
 	public Criptomoneda getCriptomoneda(String acron) throws SQLException{
 		String sql;
-		sql = "SELECT * FROM criptomoneda";
+		sql = "SELECT * FROM criptomonedas";
 		sql += " WHERE acronimo = ?";
 		PreparedStatement st;
 		ResultSet rs;

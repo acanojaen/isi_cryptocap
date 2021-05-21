@@ -162,7 +162,7 @@ public class Webscraping {
 		return doc; 
 	}
 	
-	public static String getActualHour() {
+	public String getActualHour() {
 		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
 		Date date = new Date(System.currentTimeMillis());
 		

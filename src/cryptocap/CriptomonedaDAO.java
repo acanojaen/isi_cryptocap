@@ -16,6 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 
 
 /**
@@ -294,7 +295,7 @@ public class CriptomonedaDAO
 		sql += " VALUES (?, ?, ?)";
 		st = jdbcConnection.prepareStatement(sql);
 		
-		st.setString(1, cryptocap.Webscraping.getActualHour());
+		st.setString(1, getActualHour());
 		st.setString(2, acron);
 		st.setFloat(3, parsePrecio(precio));
 		stat = st.executeUpdate() > 0;
@@ -489,5 +490,11 @@ public class CriptomonedaDAO
         return criptos;
     }
 
+	public static String getActualHour() {
+		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+		Date date = new Date(System.currentTimeMillis());
+		
+		return formatter.format(date);
+	}
 
 }

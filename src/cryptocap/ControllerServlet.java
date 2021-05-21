@@ -103,7 +103,7 @@ public class ControllerServlet extends HttpServlet {
 		String acron = request.getParameter("Resources");
 		Criptomoneda crip = new Criptomoneda(acron);
 		ArrayList<String> up = new ArrayList<>();
-		String[] array = acron.split(" ");    
+		String[] array = acron.split("\\s+");
 
 		for (String s:array) {
 			up.add(s);

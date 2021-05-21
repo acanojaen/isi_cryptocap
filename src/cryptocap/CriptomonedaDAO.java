@@ -159,10 +159,10 @@ public class CriptomonedaDAO
     	
 		if(stat)
 		{
-	      	sql = "INSERT INTO currency (acronimo) VALUES";
+	      	sql = "INSERT INTO currency (acronimo) VALUES ";
 	      	
 	      	for(int i=0; i < c.size(); i++) {
-	      		sql += " (" + c.get(i) + ")";
+	      		sql += "(" + c.get(i) + ")";
 				
 	      		if(i == c.size()-1) {
 	      			sql += ";";

@@ -32,13 +32,16 @@
                 <div class="heading">
                     <h2 class="text-capitalize text-center text-body">CONFIGURAR CRIPTOMONEDAS</h2>
                 </div>
-                <form id="confirmationForm" method="post" action="upload">
+                <div class="alerta">
+
+                </div>
+                <form>
                     <div class="form-group">
                         <label>Lista de criptomonedas</label> :
                         <textarea id="Resources" name="Resources" form="confirmationForm" rows="10" cols="70"><c:forEach items="${criptos}" var="resource" varStatus="loop">${resource.acronimo}&nbsp;</c:forEach></textarea>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-block btn-lg" type="submit">Cambiar</button>
+                        <button class="btn btn-primary btn-block btn-lg" type="submit" onclick="configurar()">Cambiar</button>
                     </div>
                 </form>
             </div>
@@ -55,6 +58,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
     <script src="/dist/js/script.min.js"></script>
     <script src="https://kit.fontawesome.com/7a8b17dfb3.js" crossorigin="anonymous"></script>
+
+    <script>
+        var exito =     '<div class="alert alert-success">' 
+                      + '¡El scrapeado se ha realizado <strong>con éxito</strong>!'
+                      +  '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
+                      +  '<span aria-hidden="true">&times;</span>'
+                      +  '</button>'
+                      +  '</div>';
+  
+        function configurar(){
+          $.ajax({
+              url: "/upload",
+              type: 'POST',
+              data: {value: document.getElementById("myTextarea").value},
+              success: function(){
+                  $('#alerta').html(exito);
+              }
+          });
+        }
+    </script>
 </body>
 
 </html>

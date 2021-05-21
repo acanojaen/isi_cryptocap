@@ -32,44 +32,39 @@
                     <div class="ficha-criptomoneda">
                         <div class="heading">
                             <img class="responsive" src="${criptos.imagen}"/>
+                            <br><br>
                             <h2 class="text-center">${criptos.nombre}</h2>
                             <h3 class="organization">${criptos.acronimo}</h3>
                         </div>
                         <div class="item">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Precio: </h3>
-                                    <h4 class="organization">${criptos.precio}</h4>
+                                    <h3>Precio: </h3> <h4 class="organization">${criptos.precio}</h4>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Capitalizacion: </h3>
-                                    <h4 class="organization">${criptos.capMercado}</h4>
+                                    <h3>Capitalizacion: </h3> <h4 class="organization">${criptos.capMercado}</h4>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Volumen ultimas 24 horas: </h3>
-                                    <h4 class="organization">${criptos.volumen24}</h4>
+                                    <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.volumen24}</h4>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Volumen ultimos 7 dias: </h3>
-                                    <h4 class="organization">${criptos.volumenTotal}</h4>
+                                    <h3>Volumen ultimos 7 dias: </h3> <h4 class="organization">${criptos.volumenTotal}</h4>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Cambio ultimas 24 horas: </h3>
-                                    <h4 class="organization">${criptos.variacion24}</h4>
+                                    <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization">${criptos.variacion24}</h4>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Cambio ultima semana: </h3>
-                                    <h4 class="organization">${criptos.variacion7}</h4>
+                                    <h3>Cambio ultima semana: </h3> <h4 class="organization">${criptos.variacion7}</h4>
                                 </div>
                             </div>
                             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>

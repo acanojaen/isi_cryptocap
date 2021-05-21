@@ -145,6 +145,28 @@ public class CriptomonedaDAO
 		return res;
     }
     
+    public List<String> getListing() throws SQLException{
+    	List<String> res = new ArrayList<>();
+    	String sql = "SELECT * FROM currency";
+    	PreparedStatement st;
+		ResultSet rs;
+		
+    	connect();
+    	
+		st = jdbcConnection.prepareStatement(sql);
+		rs = st.executeQuery();
+		
+		while(rs.next()) {
+			res.add(rs.getString(1));
+		}
+		
+		rs.close();
+		st.close();
+    	
+		disconnect();
+		return res;
+    }
+    
 	public Criptomoneda getCriptomoneda(String acron) throws SQLException{
 		String sql;
 		sql = "SELECT * FROM criptomonedas";
@@ -284,8 +306,7 @@ public class CriptomonedaDAO
     }
     
     public List<Criptomoneda> investing () throws IOException, SQLException{
-    	List<String> lista = new ArrayList<>(); lista.add("BTC"); lista.add("ETH"); lista.add("USDT"); lista.add("ADA"); lista.add("BNB"); lista.add("DOGE");
-    	lista.add("DOT"); lista.add("HEX"); lista.add("ICP"); lista.add("USDC");
+    	List<String> lista = getListing();
     	List<Criptomoneda> criptos = new ArrayList<>();
     	Webscraping it;
 		String sql;
@@ -365,11 +386,7 @@ public class CriptomonedaDAO
     
     
 	public List<Criptomoneda> coinranking() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
-    	// Test: consiste en buscar la moneda que se quiere a�adir
-    	// si existe: --> UPDATE criptomonedas SET nombre = ?, precio = ?, capitalizacion = ?, url_datos = ? 
-    	// si no existe: --> INSERT INTO criptomonedas (acronimo, nombre, precio, capitalizacion, url_datos) WHERE (?, ?, ?, ?, ?)
-    	List<String> lista = new ArrayList<>(); lista.add("BTC"); lista.add("ETH"); lista.add("USDT"); lista.add("ADA"); lista.add("BNB"); lista.add("DOGE");
-    	lista.add("DOT"); lista.add("HEX"); lista.add("ICP"); lista.add("USDC");
+    	List<String> lista = getListing();
     	List<Criptomoneda> criptos = new ArrayList<>();
         Criptomoneda actual;
         Webscraping it;

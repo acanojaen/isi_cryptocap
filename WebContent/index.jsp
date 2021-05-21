@@ -16,14 +16,13 @@
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
-        <div class="container"><img src="/dist/img/small-logo.png"><a class="navbar-brand logo" href="#">&nbsp; cryptocap</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="/list">Criptomonedas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cv.html">Administracion</a></li>
-                    <li class="nav-item"><a class="nav-link" href="hire-me.html">Informacion</a></li>
-                </ul>
-        </div>
+        <div class="container"><img src="/dist/img/small-logo.png"><a class="navbar-brand logo" href="/">&nbsp; cryptocap</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+           <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/list"><i class="fas fa-coins"></i> Criptomonedas</a></li>
+                <li class="nav-item"><a class="nav-link" href="/config"><i class="fas fa-wrench"></i> Configuración</a></li>
+              </ul>
+          </div>
         </div>
     </nav>
     <main class="page project-page">

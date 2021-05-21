@@ -171,6 +171,8 @@ public class CriptomonedaDAO
 	      		}
 	      	}
 	    	
+	      	System.out.println(sql);
+	      	
 	      	st = jdbcConnection.prepareStatement(sql);
 	      	rs = st.executeQuery();
 	   

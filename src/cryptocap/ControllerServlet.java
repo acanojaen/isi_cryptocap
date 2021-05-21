@@ -110,7 +110,7 @@ public class ControllerServlet extends HttpServlet {
 		}
 		
 		criptomonedaDAO.upload(up);
-    	
+		response.sendRedirect("config");
     }
     
 

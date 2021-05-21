@@ -34,17 +34,13 @@
             <section class="portfolio-block cv">
                 <div class="container">
                     <div class="work-experience group">
+
+                        <div class="heading">
+                            <h2 class="text-capitalize text-center text-body" style="text-transform: capitalize;"><a href="/list"><i class="fas fa-arrow-left"></i></a> ${criptos.nombre}</h2>
+                            <h4 class="organization text-center">${criptos.acronimo}</h4> 
+                          </div>
+
                         <div class="item">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="/list"><i class="fas fa-arrow-left"></i></a>
-                                    <img class="responsive" src="${criptos.imagen}"/> 
-                                    <h3 class="text-center text-capitalize text-body" style="text-transform: capitalize;">${criptos.nombre}</h3>
-                                    <br> 
-                                    <h4 class="organization text-center">${criptos.acronimo}</h4>                        
-                                    
-                                </div>
-                            </div>
                             <c:if test="${criptos.precio != null}">
                                 <div class="row">
                                     <div class="col-md-6">

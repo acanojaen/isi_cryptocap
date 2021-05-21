@@ -184,11 +184,11 @@ public class CriptomonedaDAO
     	
     }
     
-    public boolean addCurrency(Criptomoneda c) throws SQLException {
+    public boolean addCurrency(String acron) throws SQLException {
 		String sql;
     	PreparedStatement st;
     	ResultSet rs;
-    	boolean stat = false;
+    	boolean stat = false;	
     	
     	connect();
     	
@@ -196,7 +196,7 @@ public class CriptomonedaDAO
 		sql += " WHERE acronimo = ?";
 
 		st = jdbcConnection.prepareStatement(sql);
-		st.setString(1, c.getAcronimo());
+		st.setString(1, acron);
 		
 		rs = st.executeQuery();
 		// si FALSE --> INSERT

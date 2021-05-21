@@ -69,10 +69,6 @@ public class ControllerServlet extends HttpServlet {
                 	config(request, response);
                 break;
                 
-                case "/upload":
-                	upload(request, response);
-                break;
-                
                 case "/currency":
                 	insertCurrency(request, response);
                 break;
@@ -84,12 +80,8 @@ public class ControllerServlet extends HttpServlet {
     
     private void insertCurrency(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
     	String acron = request.getParameter("acr");
-    	
-    	response.getWriter().println(acron);
-    	
-//		Criptomoneda crip = new Criptomoneda(acron);
-//    	criptomonedaDAO.addCurrency(crip);
-//		response.sendRedirect("config");
+    	criptomonedaDAO.addCurrency(acron);
+		response.sendRedirect("config");
     }
 
 	private void setDAO(CriptomonedaDAO c) {
@@ -107,19 +99,7 @@ public class ControllerServlet extends HttpServlet {
 		
 		dispatcher.forward(request, response);
     }
-    
-    private void upload(HttpServletRequest request, HttpServletResponse response)
-			throws SQLException, IOException, ServletException {
-		String acron = request.getParameter("data");
-		Criptomoneda crip = new Criptomoneda(acron);
-		ArrayList<String> up = new ArrayList<>();
-		String[] array = acron.split(" ");
-
-		
-		criptomonedaDAO.upload(array);
-		response.sendRedirect("config");
-    }
-    
+        
 
 	private void list(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {

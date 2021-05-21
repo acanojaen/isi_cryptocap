@@ -69,11 +69,10 @@
   
         function configurar(){
           $.ajax({
-              data: document.getElementById("Resources").value,
-              url: "/upload?data=" + data,
+              url: "/upload?data=" + $("#Resources").val(),
               type: 'POST',
               success: function(){
-                  console.log(data);
+                  console.log($("#Resources").val());
                   $('#alerta').html(exito);
               }
           });

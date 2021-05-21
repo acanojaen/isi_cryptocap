@@ -40,11 +40,13 @@
                                     <img class="responsive" src="${criptos.imagen}"/>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h3>Precio: </h3> <h4 class="organization">${criptos.precio}</h4>
+                            <c:if test="${criptos.precio != null}">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h3>Precio: </h3> <h4 class="organization">${criptos.precio}</h4>
+                                    </div>
                                 </div>
-                            </div>
+                            </c:if>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Capitalizacion: </h3> <h4 class="organization">${criptos.capMercado}</h4>
@@ -60,11 +62,13 @@
                                     <h3>Volumen ultimos 7 dias: </h3> <h4 class="organization">${criptos.volumenTotal}</h4>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization">${criptos.variacion24}</h4>
+                            <c:if test="${criptos.variacion24 != null}">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization">${criptos.variacion24}</h4>
+                                    </div>
                                 </div>
-                            </div>
+                            </c:if>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Cambio ultima semana: </h3> <h4 class="organization">${criptos.variacion7}</h4>
@@ -81,7 +85,7 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <c:forEach var="historial" items="${history}" varStatus="status">
+                                  <c:forEach var="historial" items="${hist}" varStatus="status">
                                     <tr>
                                         <td><p>${historial.fecha}</p></td>
                                         <td><b>${historial.acronimo}</b></td>

@@ -70,10 +70,10 @@
         function configurar(){
           $.ajax({
               data: {value: document.getElementById("Resources").value},
-              url: "/upload?data=" + value,
+              url: "/upload?data=" + data.value,
               type: 'POST',
               success: function(){
-                  console.log(data);
+                  console.log(data.value);
                   $('#alerta').html(exito);
               }
           });

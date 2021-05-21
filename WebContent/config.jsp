@@ -35,11 +35,7 @@
                 <form method="post" action="upload">
                     <div class="form-group">
                         <label>Lista de criptomonedas</label> :
-                        <textarea id="Resources" name="Resources" rows="10" cols="70">
-                        <c:forEach items="${criptos}" var="resource" varStatus="loop">
-                        ${resource.acronimo}&nbsp;
-                        </c:forEach>
-                        </textarea>
+                        <textarea id="Resources" name="Resources" rows="10" cols="70"><c:forEach items="${criptos}" var="resource" varStatus="loop">${resource.acronimo}&nbsp;</c:forEach></textarea>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-block btn-lg" type="submit">Cambiar</button>

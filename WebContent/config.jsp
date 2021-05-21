@@ -44,7 +44,7 @@
                     </c:forEach>
                     <div class="form-group">
                         <textarea id="Resources" name="Resources" rows="10" cols="70">
-                            <c:out value = "${xv}"/>
+                            ${xv}
                         </textarea>
 
                     </div>

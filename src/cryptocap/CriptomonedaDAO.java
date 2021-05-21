@@ -289,8 +289,6 @@ public class CriptomonedaDAO
     	ResultSet rs;
     	boolean stat = false;
     	
-    	connect();
-
     	sql = "INSERT INTO history (fecha, acronimo, precio)";
 		sql += " VALUES (?, ?, ?)";
 		st = jdbcConnection.prepareStatement(sql);
@@ -301,7 +299,6 @@ public class CriptomonedaDAO
 		stat = st.executeUpdate() > 0;
 		st.close();
 			
-		disconnect();
 		
 		return stat;
     }

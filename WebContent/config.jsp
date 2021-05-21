@@ -38,11 +38,11 @@
                 <form>
                     <div class="form-group">
                         <label>Lista de criptomonedas</label> :
-                        <textarea id="Resources" name="Resources" form="confirmationForm" rows="10" cols="70"><c:forEach items="${criptos}" var="resource" varStatus="loop">${resource.acronimo}&nbsp;</c:forEach></textarea>
+                        <textarea id="Resources" name="Resources" form="confirmationForm" rows="10" cols="70"><c:forEach items="${criptos}" var="resource" varStatus="loop"><c:set var='total' value="${total} + ' ' + ${resource.criptomoneda}>"/>${resource.criptomoneda}&nbsp;</c:forEach></textarea>
                     </div>
                     <div class="form-group">
                         <c:set var="contador" value="${0}" />
-                        <a href="/update?value=<c:forEach items='${criptos}'' var='resource' varStatus='loop'>${resource.acronimo}:</c:forEach>"></a>  
+                        <a href="/update?value=<c:out value='${total}' />"></a>  
                         <button class="btn btn-primary btn-block btn-lg" type="submit" onclick="configurar()">Cambiar</button>
                     </div>
                 </form>

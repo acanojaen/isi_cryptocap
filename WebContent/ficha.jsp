@@ -29,10 +29,9 @@
         <main class="page cv-page">
             <section class="portfolio-block cv">
                 <div class="container">
-                    <div class="ficha-criptomoneda">
+                    <div class="work-experience group">
                         <div class="heading">
                             <img class="responsive" src="${criptos.imagen}"/>
-                            <br><br>
                             <h2 class="text-center">${criptos.nombre}</h2>
                             <h3 class="organization">${criptos.acronimo}</h3>
                         </div>

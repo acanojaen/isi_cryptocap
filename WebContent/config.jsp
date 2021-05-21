@@ -20,8 +20,8 @@
         <div class="container"><img src="/dist/img/small-logo.png"><a class="navbar-brand logo" href="/">&nbsp; cryptocap</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
            <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="/list"><i class="fas fa-coins"></i> Criptomonedas</a></li>
-                <li class="nav-item"><a class="nav-link" href="/config"><i class="fas fa-wrench"></i> Configuración</a></li>
+                <li class="nav-item"><a class="nav-link" href="/list"><i class="fas fa-coins"></i>&nbsp;Criptomonedas</a></li>
+                <li class="nav-item"><a class="nav-link" href="/config"><i class="fas fa-wrench"></i>&nbsp;Configuración</a></li>
               </ul>
           </div>
         </div>

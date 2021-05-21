@@ -33,7 +33,10 @@
                     <div class="work-experience group">
 
                         <div class="heading" style="display: inline !important">
-                            <h2 class="text-capitalize text-center text-body" style="text-transform: capitalize;"><a href="/list"><i class="fas fa-arrow-left float-left"></i></a> ${criptos.nombre} <h4 class="organization text-center">${criptos.acronimo}</h4> </h2>
+                            <h2 class="text-capitalize text-center text-body" style="text-transform: capitalize;">
+                                <a href="/list"><i class="fas fa-arrow-left float-left"></i><br></a> <br>
+                                <img class="responsive" src="${criptomoneda.imagen}"/>${criptos.nombre}
+                            </h2>
                             
                         </div>
 

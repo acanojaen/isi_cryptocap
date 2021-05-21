@@ -41,7 +41,7 @@
                             <div class="col-md-6">
                                 <h3>${criptomoneda.nombre}</h3>
                                 <h4 class="organization">${criptomoneda.acronimo}</h4>
-                                <h4 class="organization" style="background: #c6a00c;">${criptomoneda.precio}</h4>
+                                <h4 class="organization" style="background: #c6a00c;">$ ${criptomoneda.precio}</h4>
                             </div>
                             <div class="col-md-6"><span class="period">${criptomoneda.ultimaActualizacion}</span></div>
                             <div class="col-md-6">
@@ -67,7 +67,7 @@
                           <div class="col-6"><span class="period">https://coinranking.com/</span></div>
                       </div>
                       <div class="row">
-                        <div class="col-md-6"><p class="text-muted">Realizamos un web-scraping básico de las criptomonedas que nosotros seleccionemos. Obtenemos los siguientes valores:
+                        <div class="col-md-6"><p class="text-muted">Obtenemos los siguientes valores de las criptomonedas:
                             <ul>
                                 <li>Nombre</li>
                                 <li>Acrónimo</li>
@@ -126,7 +126,7 @@
           </button>
         </div>
         <div class="modal-body" id="scrap_body">
-            <%= request.getAttribute("answer") %>
+            <pre><%= request.getAttribute("answer") %></pre><%= request.getAttribute("answer") %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_investing()">Actualizar</button>
@@ -165,7 +165,9 @@
 
       function scrap_investing(){
         $.ajax({
-            type: 'GET',
+            data: {para:jsonObj},
+            datatype: 'json',
+            type: 'POST',
             url: "/investing",
             success: function(){
                 $('#scrap').modal('show');

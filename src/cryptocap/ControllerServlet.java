@@ -1,6 +1,7 @@
 package cryptocap;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.sql.*;
@@ -12,6 +13,9 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.servlet.http.HttpServlet;
 
 public class ControllerServlet extends HttpServlet {
@@ -74,7 +78,8 @@ public class ControllerServlet extends HttpServlet {
 		} catch (SQLException e) {
 			throw new ServletException("No se han podido recuperar las criptomonedas", e);
 		}
-		
+		ObjectMapper mapper = new ObjectMapper();
+
 		request.setAttribute("criptos", list);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
 		
@@ -106,11 +111,12 @@ public class ControllerServlet extends HttpServlet {
 
     private void investing(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException, URISyntaxException, ClassNotFoundException, ServletException {
-    	List<Criptomoneda> list = new ArrayList<>();
-        list = criptomonedaDAO.investing();
-        
-        for(int i=0; i<list.size(); i++){
-        	response.getWriter().println(list.get(i).toString());
-        }
+    	List<String> json = new ArrayList<>();
+        json = criptomonedaDAO.investing();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("utf-8");
+        PrintWriter out = response.getWriter();
+        out.println(json);
+        out.close();
     }
 }

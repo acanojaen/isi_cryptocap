@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.sql.*;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mysql.jdbc.Driver;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -98,7 +100,7 @@ public class CriptomonedaDAO
 		rs = st.executeQuery();
 
 		while(rs.next()) {
-			c.add(new Criptomoneda(rs.getString(2), rs.getString(1), "", rs.getString(3), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(4)));
+			c.add(new Criptomoneda(rs.getString(2), rs.getString(1), "", rs.getString(3), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),  rs.getString(10), rs.getString(4)));
 		}
 		
 		rs.close();
@@ -129,12 +131,13 @@ public class CriptomonedaDAO
     	
     }
     
-    public List<Criptomoneda> investing () throws IOException, SQLException{
+    public List<String> investing () throws IOException, SQLException{
     	List<String> lista = new ArrayList<>(); lista.add("BTC"); lista.add("ETH"); lista.add("USDT"); lista.add("ADA"); lista.add("BNB"); lista.add("DOGE");
     	lista.add("DOT"); lista.add("HEX"); lista.add("ICP"); lista.add("USDC");
     	List<Criptomoneda> criptos = new ArrayList<>();
-        Criptomoneda actual;
-        Webscraping it;
+    	Criptomoneda crip;
+    	List<String> json = new ArrayList<>();
+    	Webscraping it;
 		String sql;
 		PreparedStatement st;
 		ResultSet rs;
@@ -144,7 +147,10 @@ public class CriptomonedaDAO
         // Recorremos la lista de criptomonedas
         for(int i=0; i<lista.size(); i++){
         	it = new Webscraping();
-            criptos.add(it.Investing(lista.get(i)));
+        	crip=it.Investing(lista.get(i));
+            criptos.add(crip);
+            ObjectMapper mapper = new ObjectMapper();
+			json.add(mapper.writeValueAsString(crip));
             
         	acronimo = criptos.get(i).getAcronimo();
         	nombre = criptos.get(i).getNombre();
@@ -206,7 +212,7 @@ public class CriptomonedaDAO
 
         disconnect();
 
-        return criptos;
+        return json;
     }
     
     

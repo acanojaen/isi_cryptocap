@@ -39,7 +39,7 @@
 
                         <div class="item">
                             <div class="row">
-                                <c:if test="${criptos.precio is not empty}">
+                                <c:if test="${not empty criptos.precio}">
                                     <div class="col-md-6">
                                         <h3>Precio: </h3> <h4 class="organization">${criptos.precio}</h4>
                                     </div>
@@ -48,18 +48,22 @@
                                 <div class="col-md-6">
                                     <h3>Capitalizacion: </h3> <h4 class="organization">${criptos.capMercado}</h4>
                                 </div>
-                                
-                                <div class="col-md-6">
-                                    <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.volumen24}</h4>
-                                </div>
+
+                                <c:if test="${not empty criptos.volumen24}">
+                                    <div class="col-md-6">
+                                        <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.volumen24}</h4>
+                                    </div>
+                                </c:if>
 
                                 <div class="col-md-6">
                                     <h3>Volumen ultimos 7 dias: </h3> <h4 class="organization">${criptos.volumenTotal}</h4>
                                 </div>
                                 
-                                <div class="col-md-6">
-                                    <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization">${criptos.variacion24}</h4>
-                                </div>
+                                <c:if test="${not empty criptos.variacion24}"> 
+                                    <div class="col-md-6">
+                                        <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization">${criptos.variacion24}</h4>
+                                    </div>
+                                </c:if>
 
                                 <div class="col-md-6">
                                     <h3>Cambio ultima semana: </h3> <h4 class="organization">${criptos.variacion7}</h4>

@@ -34,12 +34,12 @@
                 <div class="heading">
                     <h2 class="text-capitalize text-center text-body">CONFIGURAR CRIPTOMONEDAS</h2>
                 </div>
-                <form>
+                <form method="post" action="upload">
                     <div class="form-group">
                         <label>Lista de criptomonedas</label> :
                         <textarea id="Resources" name="Resources" rows="10" cols="70">
                             <c:forEach items="${criptos}" var="resource" varStatus="loop">
-                                ${resource.acronimo}<br>
+                                ${resource.acronimo}
                             </c:forEach>
                         </textarea>
                     </div>

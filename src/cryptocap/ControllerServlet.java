@@ -68,6 +68,10 @@ public class ControllerServlet extends HttpServlet {
                 case "/config":
                 	config(request, response);
                 break;
+                
+                case "/upload":
+                	upload(request, response);
+                break;
                 	
             }
         } catch (SQLException | URISyntaxException | ClassNotFoundException e){
@@ -96,7 +100,7 @@ public class ControllerServlet extends HttpServlet {
     
     private void upload(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		String acron = request.getParameter("lista");
+		String acron = request.getParameter("Resources");
 		Criptomoneda crip = new Criptomoneda(acron);
 		ArrayList<String> up = new ArrayList<>();
 		String[] array = acron.split(" ");    

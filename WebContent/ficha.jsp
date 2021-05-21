@@ -33,9 +33,9 @@
                     <div class="work-experience group">
 
                         <div class="heading" style="display: inline !important">
-                            <h2 class="text-capitalize text-center text-body" style="text-transform: capitalize;"><a href="/list"><i class="fas fa-arrow-left float-left"></i></a> ${criptos.nombre}</h2>
-                            <h4 class="organization text-center">${criptos.acronimo}</h4> 
-                          </div>
+                            <h2 class="text-capitalize text-center text-body" style="text-transform: capitalize;"><a href="/list"><i class="fas fa-arrow-left float-left"></i></a> ${criptos.nombre} <h4 class="organization text-center">${criptos.acronimo}</h4> </h2>
+                            
+                        </div>
 
                         <div class="item">
                             <div class="row">
@@ -69,30 +69,32 @@
                                     <h3>Cambio ultima semana: </h3> <h4 class="organization">${criptos.variacion7}</h4>
                                 </div>
                             </div>
-
-                            <div class="row">
-
-                                <h2 class="text-capitalize text-center text-body"><i class="fas fa-history"> HISTORIAL DE PRECIOS</i></h2>
-                                <div class="col-md-6">
-                                    <table class="table">
-                                        <tr>
-                                            <th scope="col">Fecha</th>
-                                            <th scope="col">Acrónimo</th>
-                                            <th scope="col">Valor</th>
-                                        </tr>
-                                        
-                                        <c:forEach items="${hist}" var="historial">
-                                            <tr>
-                                                <td>${historial.fecha}</td>
-                                                <td>${historial.acronimo}</td>
-                                                <td>${historial.valor}</td>
-                                            </tr>
-                                        </c:forEach>
-                                    </table>
-                                </div>
-                            </div>
-                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
                         </div>
+
+                        <div class="heading" style="display: inline !important">
+                            <h2 class="text-capitalize text-center text-body"><i class="fas fa-history"> HISTORIAL DE PRECIOS</i></h2>
+                        </div>
+
+                        <div class="col-md-12">
+                            <table class="table">
+                                <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Acrónimo</th>
+                                    <th scope="col">Valor</th>
+                                </tr>
+                                
+                                <c:forEach items="${hist}" var="historial">
+                                    <tr>
+                                        <td>${historial.fecha}</td>
+                                        <td>${historial.acronimo}</td>
+                                        <td>${historial.valor}</td>
+                                    </tr>
+                                </c:forEach>
+                            </table>
+                        </div>
+                        
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
+                        
                     </div>
                     
                 </div>

@@ -35,8 +35,8 @@
                 <div class="container">
                     <div class="work-experience group">
 
-                        <div class="heading">
-                            <h2 class="text-capitalize text-center text-body" style="text-transform: capitalize;"><a href="/list"><i class="fas fa-arrow-left"></i></a> ${criptos.nombre}</h2>
+                        <div class="heading" style="line-height: 20%;">
+                            <h2 class="text-capitalize text-center text-body" style="text-transform: capitalize;"><a href="/list"><i class="fas fa-arrow-left float-left"></i></a> ${criptos.nombre}</h2>
                             <h4 class="organization text-center">${criptos.acronimo}</h4> 
                           </div>
 

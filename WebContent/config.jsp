@@ -39,7 +39,7 @@
                         <label>Lista de criptomonedas</label> :
                         <textarea id="Resources" name="Resources" rows="10" cols="70">
                             <c:forEach items="${criptos}" var="resource" varStatus="loop">
-                                <c:out value='${resource.acronimo}\r\n'/>
+                                ${resource.acronimo}<br>
                             </c:forEach>
                         </textarea>
                     </div>

@@ -29,11 +29,11 @@
         <main class="page cv-page">
             <section class="portfolio-block cv">
                 <div class="container">
-                    <div class="work-experience group">
+                    <div class="ficha-criptomoneda">
                         <div class="heading">
                             <img class="responsive" src="${criptos.imagen}"/>
-                            <h3 class="text-center">${criptos.nombre}</h3>
-                            <h4 class="organization">${criptos.acronimo}</h4>
+                            <h2 class="text-center">${criptos.nombre}</h2>
+                            <h3 class="organization">${criptos.acronimo}</h3>
                         </div>
                         <div class="item">
                             <div class="row">
@@ -75,62 +75,14 @@
                             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
                         </div>
                     </div>
-                    <div class="group">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="skills portfolio-info-card">
-                                    <h2>Skills</h2>
-                                    <h3>HTML</h3>
-                                    <div class="progress">
-                                        <div class="progress-bar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"><span class="sr-only">100%</span></div>
-                                    </div>
-                                    <h3>PHP</h3>
-                                    <div class="progress">
-                                        <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"><span class="sr-only">90%</span></div>
-                                    </div>
-                                    <h3>JavaScript</h3>
-                                    <div class="progress">
-                                        <div class="progress-bar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"><span class="sr-only">80%</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="contact-info portfolio-info-card">
-                                    <h2>Contact Info</h2>
-                                    <div class="row">
-                                        <div class="col-1"><i class="icon ion-android-calendar icon"></i></div>
-                                        <div class="col-9"><span>10/10/1990</span></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-1"><i class="icon ion-person icon"></i></div>
-                                        <div class="col-9"><span>John Smith</span></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-1"><i class="icon ion-ios-telephone icon"></i></div>
-                                        <div class="col-9"><span>+235 3217 424</span></div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-1"><i class="icon ion-at icon"></i></div>
-                                        <div class="col-9"><span>lorem@email.com</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hobbies group">
-                        <div class="heading">
-                            <h2 class="text-center">Hobbies</h2>
-                        </div>
-                        <p class="text-center text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras risus ligula, iaculis ut metus sit amet, luctus pharetra mauris. Aliquam purus felis, pretium vel pretium vitae, dapibus sodales ante. Suspendisse potenti. Duis nunc eros.</p>
-                    </div>
                 </div>
             </section>
         </main>
     </c:if>
     <c:if test="${criptos.acronimo == null}">
 
-
     </c:if>
+
     <footer class="page-footer">
         <div class="container">
             <div class="links"><a href="#">ISI 2021</a><a href="#">Contáctanos</a><a href="#">Github</a></div>

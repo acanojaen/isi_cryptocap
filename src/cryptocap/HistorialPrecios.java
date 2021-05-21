@@ -3,19 +3,30 @@ package cryptocap;
 import java.util.Date;
 
 public class HistorialPrecios {
-	Date fecha;
+	String acronimo;
+	String fecha;
 	float valor;
 	
-	public HistorialPrecios(Date fecha, float valor) {
+	public HistorialPrecios(String acronimo, String fecha, float valor) {
 		this.fecha = fecha;
 		this.valor = valor;
 	}
+	
+	public String getAcronimo() {
+		return acronimo;
+	}
 
-	public Date getFecha() {
+
+
+	public void setAcronimo(String acronimo) {
+		this.acronimo = acronimo;
+	}
+
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 

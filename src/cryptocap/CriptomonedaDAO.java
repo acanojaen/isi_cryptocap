@@ -275,6 +275,37 @@ public class CriptomonedaDAO
 		return stat;
     }
     
+    public Float parsePrecio(String precio) {
+    	precio = precio.replace(".","");
+    	precio = precio.replace(",",".");
+    	
+    	return (Float.parseFloat(precio));
+    }
+    
+    public boolean addToHistory(String acron, String precio) throws SQLException {
+		String sql;
+    	PreparedStatement st;
+    	ResultSet rs;
+    	boolean stat = false;
+    	
+    	connect();
+
+    	sql = "INSERT INTO currency (fecha, acronimo, precio)";
+		sql += " VALUES (?, ?, ?)";
+		st = jdbcConnection.prepareStatement(sql);
+		
+		st.setString(1, cryptocap.Webscraping.getActualHour());
+		st.setString(2, acron);
+		st.setFloat(3, parsePrecio(precio));
+		stat = st.executeUpdate() > 0;
+		st.close();
+			
+		disconnect();
+		
+		return stat;
+    }
+    
+    
     public boolean remove(Criptomoneda c, String entity) throws SQLException{
     	String sql;
     	PreparedStatement st;
@@ -312,6 +343,7 @@ public class CriptomonedaDAO
 		String sql;
 		PreparedStatement st;
 		ResultSet rs;
+    	boolean stat = false;
 		
 		connect();
     	
@@ -352,8 +384,9 @@ public class CriptomonedaDAO
     			st.setString(7, volTotal);
     			st.setString(8, lastdaychange);
     			st.setString(9, sevendaychange);
+    			stat = st.executeUpdate() > 0;
+    			stat = addToHistory(acronimo, precio);
     			
-    			boolean rowInserted = st.executeUpdate() > 0;
     			st.close();
     			
     		} else {
@@ -372,7 +405,8 @@ public class CriptomonedaDAO
     			st.setString(8, sevendaychange);
     			st.setString(9, acronimo);
     			
-    			boolean rowInserted = st.executeUpdate() > 0;
+    			stat = st.executeUpdate() > 0;
+    			stat = addToHistory(acronimo, precio);
     			st.close();
     		}
 

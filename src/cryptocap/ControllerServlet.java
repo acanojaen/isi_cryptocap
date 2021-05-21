@@ -146,9 +146,6 @@ public class ControllerServlet extends HttpServlet {
 		}
 		
 	}
-	
-
-	
 
     private void coinranking(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException, URISyntaxException, ClassNotFoundException, ServletException {

@@ -56,6 +56,10 @@ public class ControllerServlet extends HttpServlet {
                 case "/list":
             		list(request, response);
                 break;
+
+                case "/ficha":
+            		list(request, response);
+                break;
                 
                 case "/eliminar":
                 	delete(request, response);
@@ -116,6 +120,17 @@ public class ControllerServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	
+    private void ficha(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+        String acron= request.getParameter("acronimo");
+        Criptomoneda crip= criptomonedaDAO.getCriptomoneda(acron);
+
+        request.setAttribute("criptos", crip);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ficha.jsp");
+        
+        dispatcher.forward(request, response);
+    }
+
 	private void delete(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		String acron = request.getParameter("id");

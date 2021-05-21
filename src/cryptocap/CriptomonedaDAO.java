@@ -145,6 +145,43 @@ public class CriptomonedaDAO
 		return res;
     }
     
+	public boolean getCriptomoneda(String acron){
+		String sql;
+		sql = "SELECT * FROM criptomoneda";
+		sql += " WHERE acronimo = ?";
+		PreparedStatement st;
+		ResultSet rs;
+
+		connect();
+
+		st = jdbcConnection.prepareStatement(sql);
+		st.setString(1, acron);
+		
+		rs = st.executeQuery();
+		if(rs.next()) {
+			nombre = rs.getString(2);
+	    	acronimo = rs.getString(1);
+	    	imagen = rs.getString(11);
+	    	urlDatos = rs.getString(3);
+	    	precio = rs.getString(5);
+	    	capitalizacion = rs.getString(6);
+	    	vol24 = rs.getString(7);
+	    	volTotal = rs.getString(8); 
+	    	lastdaychange = rs.getString(9);
+	    	sevendaychange = rs.getString(10);
+	    	ultAct = rs.getString(4);
+			
+			rs.close();
+			st.close();
+
+			return (new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct)));				
+		}
+		rs.close();
+		st.close();
+		disconnect();
+    	return (new Criptomoneda("Error"));
+	}
+
     public boolean upload(String[] c) throws SQLException{
 		String sql;
 		boolean stat;
@@ -328,7 +365,7 @@ public class CriptomonedaDAO
     
     
 	public List<Criptomoneda> coinranking() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
-    	// Test: consiste en buscar la moneda que se quiere añadir
+    	// Test: consiste en buscar la moneda que se quiere aï¿½adir
     	// si existe: --> UPDATE criptomonedas SET nombre = ?, precio = ?, capitalizacion = ?, url_datos = ? 
     	// si no existe: --> INSERT INTO criptomonedas (acronimo, nombre, precio, capitalizacion, url_datos) WHERE (?, ?, ?, ?, ?)
     	List<String> lista = new ArrayList<>(); lista.add("BTC"); lista.add("ETH"); lista.add("USDT"); lista.add("ADA"); lista.add("BNB"); lista.add("DOGE");
@@ -355,7 +392,7 @@ public class CriptomonedaDAO
             imagen = criptos.get(i).getImagen();
             
             
-            // QUERY1: ¿Existe la moneda "i"?
+            // QUERY1: ï¿½Existe la moneda "i"?
     		sql = "SELECT * FROM criptomonedas";
     		sql += " WHERE acronimo = ?";
     	

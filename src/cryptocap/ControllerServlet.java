@@ -106,8 +106,7 @@ public class ControllerServlet extends HttpServlet {
 		String[] array = acron.split(" ");
 
 		
-		criptomonedaDAO.upload(array);
-		response.sendRedirect("config");
+		response.getWriter().println(array);
     }
     
 

@@ -59,6 +59,11 @@ public class ControllerServlet extends HttpServlet {
                 case "/eliminar":
                 	delete(request, response);
                 break;
+                
+                case "/test":
+                	test(request, response);
+                break;
+                	
             }
         } catch (SQLException | URISyntaxException | ClassNotFoundException e){
             throw new ServletException(e);
@@ -116,5 +121,15 @@ public class ControllerServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
 		
 		dispatcher.forward(request, response);
+    }
+    
+    private void test(HttpServletRequest request, HttpServletResponse response) 
+            throws SQLException, IOException, URISyntaxException, ClassNotFoundException, ServletException {
+        List<Criptomoneda> criptos = new ArrayList<>();
+        criptos = criptomonedaDAO.coinranking();
+        
+        for(int i=0;i<criptos.size();i++) {
+        	response.getWriter().println(criptos.get(i).toString());
+        }
     }
 }

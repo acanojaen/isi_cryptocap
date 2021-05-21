@@ -135,7 +135,6 @@ public class CriptomonedaDAO
     	List<String> lista = new ArrayList<>(); lista.add("BTC"); lista.add("ETH"); lista.add("USDT"); lista.add("ADA"); lista.add("BNB"); lista.add("DOGE");
     	lista.add("DOT"); lista.add("HEX"); lista.add("ICP"); lista.add("USDC");
     	List<Criptomoneda> criptos = new ArrayList<>();
-    	Criptomoneda crip;
     	Webscraping it;
 		String sql;
 		PreparedStatement st;
@@ -146,8 +145,7 @@ public class CriptomonedaDAO
         // Recorremos la lista de criptomonedas
         for(int i=0; i<lista.size(); i++){
         	it = new Webscraping();
-        	crip=it.Investing(lista.get(i));
-            criptos.add(crip);
+            criptos.add(it.Investing(lista.get(i)));
             
         	acronimo = criptos.get(i).getAcronimo();
         	nombre = criptos.get(i).getNombre();

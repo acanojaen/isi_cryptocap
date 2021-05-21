@@ -57,7 +57,7 @@
                   </c:forEach>
               </div>
               <div class="education group">
-                  <div class="heading">ACTUALIZACIAR DATOS</h2>
+                  <h2 class="text-capitalize text-center text-body">ACTUALIZAR DATOS</h2>
                   </div>
                   <div id="alerta" class="alerta"></div>
                   <div class="item">

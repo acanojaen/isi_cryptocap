@@ -57,7 +57,8 @@
                   </c:forEach>
               </div>
               <div class="education group">
-                  <h2 class="text-capitalize text-center text-body">ACTUALIZAR DATOS</h2>
+                  <div class="heading">
+                    <h2 class="text-capitalize text-center text-body">PRECIOS ACTUALIZADOS DE CRIPTOMONEDAS</h2>
                   </div>
                   <div id="alerta" class="alerta"></div>
                   <div class="item">

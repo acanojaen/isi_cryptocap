@@ -56,7 +56,7 @@ public class Webscraping {
 			for (Element elem : element) {
 				nombre = elem.getElementsByClass("profile__link").text();
 				acronimo = elem.getElementsByClass("profile__subtitle").text();
-				imagen = elem.getElementsByClass("profile__logo-background").text();
+				imagen = elem.getElementsByClass("table__logo").attr("src");
 				urlDatos = url + elem.getElementsByClass("profile__link").attr("href");
 				ultAct = getActualHour();
 

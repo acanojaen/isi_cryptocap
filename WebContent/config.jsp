@@ -36,11 +36,14 @@
                 <form>
                     <c:set var="xv"></c:set>
                     <c:forEach items="${criptos}" var="x">
-                        <c:if test="${not empty x}">
-                            <c:choose>
-                                <c:set var="xv" value="${xv},${x.acronimo}"></c:set>
-                            </c:choose>
-                            </c:if>
+                        <c:choose>
+                            <c:when test="${empty x'}">
+                                <c:set var="xv" value="${xv} ${x.acronimo}"></c:set>
+                            </c:when>    
+                            <c:otherwise>
+                                <c:set var="xv" value="${x.acronimo}"></c:set>
+                            </c:otherwise>
+                        </c:choose>
                     </c:forEach>
                     <div class="form-group">
                         <textarea id="Resources" name="Resources" rows="10" cols="70">

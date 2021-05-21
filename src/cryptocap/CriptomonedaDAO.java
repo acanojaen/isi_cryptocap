@@ -441,8 +441,8 @@ public class CriptomonedaDAO
     			st.setString(1, nombre);
     			st.setString(2, urlDatos);
     			st.setString(3, ultAct);
-    			st.setString(4, acronimo);
-       			st.setString(5, imagen);
+       			st.setString(4, imagen);
+    			st.setString(5, acronimo);
     			
     			boolean rowInserted = st.executeUpdate() > 0;
     			st.close();

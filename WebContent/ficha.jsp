@@ -31,9 +31,9 @@
                 <div class="container">
                     <div class="work-experience group">
                         <div class="heading">
-                            <h2 class="text-left">${criptos.imagen}</h2>
-                            <h2 class="text-center">${criptos.nombre}</h2>
-                            <h2 class="text-right">${criptos.acronimo}</h2>
+                            <img class="responsive" src="${criptos.imagen}"/>
+                            <h3 class="text-center">${criptos.nombre}</h3>
+                            <h4 class="organization">${criptos.acronimo}</h4>
                         </div>
                         <div class="item">
                             <div class="row">
@@ -50,13 +50,13 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Volumen untimas 24 horas: </h3>
+                                    <h3>Volumen ultimas 24 horas: </h3>
                                     <h4 class="organization">${criptos.volumen24}</h4>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Volumen untimos 7 dias: </h3>
+                                    <h3>Volumen ultimos 7 dias: </h3>
                                     <h4 class="organization">${criptos.volumenTotal}</h4>
                                 </div>
                             </div>

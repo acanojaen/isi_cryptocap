@@ -49,7 +49,7 @@ public class Criptomoneda {
 		this.variacion7 = crip.getVariacion7();
 	}
 
-	Criptomoneda(String nom, String acron, String imag, String url, String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct){
+	public Criptomoneda(String nom, String acron, String imag, String url, String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct){
 		this.nombre = nom;
 		this.acronimo = acron;
 		this.imagen = imag;
@@ -65,7 +65,7 @@ public class Criptomoneda {
 		this.ultimaActualizacion = ultAct;
 	}
 
-	Criptomoneda(String acron, String nombre, String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct){
+	public Criptomoneda(String acron, String nombre, String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct){
 		this.acronimo = acron;
 		this.nombre = nombre;
 		this.precio = prec;

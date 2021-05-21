@@ -115,6 +115,35 @@ public class Webscraping {
 			return (new Criptomoneda("Codigo != 200"));
 		}
 	}
+
+	public Criptomoneda Test(String acron) throws IOException {
+		String url2 = "https://es.investing.com/crypto/";
+		int code;
+		ultAct = getActualHour();
+		
+		code = connect(url2);
+		
+		// acceso correcto
+		if(code == 200) {
+			// cargamos el html de la p�gina
+			Document doc = html(url2);
+			
+			Elements element = doc.select("table > tbody > tr:has(td)");
+			
+			// recorremos todas las criptomonedas
+			for (Element elem : element) {
+				return (new Criptomoneda(element.html(), getActualHour()));
+               
+			}
+			
+			// si no se encuentra
+			return (new Criptomoneda(acron, getActualHour()));
+			
+		} else {
+			// si el codigo no es 200 (�xito)
+			return (new Criptomoneda("Codigo != 200"));
+		}
+	}
 	
 
 	public static int connect(String url) throws IOException {

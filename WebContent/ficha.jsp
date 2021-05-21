@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="/dist/bootstrap/css/style.css">
-    <style>
-        .h3.h4{display: inline !important;}
-    </style>
 </header>
 
 <body>
@@ -35,7 +32,7 @@
                 <div class="container">
                     <div class="work-experience group">
 
-                        <div class="heading" style="line-height: 20%;">
+                        <div class="heading" style="display: inline !important">
                             <h2 class="text-capitalize text-center text-body" style="text-transform: capitalize;"><a href="/list"><i class="fas fa-arrow-left float-left"></i></a> ${criptos.nombre}</h2>
                             <h4 class="organization text-center">${criptos.acronimo}</h4> 
                           </div>

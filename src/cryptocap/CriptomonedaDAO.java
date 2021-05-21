@@ -53,6 +53,7 @@ public class CriptomonedaDAO
     
 	String acronimo;
 	String nombre;
+	String imagen;
 	String urlDatos;
 	String ultAct;
 	String precio;
@@ -237,6 +238,7 @@ public class CriptomonedaDAO
             acronimo = criptos.get(i).getAcronimo();
             urlDatos = criptos.get(i).getUrlDatos();
             ultAct = criptos.get(i).getUltimaActualizacion();
+            imagen = criptos.get(i).getImagen();
             
             
             // QUERY1: ¿Existe la moneda "i"?
@@ -249,14 +251,15 @@ public class CriptomonedaDAO
     		rs = st.executeQuery();
     		// si FALSE --> INSERT
     		if(!rs.next()) {
-    			sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct)";
-    			sql += " VALUES (?, ?, ?, ?)";
+    			sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct, urlImagen)";
+    			sql += " VALUES (?, ?, ?, ?, ?)";
     			
     			st = jdbcConnection.prepareStatement(sql);
     			st.setString(1, acronimo);
     			st.setString(2, nombre);
     			st.setString(3, urlDatos);
     			st.setString(4, ultAct);
+    			st.setString(5, imagen);
     			
     			boolean rowInserted = st.executeUpdate() > 0;
     			st.close();

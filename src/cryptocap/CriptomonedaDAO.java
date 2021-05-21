@@ -259,7 +259,7 @@ public class CriptomonedaDAO
 		st.setString(1, acron);
 		
 		rs = st.executeQuery();
-		if(rs.next()) {
+		while(rs.next()) {
 			ultAct = rs.getString(1);
 	    	acronimo = rs.getString(2);
 	    	precio_parsed = rs.getFloat(3);

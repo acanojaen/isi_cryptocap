@@ -34,8 +34,8 @@
 
                         <div class="heading" style="display: inline !important">
                             <h2 class="text-capitalize text-center text-body" style="text-transform: capitalize;">
-                                <a href="/list"><i class="fas fa-arrow-left float-left"></i><br></a> <br>
-                                <img class="responsive" src="${criptomoneda.imagen}"/>${criptos.nombre}
+                                <a href="/list"><i class="fas fa-arrow-left float-left"></i></a>
+                                <img class="responsive" src="${criptos.imagen}"/>${criptos.nombre}
                             </h2>
                             
                         </div>

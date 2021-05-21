@@ -46,13 +46,13 @@
                     </c:forEach>
 
                     <div class="col-md-6 col-lg-4">
+                        <div class="project-card-no-image">
                             <form method="post" action="currency">
                                 <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce el acrónimo">
                                 <small id="acronimoHelp" class="form-text text-muted">Debe estar en formato "XXXX" (max. 10 caracteres)</small>
-                                <div class="tags">
-                                    <input class="btn btn-warning btn-sm float-right" type="submit" role="button"><i class="far fa-trash-alt" style="color: white;"></i></a>
-                                </div>
+                                <input class="btn btn-warning btn-sm float-right" type="submit" role="button"><i class="far fa-trash-alt" style="color: white;"></i></a>
                             </form>
+                        </div>
                     </div>
                 </div>
             </div>

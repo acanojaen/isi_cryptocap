@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <c:set var="contador" value="${0}" />
-                        <a href="/update?<c:forEach items='${criptos}'' var='resource' varStatus='loop'>id_${contador}=${resource.acronimo}&nbsp;<c:set var='contador' value='${contador+1}' /></c:forEach>"></a>  
+                        <a href="/update?value=<c:forEach items='${criptos}'' var='resource' varStatus='loop'>${resource.acronimo}:</c:forEach>"></a>  
                         <button class="btn btn-primary btn-block btn-lg" type="submit" onclick="configurar()">Cambiar</button>
                     </div>
                 </form>

@@ -27,25 +27,24 @@
         </div>
     </nav>
     <main class="page project-page">
-        <section class="portfolio-block project">
+        <section class="portfolio-block project-no-images">
             <div class="container">
                 <div class="heading">
                     <h2 class="text-capitalize text-center text-body">CONFIGURAR CRIPTOMONEDAS</h2>
                 </div>
-                <div id="alerta" class="alerta">
-
+                <div class="row">
+                    <c:forEach items="${criptos}" var="resource" varStatus="loop"></c:forEach>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="project-card-no-image">
+                                <h3>${resource.acronimo}&nbsp;</h3>
+                                <h4>Lorem ipsum dolor sit amet</h4><a class="btn btn-outline-primary btn-sm" role="button" href="#">See More</a>
+                                <div class="tags">
+                                    <a href="/eliminar?id=<c:out value='${resource.acronimo}' />" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
                 </div>
-                <form>
-                    <div class="form-group">
-                        <label>Lista de criptomonedas</label> :
-                        <textarea id="Resources" name="Resources" form="confirmationForm" rows="10" cols="70"><c:forEach items="${criptos}" var="resource" varStatus="loop"><c:set var='total' value="${total} + ' ' + ${resource.criptomoneda}>"/>${resource.criptomoneda}&nbsp;</c:forEach></textarea>
-                    </div>
-                    <div class="form-group">
-                        <c:set var="contador" value="${0}" />
-                        <a href="/update?value=<c:out value='${total}' />"></a>  
-                        <button class="btn btn-primary btn-block btn-lg" type="submit" onclick="configurar()">Cambiar</button>
-                    </div>
-                </form>
             </div>
         </section>
     </main>

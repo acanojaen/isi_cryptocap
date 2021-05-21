@@ -37,7 +37,7 @@
                     <c:set var="xv"></c:set>
                     <c:forEach items="${criptos}" var="x">
                         <c:choose>
-                            <c:when test="${empty x'}">
+                            <c:when test="${empty x}">
                                 <c:set var="xv" value="${xv} ${x.acronimo}"></c:set>
                             </c:when>    
                             <c:otherwise>

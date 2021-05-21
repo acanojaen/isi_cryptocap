@@ -165,13 +165,12 @@
 
       function scrap_investing(){
         $.ajax({
-            data: {para:jsonObj},
             datatype: 'json',
             type: 'GET',
             url: "/investing",
-            success: function(data){
+            success: function(response){
                 var append = '';
-                data = jQuery.parseJSON(data);
+                data = jQuery.parseJSON(response);
                 $.each(data, function(i, item){
                     $('#scrap').modal('show');
                     append += '<div class="alert alert-success" role="alert">' +

@@ -26,23 +26,102 @@
         </div>
     </nav>
     <c:if test="${criptos.acronimo != null}">
-        <main class="page project-page">
-            <section class="portfolio-block project">
-                <h2 class="text-capitalize text-center text-body">cHANGE LIST</h2>
+        <main class="page cv-page">
+            <section class="portfolio-block cv">
                 <div class="container">
-                    <div class="heading"></div>
-                    <div class="row">
-                        <div class="col-12 col-md-6 offset-md-1 info">
-                            <h3 class="mb-auto">${criptos.nombre}</h3>
-                            <h6 class="text-left">${criptos.acronimo}</h6>
-                            <p>Precio: <h4 class="organization">${criptos.precio}</h4></p>
-                            <h4 class="organization" style="background: #ff7b00;">${criptos.precio}</h4>
-                            <p>Nam a ultrices mauris. Nam efficitur, lorem a vehicula interdum, ligula velit euismod lorem, vitae vehicula ligula tortor eu leo. Maecenas porttitor massa ut vestibulum euismod. Aliquam eget mi aliquam.</p>
-                            <p>Lorem ipsum dapibus dolor non, malesuada mauris. Aliquam eleifend mauris non odio mattis auctor. Aenean sit amet elementum tellus, a facilisis ligula. Pellentesque ac vehicula mauris.</p>
+                    <div class="work-experience group">
+                        <div class="heading">
+                            <h2 class="text-left">${criptos.imagen}</h2>
+                            <h2 class="text-center">${criptos.nombre}</h2>
+                            <h2 class="text-right">${criptos.acronimo}</h2>
                         </div>
-                        <div class="col-12 col-md-3 offset-md-1 meta">
-                            <div class="tags"><span class="meta-heading">Tags</span><a href="#">Resource</a><a href="#">Project</a><span class="meta-heading">Date</span><span>25-04-2017</span></div>
+                        <div class="item">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Precio: </h3>
+                                    <h4 class="organization">${criptos.precio}</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Capitalizacion: </h3>
+                                    <h4 class="organization">${criptos.capitalizacion}</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Volumen untimas 24 horas: </h3>
+                                    <h4 class="organization">${criptos.vol24}</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Volumen untimos 7 dias: </h3>
+                                    <h4 class="organization">${criptos.volTotal}</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Cambio ultimas 24 horas: </h3>
+                                    <h4 class="organization">${criptos.lastdaychange}</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Cambio ultima semana: </h3>
+                                    <h4 class="organization">${criptos.sevendaychange}</h4>
+                                </div>
+                            </div>
+                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
                         </div>
+                    </div>
+                    <div class="group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="skills portfolio-info-card">
+                                    <h2>Skills</h2>
+                                    <h3>HTML</h3>
+                                    <div class="progress">
+                                        <div class="progress-bar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"><span class="sr-only">100%</span></div>
+                                    </div>
+                                    <h3>PHP</h3>
+                                    <div class="progress">
+                                        <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"><span class="sr-only">90%</span></div>
+                                    </div>
+                                    <h3>JavaScript</h3>
+                                    <div class="progress">
+                                        <div class="progress-bar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"><span class="sr-only">80%</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contact-info portfolio-info-card">
+                                    <h2>Contact Info</h2>
+                                    <div class="row">
+                                        <div class="col-1"><i class="icon ion-android-calendar icon"></i></div>
+                                        <div class="col-9"><span>10/10/1990</span></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-1"><i class="icon ion-person icon"></i></div>
+                                        <div class="col-9"><span>John Smith</span></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-1"><i class="icon ion-ios-telephone icon"></i></div>
+                                        <div class="col-9"><span>+235 3217 424</span></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-1"><i class="icon ion-at icon"></i></div>
+                                        <div class="col-9"><span>lorem@email.com</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hobbies group">
+                        <div class="heading">
+                            <h2 class="text-center">Hobbies</h2>
+                        </div>
+                        <p class="text-center text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras risus ligula, iaculis ut metus sit amet, luctus pharetra mauris. Aliquam purus felis, pretium vel pretium vitae, dapibus sodales ante. Suspendisse potenti. Duis nunc eros.</p>
                     </div>
                 </div>
             </section>

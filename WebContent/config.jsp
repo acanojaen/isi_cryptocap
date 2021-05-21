@@ -2,8 +2,9 @@
     contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="cryptocap.Criptomoneda"
 %>
-<html>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
 <header>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -36,7 +37,14 @@
                 <form>
                     <c:set var="xv"></c:set>
                     <c:forEach items="${criptos}" var="x">
-                        <div>${x.acronimo}</div>
+                        <<c:choose>
+                            <c:when test="${empty x}">
+                                <c:set var="xv" value="${x.acronimo}"></c:set>
+                            </c:when>    
+                            <c:otherwise>
+                                <c:set var="xv" value="${xv} ${x.acronimo}"></c:set>
+                            </c:otherwise>
+                        </c:choose>>
                     </c:forEach>
                     <div class="form-group">
                         <textarea id="Resources" name="Resources" rows="10" cols="70">

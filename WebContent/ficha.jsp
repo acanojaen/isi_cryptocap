@@ -39,7 +39,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3>Precio: </h3> <h4 class="organization float-right">${criptos.precio}</h4>
+                                    <h3>Precio: </h3> <h4 class="organization text-right">${criptos.precio}</h4>
                                 </div>
                             </div>
                             <div class="row">

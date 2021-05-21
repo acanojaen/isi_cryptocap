@@ -204,7 +204,7 @@ public class CriptomonedaDAO
 			sql = "INSERT INTO currency (acronimo)";
 			sql += " VALUES (?)";
 			st = jdbcConnection.prepareStatement(sql);
-			st.setString(1, acronimo);
+			st.setString(1, acron);
 			stat = st.executeUpdate() > 0;
 			st.close();
 			

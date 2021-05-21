@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="/dist/bootstrap/css/style.css">
     <style>
-        .h1.h2{display: inline !important;}
+        .h3.h4{display: inline !important;}
     </style>
 </header>
 
@@ -37,8 +37,12 @@
                         <div class="item">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3 class="text-center text-capitalize text-body">${criptos.nombre}</h3> <h4 class="organization">${criptos.acronimo}</h4>                        
-                                    <img class="responsive" src="${criptos.imagen}"/>
+                                    <a href="/list"><i class="fas fa-arrow-left"></i></a>
+                                    <img class="responsive" src="${criptos.imagen}"/> 
+                                    <h3 class="text-center text-capitalize text-body" style="text-transform: capitalize;">${criptos.nombre}</h3>
+                                    <br> 
+                                    <h4 class="organization text-center">${criptos.acronimo}</h4>                        
+                                    
                                 </div>
                             </div>
                             <c:if test="${criptos.precio != null}">

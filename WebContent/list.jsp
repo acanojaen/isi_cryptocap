@@ -90,8 +90,15 @@
                         <div class="col-6"><span class="period">https://investing.com/</span></div>
                     </div>
                     <div class="row">
-                    <div class="col-md-6"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div>
-                    <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_investing" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></div>
+                        <div class="col-md-6"><p class="text-muted">Obtenemos los siguientes valores de las criptomonedas:
+                            <ul>
+                                <li>Nombre</li>
+                                <li>Acrónimo</li>
+                                <li>Imagen</li>
+                                <li>Enlace para más información</li>
+                            </ul>
+                        </p></div>
+                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_investing" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></div>
                     </div>
                 </div>
             </div>

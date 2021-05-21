@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="/dist/bootstrap/css/style.css">
+    <style>
+        .h1.h2{display: inline !important;}
+    </style>
 </header>
 
 <body>
@@ -29,14 +32,14 @@
         <main class="page cv-page">
             <section class="portfolio-block cv">
                 <div class="container">
-                    <div class="ficha-criptomoneda">
-                        <div class="heading">
-                            <img class="responsive" src="${criptos.imagen}"/>
-                            <br><br>
-                            <h2 class="text-center">${criptos.nombre}</h2>
-                            <h3 class="organization">${criptos.acronimo}</h3>
-                        </div>
+                    <div class="work-experience group">
                         <div class="item">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img class="responsive" src="${criptos.imagen}"/>
+                                    <h3 class="text-center text-capitalize text-body">${criptos.nombre}</h3> <h4 class="organization">${criptos.acronimo}</h4>                        
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Precio: </h3> <h4 class="organization">${criptos.precio}</h4>
@@ -70,14 +73,15 @@
                             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
                         </div>
                     </div>
+                    
                 </div>
             </section>
         </main>
     </c:if>
     <c:if test="${criptos.acronimo == null}">
 
-    </c:if>
 
+    </c:if>
     <footer class="page-footer">
         <div class="container">
             <div class="links"><a href="#">ISI 2021</a><a href="#">Contáctanos</a><a href="#">Github</a></div>

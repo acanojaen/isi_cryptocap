@@ -124,10 +124,11 @@ public class ControllerServlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
         String acron= request.getParameter("id");
         Criptomoneda crip= criptomonedaDAO.getCriptomoneda(acron);
-        List<HistorialPrecio> history = criptomonedaDAO.getHistory(acron);
+        List<HistorialPrecio> hist = criptomonedaDAO.getHistory(acron);
 
         request.setAttribute("criptos", crip);
-        request.setAttribute("history", history);
+        request.setAttribute("history", hist);
+        
         RequestDispatcher dispatcher = request.getRequestDispatcher("ficha.jsp");
         
         dispatcher.forward(request, response);

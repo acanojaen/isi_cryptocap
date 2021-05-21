@@ -48,9 +48,8 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="project-card-no-image">
                             <form method="post" action="currency">
-                                <input type="text" class="form-control" id="acronimo_elegido" aria-describedby="acronimoHelp" placeholder="Introduce el acrónimo">
+                                <input type="text" class="form-control" name="acronimo" id="acronimo" aria-describedby="acronimoHelp" placeholder="Introduce el acrónimo">
                                 <small id="acronimoHelp" class="form-text text-muted">Debe estar en formato "XXXX" (max. 10 caracteres)</small>
-                                <h4>Lorem ipsum dolor sit amet</h4><a class="btn btn-outline-primary btn-sm" role="button" href="#">See More</a>
                                 <div class="tags">
                                     <input class="btn btn-warning btn-sm float-right" type="submit" role="button"><i class="far fa-trash-alt" style="color: white;"></i></a>
                                 </div>

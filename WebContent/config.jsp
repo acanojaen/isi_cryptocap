@@ -47,10 +47,12 @@
                         </c:choose>>
                     </c:forEach>
                     <div class="form-group">
+                        <label>Lista de criptomonedas</label> :
                         <textarea id="Resources" name="Resources" rows="10" cols="70">
-                            ${xv}
+                            <c:forEach items="${criptos}" var="resource" varStatus="loop">
+                                <c:out value='${resource.acronimo}\r\n'/>
+                            </c:forEach>
                         </textarea>
-
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-block btn-lg" type="submit">Cambiar</button>

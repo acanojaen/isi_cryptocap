@@ -184,6 +184,34 @@ public class CriptomonedaDAO
     	
     }
     
+    public boolean addCurrency(Criptomoneda c) throws SQLException {
+		String sql;
+    	PreparedStatement st;
+    	ResultSet rs;
+    	boolean stat = false;
+    	
+    	sql = "SELECT * FROM currency";
+		sql += " WHERE acronimo = ?";
+
+		st = jdbcConnection.prepareStatement(sql);
+		st.setString(1, c.getAcronimo());
+		
+		rs = st.executeQuery();
+		// si FALSE --> INSERT
+		if(!rs.next()) {
+			sql = "INSERT INTO currency (acronimo)";
+			sql += " VALUES (?)";
+			st = jdbcConnection.prepareStatement(sql);
+			st.setString(1, acronimo);
+			stat = st.executeUpdate() > 0;
+			st.close();
+			
+		} 
+		
+		st.close();
+		return stat;
+    }
+    
     public boolean remove(Criptomoneda c, String entity) throws SQLException{
     	String sql;
     	PreparedStatement st;

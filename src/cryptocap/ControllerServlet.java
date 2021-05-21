@@ -72,25 +72,32 @@ public class ControllerServlet extends HttpServlet {
                 case "/upload":
                 	upload(request, response);
                 break;
-                	
+                
+                case "/currency":
+                	insertCurrency(request, response);
+                break;
             }
         } catch (SQLException | URISyntaxException | ClassNotFoundException e){
             throw new ServletException(e);
         }
     }
     
-    private void setDAO(CriptomonedaDAO c) {
+    private void insertCurrency(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+    	String acron = request.getParameter("acronimo_elegido");
+		Criptomoneda crip = new Criptomoneda(acron);
+    	criptomonedaDAO.addCurrency(crip);
+		response.sendRedirect("config");
+    }
+
+	private void setDAO(CriptomonedaDAO c) {
 		this.criptomonedaDAO = c;
 	}
 	
     private void config(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
     	List<Criptomoneda> list = new ArrayList<>();
-		try {
-			list = criptomonedaDAO.queryconfig();
-		} catch (SQLException e) {
-			throw new ServletException("No se han podido recuperar la lista", e);
-		}
+		
+    	list = criptomonedaDAO.queryconfig();
 
 		request.setAttribute("criptos", list);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("config.jsp");

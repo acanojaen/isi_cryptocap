@@ -30,7 +30,7 @@
         <section class="portfolio-block project-no-images">
             <div class="container">
                 <div class="heading">
-                    <h2 class="text-capitalize text-center text-body">CONFIGURAR CRIPTOMONEDAS</h2>
+                    <h2 class="text-capitalize text-center text-body">CONFIGURAR CRIPTOMONEDAS <i class="fas fa-plus-circle"></i></h2>
                 </div>
                 <div class="row">
                     <c:forEach items="${criptos}" var="resource" varStatus="loop">
@@ -44,10 +44,43 @@
                             </div>
                         </div>
                     </c:forEach>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card-no-image">
+                            <form method="post" action="currency">
+                                <input type="text" class="form-control" id="acronimo_elegido" aria-describedby="acronimoHelp" placeholder="Introduce el acrónimo">
+                                <small id="acronimoHelp" class="form-text text-muted">Debe estar en formato "XXXX" (max. 10 caracteres)</small>
+                                <h4>Lorem ipsum dolor sit amet</h4><a class="btn btn-outline-primary btn-sm" role="button" href="#">See More</a>
+                                <div class="tags">
+                                    <input class="btn btn-warning btn-sm float-right" type="submit" role="button"><i class="far fa-trash-alt" style="color: white;"></i></a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
+    
+        
+    <div class="modal" id="addModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resultado del webscraping</h5>
+                </div>
+                <div class="modal-body" id="scrap_body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-warning btn-sm float-right" role="button"><i class="far fa-trash-alt" style="color: white;"></i> Añadir</a>
+                               
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="page-footer">
         <div class="container">
             <div class="links"><a href="#">ISI 2021</a><a href="#">Contáctanos</a><a href="#">Github</a></div>

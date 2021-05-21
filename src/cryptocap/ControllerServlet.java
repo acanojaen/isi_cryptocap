@@ -129,12 +129,20 @@ public class ControllerServlet extends HttpServlet {
 	private void delete(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		String acron = request.getParameter("id");
+		String entity = request.getParameter("entity");
 		Criptomoneda crip = new Criptomoneda(acron);
 		
-				
-		criptomonedaDAO.remove(crip);
-		response.sendRedirect("list");
+		if(entity.equals("criptomoneda")) {
+			criptomonedaDAO.remove(crip, entity);
+			response.sendRedirect("list");
+		} else if(entity.equals("currency")) {
+			criptomonedaDAO.remove(crip, entity);
+			response.sendRedirect("config");
+		}
+		
 	}
+	
+
 	
 
     private void coinranking(HttpServletRequest request, HttpServletResponse response) 

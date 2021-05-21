@@ -39,7 +39,7 @@
                                 <h3 style="text-transform: uppercase !important;">${resource.acronimo}&nbsp;</h3>
                                 <h4>Lorem ipsum dolor sit amet</h4><a class="btn btn-outline-primary btn-sm" role="button" href="#">See More</a>
                                 <div class="tags">
-                                    <a href="/eliminar?id=<c:out value='${resource.acronimo}' />" class="btn btn-warning btn-sm float-right" role="button"><i class="far fa-trash-alt"></i></a>
+                                    <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-warning btn-sm float-right" role="button"><i class="far fa-trash-alt" style="color: white;"></i></a>
                                 </div>
                             </div>
                         </div>

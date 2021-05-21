@@ -184,21 +184,29 @@ public class CriptomonedaDAO
     	
     }
     
-    public boolean remove(Criptomoneda c) throws SQLException{
-		String sql = "DELETE FROM criptomonedas where acronimo = ?";
-		boolean stat;
-		PreparedStatement st;
-		
+    public boolean remove(Criptomoneda c, String entity) throws SQLException{
+    	String sql;
+    	PreparedStatement st;
+    	boolean stat = false;
+    	
     	connect();
-    	
-    	
-    	st = jdbcConnection.prepareStatement(sql);
-    	st.setString(1, c.getAcronimo());
-    		
-    	stat = st.executeUpdate() > 0;
-    		
-    	st.close();
-    	
+    	switch(entity) {
+    		case "criptomoneda":
+    			sql = "DELETE FROM criptomonedas where acronimo = ?";
+    	    	st = jdbcConnection.prepareStatement(sql);
+    	    	st.setString(1, c.getAcronimo());
+    	    	stat = st.executeUpdate() > 0;
+    	    	st.close();
+    			break;
+    		case "currency":
+    			sql = "DELETE FROM currency where acronimo = ?";
+    	    	st = jdbcConnection.prepareStatement(sql);
+    	    	st.setString(1, c.getAcronimo());
+    	    	stat = st.executeUpdate() > 0;
+    	    	st.close();
+    			break;
+    	}
+
 		disconnect();
 		return stat;
     	

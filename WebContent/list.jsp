@@ -49,7 +49,7 @@
                                 <p class="text-muted">descripción de la criptomoneda</p>
                             </div>
                             <div class="col-md-6">
-                                    <a href="/eliminar?id=<c:out value='${criptomoneda.acronimo}' />" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt"></i></a>
+                                    <a href="/eliminar?id=<c:out value='${criptomoneda.acronimo}'/>&entity=criptomoneda" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt"></i></a>
                                     <a href="${criptomoneda.urlDatos}" class="btn btn-warning btn-sm float-right" role="button" target="_blank"><i class="fas fa-eye"></i></a>
                             </div>
                         </div>

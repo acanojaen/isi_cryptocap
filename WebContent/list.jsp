@@ -34,7 +34,6 @@
                     <h2 class="text-capitalize text-center text-body">PRECIOS ACTUALIZADOS DE CRIPTOMONEDAS <a href="/list"><i class="fas fa-redo"></i></a></h2>
                   </div>
 
-                  <div id="alerta" class="alerta"></div>
 
                   <!-- Mostramos las criptomonedas con JSP -->
                   <c:forEach items="${criptos}" var="criptomoneda">
@@ -45,13 +44,13 @@
                                 <h4 class="organization">${criptomoneda.acronimo}</h4>
                                 <h4 class="organization" style="background: #c6a00c;">$ ${criptomoneda.precio}</h4>
                             </div>
-                            <div class="col-md-6"><span class="period">${criptomoneda.ultimaActualizacion}</span></div>
+                            <div class="col-md-6"><span class="period"><i class="far fa-clock"></i> ${criptomoneda.ultimaActualizacion}</span></div>
                             <div class="col-md-6">
                                 <p class="text-muted">descripción de la criptomoneda</p>
                             </div>
                             <div class="col-md-6">
-                                    <a href="/eliminar?id=<c:out value='${criptomoneda.acronimo}' />" class="btn btn-info btn-sm float-right" role="button">remove</a>
-                                    <a href="${criptomoneda.urlDatos}" class="btn btn-warning btn-sm float-right" role="button" target="_blank">see</a>
+                                    <a href="/eliminar?id=<c:out value='${criptomoneda.acronimo}' />" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt"></i></a>
+                                    <a href="${criptomoneda.urlDatos}" class="btn btn-warning btn-sm float-right" role="button" target="_blank"><i class="fas fa-eye"></i></a>
                             </div>
                         </div>
                     </div>
@@ -60,6 +59,7 @@
               <div class="education group">
                   <div class="heading">ACTUALIZACIAR DATOS</h2>
                   </div>
+                  <div id="alerta" class="alerta"></div>
                   <div class="item">
                       <div class="row">
                           <div class="col-md-6">
@@ -77,7 +77,7 @@
                                 <li>Enlace para más información</li>
                             </ul>
                         </p></div>
-                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_coinranking" data-toggle="modal" type="button" data-whatever="coinranking.com">Invocar</button></div>
+                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_coinranking" data-toggle="modal" type="button" data-whatever="coinranking.com"><i class="fas fa-play"></i></button></div>
                       </div>
                   </div>
                 <div class="item">
@@ -90,7 +90,7 @@
                     </div>
                     <div class="row">
                     <div class="col-md-6"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p></div>
-                    <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_investing" data-toggle="modal" type="button" data-whatever="investing.com">Invocar</button></div>
+                    <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_investing" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></div>
                     </div>
                 </div>
             </div>
@@ -146,15 +146,19 @@
   <script src="https://kit.fontawesome.com/7a8b17dfb3.js" crossorigin="anonymous"></script>
 
   <script>
+      var exito =     '<div class="alert alert-success">' 
+                    + '¡El scrapeado se ha realizado <strong>con éxito</strong>!'
+                    +  '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
+                    +  '<span aria-hidden="true">&times;</span>'
+                    +  '</button>'
+                    +  '</div>';
+
       function scrap_coinranking(){
         $.ajax({
             type: 'GET',
             url: "/coinranking",
             success: function(){
-                var append = '<div class="alert alert-success">' 
-                    + '<strong>Success!</strong> Indicates a successful or positive action.'
-                    + '</div>';
-                $('#alerta').html(append);
+                $('#alerta').html(exito);
             },
             error: function(){
                 $('#scrap_coinranking').modal('show');
@@ -167,10 +171,7 @@
             type: 'GET',
             url: "/investing",
             success: function(){
-                var append = '<div class="alert alert-success">' 
-                    + '<strong>Success!</strong> Indicates a successful or positive action.'
-                    + '</div>';
-                $('#alerta').html(append);
+                $('#alerta').html(exito);
             },
             error: function(){
                 $('#scrap_investing').modal('show');

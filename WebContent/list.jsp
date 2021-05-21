@@ -34,7 +34,7 @@
                     <h2 class="text-capitalize text-center text-body">PRECIOS ACTUALIZADOS DE CRIPTOMONEDAS <a href="/list"><i class="fas fa-redo"></i></a></h2>
                   </div>
 
-                  <div class="alerta"></div>
+                  <div id="alerta" class="alerta"></div>
 
                   <!-- Mostramos las criptomonedas con JSP -->
                   <c:forEach items="${criptos}" var="criptomoneda">

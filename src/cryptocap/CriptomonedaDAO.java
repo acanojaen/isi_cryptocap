@@ -291,7 +291,7 @@ public class CriptomonedaDAO
     	
     	connect();
 
-    	sql = "INSERT INTO currency (fecha, acronimo, precio)";
+    	sql = "INSERT INTO history (fecha, acronimo, precio)";
 		sql += " VALUES (?, ?, ?)";
 		st = jdbcConnection.prepareStatement(sql);
 		

@@ -70,7 +70,7 @@
         function configurar(){
           $.ajax({
               url: "/upload?data=" + $("#Resources").val(),
-              type: 'POST',
+              type: 'GET',
               success: function(){
                   console.log($("#Resources").val());
                   $('#alerta').html(exito);

@@ -77,22 +77,18 @@
                             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
                         
                             <table class="table">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Fecha</th>
-                                    <th scope="col">Acrónimo</th>
-                                    <th scope="col">Valor</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <c:forEach var="historial" items="${hist}" varStatus="status">
-                                    <tr>
-                                        <td><p>${historial.fecha}</p></td>
-                                        <td><b>${historial.acronimo}</b></td>
-                                        <td><p>${historial.valor}</p></td>
-                                    </tr>
-                                  </c:forEach>
-                                </tbody>
+                                <tr>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Acrónimo</th>
+                                <th scope="col">Valor</th>
+                                </tr>
+                                <c:forEach items="${hist}" var="historial">
+                                <tr>
+                                    <td>${historial.fecha}</td>
+                                    <td>${historial.acronimo}/td>
+                                    <td>${historial.valor}</td>
+                                </tr>
+                                </c:forEach>
                               </table>
                         </div>
                     </div>

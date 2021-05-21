@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="/dist/bootstrap/css/style.css">
+    <style>
+        .h1.h2{display: inline !important;}
+    </style>
 </header>
 
 <body>
@@ -38,32 +41,32 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
-                                    <h3>Precio: </h3> <h4 class="organization text-right">${criptos.precio}</h4>
+                                <div class="col-md-6">
+                                    <h3>Precio: </h3> <h4 class="organization">${criptos.precio}</h4>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <h3>Capitalizacion: </h3> <h4 class="organization">${criptos.capMercado}</h4>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.volumen24}</h4>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <h3>Volumen ultimos 7 dias: </h3> <h4 class="organization">${criptos.volumenTotal}</h4>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization">${criptos.variacion24}</h4>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <h3>Cambio ultima semana: </h3> <h4 class="organization">${criptos.variacion7}</h4>
                                 </div>
                             </div>

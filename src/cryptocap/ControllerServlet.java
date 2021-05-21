@@ -100,7 +100,7 @@ public class ControllerServlet extends HttpServlet {
     
     private void upload(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-		String acron = request.getParameter("Resources");
+		String acron = request.getParameter("value");
 		Criptomoneda crip = new Criptomoneda(acron);
 		ArrayList<String> up = new ArrayList<>();
 		String[] array = acron.split(" ");

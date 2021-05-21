@@ -71,7 +71,7 @@
           $.ajax({
               url: "/upload",
               type: 'POST',
-              data: {value: document.getElementById("myTextarea").value},
+              data: {value: document.getElementById("Resources").value},
               success: function(){
                   $('#alerta').html(exito);
               }

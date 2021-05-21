@@ -155,7 +155,6 @@ public class CriptomonedaDAO
     	
     	sql = "TRUNCATE TABLE currency";
       	st = jdbcConnection.prepareStatement(sql);
-      	rs = st.executeQuery();
     	stat = st.executeUpdate() > 0;
     	
 		if(stat)

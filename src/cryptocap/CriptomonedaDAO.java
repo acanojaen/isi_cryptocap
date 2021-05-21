@@ -190,6 +190,8 @@ public class CriptomonedaDAO
     	ResultSet rs;
     	boolean stat = false;
     	
+    	connect();
+    	
     	sql = "SELECT * FROM currency";
 		sql += " WHERE acronimo = ?";
 
@@ -209,6 +211,8 @@ public class CriptomonedaDAO
 		} 
 		
 		st.close();
+		disconnect();
+		
 		return stat;
     }
     
@@ -218,6 +222,7 @@ public class CriptomonedaDAO
     	boolean stat = false;
     	
     	connect();
+    	
     	switch(entity) {
     		case "criptomoneda":
     			sql = "DELETE FROM criptomonedas where acronimo = ?";
@@ -236,6 +241,7 @@ public class CriptomonedaDAO
     	}
 
 		disconnect();
+		
 		return stat;
     	
     }

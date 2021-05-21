@@ -17,7 +17,8 @@
 <body>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
         <div class="container"><img src="/dist/img/small-logo.png"><a class="navbar-brand logo" href="#">&nbsp; cryptocap</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div
+                class="collapse navbar-collapse" id="navbarNav">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="/list">Criptomonedas</a></li>
                     <li class="nav-item"><a class="nav-link" href="cv.html">Administracion</a></li>
@@ -28,20 +29,23 @@
     </nav>
     <main class="page project-page">
         <section class="portfolio-block project">
-            <h2 class="text-capitalize text-center text-body">cHANGE LIST</h2>
             <div class="container">
-                <div class="heading"></div>
-                <div class="row">
-                    <div class="col-12 col-md-6 offset-md-1 info">
-                        <h3 class="mb-auto">Description</h3>
-                        <h6 class="text-left">Description</h6>
-                        <p>Nam a ultrices mauris. Nam efficitur, lorem a vehicula interdum, ligula velit euismod lorem, vitae vehicula ligula tortor eu leo. Maecenas porttitor massa ut vestibulum euismod. Aliquam eget mi aliquam.</p>
-                        <p>Lorem ipsum dapibus dolor non, malesuada mauris. Aliquam eleifend mauris non odio mattis auctor. Aenean sit amet elementum tellus, a facilisis ligula. Pellentesque ac vehicula mauris.</p>
-                    </div>
-                    <div class="col-12 col-md-3 offset-md-1 meta">
-                        <div class="tags"><span class="meta-heading">Tags</span><a href="#">Resource</a><a href="#">Project</a><span class="meta-heading">Date</span><span>25-04-2017</span></div>
-                    </div>
+                <div class="heading">
+                    <h2 class="text-capitalize text-center text-body">CONFIGURAR CRIPTOMONEDAS</h2>
                 </div>
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">BTC, ETH, ACP...</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10">
+                            <c:forEach items="${criptos}" var="criptomoneda">
+                                ${criptomoneda.acronimo}<br>
+                            </c:forEach>
+                        </textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block btn-lg" type="submit">Cambiar</button>
+                    </div>
+                </form>
             </div>
         </section>
     </main>

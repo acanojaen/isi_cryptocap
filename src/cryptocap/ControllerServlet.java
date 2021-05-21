@@ -1,5 +1,6 @@
 package cryptocap;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URISyntaxException;
@@ -64,6 +65,9 @@ public class ControllerServlet extends HttpServlet {
                 	test(request, response);
                 break;
                 
+                case "/config":
+                	config(request, response);
+                break;
                 	
             }
         } catch (SQLException | URISyntaxException | ClassNotFoundException e){
@@ -75,6 +79,36 @@ public class ControllerServlet extends HttpServlet {
 		this.criptomonedaDAO = c;
 	}
 	
+    private void config(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+    	List<String> list = new ArrayList<>();
+		try {
+			list = criptomonedaDAO.queryconfig();
+		} catch (SQLException e) {
+			throw new ServletException("No se han podido recuperar la lista", e);
+		}
+
+		request.setAttribute("criptos", list);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("config.jsp");
+		
+		dispatcher.forward(request, response);
+    }
+    
+    private void upload(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+		String acron = request.getParameter("lista");
+		Criptomoneda crip = new Criptomoneda(acron);
+		ArrayList<String> up = new ArrayList<>();
+		String[] array = acron.split(" ");    
+
+		for (String s:array) {
+			up.add(s);
+		}
+		
+		criptomonedaDAO.upload(up);
+    	
+    }
+    
 
 	private void list(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
@@ -94,6 +128,9 @@ public class ControllerServlet extends HttpServlet {
 	private void delete(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		String acron = request.getParameter("id");
+		Criptomoneda crip = new Criptomoneda(acron);
+		
+		criptomonedaDAO.remove(crip);
 		Criptomoneda crip = new Criptomoneda(acron);
 		
 		criptomonedaDAO.remove(crip);

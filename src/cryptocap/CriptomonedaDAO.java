@@ -123,6 +123,71 @@ public class CriptomonedaDAO
     	
     }
     
+    public ArrayList<String> queryconfig() throws SQLException {
+    	ArrayList<String> res = new ArrayList<>();
+    	String sql = "SELECT * FROM currency";
+		PreparedStatement st;
+		ResultSet rs;
+		
+    	connect();
+    	
+		st = jdbcConnection.prepareStatement(sql);
+		rs = st.executeQuery();
+		
+		while(rs.next()) {
+			res.add(rs.getString(1));
+		}
+		
+		rs.close();
+		st.close();
+    	
+		disconnect();
+		return res;
+    }
+    
+    public boolean upload(ArrayList<String> c) throws SQLException{
+		String sql;
+		boolean stat;
+		PreparedStatement st;
+		ResultSet rs;
+		
+    	connect();
+    	
+    	sql = "TRUNCATE TABLE currency";
+      	st = jdbcConnection.prepareStatement(sql);
+      	rs = st.executeQuery();
+    	stat = st.executeUpdate() > 0;
+    	
+		if(stat)
+		{
+	      	sql = "INSERT INTO currency (acronimo) VALUES";
+	      	
+	      	for(int i=0; i < c.size(); i++) {
+	      		sql += " (" + c.get(i) + ")";
+				
+	      		if(i == c.size()-1) {
+	      			sql += ";";
+	      		} else {
+	      			sql += ", ";
+	      		}
+	      	}
+	    	
+	      	st = jdbcConnection.prepareStatement(sql);
+	      	rs = st.executeQuery();
+	   
+	    	stat = st.executeUpdate() > 0;
+	    		
+	    	st.close();
+	    	
+			disconnect();
+			return stat;
+		}
+		
+		disconnect();
+		return stat;
+    	
+    }
+    
     public boolean remove(Criptomoneda c) throws SQLException{
 		String sql = "DELETE FROM criptomonedas where acronimo = ?";
 		boolean stat;

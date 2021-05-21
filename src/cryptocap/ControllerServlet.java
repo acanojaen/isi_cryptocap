@@ -83,10 +83,13 @@ public class ControllerServlet extends HttpServlet {
     }
     
     private void insertCurrency(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-    	String acron = request.getParameter("acronimo");
-		Criptomoneda crip = new Criptomoneda(acron);
-    	criptomonedaDAO.addCurrency(crip);
-		response.sendRedirect("config");
+    	String acron = request.getParameter("acr");
+    	
+    	response.getWriter().println(acron);
+    	
+//		Criptomoneda crip = new Criptomoneda(acron);
+//    	criptomonedaDAO.addCurrency(crip);
+//		response.sendRedirect("config");
     }
 
 	private void setDAO(CriptomonedaDAO c) {

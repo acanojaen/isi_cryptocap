@@ -27,6 +27,7 @@ public class Criptomoneda {
 	public Criptomoneda(String acronimo) {
 		this.acronimo = acronimo;
 		this.nombre = acronimo;
+		this.ultimaActualizacion = "";
 	}
 	
 	public Criptomoneda(String acronimo, String ultAct) {

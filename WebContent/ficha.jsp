@@ -2,7 +2,6 @@
     contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="cryptocap.Criptomoneda"
 %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 
 <header>
@@ -30,46 +29,16 @@
         <section class="portfolio-block project">
             <h2 class="text-capitalize text-center text-body">cHANGE LIST</h2>
             <div class="container">
-                <div class="group">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="skills portfolio-info-card">
-                                <h2>Skills</h2>
-                                <h3>HTML</h3>
-                                <div class="progress">
-                                    <div class="progress-bar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"><span class="sr-only">100%</span></div>
-                                </div>
-                                <h3>PHP</h3>
-                                <div class="progress">
-                                    <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"><span class="sr-only">90%</span></div>
-                                </div>
-                                <h3>JavaScript</h3>
-                                <div class="progress">
-                                    <div class="progress-bar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"><span class="sr-only">80%</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="contact-info portfolio-info-card">
-                                <h2>Contact Info</h2>
-                                <div class="row">
-                                    <div class="col-1"><i class="icon ion-android-calendar icon"></i></div>
-                                    <div class="col-9"><span>10/10/1990</span></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-1"><i class="icon ion-person icon"></i></div>
-                                    <div class="col-9"><span>John Smith</span></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-1"><i class="icon ion-ios-telephone icon"></i></div>
-                                    <div class="col-9"><span>+235 3217 424</span></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-1"><i class="icon ion-at icon"></i></div>
-                                    <div class="col-9"><span>lorem@email.com</span></div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="heading"></div>
+                <div class="row">
+                    <div class="col-12 col-md-6 offset-md-1 info">
+                        <h3 class="mb-auto">Description</h3>
+                        <h6 class="text-left">Description</h6>
+                        <p>Nam a ultrices mauris. Nam efficitur, lorem a vehicula interdum, ligula velit euismod lorem, vitae vehicula ligula tortor eu leo. Maecenas porttitor massa ut vestibulum euismod. Aliquam eget mi aliquam.</p>
+                        <p>Lorem ipsum dapibus dolor non, malesuada mauris. Aliquam eleifend mauris non odio mattis auctor. Aenean sit amet elementum tellus, a facilisis ligula. Pellentesque ac vehicula mauris.</p>
+                    </div>
+                    <div class="col-12 col-md-3 offset-md-1 meta">
+                        <div class="tags"><span class="meta-heading">Tags</span><a href="#">Resource</a><a href="#">Project</a><span class="meta-heading">Date</span><span>25-04-2017</span></div>
                     </div>
                 </div>
             </div>

@@ -58,7 +58,7 @@ public class ControllerServlet extends HttpServlet {
                 break;
 
                 case "/ficha":
-            		list(request, response);
+            		ficha(request, response);
                 break;
                 
                 case "/eliminar":
@@ -122,7 +122,7 @@ public class ControllerServlet extends HttpServlet {
 	
     private void ficha(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-        String acron= request.getParameter("acronimo");
+        String acron= request.getParameter("id");
         Criptomoneda crip= criptomonedaDAO.getCriptomoneda(acron);
 
         request.setAttribute("criptos", crip);

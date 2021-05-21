@@ -145,7 +145,7 @@ public class CriptomonedaDAO
 		return res;
     }
     
-	public boolean getCriptomoneda(String acron){
+	public Criptomoneda getCriptomoneda(String acron) throws SQLException{
 		String sql;
 		sql = "SELECT * FROM criptomoneda";
 		sql += " WHERE acronimo = ?";
@@ -174,7 +174,7 @@ public class CriptomonedaDAO
 			rs.close();
 			st.close();
 
-			return (new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct)));				
+			return (new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct));				
 		}
 		rs.close();
 		st.close();

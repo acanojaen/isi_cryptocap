@@ -25,25 +25,33 @@
           </div>
         </div>
     </nav>
-    <main class="page project-page">
-        <section class="portfolio-block project">
-            <h2 class="text-capitalize text-center text-body">cHANGE LIST</h2>
-            <div class="container">
-                <div class="heading"></div>
-                <div class="row">
-                    <div class="col-12 col-md-6 offset-md-1 info">
-                        <h3 class="mb-auto">Description</h3>
-                        <h6 class="text-left">Description</h6>
-                        <p>Nam a ultrices mauris. Nam efficitur, lorem a vehicula interdum, ligula velit euismod lorem, vitae vehicula ligula tortor eu leo. Maecenas porttitor massa ut vestibulum euismod. Aliquam eget mi aliquam.</p>
-                        <p>Lorem ipsum dapibus dolor non, malesuada mauris. Aliquam eleifend mauris non odio mattis auctor. Aenean sit amet elementum tellus, a facilisis ligula. Pellentesque ac vehicula mauris.</p>
-                    </div>
-                    <div class="col-12 col-md-3 offset-md-1 meta">
-                        <div class="tags"><span class="meta-heading">Tags</span><a href="#">Resource</a><a href="#">Project</a><span class="meta-heading">Date</span><span>25-04-2017</span></div>
+    <c:if test="${criptos.acronimo != null}">
+        <main class="page project-page">
+            <section class="portfolio-block project">
+                <h2 class="text-capitalize text-center text-body">cHANGE LIST</h2>
+                <div class="container">
+                    <div class="heading"></div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 offset-md-1 info">
+                            <h3 class="mb-auto">${criptos.nombre}</h3>
+                            <h6 class="text-left">${criptos.acronimo}</h6>
+                            <p>Precio: <h4 class="organization">${criptos.precio}</h4></p>
+                            <h4 class="organization" style="background: #ff7b00;">${criptos.precio}</h4>
+                            <p>Nam a ultrices mauris. Nam efficitur, lorem a vehicula interdum, ligula velit euismod lorem, vitae vehicula ligula tortor eu leo. Maecenas porttitor massa ut vestibulum euismod. Aliquam eget mi aliquam.</p>
+                            <p>Lorem ipsum dapibus dolor non, malesuada mauris. Aliquam eleifend mauris non odio mattis auctor. Aenean sit amet elementum tellus, a facilisis ligula. Pellentesque ac vehicula mauris.</p>
+                        </div>
+                        <div class="col-12 col-md-3 offset-md-1 meta">
+                            <div class="tags"><span class="meta-heading">Tags</span><a href="#">Resource</a><a href="#">Project</a><span class="meta-heading">Date</span><span>25-04-2017</span></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </c:if>
+    <c:if test="${criptos.acronimo == null}">
+
+
+    </c:if>
     <footer class="page-footer">
         <div class="container">
             <div class="links"><a href="#">ISI 2021</a><a href="#">Contáctanos</a><a href="#">Github</a></div>

@@ -130,12 +130,9 @@ public class ControllerServlet extends HttpServlet {
 		String acron = request.getParameter("id");
 		Criptomoneda crip = new Criptomoneda(acron);
 		
-		criptomonedaDAO.remove(crip);
-		Criptomoneda crip = new Criptomoneda(acron);
-		
+				
 		criptomonedaDAO.remove(crip);
 		response.sendRedirect("list");
-
 	}
 	
 

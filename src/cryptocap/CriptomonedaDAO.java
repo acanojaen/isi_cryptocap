@@ -100,19 +100,18 @@ public class CriptomonedaDAO
 		st = jdbcConnection.prepareStatement(sql);
 		rs = st.executeQuery();
 		
-		nombre = rs.getString(2);
-    	acronimo = rs.getString(1);
-    	imagen = rs.getString(11);
-    	urlDatos = rs.getString(3);
-    	precio = rs.getString(5);
-    	capitalizacion = rs.getString(6);
-    	vol24 = rs.getString(7);
-    	volTotal = rs.getString(8); 
-    	lastdaychange = rs.getString(9);
-    	sevendaychange = rs.getString(10);
-    	ultAct = rs.getString(4);
-
 		while(rs.next()) {
+			nombre = rs.getString(2);
+	    	acronimo = rs.getString(1);
+	    	imagen = rs.getString(11);
+	    	urlDatos = rs.getString(3);
+	    	precio = rs.getString(5);
+	    	capitalizacion = rs.getString(6);
+	    	vol24 = rs.getString(7);
+	    	volTotal = rs.getString(8); 
+	    	lastdaychange = rs.getString(9);
+	    	sevendaychange = rs.getString(10);
+	    	ultAct = rs.getString(4);
 			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct));
 		}
 		

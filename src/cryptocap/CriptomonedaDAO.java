@@ -149,7 +149,6 @@ public class CriptomonedaDAO
 		String sql;
 		boolean stat;
 		PreparedStatement st;
-		ResultSet rs;
 		
     	connect();
     	
@@ -170,12 +169,8 @@ public class CriptomonedaDAO
 	      			sql += ", ";
 	      		}
 	      	}
-	    	
-	      	System.out.println(sql);
-	      	
+	    		      	
 	      	st = jdbcConnection.prepareStatement(sql);
-	      	rs = st.executeQuery();
-	   
 	    	stat = st.executeUpdate() > 0;
 	    		
 	    	st.close();

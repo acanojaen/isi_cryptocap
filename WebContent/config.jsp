@@ -32,7 +32,7 @@
                 <div class="heading">
                     <h2 class="text-capitalize text-center text-body">CONFIGURAR CRIPTOMONEDAS</h2>
                 </div>
-                <div class="alerta">
+                <div id="alerta" class="alerta">
 
                 </div>
                 <form>
@@ -69,10 +69,11 @@
   
         function configurar(){
           $.ajax({
-              url: "/upload",
-              type: 'POST',
               data: {value: document.getElementById("Resources").value},
+              url: "/upload?data=" + value,
+              type: 'POST',
               success: function(){
+                  console.log(data);
                   $('#alerta').html(exito);
               }
           });

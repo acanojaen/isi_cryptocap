@@ -34,6 +34,8 @@
                     <h2 class="text-capitalize text-center text-body">PRECIOS ACTUALIZADOS DE CRIPTOMONEDAS <a href="/list"><i class="fas fa-redo"></i></a></h2>
                   </div>
 
+                  <div class="alerta"></div>
+
                   <!-- Mostramos las criptomonedas con JSP -->
                   <c:forEach items="${criptos}" var="criptomoneda">
                     <div class="item">
@@ -105,13 +107,6 @@
             </div>
             <div class="modal-body" id="scrap_body">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">
-                        <c:forEach items="${added}" var="this">
-                            <div class="alert alert-success" role="alert">
-                                La criptomoneda ${this.acronimo} ha sido añadida correctamente.
-                            </div>
-                        </c:forEach>
-                    </span>
                 </button>
             </div>
             <div class="modal-footer">
@@ -122,27 +117,20 @@
 </div>
 
 <div class="modal" id="scrap_investing" tabindex="-1" role="dialog">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title">Resultado del webscraping</h5>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Resultado del webscraping</h5>
+            </div>
+            <div class="modal-body" id="scrap_body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_investing()">Actualizar</button>
+            </div>
+        </div>
     </div>
-    <div class="modal-body" id="scrap_body">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">
-                <c:forEach items="${added}" var="this">
-                    <div class="alert alert-success" role="alert">
-                        La criptomoneda ${this.acronimo} ha sido añadida correctamente.
-                    </div>
-                </c:forEach>
-            </span>
-        </button>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_investing()">Actualizar</button>
-    </div>
-    </div>
-</div>
 </div>
 
   <footer class="page-footer">
@@ -163,7 +151,10 @@
             type: 'GET',
             url: "/coinranking",
             success: function(){
-                $('#scrap_coinranking').modal('show');
+                var append = '<div class="alert alert-success">' 
+                    + '<strong>Success!</strong> Indicates a successful or positive action.'
+                    + '</div>';
+                $('#alerta').html(append);
             },
             error: function(){
                 $('#scrap_coinranking').modal('show');
@@ -176,7 +167,10 @@
             type: 'GET',
             url: "/investing",
             success: function(){
-                $('#scrap_investing').modal('show');
+                var append = '<div class="alert alert-success">' 
+                    + '<strong>Success!</strong> Indicates a successful or positive action.'
+                    + '</div>';
+                $('#alerta').html(append);
             },
             error: function(){
                 $('#scrap_investing').modal('show');

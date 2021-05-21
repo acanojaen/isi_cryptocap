@@ -78,7 +78,6 @@ public class ControllerServlet extends HttpServlet {
 		} catch (SQLException e) {
 			throw new ServletException("No se han podido recuperar las criptomonedas", e);
 		}
-		ObjectMapper mapper = new ObjectMapper();
 
 		request.setAttribute("criptos", list);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
@@ -99,21 +98,23 @@ public class ControllerServlet extends HttpServlet {
 
     private void coinranking(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException, URISyntaxException, ClassNotFoundException, ServletException {
-        List<Criptomoneda> list = new ArrayList<>();
-        list = criptomonedaDAO.coinranking();
+        List<Criptomoneda> criptos = new ArrayList<>();
+        criptos = criptomonedaDAO.coinranking();
         
-        request.setAttribute("added", list);
+		request.setAttribute("criptos", criptos);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
+		
 		dispatcher.forward(request, response);
     }
 
     private void investing(HttpServletRequest request, HttpServletResponse response) 
             throws SQLException, IOException, URISyntaxException, ClassNotFoundException, ServletException {
-        List<Criptomoneda> list = new ArrayList<>();
-        list = criptomonedaDAO.coinranking();
+        List<Criptomoneda> criptos = new ArrayList<>();
+        criptos = criptomonedaDAO.coinranking();
         
-        request.setAttribute("res", list);
+		request.setAttribute("criptos", criptos);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
+		
 		dispatcher.forward(request, response);
     }
 }

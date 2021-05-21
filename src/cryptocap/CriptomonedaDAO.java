@@ -131,12 +131,11 @@ public class CriptomonedaDAO
     	
     }
     
-    public List<String> investing () throws IOException, SQLException{
+    public List<Criptomoneda> investing () throws IOException, SQLException{
     	List<String> lista = new ArrayList<>(); lista.add("BTC"); lista.add("ETH"); lista.add("USDT"); lista.add("ADA"); lista.add("BNB"); lista.add("DOGE");
     	lista.add("DOT"); lista.add("HEX"); lista.add("ICP"); lista.add("USDC");
     	List<Criptomoneda> criptos = new ArrayList<>();
     	Criptomoneda crip;
-    	List<String> json = new ArrayList<>();
     	Webscraping it;
 		String sql;
 		PreparedStatement st;
@@ -149,8 +148,6 @@ public class CriptomonedaDAO
         	it = new Webscraping();
         	crip=it.Investing(lista.get(i));
             criptos.add(crip);
-            ObjectMapper mapper = new ObjectMapper();
-			json.add(mapper.writeValueAsString(crip));
             
         	acronimo = criptos.get(i).getAcronimo();
         	nombre = criptos.get(i).getNombre();
@@ -212,7 +209,7 @@ public class CriptomonedaDAO
 
         disconnect();
 
-        return json;
+        return criptos;
     }
     
     

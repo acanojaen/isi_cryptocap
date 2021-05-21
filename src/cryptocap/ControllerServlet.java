@@ -81,7 +81,7 @@ public class ControllerServlet extends HttpServlet {
 	
     private void config(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
-    	List<String> list = new ArrayList<>();
+    	List<Criptomoneda> list = new ArrayList<>();
 		try {
 			list = criptomonedaDAO.queryconfig();
 		} catch (SQLException e) {

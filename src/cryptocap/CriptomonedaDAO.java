@@ -123,8 +123,8 @@ public class CriptomonedaDAO
     	
     }
     
-    public ArrayList<String> queryconfig() throws SQLException {
-    	ArrayList<String> res = new ArrayList<>();
+    public ArrayList<Criptomoneda> queryconfig() throws SQLException {
+    	ArrayList<Criptomoneda> res = new ArrayList<>();
     	String sql = "SELECT * FROM currency";
 		PreparedStatement st;
 		ResultSet rs;
@@ -135,7 +135,7 @@ public class CriptomonedaDAO
 		rs = st.executeQuery();
 		
 		while(rs.next()) {
-			res.add(rs.getString(1));
+			res.add(new Criptomoneda(rs.getString(1), ""));
 		}
 		
 		rs.close();

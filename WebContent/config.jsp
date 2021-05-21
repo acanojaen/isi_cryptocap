@@ -38,10 +38,10 @@
                     <c:forEach items="${criptos}" var="x">
                         <c:choose>
                             <c:when test="${empty x}">
-                                <c:set var="xv" value="${x.key}"></c:set>
+                                <c:set var="xv" value="${x.acronimo}"></c:set>
                             </c:when>    
                             <c:otherwise>
-                                <c:set var="xv" value="${xv} ${x.key}"></c:set>
+                                <c:set var="xv" value="${xv} ${x.acronimo}"></c:set>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>

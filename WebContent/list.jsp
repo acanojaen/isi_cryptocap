@@ -171,6 +171,7 @@
             success: function(response){
                 var append = '';
                 data = jQuery.parseJSON(response);
+                console.log(response);
                 $.each(data, function(i, item){
                     $('#scrap').modal('show');
                     append += '<div class="alert alert-success" role="alert">' +

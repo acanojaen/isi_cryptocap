@@ -115,8 +115,8 @@ public class ControllerServlet extends HttpServlet {
         json = criptomonedaDAO.investing();
         response.setContentType("application/json");
         response.setCharacterEncoding("utf-8");
-        PrintWriter out = response.getWriter();
-        out.println(json);
-        out.close();
+		RequestDispatcher dispatcher = request.getRequestDispatcher("modify.jsp");
+		request.setAttribute("json", json);
+		dispatcher.forward(request, response);
     }
 }

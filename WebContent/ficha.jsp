@@ -84,11 +84,7 @@
                                   <c:forEach var="historial" items="${history}" varStatus="status">
                                     <tr>
                                         <td><p>${historial.fecha}</p></td>
-                                    </tr>
-                                    <tr>
                                         <td><b>${historial.acronimo}</b></td>
-                                    </tr>
-                                    <tr>
                                         <td><p>${historial.valor}</p></td>
                                     </tr>
                                   </c:forEach>

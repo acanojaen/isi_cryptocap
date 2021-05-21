@@ -77,7 +77,7 @@ public class Webscraping {
 	
 	// Scraping - Investing.com/es
 	public Criptomoneda Investing(String acron) throws IOException {
-		String url2 = "https://es.investing.com/crypto/currencies";
+		String url2 = "https://es.investing.com/crypto/";
 		int code;
 		ultAct = getActualHour();
 		

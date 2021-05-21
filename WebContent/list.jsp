@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/dist/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+  <link rel="stylesheet" href="/dist/bootstrap/css/style.css">
 </header>
 
 <body data-scrap="">
@@ -40,7 +41,7 @@
                     <div class="item">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="${criptomoneda.imagen}"/><h3>${criptomoneda.nombre}</h3>
+                                <img class="responsive" src="${criptomoneda.imagen}"/><h3>${criptomoneda.nombre}</h3>
                                 <h4 class="organization">${criptomoneda.acronimo}</h4>
                                 <h4 class="organization" style="background: #c6a00c;">$ ${criptomoneda.precio}</h4>
                             </div>

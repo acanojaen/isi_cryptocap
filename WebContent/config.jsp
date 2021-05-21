@@ -35,12 +35,14 @@
                 </div>
                 <form>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">BTC, ETH, ACP...</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10">
-                            <c:forEach items="${criptos}" var="criptomoneda">
-                                ${criptomoneda.acronimo}<br>
+                        <label for="exampleFormControlTextarea1">Introduce la lista aqui:</label>
+                        <textarea id="Resources" name="Resources" rows="10" cols="70">
+                            <c:forEach items="${criptos}" var="resource" varStatus="loop">
+                                <c:out value="${resource.acronimo}" ></c:out> 
+                                <c:if test="${!loop.last}">,</c:if>
                             </c:forEach>
                         </textarea>
+
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-block btn-lg" type="submit">Cambiar</button>

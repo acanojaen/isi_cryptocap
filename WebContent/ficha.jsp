@@ -71,6 +71,29 @@
                                 </div>
                             </div>
                             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
+                        
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Acrónimo</th>
+                                    <th scope="col">Valor</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <c:forEach var="historial" items="${history}" varStatus="status">
+                                    <tr>
+                                        <td><p>${historial.fecha}</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>${historial.acronimo}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>${historial.valor}</p></td>
+                                    </tr>
+                                  </c:forEach>
+                                </tbody>
+                              </table>
                         </div>
                     </div>
                     

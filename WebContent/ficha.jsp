@@ -45,31 +45,31 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Capitalizacion: </h3>
-                                    <h4 class="organization">${criptos.capitalizacion}</h4>
+                                    <h4 class="organization">${criptos.capMercado}</h4>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Volumen untimas 24 horas: </h3>
-                                    <h4 class="organization">${criptos.vol24}</h4>
+                                    <h4 class="organization">${criptos.volumen24}</h4>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Volumen untimos 7 dias: </h3>
-                                    <h4 class="organization">${criptos.volTotal}</h4>
+                                    <h4 class="organization">${criptos.volumenTotal}</h4>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Cambio ultimas 24 horas: </h3>
-                                    <h4 class="organization">${criptos.lastdaychange}</h4>
+                                    <h4 class="organization">${criptos.variacion24}</h4>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3>Cambio ultima semana: </h3>
-                                    <h4 class="organization">${criptos.sevendaychange}</h4>
+                                    <h4 class="organization">${criptos.variacion7}</h4>
                                 </div>
                             </div>
                             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>

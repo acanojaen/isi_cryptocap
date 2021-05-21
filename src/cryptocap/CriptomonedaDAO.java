@@ -58,6 +58,7 @@ public class CriptomonedaDAO
 	String urlDatos;
 	String ultAct;
 	String precio;
+	Float precio_parsed;
 	String capitalizacion;
 	String vol24;
 	String volTotal;
@@ -204,45 +205,6 @@ public class CriptomonedaDAO
 		disconnect();
     	return (new Criptomoneda("Error"));
 	}
-
-    public boolean upload(String[] c) throws SQLException{
-		String sql;
-		boolean stat;
-		PreparedStatement st;
-		
-    	connect();
-    	
-    	sql = "TRUNCATE TABLE currency";
-      	st = jdbcConnection.prepareStatement(sql);
-    	stat = st.executeUpdate() > 0;
-    	
-		if(stat)
-		{
-	      	sql = "INSERT INTO currency (acronimo) VALUES ";
-	      	
-	      	for(int i=0; i < c.length; i++) {
-	      		sql += "(" + c[i] + ")";
-				
-	      		if(i == c.length-1) {
-	      			sql += ";";
-	      		} else {
-	      			sql += ", ";
-	      		}
-	      	}
-	    		      	
-	      	st = jdbcConnection.prepareStatement(sql);
-	    	stat = st.executeUpdate() > 0;
-	    		
-	    	st.close();
-	    	
-			disconnect();
-			return stat;
-		}
-		
-		disconnect();
-		return stat;
-    	
-    }
     
     public boolean addCurrency(String acron) throws SQLException {
 		String sql;
@@ -282,6 +244,32 @@ public class CriptomonedaDAO
     	
     	return (Float.parseFloat(precio));
     }
+    
+	public List<HistorialPrecio> getHistory(String acron) throws SQLException {
+		List<HistorialPrecio> history = new ArrayList<>();
+		String sql;
+		sql = "SELECT * FROM history";
+		sql += " WHERE acronimo = ?";
+		PreparedStatement st;
+		ResultSet rs;
+
+		connect();
+
+		st = jdbcConnection.prepareStatement(sql);
+		st.setString(1, acron);
+		
+		rs = st.executeQuery();
+		if(rs.next()) {
+			ultAct = rs.getString(1);
+	    	acronimo = rs.getString(2);
+	    	precio_parsed = rs.getFloat(3);
+	    	
+	    	history.add(new HistorialPrecio(ultAct, acronimo, precio_parsed));
+		}
+		
+		disconnect();
+		return history;
+	}
     
     public boolean addToHistory(String acron, String precio) throws SQLException {
 		String sql;

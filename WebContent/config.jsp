@@ -33,6 +33,16 @@
                     <h2 class="text-capitalize text-center text-body">CONFIGURAR CRIPTOMONEDAS <i class="fas fa-plus-circle"></i></h2>
                 </div>
                 <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project-card-no-image">
+                            <form method="post" action="currency">
+                                <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce el acrónimo">
+                                <small id="acronimoHelp" class="form-text text-muted">Debe estar en formato "XXXX" (max. 10 caracteres)</small>
+                                <input class="btn btn-warning btn-sm float-right" type="submit"><i class="fas fa-play" style="color: white;"></i></a>
+                            </form>
+                        </div>
+                    </div>
+
                     <c:forEach items="${criptos}" var="resource" varStatus="loop">
                         <div class="col-md-6 col-lg-4">
                             <div class="project-card-no-image">
@@ -44,16 +54,6 @@
                             </div>
                         </div>
                     </c:forEach>
-
-                    <div class="col-md-6 col-lg-4">
-                        <div class="project-card-no-image">
-                            <form method="post" action="currency">
-                                <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce el acrónimo">
-                                <small id="acronimoHelp" class="form-text text-muted">Debe estar en formato "XXXX" (max. 10 caracteres)</small>
-                                <input class="btn btn-warning btn-sm float-right" type="submit"><i class="fas fa-play" style="color: white;"></i></a>
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -90,25 +90,6 @@
     <script src="/dist/js/script.min.js"></script>
     <script src="https://kit.fontawesome.com/7a8b17dfb3.js" crossorigin="anonymous"></script>
 
-    <script>
-        var exito =     '<div class="alert alert-success">' 
-                      + '¡El scrapeado se ha realizado <strong>con éxito</strong>!'
-                      +  '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
-                      +  '<span aria-hidden="true">&times;</span>'
-                      +  '</button>'
-                      +  '</div>';
-  
-        function configurar(){
-          $.ajax({
-              url: "/upload?data=" + $("#Resources").val(),
-              type: 'GET',
-              success: function(){
-                  console.log($("#Resources").val());
-                  $('#alerta').html(exito);
-              }
-          });
-        }
-    </script>
 </body>
 
 </html>

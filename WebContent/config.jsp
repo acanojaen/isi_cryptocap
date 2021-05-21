@@ -33,7 +33,7 @@
                     <h2 class="text-capitalize text-center text-body">CONFIGURAR CRIPTOMONEDAS</h2>
                 </div>
                 <div class="row">
-                    <c:forEach items="${criptos}" var="resource" varStatus="loop"></c:forEach>
+                    <c:forEach items="${criptos}" var="resource" varStatus="loop">
                         <div class="col-md-6 col-lg-4">
                             <div class="project-card-no-image">
                                 <h3>${resource.acronimo}&nbsp;</h3>

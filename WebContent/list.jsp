@@ -167,15 +167,19 @@
         $.ajax({
             data: {para:jsonObj},
             datatype: 'json',
-            type: 'POST',
+            type: 'GET',
             url: "/investing",
-            success: function(){
-                $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = "OK: La extracción de datos en Coinranking.com se ha realizado correctamente.";
-            },
-            error: function(){
-                $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = "ERROR: La extracción de datos no se ha realizado correctamente.";
+            success: function(data){
+                var append = '';
+                data = jQuery.parseJSON(data);
+                $.each(data, function(i, item){
+                    $('#scrap').modal('show');
+                    append += '<div class="alert alert-success" role="alert">' +
+                        + 'This is a success alert—check it out!' 
+                        + '</div>';
+                   
+                });
+                $('#scrap_investing').html(append);
             }
         });
       }

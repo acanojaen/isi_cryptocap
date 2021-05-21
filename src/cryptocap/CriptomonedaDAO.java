@@ -145,7 +145,7 @@ public class CriptomonedaDAO
 		return res;
     }
     
-    public boolean upload(ArrayList<String> c) throws SQLException{
+    public boolean upload(String[] c) throws SQLException{
 		String sql;
 		boolean stat;
 		PreparedStatement st;
@@ -161,10 +161,10 @@ public class CriptomonedaDAO
 		{
 	      	sql = "INSERT INTO currency (acronimo) VALUES ";
 	      	
-	      	for(int i=0; i < c.size(); i++) {
-	      		sql += "(" + c.get(i) + ")";
+	      	for(int i=0; i < c.length; i++) {
+	      		sql += "(" + c[i] + ")";
 				
-	      		if(i == c.size()-1) {
+	      		if(i == c.length-1) {
 	      			sql += ";";
 	      		} else {
 	      			sql += ", ";

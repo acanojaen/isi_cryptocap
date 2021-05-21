@@ -97,43 +97,53 @@
   </main>
   
 
-  <div class="modal" id="scrap_coinranking" tabindex="-1" role="dialog">
+<div class="modal" id="scrap_coinranking" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Resultado del webscraping</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Resultado del webscraping</h5>
+            </div>
+            <div class="modal-body" id="scrap_body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <c:forEach items="${added}" var="this">
+                            <div class="alert alert-success" role="alert">
+                                La criptomoneda ${this.acronimo} ha sido añadida correctamente.
+                            </div>
+                        </c:forEach>
+                    </span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_coinranking()">Actualizar</button>
+            </div>
         </div>
-        <div class="modal-body" id="scrap_body">
-            <%= request.getAttribute("answer") %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_coinranking()">Actualizar</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
-  <div class="modal" id="scrap_investing" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Resultado del webscraping</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" id="scrap_body">
-            <pre><%= request.getAttribute("answer") %></pre><%= request.getAttribute("answer") %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_investing()">Actualizar</button>
-        </div>
-      </div>
+<div class="modal" id="scrap_investing" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title">Resultado del webscraping</h5>
     </div>
-  </div>
+    <div class="modal-body" id="scrap_body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+                <c:forEach items="${added}" var="this">
+                    <div class="alert alert-success" role="alert">
+                        La criptomoneda ${this.acronimo} ha sido añadida correctamente.
+                    </div>
+                </c:forEach>
+            </span>
+        </button>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_investing()">Actualizar</button>
+    </div>
+    </div>
+</div>
+</div>
 
   <footer class="page-footer">
       <div class="container">
@@ -153,33 +163,23 @@
             type: 'GET',
             url: "/coinranking",
             success: function(){
-                $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = "OK: La extracción de datos en Coinranking.com se ha realizado correctamente.";
+                $('#scrap_coinranking').modal('show');
             },
             error: function(){
-                $('#scrap').modal('show');
-                document.getElementById("scrap_body").innerHTML = "ERROR: La extracción de datos no se ha realizado correctamente.";
+                $('#scrap_coinranking').modal('show');
             }
         });
       }
 
       function scrap_investing(){
         $.ajax({
-            datatype: 'json',
             type: 'GET',
             url: "/investing",
-            success: function(response){
-                var append = '';
-                data = jQuery.parseJSON(response);
-                console.log(response);
-                $.each(data, function(i, item){
-                    $('#scrap').modal('show');
-                    append += '<div class="alert alert-success" role="alert">' +
-                        + 'This is a success alert—check it out!' 
-                        + '</div>';
-                   
-                });
-                $('#scrap_investing').html(append);
+            success: function(){
+                $('#scrap_investing').modal('show');
+            },
+            error: function(){
+                $('#scrap_investing').modal('show');
             }
         });
       }

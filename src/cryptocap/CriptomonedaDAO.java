@@ -435,13 +435,14 @@ public class CriptomonedaDAO
     		} else {
     			// si TRUE --> UPDATE (existe)
     			sql = "UPDATE criptomonedas SET"; 
-    			sql += " nombre = ?, urlDatos = ?, ultAct = ? where acronimo = ?";
+    			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ? where acronimo = ?";
     			
     			st = jdbcConnection.prepareStatement(sql);
     			st.setString(1, nombre);
     			st.setString(2, urlDatos);
     			st.setString(3, ultAct);
     			st.setString(4, acronimo);
+       			st.setString(5, imagen);
     			
     			boolean rowInserted = st.executeUpdate() > 0;
     			st.close();

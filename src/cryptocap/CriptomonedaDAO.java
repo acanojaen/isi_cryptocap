@@ -393,7 +393,7 @@ public class CriptomonedaDAO
         	
     		rs = st.executeQuery();
     		// si FALSE --> INSERT
-    		if(!rs.next()) {
+    		if(!rs.next() && status.equals("enabled")) {
     			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange)";
     			sql += " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     			
@@ -410,16 +410,10 @@ public class CriptomonedaDAO
     			stat = st.executeUpdate() > 0;
     			stat = addToHistory(acronimo, precio);
     			
-                if(criptos.get(i).getStatus() == "disabled") {
-        			stat = setCurrencyStatus(acronimo, "disabled");
-                } else {
-                	stat = setCurrencyStatus(acronimo, "enabled");
-                }
-    			
+
     			st.close();
     			
-    		} else {
-    			// si TRUE --> UPDATE (existe)
+    		} else if(rs.next() && status.equals("enabled")) {
     			sql = "UPDATE criptomonedas SET"; 
     			sql += " nombre = ?, ultAct = ?, precio = ?, capitalizacion = ?, vol24 = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
     			
@@ -436,7 +430,13 @@ public class CriptomonedaDAO
     			
     			stat = st.executeUpdate() > 0;
     			stat = addToHistory(acronimo, precio);
+	            stat = setCurrencyStatus(acronimo, "enabled");
     			st.close();
+    			
+    		} else if(status.equals("disabled")) {
+    			stat = setCurrencyStatus(acronimo, "disabled");
+    			st.close();
+    			
     		}
             
 
@@ -452,7 +452,6 @@ public class CriptomonedaDAO
 	public List<Criptomoneda> coinranking() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
     	List<String> lista = getListing();
     	List<Criptomoneda> criptos = new ArrayList<>();
-        Criptomoneda actual;
         Webscraping it;
 		String sql;
 		PreparedStatement st;
@@ -514,9 +513,9 @@ public class CriptomonedaDAO
     			st.close();
     			
     		} else if(status.equals("disabled")) {
-    			
     			stat = setCurrencyStatus(acronimo, "disabled");
     			st.close();
+    			
     		}
 
         }

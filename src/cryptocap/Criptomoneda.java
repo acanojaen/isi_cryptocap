@@ -75,7 +75,7 @@ public class Criptomoneda {
 		this.ultimaActualizacion = ultAct;
 	}
 
-	public Criptomoneda(String acron, String nombre, String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct){
+	public Criptomoneda(String acron, String nombre, String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct, String status){
 		this.acronimo = acron;
 		this.nombre = nombre;
 		this.precio = prec;
@@ -86,14 +86,16 @@ public class Criptomoneda {
 		this.variacion7 = var7;
 
 		this.ultimaActualizacion = ultAct;
+		this.status = status;
 	}
 	
-	public Criptomoneda(String nombre, String acronimo, String imagen, String urlDatos, String ultimaActualizacion) {
+	public Criptomoneda(String nombre, String acronimo, String imagen, String urlDatos, String ultimaActualizacion, String status) {
 		this.nombre = nombre;
 		this.acronimo = acronimo;
 		this.imagen = imagen;
 		this.urlDatos = urlDatos;
 		this.ultimaActualizacion = ultimaActualizacion;
+		this.status = status;
 	}
 	
 	/*-----------------------------------------Modificadores-----------------------------------------*/

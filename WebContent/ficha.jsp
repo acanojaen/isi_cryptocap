@@ -8,7 +8,7 @@
 <header>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>CryptoCap - Inicio</title>
+    <title>CryptoCap - ${criptos.acronimo}</title>
     <link rel="stylesheet" href="/dist/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
@@ -27,6 +27,7 @@
            <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="/list"><i class="fas fa-coins"></i> Criptomonedas</a></li>
+                <li class="nav-item"><a class="nav-link" href="/compare"><i class="fas fa-arrows-alt-h"></i> Comparador</a></li>
                 <li class="nav-item"><a class="nav-link" href="/config"><i class="fas fa-wrench"></i> Configuración</a></li>
               </ul>
           </div>

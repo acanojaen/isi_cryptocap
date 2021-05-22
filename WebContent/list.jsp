@@ -8,7 +8,7 @@
 <header>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>CryptoCap | Inicio</title>
+  <title>CryptoCap - Lista de criptomonedas</title>
   <link rel="stylesheet" href="/dist/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
@@ -21,6 +21,7 @@
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav ml-auto">
               <li class="nav-item"><a class="nav-link" href="/list"><i class="fas fa-coins"></i> Criptomonedas</a></li>
+              <li class="nav-item"><a class="nav-link" href="/compare"><i class="fas fa-arrows-alt-h"></i> Comparador</a></li>
               <li class="nav-item"><a class="nav-link" href="/config"><i class="fas fa-wrench"></i> Configuración</a></li>
             </ul>
         </div>
@@ -101,11 +102,33 @@
                         <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_investing" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></div>
                     </div>
                 </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Coinmarketcap</h3>
+                            <h4 class="organization" style="background-color: #fd7e14;">API</h4>
+                        </div>
+                        <div class="col-6"><span class="period">https://coinmarketcap.com/api/</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6"><p class="text-muted">Obtenemos los siguientes valores de las criptomonedas:
+                            <ul>
+                                <li>Nombre</li>
+                                <li>Acrónimo</li>
+                                <li>Imagen</li>
+                                <li>Enlace para más información</li>
+                            </ul>
+                        </p></div>
+                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="" data-toggle="modal" type="button" data-whatever="coinmarketcap.com"><i class="fas fa-play"></i></button></div>
+                    </div>
+                </div>
             </div>
           </div>
       </section>
   </main>
   
+  #fd7e14
 
 <div class="modal" id="scrap_coinranking" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

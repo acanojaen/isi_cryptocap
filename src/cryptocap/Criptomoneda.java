@@ -20,6 +20,7 @@ public class Criptomoneda {
 	public String variacion7;
 
 	public String ultimaActualizacion;
+	public String status;
 
 
 	/*-----------------------------------------Constructores-----------------------------------------*/
@@ -30,10 +31,10 @@ public class Criptomoneda {
 		this.ultimaActualizacion = "";
 	}
 	
-	public Criptomoneda(String acronimo, String ultAct) {
+	public Criptomoneda(String acronimo, String status) {
 		this.acronimo = acronimo;
 		this.nombre = acronimo;
-		this.ultimaActualizacion = ultAct;
+		this.status = status;
 	}
 
 	public Criptomoneda(Criptomoneda crip){

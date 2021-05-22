@@ -125,25 +125,40 @@ public class CriptomonedaDAO
     	
     }
     
-    public ArrayList<Criptomoneda> queryconfig() throws SQLException {
+    public ArrayList<Criptomoneda> listCurrency(String status) throws SQLException {
     	ArrayList<Criptomoneda> res = new ArrayList<>();
     	String sql = "SELECT * FROM currency";
 		PreparedStatement st;
 		ResultSet rs;
 		
-    	connect();
-    	
+		connect();
+		
+		switch(status) {
+			default:
+				sql = "SELECT * FROM currency";
+				break;
+			case "disabled":
+				sql = "SELECT * FROM currency";
+				sql += " where status = disabled";
+				break;
+			case "enabled":
+				sql = "SELECT * FROM currency";
+				sql += " where status = enabled";
+				break;
+		}
+		
 		st = jdbcConnection.prepareStatement(sql);
 		rs = st.executeQuery();
 		
 		while(rs.next()) {
-			res.add(new Criptomoneda(rs.getString(1), ""));
+			res.add(new Criptomoneda(rs.getString(1), rs.getString(2)));
 		}
 		
 		rs.close();
 		st.close();
-    	
+		
 		disconnect();
+	
 		return res;
     }
     
@@ -305,6 +320,7 @@ public class CriptomonedaDAO
     	    	st = jdbcConnection.prepareStatement(sql);
     	    	st.setString(1, c.getAcronimo());
     	    	stat = st.executeUpdate() > 0;
+    	    	
     	    	st.close();
     			break;
     		case "currency":
@@ -312,12 +328,34 @@ public class CriptomonedaDAO
     	    	st = jdbcConnection.prepareStatement(sql);
     	    	st.setString(1, c.getAcronimo());
     	    	stat = st.executeUpdate() > 0;
+    			stat = setCurrencyStatus(acronimo, "disabled");
     	    	st.close();
     			break;
     	}
 
 		disconnect();
 		
+		return stat;
+    	
+    }
+    
+    
+    public boolean setCurrencyStatus(String acronimo, String status) throws SQLException {
+    	String sql;
+    	PreparedStatement st;
+    	Boolean stat = false;
+    	
+    	
+    	sql = "UPDATE currency SET"; 
+		sql += " status = ? where acronimo = ?";
+		
+		st = jdbcConnection.prepareStatement(sql);
+		st.setString(1, status);
+		st.setString(2, acronimo);
+    	
+		stat = st.executeUpdate() > 0;
+    	
+    	
 		return stat;
     	
     }
@@ -372,6 +410,7 @@ public class CriptomonedaDAO
     			st.setString(9, sevendaychange);
     			stat = st.executeUpdate() > 0;
     			stat = addToHistory(acronimo, precio);
+    			stat = setCurrencyStatus(acronimo, "enabled");
     			
     			st.close();
     			

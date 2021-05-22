@@ -8,7 +8,7 @@
 <header>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>CryptoCap - Configuración</title>
+    <title>CryptoCap - Comparar precios</title>
     <link rel="stylesheet" href="/dist/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
@@ -47,11 +47,6 @@
                     <c:forEach items="${criptos}" var="resource" varStatus="loop">
                         <div class="col-md-6 col-lg-4">
                             <div class="project-card-no-image">
-                                <c:if test="${criptos.status == 'disabled'}">
-                                    <div class="alert alert-danger" role="alert">
-                                        Criptomoneda no encontrada.
-                                    </div>
-                                </c:if>
                                 <h3 style="text-transform: uppercase !important;">${resource.acronimo}&nbsp;</h3>
                                 <div class="tags">
                                     <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt" style="color: white;"></i></a>

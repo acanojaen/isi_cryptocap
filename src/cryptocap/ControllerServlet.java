@@ -45,36 +45,49 @@ public class ControllerServlet extends HttpServlet {
 
         try {
             switch(elegido){
+            	// Webscraping en Coinraking.com
                 case "/coinranking":
                 	coinranking(request, response);              
                 break;
                 
+                // Webscraping en Investing.com
                 case "/investing":
                 	investing(request, response);              
                 break;
                 
+                // Página listar
                 case "/list":
             		list(request, response);
                 break;
 
+                // Ficha criptomoneda
                 case "/ficha":
             		ficha(request, response);
                 break;
-                
-                case "/eliminar":
-                	delete(request, response);
-                break;
-                
+
+                // Test
                 case "/test":
                 	test(request, response);
                 break;
                 
+                // Eliminar (Criptomoneda/Currency)
+                case "/eliminar":
+                	delete(request, response);
+                break;
+                
+                // Página de Configuración
                 case "/config":
                 	config(request, response);
                 break;
                 
+                // Añadir una Moneda (Configuración)
                 case "/currency":
                 	insertCurrency(request, response);
+                break;
+                
+                // Obtener las currencys
+                case "/compare":
+                	compare(request, response);
                 break;
             }
         } catch (SQLException | URISyntaxException | ClassNotFoundException e){
@@ -82,7 +95,18 @@ public class ControllerServlet extends HttpServlet {
         }
     }
     
-    private void insertCurrency(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+    private void compare(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    	List<Criptomoneda> list = new ArrayList<>();
+		
+    	list = criptomonedaDAO.listCurrency("enabled");
+
+		request.setAttribute("criptos", list);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("config.jsp");
+		
+		dispatcher.forward(request, response);
+	}
+
+	private void insertCurrency(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
     	String acron = request.getParameter("acr");
     	
     	// comprobamos la criptomoneda
@@ -101,7 +125,7 @@ public class ControllerServlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
     	List<Criptomoneda> list = new ArrayList<>();
 		
-    	list = criptomonedaDAO.queryconfig();
+    	list = criptomonedaDAO.listCurrency("all");
 
 		request.setAttribute("criptos", list);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("config.jsp");

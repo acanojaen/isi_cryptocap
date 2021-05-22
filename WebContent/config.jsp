@@ -38,7 +38,7 @@
                             <form method="post" action="currency">
                                 <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce el acrónimo">
                                 <small id="acronimoHelp" class="form-text text-muted">Debe estar en formato "XXXX" (max. 10 caracteres)</small>
-                                <input class="btn btn-warning btn-sm float-right" type="submit" value=""><i class="fas fa-plus"></i></a>
+                                <input class="btn btn-warning btn-sm float-right"><i class="fas fa-plus"></i></a>
                             </form>
                         </div>
                     </div>

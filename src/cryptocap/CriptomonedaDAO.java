@@ -452,6 +452,7 @@ public class CriptomonedaDAO
 		String sql;
 		PreparedStatement st;
 		ResultSet rs;
+		boolean stat;
 		
 		
     	connect();
@@ -488,7 +489,9 @@ public class CriptomonedaDAO
     			st.setString(4, ultAct);
     			st.setString(5, imagen);
     			
-    			boolean rowInserted = st.executeUpdate() > 0;
+    			stat = st.executeUpdate() > 0;
+    			stat = setCurrencyStatus(acronimo, "enabled");
+    			
     			st.close();
     			
     		} else {

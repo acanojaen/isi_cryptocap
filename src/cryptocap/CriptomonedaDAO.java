@@ -237,8 +237,8 @@ public class CriptomonedaDAO
 		rs = st.executeQuery();
 		// si FALSE --> INSERT
 		if(!rs.next()) {
-			sql = "INSERT INTO currency (acronimo, status)";
-			sql += " VALUES (?, disabled)";
+			sql = "INSERT INTO currency (acronimo)";
+			sql += " VALUES (?)";
 			st = jdbcConnection.prepareStatement(sql);
 			st.setString(1, acron);
 			stat = st.executeUpdate() > 0;

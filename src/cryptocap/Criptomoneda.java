@@ -21,6 +21,7 @@ public class Criptomoneda {
 
 	public String ultimaActualizacion;
 	public String status;
+	public String msg;
 
 
 	/*-----------------------------------------Constructores-----------------------------------------*/
@@ -36,6 +37,7 @@ public class Criptomoneda {
 		this.nombre = acronimo;
 		this.status = status;
 	}
+	
 
 	public Criptomoneda(Criptomoneda crip){
 		this.nombre = crip.getNombre();

@@ -108,7 +108,7 @@ public class Webscraping {
 			}
 			
 			// si no se encuentra
-			return (new Criptomoneda(acron, getActualHour()));
+			return (new Criptomoneda(acron, "disabled"));
 			
 		} else {
 			// si el codigo no es 200 (�xito)

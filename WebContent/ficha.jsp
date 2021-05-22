@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/dist/bootstrap/css/style.css">
 
     <style>
-        h2 {
+        .portfolio-block .heading h2 {
             text-transform: capitalize !important;
         }
     </style>

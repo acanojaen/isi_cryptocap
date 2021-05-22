@@ -482,42 +482,40 @@ public class CriptomonedaDAO
         	
     		rs = st.executeQuery();
     		// si FALSE --> INSERT
-    		if(!rs.next()) {
-    			sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct, urlImagen)";
-    			sql += " VALUES (?, ?, ?, ?, ?)";
-    			
-    			st = jdbcConnection.prepareStatement(sql);
-    			st.setString(1, acronimo);
-    			st.setString(2, nombre);
-    			st.setString(3, urlDatos);
-    			st.setString(4, ultAct);
-    			st.setString(5, imagen);
-    			
-    			stat = st.executeUpdate() > 0;
-    			
-                if(criptos.get(i).getStatus() == "disabled") {
-        			stat = setCurrencyStatus(acronimo, "disabled");
-                } else {
-                	stat = setCurrencyStatus(acronimo, "enabled");
-                }
-    			
-    			st.close();
-    			
-    		} else {
-    			// si TRUE --> UPDATE (existe)
-    			sql = "UPDATE criptomonedas SET"; 
-    			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ? where acronimo = ?";
-    			
-    			st = jdbcConnection.prepareStatement(sql);
-    			st.setString(1, nombre);
-    			st.setString(2, urlDatos);
-    			st.setString(3, ultAct);
-       			st.setString(4, imagen);
-    			st.setString(5, acronimo);
-    			
-    			boolean rowInserted = st.executeUpdate() > 0;
-    			st.close();
-    		}
+    		if(!criptos.get(i).getStatus().equals("disabled")) {
+	    		if(!rs.next()) {
+					sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct, urlImagen)";
+					sql += " VALUES (?, ?, ?, ?, ?)";
+					
+					st = jdbcConnection.prepareStatement(sql);
+					st.setString(1, acronimo);
+					st.setString(2, nombre);
+					st.setString(3, urlDatos);
+					st.setString(4, ultAct);
+					st.setString(5, imagen);
+					
+					stat = st.executeUpdate() > 0;
+		            stat = setCurrencyStatus(acronimo, "enabled");    
+			       
+		            st.close();
+	    			
+	    		} else {
+	    			sql = "UPDATE criptomonedas SET"; 
+	    			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ? where acronimo = ?";
+	    			
+	    			st = jdbcConnection.prepareStatement(sql);
+	    			st.setString(1, nombre);
+	    			st.setString(2, urlDatos);
+	    			st.setString(3, ultAct);
+	       			st.setString(4, imagen);
+	    			st.setString(5, acronimo);
+	    			
+	    			stat = st.executeUpdate() > 0;
+	    			st.close();
+	    		}
+        	} else {
+        		stat = setCurrencyStatus(acronimo, "disabled");  
+        	}
         }
 
         disconnect();

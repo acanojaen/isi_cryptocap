@@ -37,6 +37,12 @@ public class Criptomoneda {
 		this.nombre = acronimo;
 		this.status = status;
 	}
+	public Criptomoneda(String acronimo, String ultAct, String status) {
+		this.acronimo = acronimo;
+		this.nombre = acronimo;
+		this.ultimaActualizacion = ultAct;
+		this.status = status;
+	}
 	
 
 	public Criptomoneda(Criptomoneda crip){

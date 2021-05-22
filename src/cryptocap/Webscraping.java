@@ -67,11 +67,11 @@ public class Webscraping {
 			}
 			
 			// si no se encuentra
-			return (new Criptomoneda(acron, "disabled"));
+			return (new Criptomoneda(acron, ultAct, "disabled"));
 			
 		} else {
 			// si el codigo no es 200 (�xito)
-			return (new Criptomoneda("ERROR", "disabled"));
+			return (new Criptomoneda("ERROR", ultAct, "disabled"));
 		}
 	}	
 	
@@ -108,11 +108,11 @@ public class Webscraping {
 			}
 			
 			// si no se encuentra
-			return (new Criptomoneda(acron, "disabled"));
+			return (new Criptomoneda(acron, ultAct, "disabled"));
 			
 		} else {
 			// si el codigo no es 200 (�xito)
-			return (new Criptomoneda("ERROR", "disabled"));
+			return (new Criptomoneda("ERROR", ultAct, "disabled"));
 		}
 	}
 

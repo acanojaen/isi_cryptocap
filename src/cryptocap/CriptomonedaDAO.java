@@ -394,7 +394,7 @@ public class CriptomonedaDAO
         	
     		rs = st.executeQuery();
     		// si FALSE --> INSERT
-    		if(!rs.next() && status.equals("enabled")) {
+    		if(!rs.next()) {
     			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange)";
     			sql += " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     			
@@ -415,9 +415,7 @@ public class CriptomonedaDAO
 
     			st.close();
     			
-    		} 
-    		
-    		if(rs.next() && !status.equals("disabled")) {
+    		} else {
     			sql = "UPDATE criptomonedas SET"; 
     			sql += " nombre = ?, ultAct = ?, precio = ?, capitalizacion = ?, vol24 = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
     			
@@ -483,7 +481,7 @@ public class CriptomonedaDAO
         	
     		rs = st.executeQuery();
     		// si FALSE --> INSERT
-    		if(!rs.next() && status.equals("enabled")) {
+    		if(!rs.next() ) {
 				sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct, urlImagen)";
 				sql += " VALUES (?, ?, ?, ?, ?)";
 				
@@ -498,9 +496,7 @@ public class CriptomonedaDAO
 	            stat = setCurrencyStatus(acronimo, "enabled");
 	            st.close();
     			
-    		}
-    		
-    		if(rs.next() && !status.equals("disabled")) {
+    		} else {
     			sql = "UPDATE criptomonedas SET"; 
     			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ? where acronimo = ?";
     			

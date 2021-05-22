@@ -47,7 +47,7 @@
                     <c:forEach items="${criptos}" var="resource" varStatus="loop">
                         <div class="col-md-6 col-lg-4">
                             <div class="project-card-no-image">
-                                <c:if test="${criptos.status == 'disabled'}">
+                                <c:if test="${resource.status == 'disabled'}">
                                     <div class="alert alert-danger" role="alert">
                                         Criptomoneda no encontrada.
                                     </div>

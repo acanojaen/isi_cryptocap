@@ -90,8 +90,18 @@ public class Criptomoneda {
 	
 	/*-----------------------------------------Modificadores-----------------------------------------*/
 	
+	
+	
 	public String getNombre() {
 		return nombre;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public void setNombre(String nombre) {

@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
                         <div class="project-card-no-image">
-                            <form method="post" action="currency">
+                            <form method="post" action="currency" style="padding: 0px !important;">
                                 <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce el acrónimo">
                                 <small id="acronimoHelp" class="form-text text-muted">Formato "XXXX" (max. 10 c)</small>
                                 <button type="submit" class="btn btn-warning btn-sm float-right"><i class="fas fa-plus"></i></a>
@@ -47,9 +47,9 @@
                         <div class="col-md-6 col-lg-4">
                             <div class="project-card-no-image">
                                 <h3 style="text-transform: uppercase !important;">${resource.acronimo}&nbsp;</h3>
-                                <a href="/ficha?id=<c:out value='${criptomoneda.acronimo}'/>" class="btn btn-warning btn-sm float-right" role="button" href="#"><i class="fas fa-eye"></i></a>
                                 <div class="tags">
                                     <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt"></i></a>
+                                    <a href="/ficha?id=<c:out value='${criptomoneda.acronimo}'/>" class="btn btn-warning btn-sm float-right" role="button" href="#"><i class="fas fa-eye" style="color: white;"></i></a>
                                 </div>
                             </div>
                         </div>

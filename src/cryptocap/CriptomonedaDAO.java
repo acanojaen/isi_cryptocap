@@ -376,7 +376,7 @@ public class CriptomonedaDAO
         	it = new Webscraping();
             criptos.add(it.Investing(lista.get(i)));
 
-            if(criptos.get(i).getStatus() != "disbled") {
+            if(criptos.get(i).getStatus() != "disabled") {
 	            acronimo = criptos.get(i).getAcronimo();
 	        	nombre = criptos.get(i).getNombre();
 	        	precio = criptos.get(i).getPrecio();
@@ -463,7 +463,7 @@ public class CriptomonedaDAO
         for(int i=0; i<lista.size(); i++){
         	it = new Webscraping();
             criptos.add(it.Coinranking(lista.get(i)));
-            if(criptos.get(i).getStatus() != "disbled") {
+            if(criptos.get(i).getStatus() != "disabled") {
 	            nombre = criptos.get(i).getNombre();
 	            acronimo = criptos.get(i).getAcronimo();
 	            urlDatos = criptos.get(i).getUrlDatos();

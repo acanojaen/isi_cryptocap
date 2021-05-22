@@ -16,7 +16,7 @@
 
     <style>
         h2 {
-            text-transform: capitalize;
+            text-transform: capitalize !important;
         }
     </style>
 </header>
@@ -39,7 +39,7 @@
                     <div class="work-experience group">
 
                         <div class="heading" style="display: inline !important">
-                            <h2 class="text-center text-body" style="text-transform: capitalize;">
+                            <h2 class="text-center text-body">
                                 <a href="/list"><i class="fas fa-arrow-left float-left"></i></a>
                                 <img class="responsive" src="${criptos.imagen}"/> ${criptos.nombre}
                             </h2>
@@ -50,7 +50,7 @@
                             <div class="row">
                                 <c:if test="${not empty criptos.precio}">
                                     <div class="col-md-6">
-                                        <h3>Precio: </h3> <h4 class="organization">${criptos.precio}</h4>
+                                        <h3>Precio: </h3> <h4 class="organization">${criptos.precio}$</h4>
                                     </div>
                                 </c:if>
 
@@ -96,7 +96,7 @@
                                     <tr>
                                         <td>${historial.fecha}</td>
                                         <td>${historial.acronimo}</td>
-                                        <td>${historial.valor}</td>
+                                        <td>${historial.valor}$</td>
                                     </tr>
                                 </c:forEach>
                             </table>

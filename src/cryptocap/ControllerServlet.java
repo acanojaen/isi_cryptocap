@@ -110,7 +110,7 @@ public class ControllerServlet extends HttpServlet {
     	String acron = request.getParameter("acr");
     	
     	// comprobamos la criptomoneda
-    	if(acron.length() > 10 && acron.isEmpty()) {
+    	if(acron.length() <= 10 && !acron.isEmpty()) {
         	criptomonedaDAO.addCurrency(acron.toUpperCase());
     	}
 

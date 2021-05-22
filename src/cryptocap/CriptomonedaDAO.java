@@ -417,7 +417,7 @@ public class CriptomonedaDAO
     			
     		} 
     		
-    		if(rs.next()) {
+    		if(rs.next() && status.equals("enabled")) {
     			sql = "UPDATE criptomonedas SET"; 
     			sql += " nombre = ?, ultAct = ?, precio = ?, capitalizacion = ?, vol24 = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
     			
@@ -505,7 +505,7 @@ public class CriptomonedaDAO
     			
     		}
     		
-    		if(rs.next()) {
+    		if(rs.next() && status.equals("enabled")) {
     			sql = "UPDATE criptomonedas SET"; 
     			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ? where acronimo = ?";
     			

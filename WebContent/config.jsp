@@ -53,11 +53,13 @@
 
                                 <c:if test="${resource.status == 'disabled'}">
                             <div class="project-card-no-image" style="border-top: 4px solid red !important;">
-                                <h3 style="text-transform: uppercase !important;">${resource.acronimo}&nbsp; <i class="fas fa-exclamation-circle"></i></h3>
+                                <h3 style="text-transform: uppercase !important;"><i class="fas fa-exclamation-circle"></i>&nbsp;${resource.acronimo}&nbsp; </h3>
                                 </c:if>
                                 <div class="tags">
-                                    <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt" style="color: white;"></i></a>
+                                    <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt" style="color: white;"></i></a>&nbsp;
+                                    <c:if test="${resource.status != 'disabled'}"></c:if>
                                     <a href="/ficha?id=<c:out value='${criptomoneda.acronimo}'/>" class="btn btn-warning btn-sm float-right" role="button" href="#"><i class="fas fa-eye" style="color: black;"></i></a>
+                                    </c:if>
                                 </div>
                             </div>
                         </div>

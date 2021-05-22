@@ -51,7 +51,7 @@
                             </div>
                             <div class="col-md-6">
                                     <a href="/eliminar?id=<c:out value='${criptomoneda.acronimo}'/>&entity=criptomoneda" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt"></i></a>
-                                    <a href="/ficha?id=<c:out value='${criptomoneda.acronimo}'/>" class="btn btn-warning btn-sm float-right" role="button"><i class="fas fa-eye"></i></a>
+                                    &nbsp;<a href="/ficha?id=<c:out value='${criptomoneda.acronimo}'/>" class="btn btn-warning btn-sm float-right" role="button"><i class="fas fa-eye"></i></a>
                             </div>
                         </div>
                     </div>

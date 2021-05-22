@@ -417,7 +417,7 @@ public class CriptomonedaDAO
     			
     		} 
     		
-    		if(rs.next() && status.equals("enabled")) {
+    		if(rs.next() && !status.equals("disabled")) {
     			sql = "UPDATE criptomonedas SET"; 
     			sql += " nombre = ?, ultAct = ?, precio = ?, capitalizacion = ?, vol24 = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
     			
@@ -437,12 +437,7 @@ public class CriptomonedaDAO
     			st.close();
     			
     		} 
-    		
-    		if(status.equals("disabled")) {
-    			stat = setCurrencyStatus(acronimo, "disabled");
-    			st.close();
-    			
-    		}
+    	
             
 
         }
@@ -505,7 +500,7 @@ public class CriptomonedaDAO
     			
     		}
     		
-    		if(rs.next() && status.equals("enabled")) {
+    		if(rs.next() && !status.equals("disabled")) {
     			sql = "UPDATE criptomonedas SET"; 
     			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ? where acronimo = ?";
     			
@@ -520,12 +515,7 @@ public class CriptomonedaDAO
     			st.close();
     			
     		} 
-    		
-    		if(status.equals("disabled")) {
-    			stat = setCurrencyStatus(acronimo, "disabled");
-    			st.close();
-    			
-    		}
+    	
 
         }
 

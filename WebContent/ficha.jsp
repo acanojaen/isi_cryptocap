@@ -81,7 +81,7 @@
                         </div>
 
                         <div class="heading" style="display: inline !important">
-                            <h2 class="text-center text-body"><i class="fas fa-history"></i> HISTORIAL DE PRECIOS </h2>
+                            <h2 class="text-center text-body"><i class="fas fa-history"></i> Historial de precio</h2>
                         </div>
 
                         <div class="col-md-12">

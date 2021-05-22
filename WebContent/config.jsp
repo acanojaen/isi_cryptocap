@@ -30,14 +30,14 @@
         <section class="portfolio-block project-no-images">
             <div class="container">
                 <div class="heading">
-                    <h2 class="text-capitalize text-center text-body">CONFIGURAR CRIPTOMONEDAS <i class="fas fa-plus-circle"></i></h2>
+                    <h2 class="text-capitalize text-center text-body"><i class="fas fa-plus-circle"></i> CONFIGURAR CRIPTOMONEDAS</h2>
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
                         <div class="project-card-no-image">
                             <form method="post" action="currency">
                                 <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce el acrónimo">
-                                <small id="acronimoHelp" class="form-text text-muted">Debe estar en formato "XXXX" (max. 10 caracteres)</small>
+                                <small id="acronimoHelp" class="form-text text-muted">Formato "XXXX" (max. 10 c)</small>
                                 <button type="submit" class="btn btn-warning btn-sm float-right"><i class="fas fa-plus"></i></a>
                             </form>
                         </div>
@@ -47,9 +47,9 @@
                         <div class="col-md-6 col-lg-4">
                             <div class="project-card-no-image">
                                 <h3 style="text-transform: uppercase !important;">${resource.acronimo}&nbsp;</h3>
-                                <h4>Lorem ipsum dolor sit amet</h4><a class="btn btn-outline-primary btn-sm" role="button" href="#">See More</a>
+                                <a href="/ficha?id=<c:out value='${criptomoneda.acronimo}'/>" class="btn btn-warning btn-sm float-right" role="button" href="#"><i class="fas fa-eye"></i></a>
                                 <div class="tags">
-                                    <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-warning btn-sm float-right" role="button"><i class="far fa-trash-alt" style="color: white;"></i></a>
+                                    <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt"></i></a>
                                 </div>
                             </div>
                         </div>

@@ -84,8 +84,12 @@ public class ControllerServlet extends HttpServlet {
     
     private void insertCurrency(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
     	String acron = request.getParameter("acr");
-    	    	
-    	criptomonedaDAO.addCurrency(acron);
+    	
+    	// comprobamos la criptomoneda
+    	if(acron.length() > 10 && acron.isEmpty()) {
+        	criptomonedaDAO.addCurrency(acron.toUpperCase());
+    	}
+
 		response.sendRedirect("config");
     }
 

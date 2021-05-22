@@ -385,7 +385,8 @@ public class CriptomonedaDAO
         	lastdaychange = criptos.get(i).getVariacion24();
         	sevendaychange = criptos.get(i).getVariacion7();
         	ultAct = criptos.get(i).getUltimaActualizacion();
-        	
+            status = criptos.get(i).getStatus();
+            
     		sql = "SELECT * FROM criptomonedas";
     		sql += " WHERE acronimo = ?";
 
@@ -410,6 +411,7 @@ public class CriptomonedaDAO
     			st.setString(9, sevendaychange);
     			stat = st.executeUpdate() > 0;
     			stat = addToHistory(acronimo, precio);
+	            stat = setCurrencyStatus(acronimo, "enabled");
     			
 
     			st.close();
@@ -431,7 +433,6 @@ public class CriptomonedaDAO
     			
     			stat = st.executeUpdate() > 0;
     			stat = addToHistory(acronimo, precio);
-	            stat = setCurrencyStatus(acronimo, "enabled");
     			st.close();
     			
     		} else if(status.equals("disabled")) {

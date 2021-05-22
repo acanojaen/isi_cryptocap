@@ -77,7 +77,6 @@ public class CriptomonedaDAO
 			Class.forName("com.mysql.cj.jdbc.Driver");
 	        jdbcConnection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
@@ -92,7 +91,6 @@ public class CriptomonedaDAO
     
     public List<Criptomoneda> list() throws SQLException{
     	List<Criptomoneda> c = new ArrayList<>();
-    	Criptomoneda crip;
 		String sql = "SELECT * FROM criptomonedas";
 		PreparedStatement st;
 		ResultSet rs;
@@ -320,6 +318,7 @@ public class CriptomonedaDAO
     	    	st = jdbcConnection.prepareStatement(sql);
     	    	st.setString(1, c.getAcronimo());
     	    	stat = st.executeUpdate() > 0;
+    			stat = setCurrencyStatus(acronimo, "disabled");
     	    	
     	    	st.close();
     			break;
@@ -328,7 +327,6 @@ public class CriptomonedaDAO
     	    	st = jdbcConnection.prepareStatement(sql);
     	    	st.setString(1, c.getAcronimo());
     	    	stat = st.executeUpdate() > 0;
-    			stat = setCurrencyStatus(acronimo, "disabled");
     	    	st.close();
     			break;
     	}
@@ -376,66 +374,70 @@ public class CriptomonedaDAO
         	it = new Webscraping();
             criptos.add(it.Investing(lista.get(i)));
 
-            if(criptos.get(i).getStatus() != "disabled") {
-	            acronimo = criptos.get(i).getAcronimo();
-	        	nombre = criptos.get(i).getNombre();
-	        	precio = criptos.get(i).getPrecio();
-	        	capitalizacion = criptos.get(i).getCapMercado();
-	        	vol24 = criptos.get(i).getVolumen24();
-	        	volTotal = criptos.get(i).getVolumenTotal(); 
-	        	lastdaychange = criptos.get(i).getVariacion24();
-	        	sevendaychange = criptos.get(i).getVariacion7();
-	        	ultAct = criptos.get(i).getUltimaActualizacion();
-	        	
-	    		sql = "SELECT * FROM criptomonedas";
-	    		sql += " WHERE acronimo = ?";
-	
-	    		st = jdbcConnection.prepareStatement(sql);
-	    		st.setString(1, acronimo);
-	        	
-	    		rs = st.executeQuery();
-	    		// si FALSE --> INSERT
-	    		if(!rs.next()) {
-	    			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange)";
-	    			sql += " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	    			
-	    			st = jdbcConnection.prepareStatement(sql);
-	    			st.setString(1, acronimo);
-	    			st.setString(2, nombre);
-	    			st.setString(3, ultAct);
-	    			st.setString(4, precio);
-	    			st.setString(5, capitalizacion);
-	    			st.setString(6, vol24);
-	    			st.setString(7, volTotal);
-	    			st.setString(8, lastdaychange);
-	    			st.setString(9, sevendaychange);
-	    			stat = st.executeUpdate() > 0;
-	    			stat = addToHistory(acronimo, precio);
-	    			stat = setCurrencyStatus(acronimo, "enabled");
-	    			
-	    			st.close();
-	    			
-	    		} else {
-	    			// si TRUE --> UPDATE (existe)
-	    			sql = "UPDATE criptomonedas SET"; 
-	    			sql += " nombre = ?, ultAct = ?, precio = ?, capitalizacion = ?, vol24 = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
-	    			
-	    			st = jdbcConnection.prepareStatement(sql);
-	    			st.setString(1, nombre);
-	    			st.setString(2, ultAct);
-	    			st.setString(3, precio);
-	    			st.setString(4, capitalizacion);
-	    			st.setString(5, vol24);
-	    			st.setString(6, volTotal);
-	    			st.setString(7, lastdaychange);
-	    			st.setString(8, sevendaychange);
-	    			st.setString(9, acronimo);
-	    			
-	    			stat = st.executeUpdate() > 0;
-	    			stat = addToHistory(acronimo, precio);
-	    			st.close();
-	    		}
-            }
+            acronimo = criptos.get(i).getAcronimo();
+        	nombre = criptos.get(i).getNombre();
+        	precio = criptos.get(i).getPrecio();
+        	capitalizacion = criptos.get(i).getCapMercado();
+        	vol24 = criptos.get(i).getVolumen24();
+        	volTotal = criptos.get(i).getVolumenTotal(); 
+        	lastdaychange = criptos.get(i).getVariacion24();
+        	sevendaychange = criptos.get(i).getVariacion7();
+        	ultAct = criptos.get(i).getUltimaActualizacion();
+        	
+    		sql = "SELECT * FROM criptomonedas";
+    		sql += " WHERE acronimo = ?";
+
+    		st = jdbcConnection.prepareStatement(sql);
+    		st.setString(1, acronimo);
+        	
+    		rs = st.executeQuery();
+    		// si FALSE --> INSERT
+    		if(!rs.next()) {
+    			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange)";
+    			sql += " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    			
+    			st = jdbcConnection.prepareStatement(sql);
+    			st.setString(1, acronimo);
+    			st.setString(2, nombre);
+    			st.setString(3, ultAct);
+    			st.setString(4, precio);
+    			st.setString(5, capitalizacion);
+    			st.setString(6, vol24);
+    			st.setString(7, volTotal);
+    			st.setString(8, lastdaychange);
+    			st.setString(9, sevendaychange);
+    			stat = st.executeUpdate() > 0;
+    			stat = addToHistory(acronimo, precio);
+    			
+                if(criptos.get(i).getStatus() == "disabled") {
+        			stat = setCurrencyStatus(acronimo, "disabled");
+                } else {
+                	stat = setCurrencyStatus(acronimo, "enabled");
+                }
+    			
+    			st.close();
+    			
+    		} else {
+    			// si TRUE --> UPDATE (existe)
+    			sql = "UPDATE criptomonedas SET"; 
+    			sql += " nombre = ?, ultAct = ?, precio = ?, capitalizacion = ?, vol24 = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
+    			
+    			st = jdbcConnection.prepareStatement(sql);
+    			st.setString(1, nombre);
+    			st.setString(2, ultAct);
+    			st.setString(3, precio);
+    			st.setString(4, capitalizacion);
+    			st.setString(5, vol24);
+    			st.setString(6, volTotal);
+    			st.setString(7, lastdaychange);
+    			st.setString(8, sevendaychange);
+    			st.setString(9, acronimo);
+    			
+    			stat = st.executeUpdate() > 0;
+    			stat = addToHistory(acronimo, precio);
+    			st.close();
+    		}
+            
 
         }
 
@@ -463,55 +465,59 @@ public class CriptomonedaDAO
         for(int i=0; i<lista.size(); i++){
         	it = new Webscraping();
             criptos.add(it.Coinranking(lista.get(i)));
-            if(criptos.get(i).getStatus() != "disabled") {
-	            nombre = criptos.get(i).getNombre();
-	            acronimo = criptos.get(i).getAcronimo();
-	            urlDatos = criptos.get(i).getUrlDatos();
-	            ultAct = criptos.get(i).getUltimaActualizacion();
-	            imagen = criptos.get(i).getImagen();
-	            
-	            
-	            // QUERY1: �Existe la moneda "i"?
-	    		sql = "SELECT * FROM criptomonedas";
-	    		sql += " WHERE acronimo = ?";
-	    	
-	    		st = jdbcConnection.prepareStatement(sql);
-	    		st.setString(1, acronimo);
-	        	
-	    		rs = st.executeQuery();
-	    		// si FALSE --> INSERT
-	    		if(!rs.next()) {
-	    			sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct, urlImagen)";
-	    			sql += " VALUES (?, ?, ?, ?, ?)";
-	    			
-	    			st = jdbcConnection.prepareStatement(sql);
-	    			st.setString(1, acronimo);
-	    			st.setString(2, nombre);
-	    			st.setString(3, urlDatos);
-	    			st.setString(4, ultAct);
-	    			st.setString(5, imagen);
-	    			
-	    			stat = st.executeUpdate() > 0;
-	    			stat = setCurrencyStatus(acronimo, "enabled");
-	    			
-	    			st.close();
-	    			
-	    		} else {
-	    			// si TRUE --> UPDATE (existe)
-	    			sql = "UPDATE criptomonedas SET"; 
-	    			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ? where acronimo = ?";
-	    			
-	    			st = jdbcConnection.prepareStatement(sql);
-	    			st.setString(1, nombre);
-	    			st.setString(2, urlDatos);
-	    			st.setString(3, ultAct);
-	       			st.setString(4, imagen);
-	    			st.setString(5, acronimo);
-	    			
-	    			boolean rowInserted = st.executeUpdate() > 0;
-	    			st.close();
-	    		}
-            }
+            
+            nombre = criptos.get(i).getNombre();
+            acronimo = criptos.get(i).getAcronimo();
+            urlDatos = criptos.get(i).getUrlDatos();
+            ultAct = criptos.get(i).getUltimaActualizacion();
+            imagen = criptos.get(i).getImagen();
+            
+            
+            // QUERY1: �Existe la moneda "i"?
+    		sql = "SELECT * FROM criptomonedas";
+    		sql += " WHERE acronimo = ?";
+    	
+    		st = jdbcConnection.prepareStatement(sql);
+    		st.setString(1, acronimo);
+        	
+    		rs = st.executeQuery();
+    		// si FALSE --> INSERT
+    		if(!rs.next()) {
+    			sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct, urlImagen)";
+    			sql += " VALUES (?, ?, ?, ?, ?)";
+    			
+    			st = jdbcConnection.prepareStatement(sql);
+    			st.setString(1, acronimo);
+    			st.setString(2, nombre);
+    			st.setString(3, urlDatos);
+    			st.setString(4, ultAct);
+    			st.setString(5, imagen);
+    			
+    			stat = st.executeUpdate() > 0;
+    			
+                if(criptos.get(i).getStatus() == "disabled") {
+        			stat = setCurrencyStatus(acronimo, "disabled");
+                } else {
+                	stat = setCurrencyStatus(acronimo, "enabled");
+                }
+    			
+    			st.close();
+    			
+    		} else {
+    			// si TRUE --> UPDATE (existe)
+    			sql = "UPDATE criptomonedas SET"; 
+    			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ? where acronimo = ?";
+    			
+    			st = jdbcConnection.prepareStatement(sql);
+    			st.setString(1, nombre);
+    			st.setString(2, urlDatos);
+    			st.setString(3, ultAct);
+       			st.setString(4, imagen);
+    			st.setString(5, acronimo);
+    			
+    			boolean rowInserted = st.executeUpdate() > 0;
+    			st.close();
+    		}
         }
 
         disconnect();

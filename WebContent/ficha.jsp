@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="/dist/bootstrap/css/style.css">
+
+    <style>
+        h2 {
+            text-transform: capitalize;
+        }
+    </style>
 </header>
 
 <body>
@@ -33,9 +39,9 @@
                     <div class="work-experience group">
 
                         <div class="heading" style="display: inline !important">
-                            <h2 class="text-capitalize text-center text-body" style="text-transform: capitalize;">
+                            <h2 class="text-center text-body" style="text-transform: capitalize;">
                                 <a href="/list"><i class="fas fa-arrow-left float-left"></i></a>
-                                <img class="responsive" src="${criptos.imagen}"/>${criptos.nombre}
+                                <img class="responsive" src="${criptos.imagen}"/> ${criptos.nombre}
                             </h2>
                             
                         </div>
@@ -75,7 +81,7 @@
                         </div>
 
                         <div class="heading" style="display: inline !important">
-                            <h2 class="text-capitalize text-center text-body"><i class="fas fa-history"> HISTORIAL DE PRECIOS</i></h2>
+                            <h2 class="text-center text-body"><i class="fas fa-history"></i> HISTORIAL DE PRECIOS </h2>
                         </div>
 
                         <div class="col-md-12">

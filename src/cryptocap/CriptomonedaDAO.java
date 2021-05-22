@@ -415,7 +415,7 @@ public class CriptomonedaDAO
 
     			st.close();
     			
-    		} else if(rs.next() && status.equals("enabled")) {
+    		} else if(rs.next()) {
     			sql = "UPDATE criptomonedas SET"; 
     			sql += " nombre = ?, ultAct = ?, precio = ?, capitalizacion = ?, vol24 = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
     			
@@ -499,7 +499,7 @@ public class CriptomonedaDAO
 	            stat = setCurrencyStatus(acronimo, "enabled");
 	            st.close();
     			
-    		} else if(rs.next() && status.equals("enabled")) {
+    		} else if(rs.next()) {
     			sql = "UPDATE criptomonedas SET"; 
     			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ? where acronimo = ?";
     			

@@ -20,7 +20,7 @@ public class Criptomoneda {
 	public String variacion7;
 
 	public String ultimaActualizacion;
-	public String status = "disabled";
+	public String status;
 	public String msg;
 
 

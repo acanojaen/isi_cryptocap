@@ -2,11 +2,7 @@ package cryptocap;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,8 +13,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHeaders;
@@ -59,7 +55,9 @@ public class Webscraping {
 	    
 
 	    try {
-	    	return (makeAPICall(uri, params));
+	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject("quote").getAsJsonObject(acron2);
+	    	
+	    	return (local.get("price").getAsString());
 	    } catch (IOException e) {
 	    	return("Error: cannont access content - " + e.toString());
 	    } catch (URISyntaxException e) {
@@ -68,9 +66,10 @@ public class Webscraping {
 	}
 		
 	
-	public static String makeAPICall(String uri, List<NameValuePair> parameters)
+	public static JsonObject makeAPICall(String uri, List<NameValuePair> parameters)
 		      throws URISyntaxException, IOException {
 		    String response_content = "";
+		    JsonObject rootObj;
 
 		    URIBuilder query = new URIBuilder(uri);
 		    query.addParameters(parameters);
@@ -88,11 +87,14 @@ public class Webscraping {
 		      HttpEntity entity = response.getEntity();
 		      response_content = EntityUtils.toString(entity);
 		      EntityUtils.consume(entity);
+		      
+		      rootObj = (JsonObject) JsonParser.parseString(response_content).getAsJsonObject();
+		      
 		    } finally {
 		      response.close();
 		    }
 
-		    return response_content;
+		    return rootObj;
 	}
 
 	

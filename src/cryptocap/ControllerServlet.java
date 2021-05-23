@@ -114,6 +114,7 @@ public class ControllerServlet extends HttpServlet {
 		request.setAttribute("criptos", data);
 		request.setAttribute("notcriptos", Arrays.asList(notcriptos));
     	request.setAttribute("result", ws.Conversor(amount, acron1, acron2));
+    	
     	RequestDispatcher dispatcher = request.getRequestDispatcher("compare.jsp");
 			
     	dispatcher.forward(request, response);

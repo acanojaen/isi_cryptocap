@@ -381,16 +381,16 @@ public class CriptomonedaDAO
         	crip = it.Investing(lista.get(i));
         	if(crip.getStatus().equals("enabled")) {
         		criptos.add(crip);
-        		
-        		acronimo = criptos.get(i).getAcronimo();
-            	nombre = criptos.get(i).getNombre();
-            	precio = criptos.get(i).getPrecio();
-            	capitalizacion = criptos.get(i).getCapMercado();
-            	vol24 = criptos.get(i).getVolumen24();
-            	volTotal = criptos.get(i).getVolumenTotal(); 
-            	lastdaychange = criptos.get(i).getVariacion24();
-            	sevendaychange = criptos.get(i).getVariacion7();
-            	ultAct = criptos.get(i).getUltimaActualizacion();
+        		       		
+        		acronimo = crip.getAcronimo();
+            	nombre = crip.getNombre();
+            	precio = crip.getPrecio();
+            	capitalizacion = crip.getCapMercado();
+            	vol24 = crip.getVolumen24();
+            	volTotal = crip.getVolumenTotal(); 
+            	lastdaychange = crip.getVariacion24();
+            	sevendaychange = crip.getVariacion7();
+            	ultAct = crip.getUltimaActualizacion();
             	
             	// necesitamos saber si existe en la base de datos (2 casos)
             	sql = "SELECT * FROM criptomonedas";

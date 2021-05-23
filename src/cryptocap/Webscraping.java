@@ -98,7 +98,8 @@ public class Webscraping {
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		
 		params.add(new BasicNameValuePair("symbol", acron));
-
+		ultAct = getActualHour();
+		
 	    try {
 	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject(acron);
 	    	JsonObject urls = local.getAsJsonObject("urls");
@@ -106,7 +107,6 @@ public class Webscraping {
 			imagen = local.get("logo").getAsString();
 			description = local.get("description").getAsString();
 			urlDatos = urls.get("website").getAsString();
-			ultAct = getActualHour();
 	    	
 	    	return(new Criptomoneda(acron, nombre, "enabled", imagen, description, urlDatos, ultAct));
 	    	

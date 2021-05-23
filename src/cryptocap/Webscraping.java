@@ -71,7 +71,7 @@ public class Webscraping {
 	}
 	
 	public Criptomoneda getPricesAPI(String acron) {
-		String uri = "https://pro-api.coinmarketcap.com/v1/tools/price-conversion";
+		String uri = "https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest";
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		
 		params.add(new BasicNameValuePair("convert", acron));

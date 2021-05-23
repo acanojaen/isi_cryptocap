@@ -229,8 +229,8 @@
             url: "/coinranking",
             success: function(){
                 $('#alerta').html(exito);
-                var distance = $('#alerta').offset().top
-                $('html,body').animate({scrollTop:distance},1500);
+                var distance = $('#education group').offset().top
+                $('html,body').animate({scrollTop:distance},0);
             },
             error: function(){
                 $('#scrap_coinranking').modal('show');
@@ -244,8 +244,8 @@
             url: "/investing",
             success: function(){
                 $('#alerta').html(exito);
-                var distance = $('#alerta').offset().top
-                $('html,body').animate({scrollTop:distance},1500);
+                var distance = $('#education group').offset().top
+                $('html,body').animate({scrollTop:distance},0);
             },
             error: function(){
                 $('#scrap_investing').modal('show');
@@ -259,7 +259,7 @@
             url: "/apiprices",
             success: function(){
                 $('#alerta').html(exito2);
-                var distance = $('#alerta').offset().top
+                var distance = $('#education group').offset().top
                 $('html,body').animate({scrollTop:distance},1500);
             },
             error: function(){

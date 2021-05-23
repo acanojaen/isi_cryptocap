@@ -48,18 +48,6 @@
                     </fieldset>
                 </form>
             </span>
-
-            <span class="col">
-                <h5>Síguenos</h5>
-                <a class="enlace" href="https://www.instagram.com/canalugr/?hl=es">
-                    <img src = "imagenes/siguenos2.png" alt = "Instagram" class="logo-red-social"/>
-                </a>
-                
-                <a class="enlace" href="https://twitter.com/CanalUGR?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
-                    <img src = "imagenes/siguenos4.png" alt = "Twitter" class="logo-red-social"/>
-                </a>
-            </span>
-
         </section>
     </main>
     <footer class="page-footer">

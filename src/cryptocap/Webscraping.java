@@ -34,15 +34,16 @@ public class Webscraping {
 	String imagen;
 	String urlDatos;
 	String ultAct;
-	String precio;
+	float precio;
 	String capitalizacion;
 	String vol24;
 	String volTotal;
 	String lastdaychange;
 	String sevendaychange;
+	private String url;
 
 	Webscraping () {
-		this.nombre = "";
+		this.url = "";
 	}
 
 	public String Conversor(String amount, String acron1, String acron2) {
@@ -64,40 +65,65 @@ public class Webscraping {
 	    	return("Error: Invalid URL " + e.toString());
 	    }
 	}
+	
+	public String getAditionalInformation(String amount, String acron1, String acron2) {
+		String uri = "https://pro-api.coinmarketcap.com/v1/tools/price-conversion";
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		
-	
-	public static JsonObject makeAPICall(String uri, List<NameValuePair> parameters)
-		      throws URISyntaxException, IOException {
-		    String response_content = "";
-		    JsonObject rootObj;
+		params.add(new BasicNameValuePair("amount", amount));
+	    params.add(new BasicNameValuePair("symbol", acron1));
+	    params.add(new BasicNameValuePair("convert", acron2));
+	    
 
-		    URIBuilder query = new URIBuilder(uri);
-		    query.addParameters(parameters);
-
-		    CloseableHttpClient client = HttpClients.createDefault();
-		    HttpGet request = new HttpGet(query.build());
-
-		    request.setHeader(HttpHeaders.ACCEPT, "application/json");
-		    request.addHeader("X-CMC_PRO_API_KEY", API_KEY);
-
-		    CloseableHttpResponse response = client.execute(request);
-
-		    try {
-		      System.out.println(response.getStatusLine());
-		      HttpEntity entity = response.getEntity();
-		      response_content = EntityUtils.toString(entity);
-		      EntityUtils.consume(entity);
-		      
-		      rootObj = (JsonObject) JsonParser.parseString(response_content).getAsJsonObject();
-		      
-		    } finally {
-		      response.close();
-		    }
-
-		    return rootObj;
+	    try {
+	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject("quote").getAsJsonObject(acron2);
+	    	
+	    	return (local.get("price").getAsString());
+	    } catch (IOException e) {
+	    	return("Error: cannont access content - " + e.toString());
+	    } catch (URISyntaxException e) {
+	    	return("Error: Invalid URL " + e.toString());
+	    }
 	}
+	// Scraping - Coinranking.com/es
+		public Criptomoneda Coinmarketcap(String acron) throws IOException {
+			String url = " https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest ";
+			int code;
+			
+			code = connect(url);
+			
+			// acceso correcto
+			if(code == 200) {
+				// cargamos el html de la p�gina
+				Document doc = html(url);
+				
+				// obtenemos la lista de las criptomonedas (1 p�gina)
+				Elements element = doc.select(":not(thead) tr.table__row.table__row--click.table__row--full-width");
+				
+				// recorremos todas las criptomonedas
+				for (Element elem : element) {
+					nombre = elem.getElementsByClass("profile__link").text();
+					acronimo = elem.getElementsByClass("profile__subtitle").text();
+					imagen = elem.getElementsByClass("table__logo").attr("src");
+					urlDatos = url + elem.getElementsByClass("profile__link").attr("href");
+					ultAct = getActualHour();
 
-	
+					// buscamos la que nosotros queremos
+					if(elem.getElementsByClass("profile__subtitle").text().equals(acron)){
+						return (new Criptomoneda(nombre, acronimo, imagen, urlDatos, ultAct, "enabled"));
+					}
+				}
+				
+				// si no se encuentra
+				return (new Criptomoneda(acron, ultAct, "disabled"));
+				
+			} else {
+				// si el codigo no es 200 (�xito)
+				return (new Criptomoneda("ERROR", ultAct, "disabled"));
+			}
+		}	
+		
+		
 	// Scraping - Coinranking.com/es
 	public Criptomoneda Coinranking(String acron) throws IOException {
 		String url = "https://coinranking.com";
@@ -155,7 +181,7 @@ public class Webscraping {
 			for (Element elem : element) {
 				acronimo = elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text();
 				nombre = elem.getElementsByClass("left bold elp name cryptoName first js-currency-name").text();
-                precio = elem.getElementsByClass("price js-currency-price").text();
+                precio = parsePrecio(elem.getElementsByClass("price js-currency-price").text());
                 capitalizacion = elem.getElementsByClass("js-market-cap").text();
                 vol24 = elem.getElementsByClass("js-24h-volume").text();
                 volTotal = elem.getElementsByClass("js-total-vol").text();
@@ -177,34 +203,37 @@ public class Webscraping {
 		}
 	}
 
-	public Criptomoneda Test(String acron) throws IOException {
-		String url2 = "https://es.investing.com/crypto/";
-		int code;
-		ultAct = getActualHour();
-		
-		code = connect(url2);
-		
-		// acceso correcto
-		if(code == 200) {
-			// cargamos el html de la p�gina
-			Document doc = html(url2);
-			
-			Elements element = doc.select("table > tbody > tr:has(td)");
-			
-			// recorremos todas las criptomonedas
-			for (Element elem : element) {
-				return (new Criptomoneda(element.html(), getActualHour()));
-               
-			}
-			
-			// si no se encuentra
-			return (new Criptomoneda(acron, getActualHour()));
-			
-		} else {
-			// si el codigo no es 200 (�xito)
-			return (new Criptomoneda("Codigo != 200"));
-		}
+	public static JsonObject makeAPICall(String uri, List<NameValuePair> parameters)
+		      throws URISyntaxException, IOException {
+		    String response_content = "";
+		    JsonObject rootObj;
+
+		    URIBuilder query = new URIBuilder(uri);
+		    query.addParameters(parameters);
+
+		    CloseableHttpClient client = HttpClients.createDefault();
+		    HttpGet request = new HttpGet(query.build());
+
+		    request.setHeader(HttpHeaders.ACCEPT, "application/json");
+		    request.addHeader("X-CMC_PRO_API_KEY", API_KEY);
+
+		    CloseableHttpResponse response = client.execute(request);
+
+		    try {
+		      System.out.println(response.getStatusLine());
+		      HttpEntity entity = response.getEntity();
+		      response_content = EntityUtils.toString(entity);
+		      EntityUtils.consume(entity);
+		      
+		      rootObj = (JsonObject) JsonParser.parseString(response_content).getAsJsonObject();
+		      
+		    } finally {
+		      response.close();
+		    }
+
+		    return rootObj;
 	}
+
 	
 
 	public static int connect(String url) throws IOException {
@@ -230,5 +259,11 @@ public class Webscraping {
 		return formatter.format(date);
 	}
 	
+    public Float parsePrecio(String precio) {
+    	precio = precio.replace(".","");
+    	precio = precio.replace(",",".");
+    	
+    	return (Float.parseFloat(precio));
+    }
 	
 }

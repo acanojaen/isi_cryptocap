@@ -140,7 +140,6 @@ public class CriptomonedaDAO
 		while(rs.next()) {
 			nombre = rs.getString(2);
 	    	acronimo = rs.getString(1);
-	    	imagen = rs.getString(11);
 	    	urlDatos = rs.getString(3);
 	    	precio = rs.getFloat(5);
 	    	total_market_cap = rs.getFloat(12);
@@ -151,6 +150,7 @@ public class CriptomonedaDAO
 	    	lastdaychange = rs.getString(9);
 	    	sevendaychange = rs.getString(10);
 	    	ultAct = rs.getString(4);
+	    	imagen = rs.getString(11);
 			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, total_market_cap, total_volume_24h, total_volume_24h_reported));
 		}
 		

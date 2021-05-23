@@ -34,13 +34,13 @@
                     <h2 class="text-capitalize text-center text-body"><i class="fas fa-plus-circle"></i> CONFIGURAR CRIPTOMONEDAS</h2>
                 </div>
                 <div class="row">
-                <form method="post" action="currency" style="padding: 0px !important;"></form>
+                <form method="post" action="currency" style="padding: 0px !important;">
                     <div class="col-md-6 col-lg-4">
                         <div class="project-card-no-image">
-                            <small id="acronimoHelp" class="form-text text-muted">Criptomoneda a comparar:</small>
+                            <small id="comparationHelp" class="form-text text-muted">Criptomoneda a comparar:</small>
                             <select name="comparation">
-                                <c:forEach items="${currency}" var="c">
-                                    <option value="${c.acronimo}">${c.acronimo}</option>
+                                <c:forEach items="${criptos}" var="resource1" varStatus="loop">
+                                    <option value="${resource1.acronimo}">${resource1.acronimo}</option>
                                 </c:forEach>
                             </select>                        
                                 
@@ -48,10 +48,10 @@
                         </div>
                     </div>
 
-                    <c:forEach items="${criptos}" var="resource" varStatus="loop">
+                    <c:forEach items="${criptos}" var="resource2" varStatus="loop">
                         <div class="col-md-6 col-lg-4">
                             <div class="project-card-no-image">
-                                <h3 style="text-transform: uppercase !important;">${resource.acronimo}&nbsp;</h3>
+                                <h3 style="text-transform: uppercase !important;">${resource2.acronimo}&nbsp;</h3>
                                 <div class="tags">
                                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                                 </div>

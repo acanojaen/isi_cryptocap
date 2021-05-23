@@ -107,13 +107,10 @@ public class ControllerServlet extends HttpServlet {
 
 	private void compare(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
     	List<Criptomoneda> data = new ArrayList<>();
-    	List<String> currency = new ArrayList<>();
 		
     	data = criptomonedaDAO.list();
-    	currency = criptomonedaDAO.getListing();
 
 		request.setAttribute("criptos", data);
-		request.setAttribute("currency", currency);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("compare.jsp");
 		
 		dispatcher.forward(request, response);

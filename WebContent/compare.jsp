@@ -36,7 +36,7 @@
                 <form method="post" action="compare2" style="padding: 0px !important;">
                     <c:if test="${not empty result}">
                         <div class="alert alert-primary" role="alert">
-                            El resultado está calculado con la API de <a href="#" class="alert-link">CoinmarketCap</a>. Result: <br> ${result}
+                            El resultado está calculado con la API de <a href="#" class="alert-link">CoinmarketCap</a>.<br> ${amount} ${acron1} <b>>></b> ${result} ${acron2}
                         </div>
 
                     </c:if>

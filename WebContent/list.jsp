@@ -93,10 +93,11 @@
                     <div class="row">
                         <div class="col-md-6"><p class="text-muted">Obtenemos los siguientes valores de las criptomonedas:
                             <ul>
-                                <li>Nombre</li>
-                                <li>Acrónimo</li>
-                                <li>Imagen</li>
-                                <li>Enlace para más información</li>
+                                <ul>
+                                    <li>Nombre</li>
+                                    <li>Acrónimo</li>
+                                    <li>Valores: precio, capitalizacion, vol24, volTotal, cambios24H, cambios7d</li>
+                                </ul>
                             </ul>
                         </p></div>
                         <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_investing" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></div>
@@ -112,15 +113,12 @@
                         <div class="col-6"><span class="period">https://coinmarketcap.com/api/</span></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6"><p class="text-muted">Obtenemos los siguientes valores de las criptomonedas:
+                        <div class="col-md-6"><p class="text-muted">Consultamos la API en las siguientes operaciones:
                             <ul>
-                                <li>Nombre</li>
-                                <li>Acrónimo</li>
-                                <li>Imagen</li>
-                                <li>Enlace para más información</li>
+                                <li>Conversor (<span class="period">https://coinmarketcap.com/api/documentation/v1/#operation/getV1ToolsPriceconversion</span>)</li>
                             </ul>
                         </p></div>
-                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="" data-toggle="modal" type="button" data-whatever="coinmarketcap.com"><i class="fas fa-play"></i></button></div>
+                        <div class="col-md-6"></div>
                     </div>
                 </div>
             </div>
@@ -134,9 +132,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Resultado del webscraping</h5>
+                <h5 class="modal-title">¿Estás seguro que desea realizar la importanción?</h5>
             </div>
             <div class="modal-body" id="scrap_body">
+                Se sobreescribiran los siguientes valores:
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 </button>
             </div>
@@ -186,7 +185,7 @@
 
       function scrap_coinranking(){
         $.ajax({
-            type: 'POST',
+            type: 'GET',
             url: "/coinranking",
             success: function(){
                 $('#alerta').html(exito);
@@ -199,7 +198,7 @@
 
       function scrap_investing(){
         $.ajax({
-            type: 'POST',
+            type: 'GET',
             url: "/investing",
             success: function(){
                 $('#alerta').html(exito);

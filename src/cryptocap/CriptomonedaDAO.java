@@ -346,6 +346,7 @@ public class CriptomonedaDAO
     public boolean remove(String acron, String entity) throws SQLException{
     	String sql;
     	PreparedStatement st;
+    	ResultSet rs;
     	boolean stat = false;
     	
     	connect();
@@ -361,11 +362,18 @@ public class CriptomonedaDAO
     	    	st.close();
     			break;
     		case "currency":
-    			sql = "DELETE FROM currency where acronimo = ?";
+    			sql = "SELECT * FROM criptomonedas where acronimo = ?";
     	    	st = jdbcConnection.prepareStatement(sql);
     	    	st.setString(1, acron);
-    	    	stat = st.executeUpdate() > 0;
-    	    	
+    	    	rs = st.executeQuery();
+	    		
+	    		if(!rs.next() ) {
+	    			sql = "DELETE FROM currency where acronimo = ?";
+	    	    	st = jdbcConnection.prepareStatement(sql);
+	    	    	st.setString(1, acron);
+	    	    	stat = st.executeUpdate() > 0;
+		    	}
+	    		
     	    	st.close();
     			
     	    	break;

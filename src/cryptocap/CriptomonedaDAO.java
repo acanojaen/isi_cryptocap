@@ -126,7 +126,7 @@ public class CriptomonedaDAO
     
     public ArrayList<Criptomoneda> listCurrency(String status) throws SQLException {
     	ArrayList<Criptomoneda> res = new ArrayList<>();
-    	String sql = "SELECT * FROM currency";
+    	String sql;
 		PreparedStatement st;
 		ResultSet rs;
 		
@@ -135,18 +135,23 @@ public class CriptomonedaDAO
 		switch(status) {
 			default:
 				sql = "SELECT * FROM currency";
+				st = jdbcConnection.prepareStatement(sql);
 				break;
 			case "disabled":
 				sql = "SELECT * FROM currency";
-				sql += " where status = disabled";
+				sql += " where status = ?";
+				st = jdbcConnection.prepareStatement(sql);
+				st.setString(1, "disabled");
 				break;
 			case "enabled":
 				sql = "SELECT * FROM currency";
-				sql += " where status = enabled";
+				sql += " where status = ?";
+				st = jdbcConnection.prepareStatement(sql);
+				st.setString(1, "enabled");
 				break;
 		}
+	
 		
-		st = jdbcConnection.prepareStatement(sql);
 		rs = st.executeQuery();
 		
 		while(rs.next()) {

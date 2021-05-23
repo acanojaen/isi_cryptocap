@@ -89,13 +89,23 @@ public class ControllerServlet extends HttpServlet {
                 case "/compare":
                 	compare(request, response);
                 break;
+                
+                case "/compare2":
+                	compare2(request, response);
+                break;
+                	
             }
         } catch (SQLException | URISyntaxException | ClassNotFoundException e){
             throw new ServletException(e);
         }
     }
     
-    private void compare(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    private void compare2(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void compare(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
     	List<Criptomoneda> list = new ArrayList<>();
 		
     	list = criptomonedaDAO.listCurrency("enabled");

@@ -94,7 +94,7 @@ public class Webscraping {
 	}
 	
 	public Criptomoneda getMetadata(String acron) {
-		String uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info ";
+		String uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info";
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		
 		params.add(new BasicNameValuePair("symbol", acron));

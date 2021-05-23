@@ -311,7 +311,7 @@ public class CriptomonedaDAO
     }
     
     
-    public boolean remove(Criptomoneda c, String entity) throws SQLException{
+    public boolean remove(String acron, String entity) throws SQLException{
     	String sql;
     	PreparedStatement st;
     	boolean stat = false;
@@ -322,7 +322,7 @@ public class CriptomonedaDAO
     		case "criptomoneda":
     			sql = "DELETE FROM criptomonedas where acronimo = ?";
     	    	st = jdbcConnection.prepareStatement(sql);
-    	    	st.setString(1, c.getAcronimo());
+    	    	st.setString(1, acron);
     	    	stat = st.executeUpdate() > 0;
     			stat = setCurrencyStatus(acronimo, "disabled");
     	    	
@@ -331,10 +331,12 @@ public class CriptomonedaDAO
     		case "currency":
     			sql = "DELETE FROM currency where acronimo = ?";
     	    	st = jdbcConnection.prepareStatement(sql);
-    	    	st.setString(1, c.getAcronimo());
+    	    	st.setString(1, acron);
     	    	stat = st.executeUpdate() > 0;
+    	    	
     	    	st.close();
-    			break;
+    			
+    	    	break;
     	}
 
 		disconnect();
@@ -347,7 +349,7 @@ public class CriptomonedaDAO
     public boolean setCurrencyStatus(String acronimo, String status) throws SQLException {
     	String sql;
     	PreparedStatement st;
-    	Boolean stat = false;
+    	boolean stat = false;
     	
     	
     	sql = "UPDATE currency SET"; 
@@ -465,6 +467,7 @@ public class CriptomonedaDAO
 	public List<Criptomoneda> coinranking() throws SQLException, IOException, URISyntaxException, ClassNotFoundException {
     	List<String> lista = getListing();
     	List<Criptomoneda> criptos = new ArrayList<>();
+    	Criptomoneda crip;
         Webscraping it;
 		String sql;
 		PreparedStatement st;
@@ -477,57 +480,63 @@ public class CriptomonedaDAO
         // Recorremos la lista de criptomonedas
         for(int i=0; i<lista.size(); i++){
         	it = new Webscraping();
-            criptos.add(it.Coinranking(lista.get(i)));
-            
-            nombre = criptos.get(i).getNombre();
-            status = criptos.get(i).getStatus();
-            acronimo = criptos.get(i).getAcronimo();
-            urlDatos = criptos.get(i).getUrlDatos();
-            ultAct = criptos.get(i).getUltimaActualizacion();
-            imagen = criptos.get(i).getImagen();
-            
-            
-            // QUERY1: �Existe la moneda "i"?
-    		sql = "SELECT * FROM criptomonedas";
-    		sql += " WHERE acronimo = ?";
-    	
-    		st = jdbcConnection.prepareStatement(sql);
-    		st.setString(1, acronimo);
         	
-    		rs = st.executeQuery();
-    		// si FALSE --> INSERT
-    		if(!rs.next() ) {
-				sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct, urlImagen)";
-				sql += " VALUES (?, ?, ?, ?, ?)";
-				
-				st = jdbcConnection.prepareStatement(sql);
-				st.setString(1, acronimo);
-				st.setString(2, nombre);
-				st.setString(3, urlDatos);
-				st.setString(4, ultAct);
-				st.setString(5, imagen);
-				
-				stat = st.executeUpdate() > 0;
-	            stat = setCurrencyStatus(acronimo, "enabled");
-	            st.close();
-    			
-    		} else {
-    			sql = "UPDATE criptomonedas SET"; 
-    			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ? where acronimo = ?";
-    			
-    			st = jdbcConnection.prepareStatement(sql);
-    			st.setString(1, nombre);
-    			st.setString(2, urlDatos);
-    			st.setString(3, ultAct);
-       			st.setString(4, imagen);
-    			st.setString(5, acronimo);
-    			
-    			stat = st.executeUpdate() > 0;
-    			st.close();
-    			
-    		} 
+        	// scrapeamos --> Class Webscraping
+        	crip = it.Coinranking(lista.get(i));
+        	if(crip.getStatus().equals("enabled")) {
+        		criptos.add(crip);
+            
+	            nombre = criptos.get(i).getNombre();
+	            status = criptos.get(i).getStatus();
+	            acronimo = criptos.get(i).getAcronimo();
+	            urlDatos = criptos.get(i).getUrlDatos();
+	            ultAct = criptos.get(i).getUltimaActualizacion();
+	            imagen = criptos.get(i).getImagen();
+	            
+	            
+	            // QUERY1: �Existe la moneda "i"?
+	    		sql = "SELECT * FROM criptomonedas";
+	    		sql += " WHERE acronimo = ?";
+	    	
+	    		st = jdbcConnection.prepareStatement(sql);
+	    		st.setString(1, acronimo);
+	        	
+	    		rs = st.executeQuery();
+	    		// si FALSE --> INSERT
+	    		if(!rs.next() ) {
+					sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct, urlImagen)";
+					sql += " VALUES (?, ?, ?, ?, ?)";
+					
+					st = jdbcConnection.prepareStatement(sql);
+					st.setString(1, acronimo);
+					st.setString(2, nombre);
+					st.setString(3, urlDatos);
+					st.setString(4, ultAct);
+					st.setString(5, imagen);
+					
+					stat = st.executeUpdate() > 0;
+		            stat = setCurrencyStatus(acronimo, "enabled");
+		            st.close();
+	    			
+	    		} else {
+	    			sql = "UPDATE criptomonedas SET"; 
+	    			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ? where acronimo = ?";
+	    			
+	    			st = jdbcConnection.prepareStatement(sql);
+	    			st.setString(1, nombre);
+	    			st.setString(2, urlDatos);
+	    			st.setString(3, ultAct);
+	       			st.setString(4, imagen);
+	    			st.setString(5, acronimo);
+	    			
+	    			stat = st.executeUpdate() > 0;
+	    			st.close();
+	    			
+	    		} 
     	
-
+        	} else {
+        		stat = setCurrencyStatus(lista.get(i), "disabled");
+        	}
         }
 
         disconnect();

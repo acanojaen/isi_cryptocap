@@ -71,8 +71,8 @@
                             <td><img class="responsive" src="${c.imagen}"/> <b>${c.nombre}</b> <span>${c.acronimo}</span></td>
                             <td>${c.precio}</td>
                             <td>${c.total_market_cap}</td>
-                            <td>${c.total_market_cap_24h}</td>
-                            <td>${c.total_market_cap_24h_reported}</td>
+                            <td>${c.total_volume_24h}</td>
+                            <td>${c.total_volume_24h_reported}</td>
                             <td>${c.variacion7}</td>
                         </tr>
                     </c:forEach>

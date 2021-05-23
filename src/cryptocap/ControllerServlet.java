@@ -135,8 +135,9 @@ public class ControllerServlet extends HttpServlet {
     	
     	if(amount.isEmpty() || acron1.isEmpty() || acron2.isEmpty()) {
         	request.setAttribute("error", "Tienes que rellenar todos los campos");
+    		request.setAttribute("criptos", data);
+    		request.setAttribute("notcriptos", Arrays.asList(notcriptos));
         	RequestDispatcher dispatcher = request.getRequestDispatcher("compare.jsp");
-    			
         	dispatcher.forward(request, response);
     	}
     	

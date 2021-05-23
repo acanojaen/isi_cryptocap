@@ -78,9 +78,9 @@ public class Webscraping {
 
 	    try {
 	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject("quote").getAsJsonObject(acron);
-	    	total_market_cap = local.get("price").getAsFloat();
-	    	total_volume_24h = local.get("price").getAsFloat();
-	    	total_volume_24h_reported = local.get("price").getAsFloat();
+	    	total_market_cap = local.get("total_market_cap").getAsFloat();
+	    	total_volume_24h = local.get("total_volume_24h").getAsFloat();
+	    	total_volume_24h_reported = local.get("total_volume_24h_reported").getAsFloat();
 	    	ultAct = getActualHour();
 	    	
 	    	return(new Criptomoneda(acron, ultAct, "enabled", total_market_cap, total_volume_24h, total_volume_24h_reported));

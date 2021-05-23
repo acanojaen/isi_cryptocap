@@ -101,7 +101,7 @@ public class ControllerServlet extends HttpServlet {
     private void market(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
     	List<Criptomoneda> data = new ArrayList<>();
 		
-    	data = criptomonedaDAO.listMarket("enabled");
+    	data = criptomonedaDAO.listMarket();
     	
 		request.setAttribute("criptos", data);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("market.jsp");

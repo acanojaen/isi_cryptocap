@@ -82,10 +82,9 @@ public class Webscraping {
 	    	total_market_cap = local.get("total_market_cap").getAsFloat();
 	    	total_volume_24h = local.get("total_volume_24h").getAsFloat();
 	    	total_volume_24h_reported = 0;
-	    	precio = Conversor("1", acron, "USD");
 	    	ultAct = getActualHour();
 	    	
-	    	return(new Criptomoneda(acron, ultAct, "enabled", precio, total_market_cap, total_volume_24h, total_volume_24h_reported));
+	    	return(new Criptomoneda(acron, ultAct, "enabled", total_market_cap, total_volume_24h, total_volume_24h_reported));
 	    	
 	    } catch (IOException e) {
 			return (new Criptomoneda(acron, ultAct, "disabled"));
@@ -108,8 +107,9 @@ public class Webscraping {
 			imagen = local.get("logo").getAsString();
 			description = local.get("description").getAsString();
 			urlDatos = urls.get("website").getAsString();
+	    	precio = Conversor("1", acron, "USD");
 	    	
-	    	return(new Criptomoneda(acron, nombre, "enabled", imagen, description, urlDatos, ultAct));
+	    	return(new Criptomoneda(acron, nombre, "enabled", imagen, description, urlDatos, ultAct, precio));
 	    	
 	    } catch (IOException e) {
 			return (new Criptomoneda(acron, ultAct, "disabled"));

@@ -116,7 +116,8 @@ public class CriptomonedaDAO
 	    	lastdaychange = rs.getString(9);
 	    	sevendaychange = rs.getString(10);
 	    	ultAct = rs.getString(4);
-			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct));
+	    	desc = rs.getString(15);
+			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, desc));
 		}
 		
 		rs.close();
@@ -252,11 +253,12 @@ public class CriptomonedaDAO
 	    	lastdaychange = rs.getString(9);
 	    	sevendaychange = rs.getString(10);
 	    	ultAct = rs.getString(4);
+	    	desc = rs.getString(15);
 			
 			rs.close();
 			st.close();
 
-			return (new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct));				
+			return (new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, desc));				
 		}
 		rs.close();
 		st.close();

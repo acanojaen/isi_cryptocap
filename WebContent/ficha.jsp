@@ -82,6 +82,9 @@
                             </div>
                         </div>
 
+                        <p class="text-muted">${criptos.desc}</p>
+                        
+                    
                         <div class="heading" style="display: inline !important">
                             <h2 class="text-center text-body"><i class="fas fa-history"></i> Historial de precio</h2>
                         </div>
@@ -104,8 +107,7 @@
                             </table>
                         </div>
                         
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget velit ultricies, feugiat est sed, efficitur nunc, vivamus vel accumsan dui.</p>
-                        
+                       
                     </div>
                     
                 </div>

@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-md-6"><span class="period"><i class="far fa-clock"></i> ${criptomoneda.ultimaActualizacion}</span></div>
                             <div class="col-md-6">
-                                <p class="text-muted">descripción de la criptomoneda</p>
+                                <p class="text-muted">${criptomoneda.desc}</p>
                             </div>
                             <div class="col-md-6">
                                     <a href="/eliminar?id=<c:out value='${criptomoneda.acronimo}'/>&entity=criptomoneda" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt"></i></a>

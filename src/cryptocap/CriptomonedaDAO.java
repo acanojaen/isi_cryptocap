@@ -486,12 +486,12 @@ public class CriptomonedaDAO
         	if(crip.getStatus().equals("enabled")) {
         		criptos.add(crip);
             
-	            nombre = criptos.get(i).getNombre();
-	            status = criptos.get(i).getStatus();
-	            acronimo = criptos.get(i).getAcronimo();
-	            urlDatos = criptos.get(i).getUrlDatos();
-	            ultAct = criptos.get(i).getUltimaActualizacion();
-	            imagen = criptos.get(i).getImagen();
+	            nombre = crip.getNombre();
+	            status = crip.getStatus();
+	            acronimo = crip.getAcronimo();
+	            urlDatos = crip.getUrlDatos();
+	            ultAct = crip.getUltimaActualizacion();
+	            imagen = crip.getImagen();
 	            
 	            
 	            // QUERY1: �Existe la moneda "i"?

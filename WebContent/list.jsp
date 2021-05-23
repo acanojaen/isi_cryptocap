@@ -186,7 +186,7 @@
 
       function scrap_coinranking(){
         $.ajax({
-            type: 'GET',
+            type: 'POST',
             url: "/coinranking",
             success: function(){
                 $('#alerta').html(exito);
@@ -199,7 +199,7 @@
 
       function scrap_investing(){
         $.ajax({
-            type: 'GET',
+            type: 'POST',
             url: "/investing",
             success: function(){
                 $('#alerta').html(exito);

@@ -60,16 +60,14 @@ public class Webscraping {
 	    
 
 	    try {
-	      String result = makeAPICall(uri, params);
-	      System.out.println(result);
+	    	return (makeAPICall(uri, params));
 	    } catch (IOException e) {
-	      System.out.println("Error: cannont access content - " + e.toString());
+	    	return("Error: cannont access content - " + e.toString());
 	    } catch (URISyntaxException e) {
-	      System.out.println("Error: Invalid URL " + e.toString());
+	    	return("Error: Invalid URL " + e.toString());
 	    }
-	  }
-		
 	}
+		
 	
 	public static String makeAPICall(String uri, List<NameValuePair> parameters)
 		      throws URISyntaxException, IOException {

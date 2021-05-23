@@ -34,13 +34,17 @@
                     <h2 class="text-capitalize text-center text-body"><i class="fas fa-plus-circle"></i> CONFIGURAR CRIPTOMONEDAS</h2>
                 </div>
                 <div class="row">
+                <form method="post" action="currency" style="padding: 0px !important;"></form>
                     <div class="col-md-6 col-lg-4">
                         <div class="project-card-no-image">
-                            <form method="post" action="currency" style="padding: 0px !important;">
-                                <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce el acrónimo">
-                                <small id="acronimoHelp" class="form-text text-muted">Formato "XXXX" (max. 10 c)</small>
-                                <button type="submit" class="btn btn-warning btn-sm float-right"><i class="fas fa-plus"></i></a>
-                            </form>
+                            <small id="acronimoHelp" class="form-text text-muted">Criptomoneda a comparar:</small>
+                            <select name="comparation">
+                                <c:forEach items="${currency}" var="c">
+                                    <option value="${c.acronimo}">${c.acronimo}</option>
+                                </c:forEach>
+                            </select>                        
+                                
+                            <button type="submit" class="btn btn-warning btn-sm float-right">COMPARAR</a>
                         </div>
                     </div>
 
@@ -49,35 +53,17 @@
                             <div class="project-card-no-image">
                                 <h3 style="text-transform: uppercase !important;">${resource.acronimo}&nbsp;</h3>
                                 <div class="tags">
-                                    <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt" style="color: white;"></i></a>
-                                    <a href="/ficha?id=<c:out value='${criptomoneda.acronimo}'/>" class="btn btn-warning btn-sm float-right" role="button" href="#"><i class="fas fa-eye" style="color: black;"></i></a>
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                                 </div>
                             </div>
                         </div>
                     </c:forEach>
+
+                </form>
                 </div>
             </div>
         </section>
     </main>
-    
-        
-    <div class="modal" id="addModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Resultado del webscraping</h5>
-                </div>
-                <div class="modal-body" id="scrap_body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    </button>
-                </div>
-                <div class="modal-footer">
-                    <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-warning btn-sm float-right" role="button"><i class="far fa-trash-alt" style="color: white;"></i> Añadir</a>
-                               
-                </div>
-            </div>
-        </div>
-    </div>
 
     <footer class="page-footer">
         <div class="container">

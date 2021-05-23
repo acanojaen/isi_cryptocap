@@ -68,25 +68,6 @@
             </div>
         </section>
     </main>
-    
-        
-    <div class="modal" id="addModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Resultado del webscraping</h5>
-                </div>
-                <div class="modal-body" id="scrap_body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    </button>
-                </div>
-                <div class="modal-footer">
-                    <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-warning btn-sm float-right" role="button"><i class="far fa-trash-alt" style="color: white;"></i> Añadir</a>
-                               
-                </div>
-            </div>
-        </div>
-    </div>
 
     <footer class="page-footer">
         <div class="container">

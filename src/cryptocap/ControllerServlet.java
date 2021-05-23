@@ -106,11 +106,14 @@ public class ControllerServlet extends HttpServlet {
 	}
 
 	private void compare(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-    	List<Criptomoneda> list = new ArrayList<>();
+    	List<Criptomoneda> data = new ArrayList<>();
+    	List<String> currency = new ArrayList<>();
 		
-    	list = criptomonedaDAO.listCurrency("enabled");
+    	data = criptomonedaDAO.list();
+    	currency = criptomonedaDAO.getListing();
 
-		request.setAttribute("criptos", list);
+		request.setAttribute("criptos", data);
+		request.setAttribute("currency", currency);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("config.jsp");
 		
 		dispatcher.forward(request, response);

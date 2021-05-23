@@ -23,7 +23,10 @@ public class Criptomoneda {
 	public String status;
 	public String msg;
 
-
+	public float total_market_cap;
+	public float total_volume_24h;
+    public float total_volume_24h_reported;
+	
 	/*-----------------------------------------Constructores-----------------------------------------*/
 
 	public Criptomoneda(String acronimo) {
@@ -37,14 +40,24 @@ public class Criptomoneda {
 		this.nombre = acronimo;
 		this.status = status;
 	}
+
 	public Criptomoneda(String acronimo, String ultAct, String status) {
 		this.acronimo = acronimo;
 		this.nombre = acronimo;
 		this.ultimaActualizacion = ultAct;
 		this.status = status;
 	}
-	
 
+	public Criptomoneda(String acronimo, String ultAct, String status, public float total_market_cap, public float total_volume_24h, public float total_volume_24h_reported) {
+		this.acronimo = acronimo;
+		this.nombre = acronimo;
+		this.ultimaActualizacion = ultAct;
+		this.status = status;
+		this.total_market_cap = total_market_cap;
+	 	this.total_volume_24h = total_volume_24h;
+    	this.total_volume_24h_reported = total_volume_24h_reported;
+	}
+	
 	public Criptomoneda(Criptomoneda crip){
 		this.nombre = crip.getNombre();
 		this.acronimo = crip.getAcronimo();
@@ -194,6 +207,30 @@ public class Criptomoneda {
 
 	public void setUltimaActualizacion(String ultimaActualizacion) {
 		this.ultimaActualizacion = ultimaActualizacion;
+	}
+
+	public float getTotal_market_cap() {
+		return total_market_cap;
+	}
+
+	public void setTotal_market_cap(float total_market_cap) {
+		this.total_market_cap = total_market_cap;
+	}
+
+	public float getTotal_volume_24h() {
+		return total_volume_24h;
+	}
+
+	public void setTotal_volume_24h(float total_volume_24h) {
+		this.total_volume_24h = total_volume_24h;
+	}
+
+	public float getTotal_volume_24h_reported() {
+		return total_volume_24h_reported;
+	}
+
+	public void setTotal_volume_24h_reported(float total_volume_24h_reported) {
+		this.total_volume_24h_reported = total_volume_24h_reported;
 	}
 
 	/*-------------------------------------------to_String-------------------------------------------*/

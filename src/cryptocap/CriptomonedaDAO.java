@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.List;
 import java.sql.*;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mysql.jdbc.Driver;
 import java.sql.Connection;
 import java.sql.DriverManager;

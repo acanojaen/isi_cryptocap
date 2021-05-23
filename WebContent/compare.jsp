@@ -43,7 +43,7 @@
                     <div class="row">
                         <div class="col-md-4 col-lg-4">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" name="cantidad" id="cantidad" aria-describedby="acronimoHelp" placeholder="Introduce cantidad">
+                                <input type="number" class="form-control" name="cantidad" id="cantidad" aria-describedby="acronimoHelp" placeholder="Introduce cantidad">
                                 <select name="compIzq">
                                     <option disabled>Criptomonedas</option>
                                     <c:forEach items="${criptos}" var="resource1" varStatus="loop">

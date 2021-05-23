@@ -57,6 +57,7 @@ public class Webscraping {
 	    params.add(new BasicNameValuePair("symbol", acron1));
 	    params.add(new BasicNameValuePair("convert", acron2));
 	    
+	    params.add(new 
 	    
 
 	    try {

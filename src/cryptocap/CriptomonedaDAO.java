@@ -575,7 +575,7 @@ public class CriptomonedaDAO
     }
 	
 	public List<Criptomoneda> refreshMarket() throws SQLException {
-		List<String> lista = getListing();
+		List<Criptomoneda> lista = listCurrency("enabled");
     	List<Criptomoneda> criptos = new ArrayList<>();
     	Criptomoneda crip;
         Webscraping it;
@@ -592,7 +592,7 @@ public class CriptomonedaDAO
         	it = new Webscraping();
         	
         	// scrapeamos --> Class Webscraping
-        	crip = it.getPricesAPI(lista.get(i));
+        	crip = it.getPricesAPI(lista.get(i).getAcronimo());
         	if(crip.getStatus().equals("enabled")) {
         		criptos.add(crip);
             
@@ -628,7 +628,7 @@ public class CriptomonedaDAO
 	    		} 
     	
         	} else {
-        		stat = setCurrencyStatus(lista.get(i), "disabled");
+        		stat = setCurrencyStatus(lista.get(i).getAcronimo(), "disabled");
         	}
         }
 

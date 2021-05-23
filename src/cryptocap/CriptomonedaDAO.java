@@ -133,10 +133,6 @@ public class CriptomonedaDAO
 		connect();
 		
 		switch(status) {
-			default:
-				sql = "SELECT * FROM currency";
-				st = jdbcConnection.prepareStatement(sql);
-				break;
 			case "disabled":
 				sql = "SELECT * FROM currency";
 				sql += " where status = ?";
@@ -148,6 +144,10 @@ public class CriptomonedaDAO
 				sql += " where status = ?";
 				st = jdbcConnection.prepareStatement(sql);
 				st.setString(1, "enabled");
+				break;
+			default:
+				sql = "SELECT * FROM currency";
+				st = jdbcConnection.prepareStatement(sql);
 				break;
 		}
 	

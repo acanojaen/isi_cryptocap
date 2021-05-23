@@ -114,7 +114,7 @@ public class ControllerServlet extends HttpServlet {
 
 		request.setAttribute("criptos", data);
 		request.setAttribute("currency", currency);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("config.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("compare.jsp");
 		
 		dispatcher.forward(request, response);
 	}

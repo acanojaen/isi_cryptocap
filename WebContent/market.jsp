@@ -62,7 +62,6 @@
                         <th scope="col">Precio</th>
                         <th scope="col">Market Cap</th>
                         <th scope="col">Volume (24h)</th>
-                        <th scope="col">Circulación</th>
                         <th scope="col">7d %</th>
                     </tr>
                     
@@ -72,7 +71,6 @@
                             <td>${c.precio}</td>
                             <td>${c.total_market_cap}</td>
                             <td>${c.total_volume_24h}</td>
-                            <td>${c.total_volume_24h_reported}</td>
                             <td>${c.variacion7}</td>
                         </tr>
                     </c:forEach>

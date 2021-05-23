@@ -49,11 +49,12 @@ public class Criptomoneda {
 		this.status = status;
 	}
 
-	public Criptomoneda(String acronimo, String ultAct, String status, float total_market_cap, float total_volume_24h, float total_volume_24h_reported) {
+	public Criptomoneda(String acronimo, String ultAct, String status, float precio, float total_market_cap, float total_volume_24h, float total_volume_24h_reported) {
 		this.acronimo = acronimo;
 		this.nombre = acronimo;
 		this.ultimaActualizacion = ultAct;
 		this.status = status;
+		this.precio = precio;
 		this.total_market_cap = total_market_cap;
 	 	this.total_volume_24h = total_volume_24h;
     	this.total_volume_24h_reported = total_volume_24h_reported;

@@ -125,8 +125,6 @@
           </div>
       </section>
   </main>
-  
-  #fd7e14
 
 <div class="modal" id="scrap_coinranking" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

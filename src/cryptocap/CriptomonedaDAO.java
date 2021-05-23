@@ -122,7 +122,7 @@ public class CriptomonedaDAO
 	    	desc = desc.substring(0, 45) + "...";
 	    	}
 	    	
-			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, short_desc));
+			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, desc));
 		}
 		
 		rs.close();

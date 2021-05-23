@@ -60,7 +60,7 @@
               </div>
               <div class="education group">
                   <div class="heading">
-                    <h2 class="text-capitalize text-center text-body">PRECIOS ACTUALIZADOS DE CRIPTOMONEDAS</h2>
+                    <h2 class="text-capitalize text-center text-body">Obtención de información</h2>
                   </div>
                   <div id="alerta" class="alerta"></div>
                   <div class="item">

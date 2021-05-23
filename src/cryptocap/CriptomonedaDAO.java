@@ -636,8 +636,6 @@ public class CriptomonedaDAO
     }
 	
 	public boolean setMetadataAPI(String acron) throws SQLException{
-		List<Criptomoneda> lista = listCurrency("enabled");
-    	List<Criptomoneda> criptos = new ArrayList<>();
     	Criptomoneda crip;
         Webscraping it;
 		String sql;
@@ -651,9 +649,8 @@ public class CriptomonedaDAO
         // Recorremos la lista de criptomonedas
     	it = new Webscraping();
     	
-    	// scrapeamos --> Class Webscraping
+    	// llamamos a la api --> Class Webscraping
     	crip = it.getMetadata(acron);
-		criptos.add(crip);
     
 		acronimo = crip.getAcronimo();
 		nombre = crip.getNombre();
@@ -698,7 +695,7 @@ public class CriptomonedaDAO
 			st.setString(3, ultAct);
    			st.setString(4, imagen);
    			st.setString(5, desc);
-			st.setString(6, imagen);
+			st.setString(6, acronimo);
 			
 			stat = st.executeUpdate() > 0;
 			st.close();

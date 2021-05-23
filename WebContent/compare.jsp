@@ -35,7 +35,7 @@
                 </div>
                 <form method="post" action="compare2" style="padding: 0px !important;">
                     <div class="row">
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-4 col-lg-4">
                             <small id="comparationHelp" class="form-text text-muted">Criptomoneda a comparar:</small>
                             <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce cantidad">
                             <select name="compIzq">
@@ -50,23 +50,25 @@
                             </select>                          
                         </div>
 
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-4 col-lg-4">
                             <button type="submit" class="btn btn-warning btn-sm float-right"><i class="fas fa-exchange-alt"></i></a>
                         </div>
 
 
-                        <div class="col-md-6 col-lg-4">
-                            <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce cantidad">
-                            <select name="compDer">
-                                <option disabled>Criptomonedas</option>
-                                <c:forEach items="${criptos}" var="resource1" varStatus="loop">
-                                    <option value="${resource1.acronimo}">${resource1.acronimo}</option>
-                                </c:forEach>
-                                <option disabled>Monedas</option>
-                                <c:forEach items="${notcriptos}" var="resource2" varStatus="loop">
-                                    <option value="${resource2}">${resource2}</option>
-                                </c:forEach>
-                            </select>   
+                        <div class="col-md-4 col-lg-4">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce cantidad">
+                                <select name="compDer">
+                                    <option disabled>Criptomonedas</option>
+                                    <c:forEach items="${criptos}" var="resource1" varStatus="loop">
+                                        <option value="${resource1.acronimo}">${resource1.acronimo}</option>
+                                    </c:forEach>
+                                    <option disabled>Monedas</option>
+                                    <c:forEach items="${notcriptos}" var="resource2" varStatus="loop">
+                                        <option value="${resource2}">${resource2}</option>
+                                    </c:forEach>
+                                </select>   
+                            </div>
                         </div>
                     </div>
                 </form>

@@ -51,7 +51,7 @@ public class Webscraping {
 		this.url = "";
 	}
 
-	public String Conversor(String amount, String acron1, String acron2) {
+	public float Conversor(String amount, String acron1, String acron2) {
 		String uri = "https://pro-api.coinmarketcap.com/v1/tools/price-conversion";
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		
@@ -63,11 +63,11 @@ public class Webscraping {
 	    try {
 	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject("quote").getAsJsonObject(acron2);
 	    	
-	    	return (local.get("price").getAsString());
+	    	return (local.get("price").getAsFloat());
 	    } catch (IOException e) {
-	    	return("Error: cannont access content - " + e.toString());
+	    	return(0);
 	    } catch (URISyntaxException e) {
-	    	return("Error: Invalid URL " + e.toString());
+	    	return(0);
 	    }
 	}
 	
@@ -82,7 +82,7 @@ public class Webscraping {
 	    	total_market_cap = local.get("total_market_cap").getAsFloat();
 	    	total_volume_24h = local.get("total_volume_24h").getAsFloat();
 	    	total_volume_24h_reported = 0;
-	    	precio = Float.parseFloat(Conversor("1", acron, "USD"));
+	    	precio = Conversor("1", acron, "USD");
 	    	ultAct = getActualHour();
 	    	
 	    	return(new Criptomoneda(acron, ultAct, "enabled", precio, total_market_cap, total_volume_24h, total_volume_24h_reported));

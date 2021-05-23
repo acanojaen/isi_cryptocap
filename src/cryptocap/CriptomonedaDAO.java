@@ -118,8 +118,8 @@ public class CriptomonedaDAO
 	    	ultAct = rs.getString(4);
 	    	desc = rs.getString(15);
 	    	
-	    	if(desc == null) {
-	    	desc = desc.substring(0, 45) + "...";
+	    	if(desc != null) {
+	    		desc = desc.substring(0, 45) + "...";
 	    	}
 	    	
 			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, desc));

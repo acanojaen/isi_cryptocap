@@ -41,6 +41,12 @@
                         </div>
 
                     </c:if>
+
+                    <c:if test="${not empty error}">
+                        <div class="alert alert-danger" role="alert">
+                            ${error}
+                          </div>
+                    </c:if>
                     <div class="row">
                         <div class="col-md-4 col-lg-4">
                             <div class="input-group mb-3">

@@ -132,6 +132,14 @@ public class ControllerServlet extends HttpServlet {
     	String amount = request.getParameter("cantidad");
     	String acron1 = request.getParameter("compIzq");
     	String acron2 = request.getParameter("compDer");
+    	
+    	if(amount.isEmpty() || acron1.isEmpty() || acron2.isEmpty()) {
+        	request.setAttribute("error", "Tienes que rellenar todos los campos");
+        	RequestDispatcher dispatcher = request.getRequestDispatcher("compare.jsp");
+    			
+        	dispatcher.forward(request, response);
+    	}
+    	
     	Webscraping ws = new Webscraping();
     	
 		request.setAttribute("criptos", data);

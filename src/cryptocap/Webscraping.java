@@ -77,7 +77,7 @@ public class Webscraping {
 		params.add(new BasicNameValuePair("convert", acron));
 
 	    try {
-	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject("quote").getAsJsonObject(acron);
+	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject(acron);
 	    	total_market_cap = local.get("total_market_cap").getAsFloat();
 	    	total_volume_24h = local.get("total_volume_24h").getAsFloat();
 	    	total_volume_24h_reported = local.get("total_volume_24h_reported").getAsFloat();

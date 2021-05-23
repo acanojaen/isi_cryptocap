@@ -33,34 +33,33 @@
                 <div class="heading">
                     <h2 class="text-capitalize text-center text-body"><i class="fas fa-plus-circle"></i> CONFIGURAR CRIPTOMONEDAS</h2>
                 </div>
-                <div class="row">
-                <form method="post" action="currency" style="padding: 0px !important;">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="project-card-no-image">
-                            <small id="comparationHelp" class="form-text text-muted">Criptomoneda a comparar:</small>
-                            <select name="comparation">
-                                <c:forEach items="${criptos}" var="resource1" varStatus="loop">
-                                    <option value="${resource1.acronimo}">${resource1.acronimo}</option>
-                                </c:forEach>
-                            </select>                        
-                                
-                            <button type="submit" class="btn btn-warning btn-sm float-right">COMPARAR</a>
-                        </div>
-                    </div>
-
-                    <c:forEach items="${criptos}" var="resource2" varStatus="loop">
+                <form method="post" action="compare" style="padding: 0px !important;">
+                    <div class="row">
                         <div class="col-md-6 col-lg-4">
                             <div class="project-card-no-image">
-                                <h3 style="text-transform: uppercase !important;">${resource2.acronimo}&nbsp;</h3>
-                                <div class="tags">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                </div>
+                                <small id="comparationHelp" class="form-text text-muted">Criptomoneda a comparar:</small>
+                                <select name="comparation">
+                                    <c:forEach items="${criptos}" var="resource1" varStatus="loop">
+                                        <option value="${resource1.acronimo}">${resource1.acronimo}</option>
+                                    </c:forEach>
+                                </select>                        
+                                    
+                                <button type="submit" class="btn btn-warning btn-sm float-right">COMPARAR</a>
                             </div>
                         </div>
-                    </c:forEach>
 
+                        <c:forEach items="${criptos}" var="resource2" varStatus="loop">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="project-card-no-image">
+                                    <h3 style="text-transform: uppercase !important;">${resource2.acronimo}&nbsp;</h3>
+                                    <div class="tags">
+                                        <input class="form-check-input" type="checkbox" name="requestSelect[]" value="${resource2.acronimo}">
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
                 </form>
-                </div>
             </div>
         </section>
     </main>

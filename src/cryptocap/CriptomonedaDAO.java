@@ -56,8 +56,7 @@ public class CriptomonedaDAO
 	String imagen;
 	String urlDatos;
 	String ultAct;
-	String precio;
-	Float precio_parsed;
+	float precio;
 	String capitalizacion;
 	String vol24;
 	String volTotal;
@@ -105,7 +104,7 @@ public class CriptomonedaDAO
 	    	acronimo = rs.getString(1);
 	    	imagen = rs.getString(11);
 	    	urlDatos = rs.getString(3);
-	    	precio = rs.getString(5);
+	    	precio = rs.getFloat(5);
 	    	capitalizacion = rs.getString(6);
 	    	vol24 = rs.getString(7);
 	    	volTotal = rs.getString(8); 
@@ -205,7 +204,7 @@ public class CriptomonedaDAO
 	    	acronimo = rs.getString(1);
 	    	imagen = rs.getString(11);
 	    	urlDatos = rs.getString(3);
-	    	precio = rs.getString(5);
+	    	precio = rs.getFloat(5);
 	    	capitalizacion = rs.getString(6);
 	    	vol24 = rs.getString(7);
 	    	volTotal = rs.getString(8); 
@@ -256,13 +255,6 @@ public class CriptomonedaDAO
 		return stat;
     }
     
-    public Float parsePrecio(String precio) {
-    	precio = precio.replace(".","");
-    	precio = precio.replace(",",".");
-    	
-    	return (Float.parseFloat(precio));
-    }
-    
 	public List<HistorialPrecio> getHistory(String acron) throws SQLException {
 		List<HistorialPrecio> history = new ArrayList<>();
 		String sql;
@@ -280,16 +272,16 @@ public class CriptomonedaDAO
 		while(rs.next()) {
 			ultAct = rs.getString(1);
 	    	acronimo = rs.getString(2);
-	    	precio_parsed = rs.getFloat(3);
+	    	precio = rs.getFloat(3);
 	    	
-	    	history.add(new HistorialPrecio(ultAct, acronimo, precio_parsed));
+	    	history.add(new HistorialPrecio(ultAct, acronimo, precio));
 		}
 		
 		disconnect();
 		return history;
 	}
     
-    public boolean addToHistory(String acron, String precio) throws SQLException {
+    public boolean addToHistory(String acron, float precio) throws SQLException {
 		String sql;
     	PreparedStatement st;
     	ResultSet rs;
@@ -301,7 +293,7 @@ public class CriptomonedaDAO
 		
 		st.setString(1, getActualHour());
 		st.setString(2, acron);
-		st.setFloat(3, parsePrecio(precio));
+		st.setFloat(3, precio);
 		stat = st.executeUpdate() > 0;
 		st.close();
 			
@@ -416,7 +408,7 @@ public class CriptomonedaDAO
         			st.setString(1, acronimo);
         			st.setString(2, nombre);
         			st.setString(3, ultAct);
-        			st.setString(4, precio);
+        			st.setFloat(4, precio);
         			st.setString(5, capitalizacion);
         			st.setString(6, vol24);
         			st.setString(7, volTotal);
@@ -429,14 +421,14 @@ public class CriptomonedaDAO
         			st.close();
         			
         		} else {            	
-        			// MODIFICACIÓN
+        			// MODIFICACIï¿½N
         			sql = "UPDATE criptomonedas SET"; 
         			sql += " nombre = ?, ultAct = ?, precio = ?, capitalizacion = ?, vol24 = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
         			
         			st = jdbcConnection.prepareStatement(sql);
         			st.setString(1, nombre);
         			st.setString(2, ultAct);
-        			st.setString(3, precio);
+        			st.setFloat(3, precio);
         			st.setString(4, capitalizacion);
         			st.setString(5, vol24);
         			st.setString(6, volTotal);

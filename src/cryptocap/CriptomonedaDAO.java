@@ -380,7 +380,7 @@ public class CriptomonedaDAO
         	// scrapeamos --> Class Webscraping
         	crip = it.Investing(lista.get(i));
         	if(crip.getStatus().equals("enabled")) {
-        		criptos.add(it.Investing(lista.get(i)));
+        		criptos.add(crip);
         		
         		acronimo = criptos.get(i).getAcronimo();
             	nombre = criptos.get(i).getNombre();
@@ -444,6 +444,8 @@ public class CriptomonedaDAO
         			st.close();
         			
         		} 
+        	} else {
+        		stat = setCurrencyStatus(lista.get(i), "disabled");
         	}
 
         }

@@ -118,7 +118,7 @@ public class CriptomonedaDAO
 	    	ultAct = rs.getString(4);
 	    	desc = rs.getString(15);
 	    	
-	    	if(!desc.isEmpty()) {
+	    	if(desc == null) {
 	    	desc = desc.substring(0, 45) + "...";
 	    	}
 	    	

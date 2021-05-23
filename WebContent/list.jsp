@@ -114,7 +114,8 @@
                     <div class="row">
                         <div class="col-md-6"><p class="text-muted">Consultamos la API en las siguientes operaciones:
                             <ul>
-                                <li>Conversor (<span class="period">https://coinmarketcap.com/api/documentation/v1/#operation/getV1ToolsPriceconversion</span>)</li>
+                                <li>Conversor <span class="period">https://coinmarketcap.com/api/documentation/v1/#operation/getV1ToolsPriceconversion</span> </li>
+                                <li>Obtener métricas de mercado <span class="period">https://coinmarketcap.com/api/documentation/v1/#operation/getV1GlobalmetricsQuotesLatest</span> <button class="btn btn-secondary btn-sm float-right" data-target="#api_prices" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></li>
                             </ul>
                         </p></div>
                         <div class="col-md-6"></div>
@@ -138,13 +139,38 @@
                 <ul>
                     <li>Nombre</li>
                     <li>Acrónimo</li>
-                    <li>Valores: precio, capitalizacion, vol24, volTotal, cambios24H, cambios7d</li>
+                    <li>Imagen</li>
+                    <li>Enlace para más información</li>
                 </ul>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 </button>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_coinranking()"><i class="fas fa-file-import"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="api_prices" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">¿Estás seguro que desea realizar la importanción?</h5>
+            </div>
+            <div class="modal-body" id="scrap_body">
+                Se sobreescribiran los siguientes valores:
+                <ul>
+                    <li>Nombre</li>
+                    <li>Acrónimo</li>
+                    <li>Imagen</li>
+                    <li>Enlace para más información</li>
+                </ul>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="api_prices()"><i class="fas fa-file-import"></i></button>
             </div>
         </div>
     </div>
@@ -161,8 +187,7 @@
                 <ul>
                     <li>Nombre</li>
                     <li>Acrónimo</li>
-                    <li>Imagen</li>
-                    <li>Enlace para más información</li>
+                    <li>Valores: precio, capitalizacion, vol24, volTotal, cambios24H, cambios7d</li>
                 </ul>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 </button>
@@ -193,6 +218,12 @@
                     +  '<span aria-hidden="true">&times;</span>'
                     +  '</button>'
                     +  '</div>';
+      var exito2 =     '<div class="alert alert-success">' 
+                    + '¡Se han obtenido los valores de la API <strong>con éxito</strong>!'
+                    +  '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
+                    +  '<span aria-hidden="true">&times;</span>'
+                    +  '</button>'
+                    +  '</div>';
 
       function scrap_coinranking(){
         $.ajax({
@@ -216,6 +247,19 @@
             },
             error: function(){
                 $('#scrap_investing').modal('show');
+            }
+        });
+      }
+
+      function api_prices(){
+        $.ajax({
+            type: 'GET',
+            url: "/apiprices",
+            success: function(){
+                $('#alerta').html(exito2);
+            },
+            error: function(){
+                $('#api_prices').modal('show');
             }
         });
       }

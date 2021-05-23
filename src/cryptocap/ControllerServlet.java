@@ -91,6 +91,10 @@ public class ControllerServlet extends HttpServlet {
                 case "/market":
                 	market(request, response);
                 break;
+                
+                case "/apiprices":
+                	refreshMarket(request, response);
+                break;
                 	
             }
         } catch (SQLException | URISyntaxException | ClassNotFoundException e){
@@ -109,11 +113,16 @@ public class ControllerServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
     
-    private void refreshMarket(HttpServletRequest request, HttpServletResponse response) {
-    	List<Criptomoneda> data = new ArrayList<>();
+    private void refreshMarket(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        List<Criptomoneda> criptos = new ArrayList<>();
+        
+        criptos = criptomonedaDAO.refreshMarket();
+        
+		request.setAttribute("criptos", criptos);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("market.jsp");
 		
-    	//data = criptomonedaDAO.listMarket();
-	}
+		dispatcher.forward(request, response);
+    }
 
 	private void compare2(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
     	List<Criptomoneda> data = new ArrayList<>();

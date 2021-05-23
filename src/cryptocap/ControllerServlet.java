@@ -7,6 +7,7 @@ import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -102,18 +103,21 @@ public class ControllerServlet extends HttpServlet {
     
     private void compare2(HttpServletRequest request, HttpServletResponse response) throws IOException {
     	String comparador = request.getParameter("comparador");
-    	String[] selected = request.getParameterValues("requestSelect");
+    	List<String> comparadores = new ArrayList<>();
+    	comparadores = Arrays.asList(request.getParameterValues("requestSelect"));
     	
-    	response.getWriter().println(comparador + "" + selected.toString());
+    	// llamar api
 		
 	}
 
 	private void compare(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
     	List<Criptomoneda> data = new ArrayList<>();
-		
+    	String[] notcriptos = new String[]{"USD","ALL","DZD"}; 
+    	
     	data = criptomonedaDAO.list();
 
 		request.setAttribute("criptos", data);
+		request.setAttribute("notcriptos", Arrays.asList(notcriptos));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("compare.jsp");
 		
 		dispatcher.forward(request, response);

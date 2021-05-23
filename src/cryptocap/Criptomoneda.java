@@ -12,7 +12,7 @@ public class Criptomoneda {
 	public String imagen;
 	public String urlDatos;
 
-	public String precio;
+	public float precio;
 	public String capMercado;
 	public String volumen24;
 	public String volumenTotal;
@@ -59,7 +59,7 @@ public class Criptomoneda {
 		this.variacion7 = crip.getVariacion7();
 	}
 
-	public Criptomoneda(String nom, String acron, String imag, String url, String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct){
+	public Criptomoneda(String nom, String acron, String imag, String url, float prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct){
 		this.nombre = nom;
 		this.acronimo = acron;
 		this.imagen = imag;
@@ -75,7 +75,7 @@ public class Criptomoneda {
 		this.ultimaActualizacion = ultAct;
 	}
 
-	public Criptomoneda(String acron, String nombre, String prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct, String status){
+	public Criptomoneda(String acron, String nombre, float prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct, String status){
 		this.acronimo = acron;
 		this.nombre = nombre;
 		this.precio = prec;
@@ -98,9 +98,7 @@ public class Criptomoneda {
 		this.status = status;
 	}
 	
-	/*-----------------------------------------Modificadores-----------------------------------------*/
-	
-	
+	/*----------------------------------Modificadores y Consultores----------------------------------*/
 	
 	public String getNombre() {
 		return nombre;
@@ -142,11 +140,11 @@ public class Criptomoneda {
 		this.urlDatos = urlDatos;
 	}
 
-	public String getPrecio() {
+	public float getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(String precio) {
+	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
 

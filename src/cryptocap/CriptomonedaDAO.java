@@ -56,13 +56,15 @@ public class CriptomonedaDAO
 	String imagen;
 	String urlDatos;
 	String ultAct;
-	float precio;
 	String capitalizacion;
 	String vol24;
 	String volTotal;
 	String lastdaychange;
 	String sevendaychange;
 	String status;
+	String desc;
+	
+	float precio;
 	float total_volume_24h_reported;
 	float total_volume_24h;
 	float total_market_cap;
@@ -632,6 +634,81 @@ public class CriptomonedaDAO
 
         return criptos;
     }
+	
+	public boolean setMetadataAPI(String acron) throws SQLException{
+		List<Criptomoneda> lista = listCurrency("enabled");
+    	List<Criptomoneda> criptos = new ArrayList<>();
+    	Criptomoneda crip;
+        Webscraping it;
+		String sql;
+		PreparedStatement st;
+		ResultSet rs;
+		boolean stat;
+		
+		
+    	connect();
+    	
+        // Recorremos la lista de criptomonedas
+    	it = new Webscraping();
+    	
+    	// scrapeamos --> Class Webscraping
+    	crip = it.getMetadata(acron);
+		criptos.add(crip);
+    
+		acronimo = crip.getAcronimo();
+		nombre = crip.getNombre();
+        urlDatos = crip.getUrlDatos();
+        ultAct = crip.getUltimaActualizacion();
+        imagen = crip.getImagen();
+        desc = crip.getDesc();
+        status = crip.getStatus();
+        
+        // QUERY1: �Existe la moneda "i"?
+		sql = "SELECT * FROM criptomonedas";
+		sql += " WHERE acronimo = ?";
+	
+		st = jdbcConnection.prepareStatement(sql);
+		st.setString(1, acronimo);
+    	
+		rs = st.executeQuery();
+		// si FALSE --> INSERT
+		if(!rs.next() ) {
+			sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct, urlImagen, description)";
+			sql += " VALUES (?, ?, ?, ?, ?, ?)";
+			
+			st = jdbcConnection.prepareStatement(sql);
+			st.setString(1, acronimo);
+			st.setString(2, nombre);
+			st.setString(3, urlDatos);
+			st.setString(4, ultAct);
+			st.setString(5, imagen);
+			st.setString(6, desc);
+			
+			stat = st.executeUpdate() > 0;
+            stat = setCurrencyStatus(acronimo, "enabled");
+            st.close();
+			
+		} else {
+			sql = "UPDATE criptomonedas SET"; 
+			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ?, description = ? where acronimo = ?";
+			
+			st = jdbcConnection.prepareStatement(sql);
+			st.setString(1, nombre);
+			st.setString(2, urlDatos);
+			st.setString(3, ultAct);
+   			st.setString(4, imagen);
+   			st.setString(5, desc);
+			st.setString(6, imagen);
+			
+			stat = st.executeUpdate() > 0;
+			st.close();
+			
+		} 
+
+        disconnect();
+
+        return stat;
+	}
 	
 	public static String getActualHour() {
 		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");

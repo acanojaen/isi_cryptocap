@@ -21,6 +21,7 @@ public class Criptomoneda {
 	public String ultimaActualizacion;
 	public String status;
 	public String msg;
+	public String desc;
 	
 	public float precio;
 	public float total_market_cap;
@@ -130,10 +131,31 @@ public class Criptomoneda {
 		this.status = status;
 	}
 	
+	public Criptomoneda(String acronimo, String nombre, String status, String imagen, String desc, String urlDatos, String ultimaActualizacion) {
+		this.acronimo = acronimo;
+		this.nombre = nombre;
+		this.status = status;
+		this.imagen = imagen;
+		this.desc = desc;
+		this.urlDatos = urlDatos;
+		this.ultimaActualizacion = ultimaActualizacion;
+	}
+	
+	
 	/*----------------------------------Modificadores y Consultores----------------------------------*/
+	
+	
 	
 	public String getNombre() {
 		return nombre;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 
 	public String getStatus() {

@@ -95,6 +95,11 @@ public class ControllerServlet extends HttpServlet {
                 case "/apiprices":
                 	refreshMarket(request, response);
                 break;
+                
+                case "/apimetadata":
+                	apimetadata(request, response);
+                break;
+                	
                 	
             }
         } catch (SQLException | URISyntaxException | ClassNotFoundException e){
@@ -102,7 +107,15 @@ public class ControllerServlet extends HttpServlet {
         }
     }
     
-    private void market(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    private void apimetadata(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+    	String acron = request.getParameter("id");
+    	
+    	criptomonedaDAO.setMetadataAPI(acron);
+    	
+    	response.sendRedirect("ficha?id=" + acron);
+	}
+
+	private void market(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
     	List<Criptomoneda> data = new ArrayList<>();
 		
     	data = criptomonedaDAO.listMarket();

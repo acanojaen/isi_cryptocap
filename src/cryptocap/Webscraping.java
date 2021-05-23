@@ -39,7 +39,8 @@ public class Webscraping {
 	String volTotal;
 	String lastdaychange;
 	String sevendaychange;
-	private String url;
+	String description;
+	String url;
 	
 	float precio;
 	float total_market_cap;
@@ -80,7 +81,7 @@ public class Webscraping {
 	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject("quote").getAsJsonObject(acron);
 	    	total_market_cap = local.get("total_market_cap").getAsFloat();
 	    	total_volume_24h = local.get("total_volume_24h").getAsFloat();
-	    	total_volume_24h_reported = local.get("total_volume_24h_reported").getAsFloat();
+	    	total_volume_24h_reported = local.get("total_volume_24h_yesterday_percentage_change").getAsFloat();
 	    	ultAct = getActualHour();
 	    	
 	    	return(new Criptomoneda(acron, ultAct, "enabled", total_market_cap, total_volume_24h, total_volume_24h_reported));
@@ -91,6 +92,31 @@ public class Webscraping {
 	    	return (new Criptomoneda(acron, ultAct, "disabled"));
 	    }
 	}
+	
+	public Criptomoneda getMetadata(String acron) {
+		String uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info ";
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
+		
+		params.add(new BasicNameValuePair("symbol", acron));
+
+	    try {
+	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject(acron);
+	    	JsonObject urls = local.getAsJsonObject("urls");
+			nombre = local.get("name").getAsString();
+			imagen = local.get("logo").getAsString();
+			description = local.get("description").getAsString();
+			urlDatos = urls.get("website").getAsString();
+			ultAct = getActualHour();
+	    	
+	    	return(new Criptomoneda(acron, nombre, "enabled", imagen, description, urlDatos, ultAct));
+	    	
+	    } catch (IOException e) {
+			return (new Criptomoneda(acron, ultAct, "disabled"));
+	    } catch (URISyntaxException e) {
+	    	return (new Criptomoneda(acron, ultAct, "disabled"));
+	    }
+	}
+	
 	// Scraping - Coinranking.com/es
 		public Criptomoneda Coinmarketcap(String acron) throws IOException {
 			String url = " https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest ";

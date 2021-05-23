@@ -127,7 +127,7 @@ public class CriptomonedaDAO
     
     public List<Criptomoneda> listMarket(String status) throws SQLException{
     	List<Criptomoneda> c = new ArrayList<>();
-		String sql = "SELECT * FROM currency where status = ?";
+		String sql = "SELECT * FROM criptomonedas where status = ?";
 		PreparedStatement st;
 		ResultSet rs;
 		

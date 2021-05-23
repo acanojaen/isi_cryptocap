@@ -324,7 +324,7 @@ public class CriptomonedaDAO
     	    	st = jdbcConnection.prepareStatement(sql);
     	    	st.setString(1, acron);
     	    	stat = st.executeUpdate() > 0;
-    			stat = setCurrencyStatus(acronimo, "disabled");
+    			stat = setCurrencyStatus(acron, "disabled");
     	    	
     	    	st.close();
     			break;

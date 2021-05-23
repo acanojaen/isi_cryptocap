@@ -31,23 +31,24 @@
         <section class="portfolio-block project-no-images">
             <div class="container">
                 <div class="heading">
-                    <h2 class="text-capitalize text-center text-body"><i class="fas fa-plus-circle"></i> CONFIGURAR CRIPTOMONEDAS</h2>
+                    <h2 class="text-capitalize text-center text-body"><i class="fas fa-random"></i> CONVERSOR</h2>
                 </div>
                 <form method="post" action="compare2" style="padding: 0px !important;">
                     <div class="row">
                         <div class="col-md-4 col-lg-4">
-                            <small id="comparationHelp" class="form-text text-muted">Criptomoneda a comparar:</small>
-                            <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce cantidad">
-                            <select name="compIzq">
-                                <option disabled>Criptomonedas</option>
-                                <c:forEach items="${criptos}" var="resource1" varStatus="loop">
-                                    <option value="${resource1.acronimo}">${resource1.acronimo}</option>
-                                </c:forEach>
-                                <option disabled>Monedas</option>
-                                <c:forEach items="${notcriptos}" var="resource2" varStatus="loop">
-                                    <option value="${resource2}">${resource2}</option>
-                                </c:forEach>
-                            </select>                          
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce cantidad">
+                                <select name="compDer">
+                                    <option disabled>Criptomonedas</option>
+                                    <c:forEach items="${criptos}" var="resource1" varStatus="loop">
+                                        <option value="${resource1.acronimo}">${resource1.acronimo}</option>
+                                    </c:forEach>
+                                    <option disabled>Monedas</option>
+                                    <c:forEach items="${notcriptos}" var="resource2" varStatus="loop">
+                                        <option value="${resource2}">${resource2}</option>
+                                    </c:forEach>
+                                </select>    
+                            </div>                     
                         </div>
 
                         <div class="col-md-4 col-lg-4">
@@ -57,7 +58,6 @@
 
                         <div class="col-md-4 col-lg-4">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce cantidad">
                                 <select name="compDer">
                                     <option disabled>Criptomonedas</option>
                                     <c:forEach items="${criptos}" var="resource1" varStatus="loop">

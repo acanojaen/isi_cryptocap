@@ -63,7 +63,7 @@
                         <th scope="col">Market Cap</th>
                         <th scope="col">Volume (24h)</th>
                         <th scope="col">7d %</th>
-                        <th scope="col">Más informacion</th>
+                        <th scope="col"></th>
                     </tr>
                     
                     <c:forEach items="${criptos}" var="c">
@@ -73,7 +73,7 @@
                             <td>${c.total_market_cap}</td>
                             <td>${c.total_volume_24h}</td>
                             <td>${c.variacion7}</td>
-                            <td><a href="/ficha?id=<c:out value='${criptomoneda.acronimo}'/>" class="btn btn-success btn-sm float-right" role="button"><i class="fas fa-eye" style="color:white;"></i></a></td>
+                            <td><a href="/ficha?id=<c:out value='${c.acronimo}'/>" class="btn btn-success btn-sm float-right" role="button"><i class="fas fa-eye" style="color:white;"></i></a></td>
                         </tr>
                     </c:forEach>
                 </table>

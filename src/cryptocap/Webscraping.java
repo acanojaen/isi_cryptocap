@@ -109,6 +109,10 @@ public class Webscraping {
 			urlDatos = urls.get("website").getAsString();
 	    	precio = Conversor("1", acron, "USD");
 	    	
+	    	if(urlDatos == null)
+	    		urlDatos = "";
+	    	
+	    	
 	    	return(new Criptomoneda(acron, nombre, "enabled", imagen, description, urlDatos, ultAct, precio));
 	    	
 	    } catch (IOException e) {

@@ -101,12 +101,18 @@ public class ControllerServlet extends HttpServlet {
         }
     }
     
-    private void compare2(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-    	String amount = request.getParameter("cantidad");
+    private void compare2(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+    	List<Criptomoneda> data = new ArrayList<>();
+    	String[] notcriptos = new String[]{"USD","ALL","DZD"}; 
+    	
+    	data = criptomonedaDAO.list();
+    	String amount = request.getParameter("amount");
     	String acron1 = request.getParameter("compIzq");
     	String acron2 = request.getParameter("compDer");
     	Webscraping ws = new Webscraping();
     	
+		request.setAttribute("criptos", data);
+		request.setAttribute("notcriptos", Arrays.asList(notcriptos));
     	request.setAttribute("result", ws.Conversor(amount, acron1, acron2));
     	RequestDispatcher dispatcher = request.getRequestDispatcher("compare.jsp");
 			

@@ -107,7 +107,7 @@ public class ControllerServlet extends HttpServlet {
     	comparadores = Arrays.asList(request.getParameterValues("requestSelect"));
     	
     	// llamar api
-		
+			
 	}
 
 	private void compare(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {

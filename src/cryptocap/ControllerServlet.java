@@ -101,13 +101,16 @@ public class ControllerServlet extends HttpServlet {
         }
     }
     
-    private void compare2(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    	String comparador = request.getParameter("comparador");
-    	List<String> comparadores = new ArrayList<>();
-    	comparadores = Arrays.asList(request.getParameterValues("requestSelect"));
+    private void compare2(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    	String amount = request.getParameter("cantidad");
+    	String acron1 = request.getParameter("compIzq");
+    	String acron2 = request.getParameter("compDer");
+    	Webscraping ws = new Webscraping();
     	
-    	// llamar api
+    	request.setAttribute("result", ws.Conversor(amount, acron1, acron2));
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("compare.jsp");
 			
+    	dispatcher.forward(request, response);
 	}
 
 	private void compare(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {

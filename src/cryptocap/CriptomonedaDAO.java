@@ -426,7 +426,6 @@ public class CriptomonedaDAO
         			stat = st.executeUpdate() > 0;
         			stat = addToHistory(acronimo, precio);
     	            stat = setCurrencyStatus(acronimo, "enabled");
-        			
 
         			st.close();
         			
@@ -448,6 +447,7 @@ public class CriptomonedaDAO
         			
         			stat = st.executeUpdate() > 0;
         			stat = addToHistory(acronimo, precio);
+        			
         			st.close();
         			
         		} 

@@ -21,7 +21,7 @@
            <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="/list"><i class="fas fa-coins"></i> Criptomonedas</a></li>
-                <li class="nav-item"><a class="nav-link" href="/compare"><i class="fas fa-exchange-alt"></i> Comparador</a></li>
+                <li class="nav-item"><a class="nav-link" href="/compare"><i class="fas fa-exchange-alt"></i> Conversor</a></li>
                 <li class="nav-item"><a class="nav-link" href="/config"><i class="fas fa-wrench"></i> Configuración</a></li>
               </ul>
           </div>
@@ -34,10 +34,16 @@
                     <h2 class="text-capitalize text-center text-body"><i class="fas fa-random"></i> CONVERSOR</h2>
                 </div>
                 <form method="post" action="compare2" style="padding: 0px !important;">
+                    <c:if test="${not empty result}">
+                        <div class="alert alert-primary" role="alert">
+                            El resultado está calculado con la API de <a href="#" class="alert-link">CoinmarketCap</a>. Result: <br> ${result}
+                        </div>
+
+                    </c:if>
                     <div class="row">
                         <div class="col-md-4 col-lg-4">
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce cantidad">
+                                <input type="text" class="form-control" name="cantidad" id="cantidad" aria-describedby="acronimoHelp" placeholder="Introduce cantidad">
                                 <select name="compDer">
                                     <option disabled>Criptomonedas</option>
                                     <c:forEach items="${criptos}" var="resource1" varStatus="loop">

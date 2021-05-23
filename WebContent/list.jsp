@@ -21,7 +21,7 @@
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav ml-auto">
               <li class="nav-item"><a class="nav-link" href="/list"><i class="fas fa-coins"></i> Criptomonedas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/compare"><i class="fas fa-exchange-alt"></i> Comparador</a></li>
+              <li class="nav-item"><a class="nav-link" href="/compare"><i class="fas fa-exchange-alt"></i> Conversor</a></li>
               <li class="nav-item"><a class="nav-link" href="/config"><i class="fas fa-wrench"></i> Configuración</a></li>
             </ul>
         </div>

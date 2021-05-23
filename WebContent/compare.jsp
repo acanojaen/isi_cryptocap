@@ -33,12 +33,12 @@
                 <div class="heading">
                     <h2 class="text-capitalize text-center text-body"><i class="fas fa-plus-circle"></i> CONFIGURAR CRIPTOMONEDAS</h2>
                 </div>
-                <form method="post" action="compare" style="padding: 0px !important;">
+                <form method="post" action="compare2" style="padding: 0px !important;">
                     <div class="row">
                         <div class="col-md-6 col-lg-4">
                             <div class="project-card-no-image">
                                 <small id="comparationHelp" class="form-text text-muted">Criptomoneda a comparar:</small>
-                                <select name="comparation">
+                                <select name="comparator">
                                     <c:forEach items="${criptos}" var="resource1" varStatus="loop">
                                         <option value="${resource1.acronimo}">${resource1.acronimo}</option>
                                     </c:forEach>

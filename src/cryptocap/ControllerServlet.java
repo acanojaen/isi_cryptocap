@@ -100,8 +100,11 @@ public class ControllerServlet extends HttpServlet {
         }
     }
     
-    private void compare2(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+    private void compare2(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    	String comparador = request.getParameter("comparador");
+    	String[] selected = request.getParameterValues("requestSelect");
+    	
+    	response.getWriter().println(comparador + "" + selected.toString());
 		
 	}
 

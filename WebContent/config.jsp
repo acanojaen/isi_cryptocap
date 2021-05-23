@@ -59,10 +59,10 @@
                                 <div class="tags">
                                     <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt" style="color: white;"></i></a>&nbsp;
                                     <c:if test="${resource.status != 'disabled'}">
-                                        <a href="/ficha?id=<c:out value='${criptomoneda.acronimo}'/>" class="btn btn-warning btn-sm float-right" role="button"><i class="fas fa-eye" style="color: black;"></i></a>
+                                        <a href="/ficha?id=<c:out value='${resource.acronimo}'/>" class="btn btn-warning btn-sm float-right" role="button"><i class="fas fa-eye" style="color: black;"></i></a>
                                     </c:if>
                                     <c:if test="${resource.status == 'disabled'}">
-                                        <a href="/apimetadata?id=<c:out value='${criptomoneda.acronimo}'/>" class="btn btn-success btn-sm float-right" role="button"><i class="fas fa-search" style="color: white;"></i></a>
+                                        <a href="/apimetadata?id=<c:out value='${resource.acronimo}'/>" class="btn btn-success btn-sm float-right" role="button"><i class="fas fa-search" style="color: white;"></i></a>
                                     </c:if>
                                     
                                 </div>

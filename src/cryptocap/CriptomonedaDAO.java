@@ -680,6 +680,7 @@ public class CriptomonedaDAO
         imagen = crip.getImagen();
         desc = crip.getDesc();
         status = crip.getStatus();
+        precio = crip.getPrecio();
         
         // QUERY1: �Existe la moneda "i"?
 		sql = "SELECT * FROM criptomonedas";
@@ -691,8 +692,8 @@ public class CriptomonedaDAO
 		rs = st.executeQuery();
 		// si FALSE --> INSERT
 		if(!rs.next() ) {
-			sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct, urlImagen, description)";
-			sql += " VALUES (?, ?, ?, ?, ?, ?)";
+			sql = "INSERT INTO criptomonedas (acronimo, nombre, urlDatos, ultAct, urlImagen, description, precio)";
+			sql += " VALUES (?, ?, ?, ?, ?, ?, ?)";
 			
 			st = jdbcConnection.prepareStatement(sql);
 			st.setString(1, acronimo);
@@ -701,6 +702,7 @@ public class CriptomonedaDAO
 			st.setString(4, ultAct);
 			st.setString(5, imagen);
 			st.setString(6, desc);
+			st.setFloat(7, precio);
 			
 			stat = st.executeUpdate() > 0;
             stat = setCurrencyStatus(acronimo, "enabled");
@@ -708,7 +710,7 @@ public class CriptomonedaDAO
 			
 		} else {
 			sql = "UPDATE criptomonedas SET"; 
-			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ?, description = ? where acronimo = ?";
+			sql += " nombre = ?, urlDatos = ?, ultAct = ?, urlImagen = ?, description = ?, precio = ? where acronimo = ?";
 			
 			st = jdbcConnection.prepareStatement(sql);
 			st.setString(1, nombre);
@@ -716,7 +718,9 @@ public class CriptomonedaDAO
 			st.setString(3, ultAct);
    			st.setString(4, imagen);
    			st.setString(5, desc);
-			st.setString(6, acronimo);
+			st.setFloat(6, precio);
+			st.setString(7, acronimo);
+			
 			
 			stat = st.executeUpdate() > 0;
 			st.close();

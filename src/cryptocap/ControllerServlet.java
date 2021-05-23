@@ -63,11 +63,6 @@ public class ControllerServlet extends HttpServlet {
                 case "/ficha":
             		ficha(request, response);
                 break;
-
-                // Test
-                case "/test":
-                	test(request, response);
-                break;
                 
                 // Eliminar (Criptomoneda/Currency)
                 case "/eliminar":
@@ -92,6 +87,10 @@ public class ControllerServlet extends HttpServlet {
                 case "/compare2":
                 	compare2(request, response);
                 break;
+                
+                case "/market":
+                	market(request, response);
+                break;
                 	
             }
         } catch (SQLException | URISyntaxException | ClassNotFoundException e){
@@ -99,7 +98,24 @@ public class ControllerServlet extends HttpServlet {
         }
     }
     
-    private void compare2(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
+    private void market(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    	List<Criptomoneda> data = new ArrayList<>();
+		
+    	data = criptomonedaDAO.listMarket("enabled");
+    	
+		request.setAttribute("criptos", data);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("market.jsp");
+		
+		dispatcher.forward(request, response);
+	}
+    
+    private void refreshMarket(HttpServletRequest request, HttpServletResponse response) {
+    	List<Criptomoneda> data = new ArrayList<>();
+		
+    	//data = criptomonedaDAO.listMarket();
+	}
+
+	private void compare2(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {
     	List<Criptomoneda> data = new ArrayList<>();
     	String[] notcriptos = new String[]{"USD","ALL","DZD"}; 
     	
@@ -224,16 +240,6 @@ public class ControllerServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
 		
 		dispatcher.forward(request, response);
-    }
-    
-    private void test(HttpServletRequest request, HttpServletResponse response) 
-            throws SQLException, IOException, URISyntaxException, ClassNotFoundException, ServletException {
-        List<Criptomoneda> criptos = new ArrayList<>();
-        criptos = criptomonedaDAO.investing();
-        
-        for(int i=0;i<criptos.size();i++) {
-        	response.getWriter().println(criptos.get(i).toString());
-        }
     }
     
 }

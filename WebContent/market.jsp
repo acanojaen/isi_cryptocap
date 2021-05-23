@@ -8,7 +8,7 @@
 <header>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>CryptoCap - Configuración</title>
+    <title>CryptoCap - Mercado</title>
     <link rel="stylesheet" href="/dist/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
@@ -37,35 +37,50 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
                         <div class="project-card-no-image">
-                            <form method="post" action="currency" style="padding: 0px !important;">
-                                <input type="text" class="form-control" name="acr" id="acr" aria-describedby="acronimoHelp" placeholder="Introduce el acrónimo">
-                                <small id="acronimoHelp" class="form-text text-muted">Formato "XXXX" (max. 10 c)</small>
-                                <button type="submit" class="btn btn-warning btn-sm float-right"><i class="fas fa-plus"></i></a>
-                            </form>
+                            
                         </div>
                     </div>
-
-                    <c:forEach items="${criptos}" var="resource" varStatus="loop">
-                        <div class="col-md-6 col-lg-4">
-                            <c:if test="${resource.status != 'disabled'}">
-                            <div class="project-card-no-image">
-                                <h3 style="text-transform: uppercase !important;">${resource.acronimo}&nbsp;</h3>
-                                </c:if>
-
-                                <c:if test="${resource.status == 'disabled'}">
-                            <div class="project-card-no-image" style="border-top: 4px solid red !important;">
-                                <h3 style="text-transform: uppercase !important;"><i class="fas fa-exclamation-circle"></i>&nbsp;${resource.acronimo}&nbsp; </h3>
-                                </c:if>
-                                <div class="tags">
-                                    <a href="/eliminar?id=<c:out value='${resource.acronimo}'/>&entity=currency" class="btn btn-info btn-sm float-right" role="button"><i class="far fa-trash-alt" style="color: white;"></i></a>&nbsp;
-                                    <c:if test="${resource.status != 'disabled'}">
-                                        <a href="/ficha?id=<c:out value='${criptomoneda.acronimo}'/>" class="btn btn-warning btn-sm float-right" role="button" href="#"><i class="fas fa-eye" style="color: black;"></i></a>
-                                    </c:if>
-                                </div>
-                            </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="project-card-no-image">
+                            
                         </div>
-                    </c:forEach>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="project-card-no-image">
+                            
+                        </div>
+                    </div>
                 </div>
+
+                <div class="heading">
+                    <h2 class="text-capitalize text-center text-body"><i class="fas fa-plus-circle"></i> CONFIGURAR CRIPTOMONEDAS</h2>
+                </div>
+
+                <table class="table">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Market Cap</th>
+                        <th scope="col">Volume (24h)</th>
+                        <th scope="col">Circulación</th>
+                        <th scope="col">7d %</th>
+                    </tr>
+                    
+                    <c:forEach items="${criptos}" var="c">
+                        <tr>
+                            <td><img class="responsive" src="${c.imagen}"/> <b>${c.nombre}</b> <span>${c.acronimo}</span></td>
+                            <td>${c.precio}</td>
+                            <td>${c.valor}$</td>
+                            <td>${c.total_market_cap}</td>
+                            <td>${c.total_market_cap_24h}</td>
+                            <td>${c.total_market_cap_24h_reported}</td>
+                            <td>${c.variacion7}</td>
+                        </tr>
+                    </c:forEach>
+                </table>
+
+
+
             </div>
         </section>
     </main>

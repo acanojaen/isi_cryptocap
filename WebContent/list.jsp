@@ -16,17 +16,18 @@
 </header>
 
 <body data-scrap="">
-  <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
-      <div class="container"><img src="/dist/img/small-logo.png"><a class="navbar-brand logo" href="/">&nbsp; cryptocap</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-         <div class="collapse navbar-collapse" id="navbarNav">
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+    <div class="container"><img src="/dist/img/small-logo.png"><a class="navbar-brand logo" href="/">&nbsp; cryptocap</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav navbar-nav ml-auto">
-              <li class="nav-item"><a class="nav-link" href="/list"><i class="fas fa-coins"></i> Criptomonedas</a></li>
-              <li class="nav-item"><a class="nav-link" href="/compare"><i class="fas fa-exchange-alt"></i> Conversor</a></li>
-              <li class="nav-item"><a class="nav-link" href="/config"><i class="fas fa-wrench"></i> Configuración</a></li>
+            <li class="nav-item"><a class="nav-link" href="/list"><i class="fas fa-coins"></i> Criptomonedas</a></li>
+            <li class="nav-item"><a class="nav-link" href="/compare"><i class="fas fa-exchange-alt"></i> Conversor</a></li>
+            <li class="nav-item"><a class="nav-link" href="/market"><i class="fas fa-search-dollar"></i> Mercado</a></li>
+            <li class="nav-item"><a class="nav-link" href="/config"><i class="fas fa-wrench"></i> Configuración</a></li>
             </ul>
         </div>
-      </div>
-  </nav>
+    </div>
+</nav>
   <main class="page cv-page">
       <section class="portfolio-block cv">
           <div class="container">
@@ -93,11 +94,9 @@
                     <div class="row">
                         <div class="col-md-6"><p class="text-muted">Obtenemos los siguientes valores de las criptomonedas:
                             <ul>
-                                <ul>
-                                    <li>Nombre</li>
-                                    <li>Acrónimo</li>
-                                    <li>Valores: precio, capitalizacion, vol24, volTotal, cambios24H, cambios7d</li>
-                                </ul>
+                                <li>Nombre</li>
+                                <li>Acrónimo</li>
+                                <li>Valores: precio, capitalizacion, vol24, volTotal, cambios24H, cambios7d</li>
                             </ul>
                         </p></div>
                         <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_investing" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></div>
@@ -136,11 +135,16 @@
             </div>
             <div class="modal-body" id="scrap_body">
                 Se sobreescribiran los siguientes valores:
+                <ul>
+                    <li>Nombre</li>
+                    <li>Acrónimo</li>
+                    <li>Valores: precio, capitalizacion, vol24, volTotal, cambios24H, cambios7d</li>
+                </ul>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 </button>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_coinranking()">Actualizar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_coinranking()"><i class="fas fa-file-import"></i></button>
             </div>
         </div>
     </div>
@@ -150,14 +154,21 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Resultado del webscraping</h5>
+                <h5 class="modal-title">¿Estás seguro que desea realizar la importanción?</h5>
             </div>
             <div class="modal-body" id="scrap_body">
+                Se sobreescribiran los siguientes valores:
+                <ul>
+                    <li>Nombre</li>
+                    <li>Acrónimo</li>
+                    <li>Imagen</li>
+                    <li>Enlace para más información</li>
+                </ul>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 </button>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_investing()">Actualizar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="scrap_investing()"><i class="fas fa-file-import"></i></button>
             </div>
         </div>
     </div>

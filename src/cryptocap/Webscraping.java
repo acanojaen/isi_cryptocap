@@ -34,13 +34,17 @@ public class Webscraping {
 	String imagen;
 	String urlDatos;
 	String ultAct;
-	float precio;
 	String capitalizacion;
 	String vol24;
 	String volTotal;
 	String lastdaychange;
 	String sevendaychange;
 	private String url;
+	
+	float precio;
+	float total_market_cap;
+	float total_volume_24h;
+	float total_volume_24h_reported;
 
 	Webscraping () {
 		this.url = "";
@@ -66,23 +70,25 @@ public class Webscraping {
 	    }
 	}
 	
-	public String getAditionalInformation(String amount, String acron1, String acron2) {
+	public Criptomoneda getPricesAPI(String acron) {
 		String uri = "https://pro-api.coinmarketcap.com/v1/tools/price-conversion";
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		
-		params.add(new BasicNameValuePair("amount", amount));
-	    params.add(new BasicNameValuePair("symbol", acron1));
-	    params.add(new BasicNameValuePair("convert", acron2));
-	    
+		params.add(new BasicNameValuePair("convert", acron));
 
 	    try {
-	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject("quote").getAsJsonObject(acron2);
+	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject("quote").getAsJsonObject(acron);
+	    	total_market_cap = local.get("price").getAsFloat();
+	    	total_volume_24h = local.get("price").getAsFloat();
+	    	total_volume_24h_reported = local.get("price").getAsFloat();
+	    	ultAct = getActualHour();
 	    	
-	    	return (local.get("price").getAsString());
+	    	return(new Criptomoneda(acron, ultAct, "enabled", total_market_cap, total_volume_24h, total_volume_24h_reported));
+	    	
 	    } catch (IOException e) {
-	    	return("Error: cannont access content - " + e.toString());
+			return (new Criptomoneda(acron, ultAct, "disabled"));
 	    } catch (URISyntaxException e) {
-	    	return("Error: Invalid URL " + e.toString());
+	    	return (new Criptomoneda(acron, ultAct, "disabled"));
 	    }
 	}
 	// Scraping - Coinranking.com/es

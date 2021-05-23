@@ -63,6 +63,9 @@ public class CriptomonedaDAO
 	String lastdaychange;
 	String sevendaychange;
 	String status;
+	float total_volume_24h_reported;
+	float total_volume_24h;
+	float total_market_cap;
 	
     
     public CriptomonedaDAO(String url, String user, String password){
@@ -112,6 +115,43 @@ public class CriptomonedaDAO
 	    	sevendaychange = rs.getString(10);
 	    	ultAct = rs.getString(4);
 			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct));
+		}
+		
+		rs.close();
+		st.close();
+    	
+		disconnect();
+		return c;
+    	
+    }
+    
+    public List<Criptomoneda> listMarket(String status) throws SQLException{
+    	List<Criptomoneda> c = new ArrayList<>();
+		String sql = "SELECT * FROM currency where status = ?";
+		PreparedStatement st;
+		ResultSet rs;
+		
+    	connect();
+    	
+		st = jdbcConnection.prepareStatement(sql);
+		st.setString(1, status);
+		rs = st.executeQuery();
+		
+		while(rs.next()) {
+			nombre = rs.getString(2);
+	    	acronimo = rs.getString(1);
+	    	imagen = rs.getString(11);
+	    	urlDatos = rs.getString(3);
+	    	precio = rs.getFloat(5);
+	    	total_market_cap = rs.getFloat(11);
+	    	total_volume_24h = rs.getFloat(12);
+	    	total_volume_24h_reported = rs.getFloat(13);
+	    	vol24 = rs.getString(7);
+	    	volTotal = rs.getString(8); 
+	    	lastdaychange = rs.getString(9);
+	    	sevendaychange = rs.getString(10);
+	    	ultAct = rs.getString(4);
+			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, total_market_cap, total_volume_24h, total_volume_24h_reported));
 		}
 		
 		rs.close();
@@ -534,12 +574,76 @@ public class CriptomonedaDAO
 
         return criptos;
     }
+	
+	public List<Criptomoneda> refreshMarket() throws SQLException {
+		List<String> lista = getListing();
+    	List<Criptomoneda> criptos = new ArrayList<>();
+    	Criptomoneda crip;
+        Webscraping it;
+		String sql;
+		PreparedStatement st;
+		ResultSet rs;
+		boolean stat;
+		
+		
+    	connect();
+    	
+        // Recorremos la lista de criptomonedas
+        for(int i=0; i<lista.size(); i++){
+        	it = new Webscraping();
+        	
+        	// scrapeamos --> Class Webscraping
+        	crip = it.getPricesAPI(lista.get(i));
+        	if(crip.getStatus().equals("enabled")) {
+        		criptos.add(crip);
+            
+        		acronimo = crip.getAcronimo();
+        		total_market_cap = crip.getTotal_market_cap();
+        		total_volume_24h = crip.getTotal_volume_24h();
+        		total_volume_24h_reported = crip.getTotal_volume_24h_reported();
+	            ultAct = crip.getUltimaActualizacion();
+	            
+	            
+	            // QUERY1: �Existe la moneda "i"?
+	    		sql = "SELECT * FROM criptomonedas";
+	    		sql += " WHERE acronimo = ?";
+	    	
+	    		st = jdbcConnection.prepareStatement(sql);
+	    		st.setString(1, acronimo);
+	        	
+	    		rs = st.executeQuery();
+	    		// si FALSE --> INSERT
+	    		if(rs.next() ) {
+	    			sql = "UPDATE criptomonedas SET"; 
+	    			sql += " total_market_cap = ?, total_volume_24h = ?, total_volume_24h_reported = ?, ultAct = ?";
+	    			
+	    			st = jdbcConnection.prepareStatement(sql);
+	    			st.setFloat(1, total_market_cap);
+	    			st.setFloat(2, total_volume_24h);
+	    			st.setFloat(3, total_volume_24h_reported);
+	       			st.setString(4, ultAct);
+	    			
+	    			stat = st.executeUpdate() > 0;
+	    			st.close();
+	    			
+	    		} 
+    	
+        	} else {
+        		stat = setCurrencyStatus(lista.get(i), "disabled");
+        	}
+        }
 
+        disconnect();
+
+        return criptos;
+    }
+	
 	public static String getActualHour() {
 		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
 		Date date = new Date(System.currentTimeMillis());
 		
 		return formatter.format(date);
 	}
+
 
 }

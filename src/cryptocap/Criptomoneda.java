@@ -12,7 +12,6 @@ public class Criptomoneda {
 	public String imagen;
 	public String urlDatos;
 
-	public float precio;
 	public String capMercado;
 	public String volumen24;
 	public String volumenTotal;
@@ -22,7 +21,8 @@ public class Criptomoneda {
 	public String ultimaActualizacion;
 	public String status;
 	public String msg;
-
+	
+	public float precio;
 	public float total_market_cap;
 	public float total_volume_24h;
     public float total_volume_24h_reported;
@@ -48,7 +48,7 @@ public class Criptomoneda {
 		this.status = status;
 	}
 
-	public Criptomoneda(String acronimo, String ultAct, String status, public float total_market_cap, public float total_volume_24h, public float total_volume_24h_reported) {
+	public Criptomoneda(String acronimo, String ultAct, String status, float total_market_cap, float total_volume_24h, float total_volume_24h_reported) {
 		this.acronimo = acronimo;
 		this.nombre = acronimo;
 		this.ultimaActualizacion = ultAct;
@@ -100,6 +100,25 @@ public class Criptomoneda {
 
 		this.ultimaActualizacion = ultAct;
 		this.status = status;
+	}
+	
+	public Criptomoneda(String nom, String acron, String imag, String url, float prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct, float total_market_cap, float total_volume_24h, float total_volume_24h_reported){
+		this.nombre = nom;
+		this.acronimo = acron;
+		this.imagen = imag;
+		this.urlDatos = url;
+
+		this.precio = prec;
+		this.capMercado = capMer;
+		this.volumen24 = vol24;
+		this.volumenTotal = volTotal;
+		this.variacion24 = var24;
+		this.variacion7 = var7;
+
+		this.ultimaActualizacion = ultAct;
+		this.total_market_cap = total_market_cap;
+	 	this.total_volume_24h = total_volume_24h;
+    	this.total_volume_24h_reported = total_volume_24h_reported;
 	}
 	
 	public Criptomoneda(String nombre, String acronimo, String imagen, String urlDatos, String ultimaActualizacion, String status) {

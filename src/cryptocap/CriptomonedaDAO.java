@@ -134,7 +134,6 @@ public class CriptomonedaDAO
     	connect();
     	
 		st = jdbcConnection.prepareStatement(sql);
-		st.setString(1, status);
 		rs = st.executeQuery();
 		
 		while(rs.next()) {

@@ -106,7 +106,7 @@ public class ControllerServlet extends HttpServlet {
     	String[] notcriptos = new String[]{"USD","ALL","DZD"}; 
     	
     	data = criptomonedaDAO.list();
-    	String amount = request.getParameter("amount");
+    	String amount = request.getParameter("cantidad");
     	String acron1 = request.getParameter("compIzq");
     	String acron2 = request.getParameter("compDer");
     	Webscraping ws = new Webscraping();

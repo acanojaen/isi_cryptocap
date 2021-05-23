@@ -117,7 +117,10 @@ public class CriptomonedaDAO
 	    	sevendaychange = rs.getString(10);
 	    	ultAct = rs.getString(4);
 	    	desc = rs.getString(15);
-	    	String short_desc = desc.substring(0, 45) + "...";
+	    	
+	    	if(!desc.isEmpty()) {
+	    	desc = desc.substring(0, 45) + "...";
+	    	}
 	    	
 			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, short_desc));
 		}

@@ -215,15 +215,22 @@ public class Webscraping {
 				acronimo = elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text();
 				nombre = elem.getElementsByClass("left bold elp name cryptoName first js-currency-name").text();
                 precio = parsePrecio(elem.getElementsByClass("price js-currency-price").text());
-                capitalizacion = elem.getElementsByClass("js-market-cap").attr("data-value");
-                vol24 = elem.getElementsByClass("js-24h-volume").text();
+                total_market_cap = Float.parseFloat(elem.getElementsByClass("js-market-cap").attr("data-value"));
+                total_volume_24h = Float.parseFloat(elem.getElementsByClass("js-24h-volume").attr("data-value"));
                 volTotal = elem.getElementsByClass("js-total-vol").text();
-                lastdaychange = elem.getElementsByClass("js-currency-change-24h redFont pid-1057391-pcp").text();
-                sevendaychange = elem.getElementsByClass("js-currency-change-7d redFont").text();
+                lastdaychange = elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").text();
+                if(lastdaychange.isEmpty()) {
+                    lastdaychange = elem.getElementsByClass("js-currency-change-24h redFont pid-1061453-pcp").text();
+                }
+                
+                sevendaychange = elem.getElementsByClass("js-currency-change-7d greenFont").text();
+                if(sevendaychange.isEmpty()) {
+                	sevendaychange = elem.getElementsByClass("js-currency-change-7d redFont").text();
+                }
                 ultAct = getActualHour();
 				
                 if(elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text().equals(acron)){
-                    return (new Criptomoneda(acronimo, nombre, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, "enabled"));
+                    return (new Criptomoneda(acronimo, nombre, precio, total_market_cap, total_volume_24h, volTotal, lastdaychange, sevendaychange, ultAct, "enabled"));
                 }
 			}
 			

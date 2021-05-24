@@ -57,10 +57,10 @@
                                 </c:if>
 
                                 <div class="col-md-6">
-                                    <h3>Capitalizacion: </h3> <h4 class="organization">${criptos.capMercado}</h4>
+                                    <h3>Capitalizacion: </h3> <h4 class="organization">${criptos.total_market_cap}</h4>
                                 </div>
 
-                                <c:if test="${not empty criptos.volumen24}">
+                                <c:if test="${not empty criptos.total_volume_24h}">
                                     <div class="col-md-6">
                                         <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.volumen24}</h4>
                                     </div>

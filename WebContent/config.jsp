@@ -62,7 +62,7 @@
                                         <a href="/ficha?id=<c:out value='${resource.acronimo}'/>" class="btn btn-warning btn-sm float-right" role="button"><i class="fas fa-eye" style="color: black;"></i></a>
                                     </c:if>
                                     <c:if test="${resource.status == 'disabled'}">
-                                        <a href="/apicrypto?case=single&id=<c:out value='${resource.acronimo}'/>" class="btn btn-success btn-sm float-right" role="button"><i class="fas fa-search" style="color: white;"></i></a>
+                                        <a href="/apimetadata?id=<c:out value='${resource.acronimo}'/>" class="btn btn-success btn-sm float-right" role="button"><i class="fas fa-search" style="color: white;"></i></a>
                                     </c:if>
                                     
                                 </div>

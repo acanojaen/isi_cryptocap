@@ -439,8 +439,8 @@ public class CriptomonedaDAO
         		acronimo = crip.getAcronimo();
             	nombre = crip.getNombre();
             	precio = crip.getPrecio();
-            	capitalizacion = crip.getCapMercado();
-            	vol24 = crip.getVolumen24();
+            	total_market_cap = crip.getTotal_market_cap();
+            	total_volume_24h = crip.getTotal_volume_24h();
             	volTotal = crip.getVolumenTotal(); 
             	lastdaychange = crip.getVariacion24();
             	sevendaychange = crip.getVariacion7();
@@ -457,7 +457,7 @@ public class CriptomonedaDAO
         		
         		// INSERCION
         		if(!rs.next()) {
-        			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange)";
+        			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, total_market_cap, total_volume_24h, volTotal, lastdaychange, sevendaychange)";
         			sql += " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         			
         			st = jdbcConnection.prepareStatement(sql);
@@ -465,8 +465,8 @@ public class CriptomonedaDAO
         			st.setString(2, nombre);
         			st.setString(3, ultAct);
         			st.setFloat(4, precio);
-        			st.setString(5, capitalizacion);
-        			st.setString(6, vol24);
+        			st.setFloat(5, total_market_cap);
+        			st.setFloat(6, total_volume_24h);
         			st.setString(7, volTotal);
         			st.setString(8, lastdaychange);
         			st.setString(9, sevendaychange);
@@ -479,14 +479,14 @@ public class CriptomonedaDAO
         		} else {            	
         			// MODIFICACI�N
         			sql = "UPDATE criptomonedas SET"; 
-        			sql += " nombre = ?, ultAct = ?, precio = ?, capitalizacion = ?, vol24 = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
+        			sql += " nombre = ?, ultAct = ?, precio = ?, total_market_cap = ?, total_volume_24h = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
         			
         			st = jdbcConnection.prepareStatement(sql);
         			st.setString(1, nombre);
         			st.setString(2, ultAct);
         			st.setFloat(3, precio);
-        			st.setString(4, capitalizacion);
-        			st.setString(5, vol24);
+        			st.setFloat(4, total_market_cap);
+        			st.setFloat(5, total_volume_24h);
         			st.setString(6, volTotal);
         			st.setString(7, lastdaychange);
         			st.setString(8, sevendaychange);

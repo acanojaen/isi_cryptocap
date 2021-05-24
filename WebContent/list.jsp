@@ -66,7 +66,7 @@
                   <div class="item">
                       <div class="row">
                           <div class="col-md-6">
-                              <h3>Coinranking</h3>
+                              <h3>Coinranking <button class="btn btn-warning btn-sm" data-target="#scrap_coinranking" data-toggle="modal" type="button" data-whatever="coinranking.com"><i class="fas fa-play"></i></button></h3>
                               <h4 class="organization">Webscraping</h4>
                           </div>
                           <div class="col-6"><span class="period">https://coinranking.com/</span></div>
@@ -80,13 +80,13 @@
                                 <li>Enlace para más información</li>
                             </ul>
                         </p></div>
-                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_coinranking" data-toggle="modal" type="button" data-whatever="coinranking.com"><i class="fas fa-play"></i></button></div>
+                        <div class="col-md-6"></div>
                       </div>
                   </div>
                 <div class="item">
                     <div class="row">
                         <div class="col-md-6">
-                            <h3>Investing</h3>
+                            <h3>Investing <button class="btn btn-warning btn-sm" data-target="#scrap_investing" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></h3>
                             <h4 class="organization">Webscraping</h4>
                         </div>
                         <div class="col-6"><span class="period">https://investing.com/</span></div>
@@ -99,7 +99,7 @@
                                 <li>Valores: precio, capitalizacion, vol24, volTotal, cambios24H, cambios7d</li>
                             </ul>
                         </p></div>
-                        <div class="col-md-6"><button class="btn btn-secondary btn-sm float-right" data-target="#scrap_investing" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></div>
+                        <div class="col-md-6"></div>
                     </div>
                 </div>
 
@@ -114,9 +114,9 @@
                     <div class="row">
                         <div class="col-md-6"><p class="text-muted">Consultamos la API en las siguientes operaciones:
                             <ul>
-                                <li>Conversor <span class="period">https://coinmarketcap.com/api/documentation/v1/#operation/getV1ToolsPriceconversion</span> </li>
-                                <li>Obtener métricas de mercado <span class="period">https://coinmarketcap.com/api/documentation/v1/#operation/getV1GlobalmetricsQuotesLatest</span> <button class="btn btn-secondary btn-sm" data-target="#api_prices" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></li>
-                                <li>Obtener estadísticas de mercado <a href="/apimarket" class="btn btn-info btn-sm float-right" role="button"><i class="fas fa-play"></i></a></li>
+                                <li>Conversor <span class="period">https://coinmarketcap.com/api/documentation/v1/#operation/getV1ToolsPriceconversion</span> <a href="/compare" class="btn btn-warning btn-sm" role="button"><i class="fas fa-play"></i></a></li>
+                                <li>Obtener métricas de mercado <span class="period">https://coinmarketcap.com/api/documentation/v1/#operation/getV1GlobalmetricsQuotesLatest</span> <button class="btn btn-warning btn-sm" data-target="#api_prices" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></li>
+                                <li>Obtener estadísticas de mercado <a href="/apimarket" class="btn btn-warning btn-sm" role="button"><i class="fas fa-play"></i></a></li>
                             </ul>
                         </p></div>
                         <div class="col-md-6"></div>

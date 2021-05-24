@@ -197,7 +197,7 @@ public class Webscraping {
 	
 	// Scraping - Investing.com/es
 	public Criptomoneda Investing(String acron) throws IOException {
-		String url2 = "https://es.investing.com/crypto/";
+		String url2 = "https://es.investing.com/crypto/currencies";
 		int code;
 		ultAct = getActualHour();
 		
@@ -215,7 +215,7 @@ public class Webscraping {
 				acronimo = elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text();
 				nombre = elem.getElementsByClass("left bold elp name cryptoName first js-currency-name").text();
                 precio = parsePrecio(elem.getElementsByClass("price js-currency-price").text());
-                capitalizacion = elem.getElementsByClass("js-market-cap").text();
+                capitalizacion = elem.getElementsByClass("js-market-cap").val();
                 vol24 = elem.getElementsByClass("js-24h-volume").text();
                 volTotal = elem.getElementsByClass("js-total-vol").text();
                 lastdaychange = elem.getElementsByClass("js-currency-change-24h redFont pid-1057391-pcp").text();

@@ -667,7 +667,7 @@ public class CriptomonedaDAO
     	// llamamos a la api --> Class Webscraping
     	crip = it.getMetadata(acron);
     	
-    	if(crip.getStatus().equals("disabled")) {
+    	if(crip.getStatus().equals("disabled") && crip.getAcronimo().equals(crip.getNombre())) {
             disconnect();
             
             return false;

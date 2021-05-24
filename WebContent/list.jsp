@@ -259,7 +259,7 @@
             url: "/apiprices",
             success: function(){
                 $('#alerta').html(exito2);
-                var distance = $('#education.group').offset().top
+                var distance = $('.education.group').offset().top
                 $('html,body').animate({scrollTop:distance},1500);
             },
             error: function(){

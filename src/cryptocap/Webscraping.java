@@ -215,7 +215,7 @@ public class Webscraping {
 				acronimo = elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text();
 				nombre = elem.getElementsByClass("left bold elp name cryptoName first js-currency-name").text();
                 precio = parsePrecio(elem.getElementsByClass("price js-currency-price").text());
-                capitalizacion = elem.getElementsByClass("js-market-cap").val();
+                capitalizacion = elem.getElementsByClass("js-market-cap").attr("data-value");
                 vol24 = elem.getElementsByClass("js-24h-volume").text();
                 volTotal = elem.getElementsByClass("js-total-vol").text();
                 lastdaychange = elem.getElementsByClass("js-currency-change-24h redFont pid-1057391-pcp").text();

@@ -41,7 +41,7 @@
         <section class="portfolio-block project-no-images">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-4 col-lg-4">
                         <div class="project-card-no-image">
                         Total de criptomonedas activas<br>
                         <span class="badge badge-secondary">${stats[0]}</span>

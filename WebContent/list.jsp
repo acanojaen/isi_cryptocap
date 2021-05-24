@@ -115,7 +115,8 @@
                         <div class="col-md-6"><p class="text-muted">Consultamos la API en las siguientes operaciones:
                             <ul>
                                 <li>Conversor <span class="period">https://coinmarketcap.com/api/documentation/v1/#operation/getV1ToolsPriceconversion</span> </li>
-                                <li>Obtener métricas de mercado <span class="period">https://coinmarketcap.com/api/documentation/v1/#operation/getV1GlobalmetricsQuotesLatest</span> <button class="btn btn-secondary btn-sm float-right" data-target="#api_prices" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></li>
+                                <li>Obtener métricas de mercado <span class="period">https://coinmarketcap.com/api/documentation/v1/#operation/getV1GlobalmetricsQuotesLatest</span> <button class="btn btn-secondary btn-sm" data-target="#api_prices" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button></li>
+                                <li>Obtener estadísticas de mercado <a href="/apimarket" class="btn btn-info btn-sm float-right" role="button"><i class="fas fa-play"></i></a></li>
                             </ul>
                         </p></div>
                         <div class="col-md-6"></div>

@@ -305,6 +305,7 @@ public class CriptomonedaDAO
     
     public boolean addMarketStats () throws SQLException {
     	String sql;
+		int stats = 0;
     	PreparedStatement st;
     	Webscraping w;
     	boolean stat = false; 
@@ -322,7 +323,7 @@ public class CriptomonedaDAO
     	st.setInt(3, array.get(2));
     	st.setInt(4, array.get(3));
     	st.setInt(5, array.get(4));
-    	st.setInt(6, 0);
+    	st.setInt(6, stats);
     	
 		stat = st.executeUpdate() > 0;
 
@@ -360,6 +361,7 @@ public class CriptomonedaDAO
 		PreparedStatement st;
 		ResultSet rs;
 		List<Number> list = new ArrayList<>();
+		int stats = 0;
 		
 		connect();
 		
@@ -367,7 +369,7 @@ public class CriptomonedaDAO
 		sql += "WHERE acronimo = ?";
 				
 		st = jdbcConnection.prepareStatement(sql);
-		st.setInt(1, 0);			
+    	st.setInt(1, stats);			
 	
 		rs = st.executeQuery();
 		

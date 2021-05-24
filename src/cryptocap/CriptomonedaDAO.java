@@ -252,8 +252,8 @@ public class CriptomonedaDAO
 	    	imagen = rs.getString(11);
 	    	urlDatos = rs.getString(3);
 	    	precio = rs.getFloat(5);
-	    	total_market_cap = rs.getFloat(6);
-	    	total_volume_24h = rs.getFloat(7);
+	    	total_market_cap = rs.getFloat(12);
+	    	total_volume_24h = rs.getFloat(13);
 	    	volTotal = rs.getString(8); 
 	    	lastdaychange = rs.getString(9);
 	    	sevendaychange = rs.getString(10);

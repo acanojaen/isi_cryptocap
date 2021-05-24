@@ -115,8 +115,8 @@
                         <div class="col-md-6"><p class="text-muted">Consultamos la API en las siguientes operaciones:
                             <ul>
                                 <li>Conversor <a href="/compare" class="btn btn-warning btn-sm" role="button"> <i class="fas fa-play"></i></a> <span class="badge badge-secondary">https://coinmarketcap.com/api/documentation/v1/#operation/getV1ToolsPriceconversion</span> </li>
-                                <li>Obtener métricas de mercado <button class="btn btn-warning btn-sm" data-target="#api_prices" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button> <span class="badge badge-secondary">https://coinmarketcap.com/api/documentation/v1/#operation/getV1GlobalmetricsQuotesLatest</span></li>
-                                <li>Obtener estadísticas de mercado <a href="/apimarket" class="btn btn-warning btn-sm" role="button"><i class="fas fa-play"></i></a></li>
+                                <li>Obtener métricas de mercado <button class="btn btn-warning btn-sm" data-target="#api_prices" data-toggle="modal" type="button" data-whatever="investing.com"><i class="fas fa-play"></i></button> <span class="badge badge-secondary"></span>https://coinmarketcap.com/api/documentation/v1/#operation/getV1CryptocurrencyQuotesLatest</span></li>
+                                <li>Obtener estadísticas de mercado <a href="/apimarket" class="btn btn-warning btn-sm" role="button"><i class="fas fa-play"></i></a> <span class="badge badge-secondary">https://coinmarketcap.com/api/documentation/v1/#operation/getV1GlobalmetricsQuotesLatest</span></li>
                             </ul>
                         </p></div>
                         <div class="col-md-6"></div>

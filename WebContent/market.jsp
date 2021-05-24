@@ -42,19 +42,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-lg-4">
-                        <div class="project-card-no-image">
+                        <div class="project-card-no-image" style="padding: 10px !important;">
                         Total de criptomonedas activas<br>
                         <span class="badge badge-secondary">${stats[0]}</span>
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <div class="project-card-no-image">
+                        <div class="project-card-no-image" style="padding: 10px !important;">
                             Total de criptomonedas<br>
                             <span class="badge badge-secondary">${stats[1]}</span>
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <div class="project-card-no-image">
+                        <div class="project-card-no-image" style="padding: 10px !important;">
                             Intercambios activos/totales<br>
                             <span class="badge badge-secondary">${stats[2]}/${stats[3]}</span>
                         </div>

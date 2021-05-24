@@ -77,7 +77,12 @@
                     
                     <c:forEach items="${criptos}" var="c">
                         <tr>
-                            <td><img class="responsive" src="${c.imagen}"/> <b>${c.nombre}</b> <span>${c.acronimo}</span></td>
+                            <td>
+                                <img class="responsive" src="${c.imagen}"/> <b>${c.nombre}</b> <span>${c.acronimo}</span>
+                                <c:if test="${c.total_market_cap == 0 || c.total_volume_24h == 0 || c.varacion7 == 0}">
+                                    <a href="/apiprices?id=<c:out value='${c.acronimo}'/>" class="btn btn-warning btn-sm float-right" role="button" target="_blank"><i class="fas fa-redo"></i></a>
+                                </c:if>
+                            </td>
                             <td>${c.precio}</td>
                             <td>${c.total_market_cap}</td>
                             <td>${c.total_volume_24h}</td>

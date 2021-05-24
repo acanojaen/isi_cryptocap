@@ -366,7 +366,7 @@ public class CriptomonedaDAO
 		connect();
 		
 		sql = "SELECT * FROM market";
-		sql += "WHERE acronimo = ?";
+		sql += "WHERE market_id = ?";
 				
 		st = jdbcConnection.prepareStatement(sql);
     	st.setInt(1, stats);			

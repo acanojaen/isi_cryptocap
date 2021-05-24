@@ -718,6 +718,8 @@ public class CriptomonedaDAO
 		sql = "SELECT * FROM criptomonedas";
 		sql += " WHERE acronimo = ?";
 		
+		connect(); 
+		
 		st = jdbcConnection.prepareStatement(sql);
 		st.setString(1, acron);
     	

@@ -62,7 +62,7 @@
 
                                 <c:if test="${not empty criptos.total_volume_24h}">
                                     <div class="col-md-6">
-                                        <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.volumen24}</h4>
+                                        <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.total_volume_24h}</h4>
                                     </div>
                                 </c:if>
 

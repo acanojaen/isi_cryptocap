@@ -252,8 +252,8 @@ public class CriptomonedaDAO
 	    	imagen = rs.getString(11);
 	    	urlDatos = rs.getString(3);
 	    	precio = rs.getFloat(5);
-	    	capitalizacion = rs.getString(6);
-	    	vol24 = rs.getString(7);
+	    	total_market_cap = rs.getFloat(6);
+	    	total_volume_24h = rs.getFloat(7);
 	    	volTotal = rs.getString(8); 
 	    	lastdaychange = rs.getString(9);
 	    	sevendaychange = rs.getString(10);
@@ -263,7 +263,7 @@ public class CriptomonedaDAO
 			rs.close();
 			st.close();
 
-			return (new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, desc));				
+			return (new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, total_market_cap, total_volume_24h, volTotal, lastdaychange, sevendaychange, ultAct, desc));				
 		}
 		rs.close();
 		st.close();

@@ -310,11 +310,13 @@ public class CriptomonedaDAO
     	boolean stat = false; 
     	List<Integer> array = new ArrayList<>();
     	
+    	    	
     	w = new Webscraping();
     	array = w.getMarketStats();
     	
     	sql = "UPDATE market SET active_cryptocurrencies = ?, total_cryptocurrencies = ?, active_exchanges = ?, "
     		+ " total_exchanges = ?, active_market_pairs = ? WHERE market_id = ?";
+    	connect();
     	
     	st = jdbcConnection.prepareStatement(sql);
     	st.setInt(1, array.get(0));
@@ -326,6 +328,9 @@ public class CriptomonedaDAO
     	
 		stat = st.executeUpdate() > 0;
 
+		
+		disconnect();
+		
 		st.close();
 		return stat;
     }

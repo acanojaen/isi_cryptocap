@@ -154,14 +154,13 @@ public class CriptomonedaDAO
 	    	precio = rs.getFloat(5);
 	    	total_market_cap = rs.getFloat(12);
 	    	total_volume_24h = rs.getFloat(13);
-	    	total_volume_24h_reported = rs.getFloat(14);
 	    	vol24 = rs.getString(7);
 	    	volTotal = rs.getString(8); 
 	    	lastdaychange = rs.getString(9);
 	    	sevendaychange = rs.getString(10);
 	    	ultAct = rs.getString(4);
 	    	imagen = rs.getString(11);
-			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, total_market_cap, total_volume_24h, total_volume_24h_reported));
+			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, total_market_cap, total_volume_24h));
 		}
 		
 		rs.close();

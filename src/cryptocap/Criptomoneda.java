@@ -138,7 +138,7 @@ public class Criptomoneda {
 		this.status = status;
 	}
 	
-	public Criptomoneda(String nom, String acron, String imag, String url, float prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct, float total_market_cap, float total_volume_24h, float total_volume_24h_reported){
+	public Criptomoneda(String nom, String acron, String imag, String url, float prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct, float total_market_cap, float total_volume_24h){
 		this.nombre = nom;
 		this.acronimo = acron;
 		this.imagen = imag;
@@ -154,7 +154,6 @@ public class Criptomoneda {
 		this.ultimaActualizacion = ultAct;
 		this.total_market_cap = total_market_cap;
 	 	this.total_volume_24h = total_volume_24h;
-    	this.total_volume_24h_reported = total_volume_24h_reported;
 	}
 	
 	public Criptomoneda(String nombre, String acronimo, String imagen, String urlDatos, String ultimaActualizacion, String status) {

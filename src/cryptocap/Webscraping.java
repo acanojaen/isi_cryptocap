@@ -76,7 +76,7 @@ public class Webscraping {
 	}
 	
 	public Criptomoneda getCryptoAPI(String acron) {
-		String uri = "https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest";
+		String uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest";
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		
 		params.add(new BasicNameValuePair("symbol", acron));

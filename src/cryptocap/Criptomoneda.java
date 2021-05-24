@@ -27,6 +27,9 @@ public class Criptomoneda {
 	public float total_market_cap;
 	public float total_volume_24h;
     public float total_volume_24h_reported;
+    public String variacion30;
+    public int total_supply;
+    public int num_market_pairs;
 	
 	/*-----------------------------------------Constructores-----------------------------------------*/
 
@@ -183,6 +186,24 @@ public class Criptomoneda {
 		this.ultimaActualizacion = ultimaActualizacion;
 		this.precio = precio;
 	}
+	
+	public Criptomoneda(String acron, String nombre, String ultAct, String status, float precio, float total_market_cap, float total_volume_24h, String lastdaychange, String sevendaychange, String percent_change_30d, int total_supply, int num_market_pairs) {
+		this.acronimo = acron;
+		this.nombre = nombre;
+		this.ultimaActualizacion = ultAct;
+		this.status = status;
+		this.precio = precio;
+		this.total_market_cap = total_market_cap;
+		this.total_volume_24h = total_volume_24h;
+		this.variacion24 = lastdaychange;
+		this.variacion7 = sevendaychange;
+		this.variacion30 = percent_change_30d;
+		this.total_supply = total_supply;
+		this.num_market_pairs = num_market_pairs;
+	}
+	
+	
+	
 
 	/*----------------------------------Modificadores y Consultores----------------------------------*/
 	
@@ -190,6 +211,30 @@ public class Criptomoneda {
 	
 	public String getNombre() {
 		return nombre;
+	}
+
+	public String getVariacion30() {
+		return variacion30;
+	}
+
+	public void setVariacion30(String variacion30) {
+		this.variacion30 = variacion30;
+	}
+
+	public int getTotal_supply() {
+		return total_supply;
+	}
+
+	public void setTotal_supply(int total_supply) {
+		this.total_supply = total_supply;
+	}
+
+	public int getNum_market_pairs() {
+		return num_market_pairs;
+	}
+
+	public void setNum_market_pairs(int num_market_pairs) {
+		this.num_market_pairs = num_market_pairs;
 	}
 
 	public String getDesc() {

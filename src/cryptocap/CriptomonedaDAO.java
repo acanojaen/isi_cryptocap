@@ -61,6 +61,7 @@ public class CriptomonedaDAO
 	String volTotal;
 	String lastdaychange;
 	String sevendaychange;
+	String percent_change_30d;
 	String status;
 	String desc;
 	
@@ -68,6 +69,8 @@ public class CriptomonedaDAO
 	float total_volume_24h_reported;
 	float total_volume_24h;
 	float total_market_cap;
+	private int total_supply;
+	private int num_market_pairs;
 	
     
     public CriptomonedaDAO(String url, String user, String password){
@@ -521,7 +524,7 @@ public class CriptomonedaDAO
 	    		
 	    		// INSERCION
 	    		if(!rs.next()) {
-	    			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, total_market_cap, total_volume_24h, volTotal, lastdaychange, sevendaychange)";
+	    			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, total_market_cap, total_volume_24h, volTotal, percent_change_24h, percent_change_7d)";
 	    			sql += " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	    			
 	    			st = jdbcConnection.prepareStatement(sql);
@@ -543,7 +546,7 @@ public class CriptomonedaDAO
 	    		} else {            	
 	    			// MODIFICACI�N
 	    			sql = "UPDATE criptomonedas SET"; 
-	    			sql += " nombre = ?, ultAct = ?, precio = ?, total_market_cap = ?, total_volume_24h = ?, volTotal = ?, lastdaychange = ?, sevendaychange = ? where acronimo = ?";
+	    			sql += " nombre = ?, ultAct = ?, precio = ?, total_market_cap = ?, total_volume_24h = ?, volTotal = ?, percent_change_24h = ?, percent_change_7d = ? where acronimo = ?";
 	    			
 	    			st = jdbcConnection.prepareStatement(sql);
 	    			st.setString(1, nombre);
@@ -649,7 +652,7 @@ public class CriptomonedaDAO
         return criptos;
     }
 	
-	public List<Criptomoneda> refreshMarket() throws SQLException {
+	public List<Criptomoneda> setAllPricesAPI() throws SQLException {
 		List<Criptomoneda> lista = listCurrency("enabled");
     	List<Criptomoneda> criptos = new ArrayList<>();
     	Criptomoneda crip;
@@ -667,15 +670,20 @@ public class CriptomonedaDAO
         	it = new Webscraping();
         	
         	// scrapeamos --> Class Webscraping
-        	crip = it.getPricesAPI(lista.get(i).getAcronimo());
+        	crip = it.getCryptoAPI(lista.get(i).getAcronimo());
     		criptos.add(crip);
         
     		acronimo = crip.getAcronimo();
+    		nombre = crip.getNombre();
+    		precio = crip.getPrecio();
     		total_market_cap = crip.getTotal_market_cap();
     		total_volume_24h = crip.getTotal_volume_24h();
-    		total_volume_24h_reported = crip.getTotal_volume_24h_reported();
+            lastdaychange = crip.getVariacion7();
+            sevendaychange = crip.getVariacion24();
+            percent_change_30d = crip.getVariacion30();
+            total_supply = crip.getTotal_supply();
+            num_market_pairs = crip.getNum_market_pairs();
             ultAct = crip.getUltimaActualizacion();
-            
             
             // QUERY1: �Existe la moneda "i"?
     		sql = "SELECT * FROM criptomonedas";
@@ -688,18 +696,42 @@ public class CriptomonedaDAO
 
     		if(rs.next() ) {
     			sql = "UPDATE criptomonedas SET"; 
-    			sql += " total_market_cap = ?, total_volume_24h = ?, total_volume_24h_reported = ?, ultAct = ? where acronimo = ?";
+    			sql += " precio = ?, total_market_cap = ?, total_volume_24h = ?, percent_change_24h = ?, percent_change_7d = ?, percent_change_30d = ?, total_supply = ?, num_market_pairs = ?, ultAct = ? where acronimo = ?";
     			
     			st = jdbcConnection.prepareStatement(sql);
-    			st.setFloat(1, total_market_cap);
-    			st.setFloat(2, total_volume_24h);
-    			st.setFloat(3, total_volume_24h_reported);
-       			st.setString(4, ultAct);
-    			st.setString(5, acronimo);
+    			st.setFloat(1, precio);
+    			st.setFloat(2, total_market_cap);
+    			st.setFloat(3, total_volume_24h);
+    			st.setString(4, lastdaychange);
+    			st.setString(5, sevendaychange);
+    			st.setString(6, percent_change_30d);
+    			st.setInt(7, total_supply);
+    			st.setInt(8, num_market_pairs);
+    			st.setString(9, ultAct);
+    			st.setString(10, acronimo);
     			
     			stat = st.executeUpdate() > 0;
     			st.close();
     			
+    		} else {
+    			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, total_market_cap, total_volume_24h, percent_change_24h, percent_change_7d, percent_change_30d, total_supply, num_market_pairs)";
+				sql += " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				
+    			st = jdbcConnection.prepareStatement(sql);
+    			st.setString(1, acronimo);
+    			st.setString(2, nombre);
+    			st.setString(3, ultAct);
+    			st.setFloat(4, precio);
+    			st.setFloat(5, total_market_cap);
+    			st.setFloat(6, total_volume_24h);
+    			st.setString(7, lastdaychange);
+    			st.setString(8, sevendaychange);
+    			st.setString(9, percent_change_30d);
+    			st.setInt(10, total_supply);
+    			st.setInt(11, num_market_pairs);
+    			
+    			stat = st.executeUpdate() > 0;
+    			st.close();
     		}
         }
 
@@ -712,6 +744,7 @@ public class CriptomonedaDAO
 		PreparedStatement st;
 		ResultSet rs;
 		String sql;
+		Webscraping it;
 		Criptomoneda crip;
 		boolean stat = false;
 		
@@ -720,6 +753,11 @@ public class CriptomonedaDAO
 		
 		connect(); 
 		
+		it = new Webscraping();
+    	
+    	// scrapeamos --> Class Webscraping
+    	crip = it.getCryptoAPI(acron);
+		
 		st = jdbcConnection.prepareStatement(sql);
 		st.setString(1, acron);
     	
@@ -727,15 +765,20 @@ public class CriptomonedaDAO
 		
 		if(rs.next()) {
 			sql = "UPDATE criptomonedas SET"; 
-			sql += " total_market_cap = ?, total_volume_24h = ?, total_volume_24h_reported = ?, ultAct = ? where acronimo = ?";
-		
+			sql += " precio = ?, total_market_cap = ?, total_volume_24h = ?, percent_change_24h = ?, percent_change_7d = ?, percent_change_30d = ?, total_supply = ?, num_market_pairs = ?, ultAct = ? where acronimo = ?";
+			
 			st = jdbcConnection.prepareStatement(sql);
-			st.setFloat(1, total_market_cap);
-			st.setFloat(2, total_volume_24h);
-			st.setFloat(3, total_volume_24h_reported);
-   			st.setString(4, ultAct);
-			st.setString(5, acron);
-		
+			st.setFloat(1, crip.getPrecio());
+			st.setFloat(2, crip.getTotal_market_cap());
+			st.setFloat(3, crip.getTotal_volume_24h());
+			st.setString(4, crip.getVariacion24());
+			st.setString(5, crip.getVariacion7());
+			st.setString(6, crip.getVariacion30());
+			st.setInt(7, crip.getTotal_supply());
+			st.setInt(8, crip.getNum_market_pairs());
+			st.setString(9, crip.getUltimaActualizacion());
+			st.setString(10, acron);
+			
 			stat = st.executeUpdate() > 0;
 			st.close();
 		}

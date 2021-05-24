@@ -92,8 +92,8 @@ public class ControllerServlet extends HttpServlet {
                 	market(request, response);
                 break;
                 
-                case "/apiprices":
-                	refreshMarket(request, response);
+                case "/apicrypto":
+                	apicrypto(request, response);
                 break;
                 
                 case "/apimetadata":
@@ -141,21 +141,29 @@ public class ControllerServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
     
-    private void refreshMarket(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    private void apicrypto(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         List<Criptomoneda> criptos = new ArrayList<>();
-    	String acron = request.getParameter("id");
+    	String options = request.getParameter("case");
     	
-    	if(acron.isEmpty()) {
-		    criptos = criptomonedaDAO.refreshMarket();
+    	
+    	switch(options) {
+    	case "all":
+		    criptos = criptomonedaDAO.setAllPricesAPI();
 		    
 			request.setAttribute("criptos", criptos);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("market.jsp");
 			
 			dispatcher.forward(request, response);
-    	} else {
+    	break;
+    	case "single":
+        	String acron = request.getParameter("id");
 		    criptomonedaDAO.setPriceAPI(acron);
 		    
 			response.sendRedirect("market");
+    	break;
+    	case "full":
+    		
+    	break;
     	}
     }
 

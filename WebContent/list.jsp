@@ -257,11 +257,11 @@
       function api_prices(){
         $.ajax({
             type: 'GET',
-            url: "/apiprices",
+            url: "/apicrypto?case=all",
             success: function(){
                 $('#alerta').html(exito2);
                 var distance = $('.education.group').offset().top
-                $('html,body').animate({scrollTop:distance},1500);
+                $('html,body').animate({scrollTop:distance},0);
             },
             error: function(){
                 $('#api_prices').modal('show');

@@ -41,6 +41,10 @@ public class Webscraping {
 	String sevendaychange;
 	String description;
 	String url;
+	String percent_change_30d;
+	
+	int total_supply;
+	int num_market_pairs;
 	
 	float precio;
 	float total_market_cap;
@@ -71,20 +75,30 @@ public class Webscraping {
 	    }
 	}
 	
-	public Criptomoneda getPricesAPI(String acron) {
+	public Criptomoneda getCryptoAPI(String acron) {
 		String uri = "https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest";
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		
-		params.add(new BasicNameValuePair("convert", acron));
+		params.add(new BasicNameValuePair("symbol", acron));
 
 	    try {
-	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject("quote").getAsJsonObject(acron);
-	    	total_market_cap = local.get("total_market_cap").getAsFloat();
-	    	total_volume_24h = local.get("total_volume_24h").getAsFloat();
-	    	total_volume_24h_reported = 0;
+	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data").getAsJsonObject(acron);
+	    	JsonObject prices = local.getAsJsonObject("quote").getAsJsonObject("USD");
+	    	
+	    	acronimo = local.get("symbol").getAsString();
+	    	nombre = local.get("name").getAsString();
+	    	precio = prices.get("price").getAsFloat();
+	    	total_market_cap = prices.get("market_cap").getAsFloat();
+	    	total_volume_24h = prices.get("volume_24h").getAsFloat();
+	    	lastdaychange = prices.get("percent_change_24h").getAsString();
+	    	sevendaychange = prices.get("percent_change_7d").getAsString();
+	    	percent_change_30d = prices.get("percent_change_24h").getAsString();
+	    	total_supply = local.get("total_supply").getAsInt();
+	    	num_market_pairs = local.get("num_market_pairs").getAsInt();
+	    	
 	    	ultAct = getActualHour();
 	    	
-	    	return(new Criptomoneda(acron, ultAct, "enabled", total_market_cap, total_volume_24h, total_volume_24h_reported));
+	    	return(new Criptomoneda(acron, nombre, ultAct, "enabled", precio, total_market_cap, total_volume_24h, lastdaychange, sevendaychange, percent_change_30d, total_supply, num_market_pairs));
 	    	
 	    } catch (IOException e) {
 			return (new Criptomoneda(acron, ultAct, "disabled"));

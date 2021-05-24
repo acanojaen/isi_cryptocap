@@ -13,6 +13,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="/dist/bootstrap/css/style.css">
+    <style>
+        .colorred {
+            color: red;
+        }
+
+        .colorgreen {
+            color: green;
+        }
+    </style>
 </header>
 
 <body>
@@ -96,6 +105,23 @@
     <script src="/dist/js/script.min.js"></script>
     <script src="https://kit.fontawesome.com/7a8b17dfb3.js" crossorigin="anonymous"></script>
 
+    <script>
+        $(document).ready(function(){
+                $('td').each(function(){
+                    var cellvalue= $(this).html();
+                    if(cellvalue.substring(0,1) == '-') {
+                        $(this).wrapInner('<strong class="colorred"></strong>');
+                    }
+                });
+
+                $('td').each(function(){
+                    var cellvalue= $(this).html();
+                    if(cellvalue.substring(0,1) == '+') {
+                        $(this).wrapInner('<strong class="colorgreen"></strong>');
+                    }
+                });
+        });
+    </script>
 </body>
 
 </html>

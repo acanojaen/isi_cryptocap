@@ -135,7 +135,7 @@ public class CriptomonedaDAO
     
     public List<Criptomoneda> listMarket() throws SQLException{
     	List<Criptomoneda> c = new ArrayList<>();
-		String sql = "SELECT * FROM criptomonedas";
+		String sql = "SELECT * FROM criptomonedas ORDER BY price DESC;";
 		PreparedStatement st;
 		ResultSet rs;
 		

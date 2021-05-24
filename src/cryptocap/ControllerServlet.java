@@ -143,13 +143,20 @@ public class ControllerServlet extends HttpServlet {
     
     private void refreshMarket(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         List<Criptomoneda> criptos = new ArrayList<>();
-        
-        criptos = criptomonedaDAO.refreshMarket();
-        
-		request.setAttribute("criptos", criptos);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("market.jsp");
-		
-		dispatcher.forward(request, response);
+    	String acron = request.getParameter("id");
+    	
+    	if(acron.isEmpty()) {
+		    criptos = criptomonedaDAO.refreshMarket();
+		    
+			request.setAttribute("criptos", criptos);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("market.jsp");
+			
+			dispatcher.forward(request, response);
+    	} else {
+		    criptomonedaDAO.setPriceAPI(acron);
+		    
+			response.sendRedirect("market");
+    	}
     }
 
 	private void compare2(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException {

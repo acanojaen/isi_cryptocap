@@ -685,7 +685,7 @@ public class CriptomonedaDAO
     		st.setString(1, acronimo);
         	
     		rs = st.executeQuery();
-    		// si FALSE --> INSERT
+
     		if(rs.next() ) {
     			sql = "UPDATE criptomonedas SET"; 
     			sql += " total_market_cap = ?, total_volume_24h = ?, total_volume_24h_reported = ?, ultAct = ? where acronimo = ?";
@@ -707,6 +707,45 @@ public class CriptomonedaDAO
 
         return criptos;
     }
+	
+	public boolean setPriceAPI(String acron) throws SQLException {
+		PreparedStatement st;
+		ResultSet rs;
+		String sql;
+		Criptomoneda crip;
+		boolean stat = false;
+		
+		sql = "SELECT * FROM criptomonedas";
+		sql += " WHERE acronimo = ?";
+		
+		st = jdbcConnection.prepareStatement(sql);
+		st.setString(1, acron);
+    	
+		rs = st.executeQuery();
+		
+		if(rs.next()) {
+			sql = "UPDATE criptomonedas SET"; 
+			sql += " total_market_cap = ?, total_volume_24h = ?, total_volume_24h_reported = ?, ultAct = ? where acronimo = ?";
+		
+			st = jdbcConnection.prepareStatement(sql);
+			st.setFloat(1, total_market_cap);
+			st.setFloat(2, total_volume_24h);
+			st.setFloat(3, total_volume_24h_reported);
+   			st.setString(4, ultAct);
+			st.setString(5, acron);
+		
+			stat = st.executeUpdate() > 0;
+			st.close();
+		}
+		
+		rs.close();
+		st.close();
+		
+		disconnect();
+		
+		return stat;
+		
+	}
 	
 	public boolean setMetadataAPI(String acron) throws SQLException{
     	Criptomoneda crip;

@@ -305,7 +305,6 @@ public class CriptomonedaDAO
     
     public boolean addMarketStats () throws SQLException {
     	String sql;
-		int stats = 0;
     	PreparedStatement st;
     	Webscraping w;
     	boolean stat = false; 
@@ -315,7 +314,7 @@ public class CriptomonedaDAO
     	array = w.getMarketStats();
     	
     	sql = "UPDATE market SET active_cryptocurrencies = ?, total_cryptocurrencies = ?, active_exchanges = ?, "
-    		+ "total_exchanges = ?, active_market_pairs = ? WHERE market_id = ?";
+    		+ " total_exchanges = ?, active_market_pairs = ? WHERE market_id = ?";
     	
     	st = jdbcConnection.prepareStatement(sql);
     	st.setInt(1, array.get(0));
@@ -323,7 +322,7 @@ public class CriptomonedaDAO
     	st.setInt(3, array.get(2));
     	st.setInt(4, array.get(3));
     	st.setInt(5, array.get(4));
-    	st.setInt(6, stats);
+    	st.setInt(6, 0);
     	
 		stat = st.executeUpdate() > 0;
 
@@ -361,24 +360,25 @@ public class CriptomonedaDAO
 		PreparedStatement st;
 		ResultSet rs;
 		List<Number> list = new ArrayList<>();
-		int stats = 0;
 		
 		connect();
 		
 		sql = "SELECT * FROM market";
-		sql += "WHERE market_id = ?";
+		sql += " WHERE market_id = ?";
 				
 		st = jdbcConnection.prepareStatement(sql);
-    	st.setInt(1, stats);			
+    	st.setInt(1, 0);			
 	
 		rs = st.executeQuery();
 		
-		list.add(rs.getInt(1));
-		list.add(rs.getInt(2));
-		list.add(rs.getInt(3));
-		list.add(rs.getInt(4));
-		list.add(rs.getInt(5));
-
+		if(rs.next()) {
+			list.add(rs.getInt(1));
+			list.add(rs.getInt(2));
+			list.add(rs.getInt(3));
+			list.add(rs.getInt(4));
+			list.add(rs.getInt(5));
+		}
+		
 		rs.close();
 		st.close();
 		

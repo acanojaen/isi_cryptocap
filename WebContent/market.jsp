@@ -40,29 +40,29 @@
     <main class="page project-page">
         <section class="portfolio-block project-no-images">
             <div class="container">
-                <div class="heading">
-                    <h2 class="text-capitalize text-center text-body"><i class="fas fa-plus-circle"></i> CONFIGURAR CRIPTOMONEDAS</h2>
-                </div>
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
                         <div class="project-card-no-image">
-                            
+                        Total de criptomonedas activas<br>
+                        <span>${stats[0]}</span>
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <div class="project-card-no-image">
-                            
+                            Total de criptomonedas<br>
+                            <span>${stats[1]}</span>
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <div class="project-card-no-image">
-                            
+                            Intercambios activos/totales<br>
+                            <span>${stats[2]}/${stats[3]}</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="heading">
-                    <h2 class="text-capitalize text-center text-body"><i class="fas fa-plus-circle"></i> CONFIGURAR CRIPTOMONEDAS</h2>
+                    <h2 class="text-capitalize text-center text-body"><a href="/market"><i class="fas fa-globe"></i></a> Todas las criptomonedas</h2>
                 </div>
 
                 <table class="table">

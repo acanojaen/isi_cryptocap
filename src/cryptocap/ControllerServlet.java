@@ -99,6 +99,10 @@ public class ControllerServlet extends HttpServlet {
                 case "/apimetadata":
                 	apimetadata(request, response);
                 break;
+                
+                case "/apimarket":
+                	apimarket(request, response);
+                break;
                 	
                 	
             }
@@ -107,6 +111,14 @@ public class ControllerServlet extends HttpServlet {
         }
     }
     
+    private void apimarket(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+    	String acron = request.getParameter("id");
+    	
+    	criptomonedaDAO.addMarketStats();
+    	
+    	response.sendRedirect("market");
+	}
+
     private void apimetadata(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
     	String acron = request.getParameter("id");
     	
@@ -117,10 +129,13 @@ public class ControllerServlet extends HttpServlet {
 
 	private void market(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
     	List<Criptomoneda> data = new ArrayList<>();
+    	List<Number> market_stats = new ArrayList<>();
 		
     	data = criptomonedaDAO.listMarket();
+    	market_stats = criptomonedaDAO.getMarketStats();
     	
 		request.setAttribute("criptos", data);
+		request.setAttribute("stats", market_stats);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("market.jsp");
 		
 		dispatcher.forward(request, response);

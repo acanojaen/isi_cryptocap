@@ -93,6 +93,28 @@ public class Webscraping {
 	    }
 	}
 	
+	public List<Integer> getMarketStats() {
+		String uri = "https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest";
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
+		List<Integer> array = new ArrayList<>();
+
+	    try {
+	    	JsonObject local = makeAPICall(uri, params).getAsJsonObject("data");
+	    	array.add(local.get("active_cryptocurrencies").getAsInt());
+	    	array.add(local.get("total_cryptocurrencies").getAsInt());
+	    	array.add(local.get("active_exchanges").getAsInt());
+	    	array.add(local.get("total_exchanges").getAsInt());
+	    	array.add(local.get("active_market_pairs").getAsInt());
+	    	
+	    	return(array);
+	    	
+	    } catch (IOException e) {
+			return (array);
+	    } catch (URISyntaxException e) {
+	    	return (array);
+	    }
+	}
+	
 	public Criptomoneda getMetadata(String acron) {
 		String uri = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info";
 		List<NameValuePair> params = new ArrayList<NameValuePair>();

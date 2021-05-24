@@ -303,6 +303,32 @@ public class CriptomonedaDAO
 		return stat;
     }
     
+    public boolean addMarketStats () throws SQLException {
+    	String sql;
+    	PreparedStatement st;
+    	Webscraping w;
+    	boolean stat = false; 
+    	List<Integer> array = new ArrayList<>();
+    	
+    	w = new Webscraping();
+    	array = w.getMarketStats();
+    	
+    	sql = "UPDATE market SET active_cryptocurrencies = ?, total_cryptocurrencies = ?, active_exchanges = ?, "
+    		+ "total_exchanges = ?, active_market_pairs = ? WHERE market_id = ?";
+    	
+    	st = jdbcConnection.prepareStatement(sql);
+    	st.setInt(1, array.get(0));
+    	st.setInt(2, array.get(1));
+    	st.setInt(3, array.get(2));
+    	st.setInt(4, array.get(3));
+    	st.setInt(5, array.get(4));
+    	st.setInt(6, 0);
+    	
+		stat = st.executeUpdate() > 0;
+
+		st.close();
+		return stat;
+    }
 	public List<HistorialPrecio> getHistory(String acron) throws SQLException {
 		List<HistorialPrecio> history = new ArrayList<>();
 		String sql;
@@ -328,6 +354,37 @@ public class CriptomonedaDAO
 		disconnect();
 		return history;
 	}
+	
+	public List<Number> getMarketStats () throws SQLException {
+		String sql;
+		PreparedStatement st;
+		ResultSet rs;
+		List<Number> list = new ArrayList<>();
+		
+		connect();
+		
+		sql = "SELECT * FROM market";
+		sql += "WHERE acronimo = ?";
+				
+		st = jdbcConnection.prepareStatement(sql);
+		st.setInt(1, 0);			
+	
+		rs = st.executeQuery();
+		
+		list.add(rs.getInt(1));
+		list.add(rs.getInt(2));
+		list.add(rs.getInt(3));
+		list.add(rs.getInt(4));
+		list.add(rs.getInt(5));
+
+		rs.close();
+		st.close();
+		
+		disconnect();
+		
+		return list;
+	}
+	
     
     public boolean addToHistory(String acron, float precio) throws SQLException {
 		String sql;

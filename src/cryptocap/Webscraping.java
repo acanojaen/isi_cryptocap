@@ -93,9 +93,9 @@ public class Webscraping {
 	    	precio = prices.get("price").getAsFloat();
 	    	total_market_cap = prices.get("market_cap").getAsFloat();
 	    	total_volume_24h = prices.get("volume_24h").getAsFloat();
-	    	percent_change_24h=prices.get("percent_change_24h").getAsString().subSequence(0, 5)+"%";
-	    	percent_change_7d=prices.get("percent_change_7d").getAsString().subSequence(0, 5)+"%";
-	    	percent_change_30d=prices.get("percent_change_30d").getAsString().subSequence(0, 5)+"%"; 	
+	    	percent_change_24h=prices.get("percent_change_24h").getAsString()+"%";
+	    	percent_change_7d=prices.get("percent_change_7d").getAsString()+"%";
+	    	percent_change_30d=prices.get("percent_change_30d").getAsString()+"%"; 	
 	    	total_supply = local.get("total_supply").getAsInt();
 	    	num_market_pairs = local.get("num_market_pairs").getAsInt();
 	    	

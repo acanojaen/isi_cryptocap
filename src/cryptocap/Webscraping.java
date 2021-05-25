@@ -98,15 +98,22 @@ public class Webscraping {
 	    	percent_change_30d=prices.get("percent_change_30d").getAsFloat();
 
 	    	if(percent_change_24h > 0) {
-	    		lastdaychange = "+" + String.valueOf(percent_change_24h);
-	    	} 
-	    	
+	    		lastdaychange = "+" + String.valueOf(percent_change_24h).substring(0, 5)+"%";
+	    	}  
+	    	if(percent_change_24h < 0) {
+	    		lastdaychange = "-" + String.valueOf(percent_change_24h).substring(0, 5)+"%";
+	    	}
 	    	if(percent_change_7d > 0) {
-	    		sevendaychange = "+" + String.valueOf(percent_change_7d);
-	    	} 
-	    	
-	    	if(percent_change_30d > 0) {
-	    		daychange30 = "+" + String.valueOf(percent_change_30d);
+		    	sevendaychange = "+" + String.valueOf(percent_change_7d).substring(0, 5)+"%";
+	    	}
+	    	if(percent_change_7d < 0) {
+	    		sevendaychange = "-" + String.valueOf(percent_change_7d).substring(0, 5)+"%";
+	    	}
+		    if(percent_change_30d > 0) {
+	    		daychange30 = "+" + String.valueOf(percent_change_30d).substring(0, 5)+"%";
+	    	}
+	    	if(percent_change_30d < 0) {
+	    		daychange30 = "-" + String.valueOf(percent_change_30d).substring(0, 5)+"%";
 	    	}
 	    	
 	    	total_supply = local.get("total_supply").getAsInt();

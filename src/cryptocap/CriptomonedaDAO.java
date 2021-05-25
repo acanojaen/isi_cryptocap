@@ -158,9 +158,10 @@ public class CriptomonedaDAO
 	    	volTotal = rs.getString(8); 
 	    	lastdaychange = rs.getString(9);
 	    	sevendaychange = rs.getString(10);
+	    	percent_change_30d = rs.getString(14);
 	    	ultAct = rs.getString(4);
 	    	imagen = rs.getString(11);
-			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange, ultAct, total_market_cap, total_volume_24h));
+			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange,percent_change_30d, ultAct, total_market_cap, total_volume_24h));
 		}
 		
 		rs.close();

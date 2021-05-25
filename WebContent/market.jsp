@@ -71,7 +71,9 @@
                         <th scope="col">Precio</th>
                         <th scope="col">Market Cap</th>
                         <th scope="col">Volume (24h)</th>
+                        <th scope="col">24h %</th>
                         <th scope="col">7d %</th>
+                        <th scope="col">30d %</th>
                         <th scope="col"></th>
                     </tr>
                     
@@ -86,7 +88,9 @@
                             <td>${c.precio}</td>
                             <td>${c.total_market_cap}</td>
                             <td>${c.total_volume_24h}</td>
+                            <td>${c.variacion24}</td>
                             <td>${c.variacion7}</td>
+                            <td>${c.variacion30}</td>
                             <td><a href="/ficha?id=<c:out value='${c.acronimo}'/>" class="btn btn-success btn-sm float-right" role="button" target="_blank"><i class="fas fa-eye" style="color:white;"></i></a></td>
                         </tr>
                     </c:forEach>

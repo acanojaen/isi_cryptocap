@@ -15,8 +15,6 @@ public class Criptomoneda {
 	public String capMercado;
 	public String volumen24;
 	public String volumenTotal;
-	public float variacion24;
-	public float variacion7;
 
 	public String ultimaActualizacion;
 	public String status;
@@ -27,6 +25,8 @@ public class Criptomoneda {
 	public float total_market_cap;
 	public float total_volume_24h;
     public float total_volume_24h_reported;
+	public float variacion24;
+	public float variacion7;
     public float variacion30;
     public int total_supply;
     public int num_market_pairs;
@@ -187,7 +187,7 @@ public class Criptomoneda {
 		this.precio = precio;
 	}
 	
-	public Criptomoneda(String acron, String nombre, String ultAct, String status, float precio, float total_market_cap, float total_volume_24h, float lastdaychange, float sevendaychange, float percent_change_30d, int total_supply, int num_market_pairs) {
+	public Criptomoneda(String acron, String nombre, String ultAct, String status, float precio, float total_market_cap, float total_volume_24h, float percent_change_24h, float percent_change_7d, float percent_change_30d, int total_supply, int num_market_pairs) {
 		this.acronimo = acron;
 		this.nombre = nombre;
 		this.ultimaActualizacion = ultAct;
@@ -195,8 +195,8 @@ public class Criptomoneda {
 		this.precio = precio;
 		this.total_market_cap = total_market_cap;
 		this.total_volume_24h = total_volume_24h;
-		this.variacion24 = lastdaychange;
-		this.variacion7 = sevendaychange;
+		this.variacion24 = percent_change_24h;
+		this.variacion7 = percent_change_7d;
 		this.variacion30 = percent_change_30d;
 		this.total_supply = total_supply;
 		this.num_market_pairs = num_market_pairs;

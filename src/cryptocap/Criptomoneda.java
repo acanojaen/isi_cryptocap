@@ -123,6 +123,8 @@ public class Criptomoneda {
 		this.ultimaActualizacion = ultAct;
 		this.status = status;
 	}
+	
+	
 	public Criptomoneda(String acron, String nombre, float prec, float total_market_cap, float total_volume_24h, String volTotal, float var24, float var7, String ultAct, String status){
 		this.acronimo = acron;
 		this.nombre = nombre;

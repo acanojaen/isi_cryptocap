@@ -37,8 +37,8 @@ public class Webscraping {
 	String capitalizacion;
 	String vol24;
 	String volTotal;
-	String lastdaychange;
-	String sevendaychange;
+	float lastdaychange;
+	float sevendaychange;
 	String daychange30;
 	String description;
 	String url;
@@ -257,14 +257,14 @@ public class Webscraping {
                 total_market_cap = Float.parseFloat(elem.getElementsByClass("js-market-cap").attr("data-value"));
                 total_volume_24h = Float.parseFloat(elem.getElementsByClass("js-24h-volume").attr("data-value"));
                 volTotal = elem.getElementsByClass("js-total-vol").text();
-                lastdaychange = elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").text();
-                if(lastdaychange.isEmpty()) {
-                    lastdaychange = elem.getElementsByClass("js-currency-change-24h redFont pid-1061453-pcp").text();
+                lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").text());
+                if(lastdaychange == 0.0f) {
+                    lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h redFont pid-1061453-pcp").text());
                 }
                 
-                sevendaychange = elem.getElementsByClass("js-currency-change-7d greenFont").text();
-                if(sevendaychange.isEmpty()) {
-                	sevendaychange = elem.getElementsByClass("js-currency-change-7d redFont").text();
+                sevendaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-7d greenFont").text());
+                if(sevendaychange == 0.0f) {
+                	sevendaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-7d redFont").text());
                 }
                 ultAct = getActualHour();
 				

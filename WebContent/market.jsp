@@ -118,7 +118,7 @@
         $(document).ready(function(){
                 $('td').each(function(){
                     var cellvalue= $(this).html();
-                    $(this) = $(this).toFixed(2)
+                    $(this) = $(this).toFixed(2);
                     if(cellvalue.substring(0,1) == '-') {
                         $(this).wrapInner('<strong class="colorred"></strong>');
                         

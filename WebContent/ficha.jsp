@@ -3,9 +3,9 @@
     pageEncoding="UTF-8" import="cryptocap.Criptomoneda"
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-
-<header>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>CryptoCap - ${criptos.acronimo}</title>
@@ -14,13 +14,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="/dist/bootstrap/css/style.css">
     <link rel='shortcut icon' type='image/x-icon' href='/dist/imgfavicon.ico'/>
-    
+
     <style>
         .portfolio-block .heading h2 {
             text-transform: capitalize !important;
         }
     </style>
-</header>
+</head>
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">

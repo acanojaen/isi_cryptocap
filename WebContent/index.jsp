@@ -2,9 +2,9 @@
     contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="cryptocap.Criptomoneda"
 %>
-<html>
-
-<header>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>CryptoCap - Inicio</title>
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="/dist/bootstrap/css/style.css">
     <link rel='shortcut icon' type='image/x-icon' href='/dist/imgfavicon.ico'/>
-</header>
+</head>
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">

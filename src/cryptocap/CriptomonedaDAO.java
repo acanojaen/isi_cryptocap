@@ -59,9 +59,9 @@ public class CriptomonedaDAO
 	String capitalizacion;
 	String vol24;
 	String volTotal;
-	String lastdaychange;
-	String sevendaychange;
-	String percent_change_30d;
+	float lastdaychange;
+	float sevendaychange;
+	float percent_change_30d;
 	String status;
 	String desc;
 	
@@ -116,8 +116,8 @@ public class CriptomonedaDAO
 	    	capitalizacion = rs.getString(6);
 	    	vol24 = rs.getString(7);
 	    	volTotal = rs.getString(8); 
-	    	lastdaychange = rs.getString(9);
-	    	sevendaychange = rs.getString(10);
+	    	lastdaychange = rs.getFloat(9);
+	    	sevendaychange = rs.getFloat(10);
 	    	ultAct = rs.getString(4);
 	    	desc = rs.getString(15);
 	    	
@@ -156,9 +156,9 @@ public class CriptomonedaDAO
 	    	total_volume_24h = rs.getFloat(13);
 	    	vol24 = rs.getString(7);
 	    	volTotal = rs.getString(8); 
-	    	lastdaychange = rs.getString(9);
-	    	sevendaychange = rs.getString(10);
-	    	percent_change_30d = rs.getString(14);
+	    	lastdaychange = rs.getFloat(9);
+	    	sevendaychange = rs.getFloat(10);
+	    	percent_change_30d = rs.getFloat(14);
 	    	ultAct = rs.getString(4);
 	    	imagen = rs.getString(11);
 			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange,percent_change_30d, ultAct, total_market_cap, total_volume_24h));
@@ -258,8 +258,8 @@ public class CriptomonedaDAO
 	    	total_market_cap = rs.getFloat(12);
 	    	total_volume_24h = rs.getFloat(13);
 	    	volTotal = rs.getString(8); 
-	    	lastdaychange = rs.getString(9);
-	    	sevendaychange = rs.getString(10);
+	    	lastdaychange = rs.getFloat(9);
+	    	sevendaychange = rs.getFloat(10);
 	    	ultAct = rs.getString(4);
 	    	desc = rs.getString(15);
 			
@@ -399,7 +399,6 @@ public class CriptomonedaDAO
     public boolean addToHistory(String acron, float precio) throws SQLException {
 		String sql;
     	PreparedStatement st;
-    	ResultSet rs;
     	boolean stat = false;
     	
     	sql = "INSERT INTO history (fecha, acronimo, precio)";
@@ -535,8 +534,8 @@ public class CriptomonedaDAO
 	    			st.setFloat(5, total_market_cap);
 	    			st.setFloat(6, total_volume_24h);
 	    			st.setString(7, volTotal);
-	    			st.setString(8, lastdaychange);
-	    			st.setString(9, sevendaychange);
+	    			st.setFloat(8, lastdaychange);
+	    			st.setFloat(9, sevendaychange);
 	    			stat = st.executeUpdate() > 0;
 	    			stat = addToHistory(acronimo, precio);
 		            stat = setCurrencyStatus(acronimo, "enabled");
@@ -555,8 +554,8 @@ public class CriptomonedaDAO
 	    			st.setFloat(4, total_market_cap);
 	    			st.setFloat(5, total_volume_24h);
 	    			st.setString(6, volTotal);
-	    			st.setString(7, lastdaychange);
-	    			st.setString(8, sevendaychange);
+	    			st.setFloat(7, lastdaychange);
+	    			st.setFloat(8, sevendaychange);
 	    			st.setString(9, acronimo);
 	    			
 	    			stat = st.executeUpdate() > 0;
@@ -702,9 +701,9 @@ public class CriptomonedaDAO
     			st.setFloat(1, precio);
     			st.setFloat(2, total_market_cap);
     			st.setFloat(3, total_volume_24h);
-    			st.setString(4, lastdaychange);
-    			st.setString(5, sevendaychange);
-    			st.setString(6, percent_change_30d);
+    			st.setFloat(4, lastdaychange);
+    			st.setFloat(5, sevendaychange);
+    			st.setFloat(6, percent_change_30d);
     			st.setInt(7, total_supply);
     			st.setInt(8, num_market_pairs);
     			st.setString(9, ultAct);
@@ -724,9 +723,9 @@ public class CriptomonedaDAO
     			st.setFloat(4, precio);
     			st.setFloat(5, total_market_cap);
     			st.setFloat(6, total_volume_24h);
-    			st.setString(7, lastdaychange);
-    			st.setString(8, sevendaychange);
-    			st.setString(9, percent_change_30d);
+    			st.setFloat(7, lastdaychange);
+    			st.setFloat(8, sevendaychange);
+    			st.setFloat(9, percent_change_30d);
     			st.setInt(10, total_supply);
     			st.setInt(11, num_market_pairs);
     			
@@ -771,9 +770,9 @@ public class CriptomonedaDAO
 			st.setFloat(1, crip.getPrecio());
 			st.setFloat(2, crip.getTotal_market_cap());
 			st.setFloat(3, crip.getTotal_volume_24h());
-			st.setString(4, crip.getVariacion24());
-			st.setString(5, crip.getVariacion7());
-			st.setString(6, crip.getVariacion30());
+			st.setFloat(4, crip.getVariacion24());
+			st.setFloat(5, crip.getVariacion7());
+			st.setFloat(6, crip.getVariacion30());
 			st.setInt(7, crip.getTotal_supply());
 			st.setInt(8, crip.getNum_market_pairs());
 			st.setString(9, crip.getUltimaActualizacion());

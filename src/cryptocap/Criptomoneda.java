@@ -15,8 +15,8 @@ public class Criptomoneda {
 	public String capMercado;
 	public String volumen24;
 	public String volumenTotal;
-	public String variacion24;
-	public String variacion7;
+	public float variacion24;
+	public float variacion7;
 
 	public String ultimaActualizacion;
 	public String status;
@@ -27,7 +27,7 @@ public class Criptomoneda {
 	public float total_market_cap;
 	public float total_volume_24h;
     public float total_volume_24h_reported;
-    public String variacion30;
+    public float variacion30;
     public int total_supply;
     public int num_market_pairs;
 	
@@ -76,7 +76,7 @@ public class Criptomoneda {
 		this.variacion7 = crip.getVariacion7();
 	}
 
-	public Criptomoneda(String nom, String acron, String imag, String url, float prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct, String desc){
+	public Criptomoneda(String nom, String acron, String imag, String url, float prec, String capMer, String vol24, String volTotal, float var24, float var7, String ultAct, String desc){
 		this.nombre = nom;
 		this.acronimo = acron;
 		this.imagen = imag;
@@ -93,7 +93,7 @@ public class Criptomoneda {
 		this.desc = desc;
 	}
 	
-	public Criptomoneda(String nom, String acron, String imag, String url, float prec, float total_market_cap, float total_volume_24h, String volTotal, String var24, String var7, String ultAct, String desc){
+	public Criptomoneda(String nom, String acron, String imag, String url, float prec, float total_market_cap, float total_volume_24h, String volTotal, float var24, float var7, String ultAct, String desc){
 		this.nombre = nom;
 		this.acronimo = acron;
 		this.imagen = imag;
@@ -110,7 +110,7 @@ public class Criptomoneda {
 		this.desc = desc;
 	}
 
-	public Criptomoneda(String acron, String nombre, float prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct, String status){
+	public Criptomoneda(String acron, String nombre, float prec, String capMer, String vol24, String volTotal, float var24, float var7, String ultAct, String status){
 		this.acronimo = acron;
 		this.nombre = nombre;
 		this.precio = prec;
@@ -124,7 +124,7 @@ public class Criptomoneda {
 		this.status = status;
 	}
 	
-	public Criptomoneda(String acron, String nombre, float prec, float total_market_cap, float total_volume_24h, String volTotal, String var24, String var7, String ultAct, String status){
+	public Criptomoneda(String acron, String nombre, float prec, float total_market_cap, float total_volume_24h, String volTotal, float var24, float var7, String ultAct, String status){
 		this.acronimo = acron;
 		this.nombre = nombre;
 		this.precio = prec;
@@ -138,7 +138,7 @@ public class Criptomoneda {
 		this.status = status;
 	}
 	
-	public Criptomoneda(String nom, String acron, String imag, String url, float prec, String capMer, String vol24, String volTotal, String var24, String var7, String variacion30, String ultAct, float total_market_cap, float total_volume_24h){
+	public Criptomoneda(String nom, String acron, String imag, String url, float prec, String capMer, String vol24, String volTotal, float var24, float var7, float variacion30, String ultAct, float total_market_cap, float total_volume_24h){
 		this.nombre = nom;
 		this.acronimo = acron;
 		this.imagen = imag;
@@ -187,7 +187,7 @@ public class Criptomoneda {
 		this.precio = precio;
 	}
 	
-	public Criptomoneda(String acron, String nombre, String ultAct, String status, float precio, float total_market_cap, float total_volume_24h, String lastdaychange, String sevendaychange, String percent_change_30d, int total_supply, int num_market_pairs) {
+	public Criptomoneda(String acron, String nombre, String ultAct, String status, float precio, float total_market_cap, float total_volume_24h, float lastdaychange, float sevendaychange, float percent_change_30d, int total_supply, int num_market_pairs) {
 		this.acronimo = acron;
 		this.nombre = nombre;
 		this.ultimaActualizacion = ultAct;
@@ -213,11 +213,11 @@ public class Criptomoneda {
 		return nombre;
 	}
 
-	public String getVariacion30() {
+	public float getVariacion30() {
 		return variacion30;
 	}
 
-	public void setVariacion30(String variacion30) {
+	public void setVariacion30(float variacion30) {
 		this.variacion30 = variacion30;
 	}
 
@@ -313,19 +313,19 @@ public class Criptomoneda {
 		this.volumenTotal = volumenTotal;
 	}
 
-	public String getVariacion24() {
+	public float getVariacion24() {
 		return variacion24;
 	}
 
-	public void setVariacion24(String variacion24) {
+	public void setVariacion24(float variacion24) {
 		this.variacion24 = variacion24;
 	}
 
-	public String getVariacion7() {
+	public float getVariacion7() {
 		return variacion7;
 	}
 
-	public void setVariacion7(String variacion7) {
+	public void setVariacion7(float variacion7) {
 		this.variacion7 = variacion7;
 	}
 

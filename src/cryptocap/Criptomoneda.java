@@ -110,20 +110,19 @@ public class Criptomoneda {
 		this.desc = desc;
 	}
 
-	public Criptomoneda(String acron, String nombre, float prec, String capMer, String vol24, String volTotal, float var24, float var7, String ultAct, String status){
+	public Criptomoneda(String acron, String nombre, float prec, String capMer, String vol24, String volTotal, String var24, String var7, String ultAct, String status){
 		this.acronimo = acron;
 		this.nombre = nombre;
 		this.precio = prec;
 		this.capMercado = capMer;
 		this.volumen24 = vol24;
 		this.volumenTotal = volTotal;
-		this.variacion24 = var24;
-		this.variacion7 = var7;
+		this.variacion24 = Float.parseFloat(var24);
+		this.variacion7 = Float.parseFloat(var7);
 
 		this.ultimaActualizacion = ultAct;
 		this.status = status;
 	}
-	
 	public Criptomoneda(String acron, String nombre, float prec, float total_market_cap, float total_volume_24h, String volTotal, float var24, float var7, String ultAct, String status){
 		this.acronimo = acron;
 		this.nombre = nombre;
@@ -200,6 +199,8 @@ public class Criptomoneda {
 		this.variacion30 = percent_change_30d;
 		this.total_supply = total_supply;
 		this.num_market_pairs = num_market_pairs;
+		
+		
 	}
 	
 	

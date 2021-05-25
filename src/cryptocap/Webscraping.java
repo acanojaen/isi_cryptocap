@@ -254,21 +254,48 @@ public class Webscraping {
 				acronimo = elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text();
 				nombre = elem.getElementsByClass("left bold elp name cryptoName first js-currency-name").text();
                 precio = parsePrecio(elem.getElementsByClass("price js-currency-price").text());
-                total_market_cap = Float.parseFloat(elem.getElementsByClass("js-market-cap").attr("data-value"));
-                total_volume_24h = Float.parseFloat(elem.getElementsByClass("js-24h-volume").attr("data-value"));
-                volTotal = elem.getElementsByClass("js-total-vol").text();
-                lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").text());
-                if(lastdaychange == 0.0f) {
-                    lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h redFont pid-1061453-pcp").text());
-                }
                 
-                sevendaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-7d greenFont").text());
-                if(sevendaychange == 0.0f) {
-                	sevendaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-7d redFont").text());
-                }
-                ultAct = getActualHour();
-				
-                if(elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text().equals(acron)){
+                if(elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text().equals(acron)) {
+                	
+	                if (!elem.getElementsByClass("js-market-cap").attr("data-value").isEmpty()) {
+	                	total_market_cap = Float.parseFloat(elem.getElementsByClass("js-market-cap").attr("data-value"));
+	                } else {
+	                	total_market_cap = 0;
+	                }
+	                if (!elem.getElementsByClass("js-24h-volume").attr("data-value").isEmpty()) {
+	                	total_volume_24h = Float.parseFloat(elem.getElementsByClass("js-24h-volume").attr("data-value"));
+	                } else {
+	                	total_volume_24h = 0;
+	                }
+	                if (!elem.getElementsByClass("js-total-vol").attr("data-value").isEmpty()) {
+	                	volTotal = elem.getElementsByClass("js-total-vol").text();
+	                } else {
+	                	volTotal = "0";
+	                }
+	                if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").attr("data-value").isEmpty())
+	                {
+	                	lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").text());
+	                    if(lastdaychange == 0.0f) {
+	                    	if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").attr("data-value").isEmpty()) {
+	                    		lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").text());
+	                    
+	                    	}
+	                    } else {
+	                    	lastdaychange = 0;
+	                	}
+	                }
+	                if (!elem.getElementsByClass("js-currency-change-7d greenFont").attr("data-value").isEmpty()) {
+	                	sevendaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-7d greenFont").text());
+	                	if(sevendaychange == 0.0f) {
+	                		 if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").attr("data-value").isEmpty()) {
+	                			 sevendaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-7d redFont").text());
+	                		}
+	                	} else {
+	                		sevendaychange = 0;
+	                	}
+	                }
+	                ultAct = getActualHour();
+
                     return (new Criptomoneda(acronimo, nombre, precio, total_market_cap, total_volume_24h, volTotal, lastdaychange, sevendaychange, ultAct, "enabled"));
                 }
 			}

@@ -140,7 +140,6 @@ public class CriptomonedaDAO
     	List<Criptomoneda> c = new ArrayList<>();
 		String sql = "SELECT * FROM criptomonedas ORDER BY precio DESC;";
 		PreparedStatement st;
-		Criptomoneda crip;
 		ResultSet rs;
 		
     	connect();

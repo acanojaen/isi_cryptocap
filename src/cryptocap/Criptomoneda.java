@@ -223,6 +223,30 @@ public class Criptomoneda {
 		return nombre;
 	}
 
+	public String getPercent_change_24h() {
+		return percent_change_24h;
+	}
+
+	public void setPercent_change_24h(String percent_change_24h) {
+		this.percent_change_24h = percent_change_24h;
+	}
+
+	public String getPercent_change_7d() {
+		return percent_change_7d;
+	}
+
+	public void setPercent_change_7d(String percent_change_7d) {
+		this.percent_change_7d = percent_change_7d;
+	}
+
+	public String getPercent_change_30d() {
+		return percent_change_30d;
+	}
+
+	public void setPercent_change_30d(String percent_change_30d) {
+		this.percent_change_30d = percent_change_30d;
+	}
+
 	public float getVariacion30() {
 		return variacion30;
 	}

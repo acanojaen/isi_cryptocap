@@ -156,6 +156,9 @@ public class Criptomoneda {
 		this.variacion24 = var24;
 		this.variacion7 = var7;
 		this.variacion30 = variacion30;
+		this.percent_change_24h = setVariacion24_S(variacion24);
+		this.percent_change_7d = setVariacion7_S(variacion7);
+		this.percent_change_30d = setVariacion30_S(variacion30);
 
 		this.ultimaActualizacion = ultAct;
 		this.total_market_cap = total_market_cap;
@@ -332,27 +335,27 @@ public class Criptomoneda {
 		return variacion7;
 	}
 	
-	public void setVariacion7_S(float var) {
+	public String setVariacion7_S(float var) {
 		if (var >= 0) {
-			this.percent_change_7d = "+" + String.valueOf(var);
+			return "+" + String.valueOf(var);
 		} else {
-			this.percent_change_7d = String.valueOf(var);
+			return String.valueOf(var);
 		}
 	}
 
-	public void setVariacion24_S(float var) {
+	public String setVariacion24_S(float var) {
 		if (var >= 0) {
-			this.percent_change_24h = "+" + String.valueOf(var);
+			return "+" + String.valueOf(var);
 		} else {
-			this.percent_change_24h = String.valueOf(var);
+			return String.valueOf(var);
 		}
 	}
 	
-	public void setVariacion30_S(float var) {
+	public String setVariacion30_S(float var) {
 		if (var >= 0) {
-			this.percent_change_30d = "+" + String.valueOf(var);
+			return "+" + String.valueOf(var);
 		} else {
-			this.percent_change_30d = String.valueOf(var);
+			return String.valueOf(var);
 		}
 	}
 	

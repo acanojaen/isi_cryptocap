@@ -162,12 +162,7 @@ public class CriptomonedaDAO
 	    	percent_change_30d = rs.getFloat(14);
 	    	ultAct = rs.getString(4);
 	    	imagen = rs.getString(11);
-			crip = new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange,percent_change_30d, ultAct, total_market_cap, total_volume_24h);
-			crip.setVariacion24_S(rs.getFloat(9));
-			crip.setVariacion30_S(rs.getFloat(14));
-			crip.setVariacion7_S(rs.getFloat(10));
-			
-			c.add(crip);
+			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange,percent_change_30d, ultAct, total_market_cap, total_volume_24h));
 		}
 		
 		rs.close();

@@ -163,9 +163,9 @@ public class CriptomonedaDAO
 	    	ultAct = rs.getString(4);
 	    	imagen = rs.getString(11);
 			crip = new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange,percent_change_30d, ultAct, total_market_cap, total_volume_24h);
-			crip.setVariacion24_S();
-			crip.setVariacion30_S();
-			crip.setVariacion7_S();
+			crip.setVariacion24_S(rs.getFloat(9));
+			crip.setVariacion30_S(rs.getFloat(14));
+			crip.setVariacion7_S(rs.getFloat(10));
 			
 			c.add(crip);
 		}

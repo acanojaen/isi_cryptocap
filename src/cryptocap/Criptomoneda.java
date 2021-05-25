@@ -333,7 +333,7 @@ public class Criptomoneda {
 	}
 	
 	public void setVariacion7_S(float var) {
-		if (variacion7 >= 0) {
+		if (var >= 0) {
 			this.percent_change_7d = "+" + String.valueOf(var);
 		} else {
 			this.percent_change_7d = String.valueOf(var);
@@ -341,7 +341,7 @@ public class Criptomoneda {
 	}
 
 	public void setVariacion24_S(float var) {
-		if (variacion24 >= 0) {
+		if (var >= 0) {
 			this.percent_change_24h = "+" + String.valueOf(var);
 		} else {
 			this.percent_change_24h = String.valueOf(var);
@@ -349,7 +349,7 @@ public class Criptomoneda {
 	}
 	
 	public void setVariacion30_S(float var) {
-		if (variacion30 >= 0) {
+		if (var >= 0) {
 			this.percent_change_30d = "+" + String.valueOf(var);
 		} else {
 			this.percent_change_30d = String.valueOf(var);

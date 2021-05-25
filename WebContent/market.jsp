@@ -89,13 +89,13 @@
                             <td>${c.total_market_cap}</td>
                             <td>${c.total_volume_24h}</td>
                             <td>
-                                <fmt:formatNumber pattern="#,##0" value="${c.variacion24}"/>%
+                                <strong class="colorgreen">${c.variacion24}%</strong>
                             </td>
                             <td>
-                                <fmt:formatNumber pattern="#,##0" value="${c.variacion7}"/>%
+                                <strong class="colorgreen">${c.variacion7}%</strong>
                             </td>
                             <td>
-                                <fmt:formatNumber pattern="#,##0" value="${c.variacion30}"/>%
+                                <strong class="colorgreen">${c.variacion30}%</strong>
                             </td>
                             <td><a href="/ficha?id=<c:out value='${c.acronimo}'/>" class="btn btn-success btn-sm float-right" role="button" target="_blank"><i class="fas fa-eye" style="color:white;"></i></a></td>
                         </tr>

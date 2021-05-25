@@ -39,9 +39,12 @@ public class Webscraping {
 	String volTotal;
 	String lastdaychange;
 	String sevendaychange;
+	String daychange30;
 	String description;
 	String url;
-	String percent_change_30d;
+	float percent_change_30d;
+	float percent_change_24h;
+	float percent_change_7d;
 	
 	int total_supply;
 	int num_market_pairs;
@@ -90,15 +93,28 @@ public class Webscraping {
 	    	precio = prices.get("price").getAsFloat();
 	    	total_market_cap = prices.get("market_cap").getAsFloat();
 	    	total_volume_24h = prices.get("volume_24h").getAsFloat();
-	    	lastdaychange = prices.get("percent_change_24h").getAsString().substring(0, 5)+"%";
-	    	sevendaychange = prices.get("percent_change_7d").getAsString().substring(0, 5)+"%";
-	    	percent_change_30d = prices.get("percent_change_24h").getAsString().substring(0, 5)+"%";
+	    	percent_change_24h=prices.get("percent_change_24h").getAsFloat();
+	    	percent_change_7d=prices.get("percent_change_7d").getAsFloat();
+	    	percent_change_30d=prices.get("percent_change_30d").getAsFloat();
+
+	    	if(percent_change_24h > 0) {
+	    		lastdaychange = "+" + String.valueOf(percent_change_24h);
+	    	} 
+	    	
+	    	if(percent_change_7d > 0) {
+	    		sevendaychange = "+" + String.valueOf(percent_change_7d);
+	    	} 
+	    	
+	    	if(percent_change_30d > 0) {
+	    		daychange30 = "+" + String.valueOf(percent_change_30d);
+	    	}
+	    	
 	    	total_supply = local.get("total_supply").getAsInt();
 	    	num_market_pairs = local.get("num_market_pairs").getAsInt();
 	    	
 	    	ultAct = getActualHour();
 	    	
-	    	return(new Criptomoneda(acron, nombre, ultAct, "enabled", precio, total_market_cap, total_volume_24h, lastdaychange, sevendaychange, percent_change_30d, total_supply, num_market_pairs));
+	    	return(new Criptomoneda(acron, nombre, ultAct, "enabled", precio, total_market_cap, total_volume_24h, lastdaychange, sevendaychange, daychange30, total_supply, num_market_pairs));
 	    	
 	    } catch (IOException e) {
 			return (new Criptomoneda(acron, ultAct, "disabled"));

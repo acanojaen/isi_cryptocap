@@ -140,6 +140,7 @@ public class CriptomonedaDAO
     	List<Criptomoneda> c = new ArrayList<>();
 		String sql = "SELECT * FROM criptomonedas ORDER BY precio DESC;";
 		PreparedStatement st;
+		Criptomoneda crip;
 		ResultSet rs;
 		
     	connect();
@@ -161,7 +162,12 @@ public class CriptomonedaDAO
 	    	percent_change_30d = rs.getFloat(14);
 	    	ultAct = rs.getString(4);
 	    	imagen = rs.getString(11);
-			c.add(new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange,percent_change_30d, ultAct, total_market_cap, total_volume_24h));
+			crip = new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, capitalizacion, vol24, volTotal, lastdaychange, sevendaychange,percent_change_30d, ultAct, total_market_cap, total_volume_24h);
+			crip.setVariacion24_S();
+			crip.setVariacion30_S();
+			crip.setVariacion7_S();
+			
+			c.add(crip);
 		}
 		
 		rs.close();
@@ -523,8 +529,8 @@ public class CriptomonedaDAO
 	    		
 	    		// INSERCION
 	    		if(!rs.next()) {
-	    			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, total_market_cap, total_volume_24h, volTotal, percent_change_24h, percent_change_7d)";
-	    			sql += " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	    			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, total_market_cap, total_volume_24h, volTotal)";
+	    			sql += " VALUES (?, ?, ?, ?, ?, ?, ?)";
 	    			
 	    			st = jdbcConnection.prepareStatement(sql);
 	    			st.setString(1, acronimo);
@@ -534,8 +540,6 @@ public class CriptomonedaDAO
 	    			st.setFloat(5, total_market_cap);
 	    			st.setFloat(6, total_volume_24h);
 	    			st.setString(7, volTotal);
-	    			st.setFloat(8, lastdaychange);
-	    			st.setFloat(9, sevendaychange);
 	    			stat = st.executeUpdate() > 0;
 	    			stat = addToHistory(acronimo, precio);
 		            stat = setCurrencyStatus(acronimo, "enabled");

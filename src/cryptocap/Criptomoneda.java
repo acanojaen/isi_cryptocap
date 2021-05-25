@@ -21,6 +21,10 @@ public class Criptomoneda {
 	public String msg;
 	public String desc;
 	
+	public String percent_change_24h;
+	public String percent_change_7d;
+	public String percent_change_30d;
+	
 	public float precio;
 	public float total_market_cap;
 	public float total_volume_24h;
@@ -327,7 +331,31 @@ public class Criptomoneda {
 	public float getVariacion7() {
 		return variacion7;
 	}
+	
+	public void setVariacion7_S() {
+		if (variacion7 > 0) {
+			percent_change_7d = "+" + String.valueOf(variacion7);
+		} else {
+			percent_change_7d = String.valueOf(variacion7);
+		}
+	}
 
+	public void setVariacion24_S() {
+		if (variacion24 > 0) {
+			percent_change_24h = "+" + String.valueOf(variacion24);
+		} else {
+			percent_change_24h = String.valueOf(variacion24);
+		}
+	}
+	
+	public void setVariacion30_S() {
+		if (variacion30 > 0) {
+			percent_change_30d = "+" + String.valueOf(variacion30);
+		} else {
+			percent_change_30d = String.valueOf(variacion30);
+		}
+	}
+	
 	public void setVariacion7(float variacion7) {
 		this.variacion7 = variacion7;
 	}

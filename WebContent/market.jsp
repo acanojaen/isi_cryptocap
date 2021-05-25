@@ -88,12 +88,8 @@
                             <td>${c.precio}</td>
                             <td>${c.total_market_cap}</td>
                             <td>${c.total_volume_24h}</td>
-                            <td>
-                                <strong class="colorgreen">${c.variacion24}%</strong>
-                            </td>
-                            <td>
-                                <strong class="colorgreen">${c.variacion7}%</strong>
-                            </td>
+                            <td>${c.variacion24}%</td>
+                            <td>${c.variacion7}%</td>
                             <td>
                                 <strong class="colorgreen">${c.variacion30}%</strong>
                             </td>
@@ -127,8 +123,6 @@
                     if(cellvalue.substring(0,1) == '-') {
                         $(this).wrapInner('<strong class="colorred"></strong>');
                         
-                    } else {
-                        $(this).wrapInner('<strong class="colorgreen"></strong>');
                     }
                 });
         });

@@ -88,11 +88,9 @@
                             <td>${c.precio}</td>
                             <td>${c.total_market_cap}</td>
                             <td>${c.total_volume_24h}</td>
-                            <td>${c.variacion24}%</td>
-                            <td>${c.variacion7}%</td>
-                            <td>
-                                <strong class="colorgreen">${c.variacion30}%</strong>
-                            </td>
+                            <td>${c.percent_change_24h}%</td>
+                            <td>${c.percent_change_7d}%</td>
+                            <td>${c.percent_change_30d}%</td>
                             <td><a href="/ficha?id=<c:out value='${c.acronimo}'/>" class="btn btn-success btn-sm float-right" role="button" target="_blank"><i class="fas fa-eye" style="color:white;"></i></a></td>
                         </tr>
                     </c:forEach>
@@ -122,6 +120,11 @@
                     var cellvalue= $(this).html();
                     if(cellvalue.substring(0,1) == '-') {
                         $(this).wrapInner('<strong class="colorred"></strong>');
+                        
+                    }
+
+                    if(cellvalue.substring(0,1) == '+') {
+                        $(this).wrapInner('<strong class="colorgreen"></strong>');
                         
                     }
                 });

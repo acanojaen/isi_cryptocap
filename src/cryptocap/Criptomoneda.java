@@ -350,9 +350,9 @@ public class Criptomoneda {
 	
 	public void setVariacion30_S() {
 		if (variacion30 > 0) {
-			percent_change_30d = "+" + String.valueOf(variacion30).substring(0,6);
+			percent_change_30d = "+" + String.valueOf(variacion30);
 		} else {
-			percent_change_30d = String.valueOf(variacion30).substring(0,6);
+			percent_change_30d = String.valueOf(variacion30);
 		}
 	}
 	

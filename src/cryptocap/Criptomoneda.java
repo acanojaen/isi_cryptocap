@@ -334,25 +334,25 @@ public class Criptomoneda {
 	
 	public void setVariacion7_S() {
 		if (variacion7 > 0) {
-			percent_change_7d = "+" + String.valueOf(variacion7);
+			this.percent_change_7d = "+" + String.valueOf(variacion7);
 		} else {
-			percent_change_7d = String.valueOf(variacion7);
+			this.percent_change_7d = String.valueOf(variacion7);
 		}
 	}
 
 	public void setVariacion24_S() {
 		if (variacion24 > 0) {
-			percent_change_24h = "+" + String.valueOf(variacion24);
+			this.percent_change_24h = "+" + String.valueOf(variacion24);
 		} else {
-			percent_change_24h = String.valueOf(variacion24);
+			this.percent_change_24h = String.valueOf(variacion24);
 		}
 	}
 	
 	public void setVariacion30_S() {
 		if (variacion30 > 0) {
-			percent_change_30d = "+" + String.valueOf(variacion30);
+			this.percent_change_30d = "+" + String.valueOf(variacion30);
 		} else {
-			percent_change_30d = String.valueOf(variacion30);
+			this.percent_change_30d = String.valueOf(variacion30);
 		}
 	}
 	

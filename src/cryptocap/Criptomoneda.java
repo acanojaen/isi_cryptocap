@@ -156,8 +156,8 @@ public class Criptomoneda {
 		this.variacion24 = var24;
 		this.variacion7 = var7;
 		this.variacion30 = variacion30;
-		this.percent_change_24h = setVariacion24_S(variacion24);
-		this.percent_change_7d = setVariacion7_S(variacion7);
+		this.percent_change_24h = setVariacion24_S(var24);
+		this.percent_change_7d = setVariacion7_S(var7);
 		this.percent_change_30d = setVariacion30_S(variacion30);
 
 		this.ultimaActualizacion = ultAct;

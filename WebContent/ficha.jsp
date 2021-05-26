@@ -71,31 +71,31 @@
                                     <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.total_volume_24h}</h4>
                                 </div>
 
-                                <c:if test="${not empty criptos.percent_change_24h && criptos.percent_change_24h > 0}">
+                                <c:if test="${not empty criptos.percent_change_24h && Float.parseFloat(criptos.percent_change_24h) > 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization" style="background-color: green;">${criptos.percent_change_24h}%</h4>
                                     </div>
                                 </c:if>
 
-                                <c:if test="${not empty criptos.percent_change_24h && criptos.percent_change_24h < 0}">
+                                <c:if test="${not empty criptos.percent_change_24h && Float.parseFloat(criptos.percent_change_24h) < 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization" style="background-color: red;" >${criptos.percent_change_24h}%</h4>
                                     </div>
                                 </c:if>
                                 
-                                <c:if test="${not empty criptos.percent_change_7d && criptos.percent_change_7d > 0}">
+                                <c:if test="${not empty criptos.percent_change_7d && Float.parseFloat(criptos.percent_change_7d) > 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio ultimos 7 días: </h3> <h4 class="organization" style="background-color: green;">${criptos.percent_change_7d}%</h4>
                                     </div>
                                 </c:if>
 
-                                <c:if test="${not empty criptos.percent_change_7d && criptos.percent_change_7d < 0}">
+                                <c:if test="${not empty criptos.percent_change_7d && Float.parseFloat(criptos.percent_change_7d) < 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio ultimos 7 días: </h3> <h4 class="organization" style="background-color: red;">${criptos.percent_change_7d}%</h4>
                                     </div>
                                 </c:if>
 
-                                <c:if test="${not empty criptos.percent_change_30d && criptos.percent_change_30d > 0}">
+                                <c:if test="${not empty criptos.percent_change_30d && Float.parseFloat(criptos.percent_change_30d) > 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio últimos 30 días: </h3> <h4 class="organization" style="background-color: green;">${criptos.percent_change_30d}%</h4>
                                     </div>

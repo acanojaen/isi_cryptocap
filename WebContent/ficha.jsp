@@ -129,7 +129,7 @@
                             </div>
 
                             Si considera que el precio puede estar desactualizado: 
-                                <a href="/apicrypto?case=single&id=<c:out value='${c.acronimo}'/>" class="btn btn-danger btn-sm" role="button"><i class="fas fa-redo"></i></a>
+                                <a href="/apicrypto?case=single&id=<c:out value='${criptos.acronimo}'/>" class="btn btn-danger btn-sm" role="button"><i class="fas fa-redo"></i></a>
                         </div>
 
                         <p class="text-muted">${criptos.desc}</p>

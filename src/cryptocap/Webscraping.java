@@ -272,11 +272,11 @@ public class Webscraping {
 	                } else {
 	                	volTotal = "0";
 	                }
-	                if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").attr("data-value").isEmpty())
+	                if (elem.getElementsByClass("js-currency-change-24h greenFont pid-1057391-pcp").text().isEmpty())
 	                {
-	                	lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").text());
+	                	lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont pid-1057391-pcp").text());
 	                    if(lastdaychange == 0.0f) {
-	                    	if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").attr("data-value").isEmpty()) {
+	                    	if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1057391-pcp").text().isEmpty()) {
 	                    		lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").text());
 	                    
 	                    	}
@@ -284,10 +284,10 @@ public class Webscraping {
 	                    	lastdaychange = 0;
 	                	}
 	                }
-	                if (!elem.getElementsByClass("js-currency-change-7d greenFont").attr("data-value").isEmpty()) {
+	                if (!elem.getElementsByClass("js-currency-change-7d greenFont").text().isEmpty()) {
 	                	sevendaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-7d greenFont").text());
 	                	if(sevendaychange == 0.0f) {
-	                		 if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").attr("data-value").isEmpty()) {
+	                		 if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").text().isEmpty()) {
 	                			 sevendaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-7d redFont").text());
 	                		}
 	                	} else {

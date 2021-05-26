@@ -52,7 +52,7 @@
 
                         <div class="item">
                             <div class="row">
-                                <fmt:parseNumber var = "pc24h" type = "number" value = "${criptos.percent_change_24h}" />
+                                <fmt:parseNumber var = "pc24h" type = "number" value = "${criptos.variacion24}" />
 
                                 <c:if test="${not empty criptos.precio && pc24h > 0}">
                                     <div class="col-md-6">

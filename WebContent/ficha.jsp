@@ -71,18 +71,19 @@
                                     <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.total_volume_24h}</h4>
                                 </div>
 
-                                <c:if test="${not empty criptos.percent_change_24h && Float.parseFloat(criptos.percent_change_24h) > 0}">
+                                <fmt:parseNumber var = "pc24h" type = "long" value = "${criptos.percent_change_24h}" />
+                                <c:if test="${not empty criptos.percent_change_24h && pc24h) > 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization" style="background-color: green;">${criptos.percent_change_24h}%</h4>
                                     </div>
                                 </c:if>
 
-                                <c:if test="${not empty criptos.percent_change_24h && Float.parseFloat(criptos.percent_change_24h) < 0}">
+                                <c:if test="${not empty criptos.percent_change_24h && pc24h < 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization" style="background-color: red;" >${criptos.percent_change_24h}%</h4>
                                     </div>
                                 </c:if>
-                                
+                                <!--
                                 <c:if test="${not empty criptos.percent_change_7d && Float.parseFloat(criptos.percent_change_7d) > 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio ultimos 7 días: </h3> <h4 class="organization" style="background-color: green;">${criptos.percent_change_7d}%</h4>
@@ -106,7 +107,7 @@
                                         <h3>Cambio últimos 30 días: </h3> <h4 class="organization" style="background-color: red;">${criptos.percent_change_30d}%</h4>
                                     </div>
                                 </c:if>
-
+-->
                                 <div class="col-md-6">
                                     <h3>Suministro total: </h3> <h4 class="organization">${criptos.total_supply}</h4>
                                 </div>

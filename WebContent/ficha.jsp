@@ -3,6 +3,7 @@
     pageEncoding="UTF-8" import="cryptocap.Criptomoneda"
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <head>
@@ -72,7 +73,7 @@
                                 </div>
 
                                 <fmt:parseNumber var = "pc24h" type = "long" value = "${criptos.percent_change_24h}" />
-                                <c:if test="${not empty criptos.percent_change_24h && pc24h) > 0}">
+                                <c:if test="${not empty criptos.percent_change_24h && pc24h > 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization" style="background-color: green;">${criptos.percent_change_24h}%</h4>
                                     </div>

@@ -274,26 +274,24 @@ public class Webscraping {
 	                }
 	                if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1057391-pcp").text().isEmpty())
 	                {
-	                	lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont pid-1057391-pcp").text());
+	                	
+	                	lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont").text().substring(0, elem.getElementsByClass("js-currency-change-24h greenFont pid-1057391-pcp").text().length()));
 	                    if(lastdaychange == 0.0f) {
-	                    	if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1057391-pcp").text().isEmpty()) {
-	                    		lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").text());
+	                    	if (!elem.getElementsByClass("js-currency-change-24h redFont").text().isEmpty()) {
+	                    		lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h redFont").text().substring(0, elem.getElementsByClass("js-currency-change-24h redFont pid-1061453-pcp").text().length()));
 	                    
 	                    	}
-	                    } else {
-	                    	lastdaychange = 0;
-	                	}
+	                    } 
 	                }
 	                if (!elem.getElementsByClass("js-currency-change-7d greenFont").text().isEmpty()) {
-	                	sevendaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-7d greenFont").text());
+	                	sevendaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-7d greenFont").text().substring(0, elem.getElementsByClass("js-currency-change-7d greenFont").text().length()));
 	                	if(sevendaychange == 0.0f) {
-	                		 if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1061443-pcp").text().isEmpty()) {
-	                			 sevendaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-7d redFont").text());
+	                		 if (!elem.getElementsByClass("js-currency-change-7d redFont").text().isEmpty()) {
+	                			 sevendaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-7d redFont").text().substring(0, elem.getElementsByClass("js-currency-change-7d redFont").text().length()));
 	                		}
-	                	} else {
-	                		sevendaychange = 0;
 	                	}
 	                }
+	                
 	                ultAct = getActualHour();
 
                     return (new Criptomoneda(acronimo, nombre, precio, total_market_cap, total_volume_24h, volTotal, lastdaychange, sevendaychange, ultAct, "enabled"));

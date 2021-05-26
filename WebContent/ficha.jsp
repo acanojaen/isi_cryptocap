@@ -70,12 +70,12 @@
 
                                 <c:if test="${criptos.total_market_cap != 0}">
                                     <div class="col-md-6">
-                                        <h3>Capitalización de mercado total: </h3> <h4 class="organization">${criptos.total_market_cap}</h4>
+                                        <h3>Capitalización de mercado total: </h3> <h4 class="organization" style="background-color: gray;">${criptos.total_market_cap}</h4>
                                     </div>
                                 </c:if>
                                 <c:if test="${criptos.total_volume_24h != 0}">
                                     <div class="col-md-6">
-                                        <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.total_volume_24h}</h4>
+                                        <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization" style="background-color: gray;">${criptos.total_volume_24h}</h4>
                                     </div>
                                 </c:if>
 
@@ -117,15 +117,18 @@
 
                                 <c:if test="${criptos.total_supply != 0}">
                                     <div class="col-md-6">
-                                        <h3>Suministro total: </h3> <h4 class="organization">${criptos.total_supply}</h4>
+                                        <h3>Suministro total: </h3> <h4 class="organization" style="background-color: gray;">${criptos.total_supply}</h4>
                                     </div>
                                 </c:if>
 
                                 <c:if test="${criptos.num_market_pairs != 0}">
                                 <div class="col-md-6">
-                                    <h3>Total de parejas de mercado: </h3> <h4 class="organization">${criptos.num_market_pairs}</h4>
+                                    <h3>Total de parejas de mercado: </h3> <h4 class="organization" style="background-color: gray;">${criptos.num_market_pairs}</h4>
                                 </div>
                                 </c:if>
+
+                                Si considera que el precio puede estar desactualizado: 
+                                <a href="/apicrypto?case=single&id=<c:out value='${c.acronimo}'/>" class="btn btn-danger btn-sm float-right" role="button"><i class="fas fa-redo"></i></a>
                             </div>
                         </div>
 

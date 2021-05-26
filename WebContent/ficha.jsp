@@ -68,15 +68,17 @@
                                     </div>
                                 </c:if>
 
-                                <div class="col-md-6">
-                                    <h3>Capitalización de mercado total: </h3> <h4 class="organization">${criptos.total_market_cap}</h4>
-                                </div>
+                                <c:if test="${not empty criptos.total_market_cap}">    
+                                    <div class="col-md-6">
+                                        <h3>Capitalización de mercado total: </h3> <h4 class="organization">${criptos.total_market_cap}</h4>
+                                    </div>
+                                </c:if>
+                                <c:if test="${not empty criptos.total_volume_24h}">
+                                    <div class="col-md-6">
+                                        <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.total_volume_24h}</h4>
+                                    </div>
+                                </c:if>
 
-                                <div class="col-md-6">
-                                    <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.total_volume_24h}</h4>
-                                </div>
-
-                                
                                 <c:if test="${not empty criptos.percent_change_24h && pc24h > 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization" style="background-color: green;">${criptos.percent_change_24h}%</h4>

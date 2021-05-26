@@ -68,12 +68,12 @@
                                     </div>
                                 </c:if>
 
-                                <c:if test="${not empty criptos.total_market_cap}">    
+                                <c:if test="${criptos.total_market_cap != 0}">
                                     <div class="col-md-6">
                                         <h3>Capitalización de mercado total: </h3> <h4 class="organization">${criptos.total_market_cap}</h4>
                                     </div>
                                 </c:if>
-                                <c:if test="${not empty criptos.total_volume_24h}">
+                                <c:if test="${criptos.total_volume_24h != 0}">
                                     <div class="col-md-6">
                                         <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.total_volume_24h}</h4>
                                     </div>

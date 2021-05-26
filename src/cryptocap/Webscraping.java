@@ -272,7 +272,7 @@ public class Webscraping {
 	                } else {
 	                	volTotal = "0";
 	                }
-	                if (elem.getElementsByClass("js-currency-change-24h greenFont pid-1057391-pcp").text().isEmpty())
+	                if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1057391-pcp").text().isEmpty())
 	                {
 	                	lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont pid-1057391-pcp").text());
 	                    if(lastdaychange == 0.0f) {

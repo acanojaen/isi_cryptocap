@@ -70,11 +70,11 @@
                                 </div>
                                 
                                 <div class="col-md-6">
-                                    <h3>Cambio ultimos 7 días: </h3> <h4 class="organization">${criptos.percent_change_7}</h4>
+                                    <h3>Cambio ultimos 7 días: </h3> <h4 class="organization">${criptos.percent_change_7d}</h4>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <h3>Cambio últimos 30 días: </h3> <h4 class="organization">${criptos.percent_change_30}</h4>
+                                    <h3>Cambio últimos 30 días: </h3> <h4 class="organization">${criptos.percent_change_30d}</h4>
                                 </div>
 
                                 <div class="col-md-6">

@@ -52,13 +52,15 @@
 
                         <div class="item">
                             <div class="row">
-                                <c:if test="${not empty criptos.precio && criptos.percent_change_24h > 0}">
+                                <fmt:parseNumber var = "pc24h" type = "long" value = "${criptos.percent_change_24h}" />
+
+                                <c:if test="${not empty criptos.precio && criptos.pc24h > 0}">
                                     <div class="col-md-6">
                                         <h3>Precio: </h3> <h4 class="organization" style="background-color: green;"><i class="fas fa-arrow-up" style="color: white;"></i> ${criptos.precio}$</h4>
                                     </div>
                                 </c:if>
 
-                                <c:if test="${not empty criptos.precio && criptos.percent_change_24h < 0}">
+                                <c:if test="${not empty criptos.precio && criptos.pc24h < 0}">
                                     <div class="col-md-6">
                                         <h3>Precio: </h3> <h4 class="organization" style="background-color: red;"><i class="fas fa-arrow-down" style="color: white;"></i> ${criptos.precio}$</h4>
                                     </div>
@@ -72,7 +74,7 @@
                                     <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.total_volume_24h}</h4>
                                 </div>
 
-                                <fmt:parseNumber var = "pc24h" type = "long" value = "${criptos.percent_change_24h}" />
+                                
                                 <c:if test="${not empty criptos.percent_change_24h && pc24h > 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization" style="background-color: green;">${criptos.percent_change_24h}%</h4>

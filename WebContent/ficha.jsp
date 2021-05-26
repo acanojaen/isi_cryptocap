@@ -52,15 +52,15 @@
 
                         <div class="item">
                             <div class="row">
-                                <fmt:parseNumber var = "pc24h" type = "long" value = "${criptos.percent_change_24h}" />
+                                <fmt:parseNumber var = "pc24h" type = "Long" value = "${criptos.percent_change_24h}" />
 
-                                <c:if test="${not empty criptos.precio && criptos.pc24h > 0}">
+                                <c:if test="${not empty criptos.precio && pc24h > 0}">
                                     <div class="col-md-6">
                                         <h3>Precio: </h3> <h4 class="organization" style="background-color: green;"><i class="fas fa-arrow-up" style="color: white;"></i> ${criptos.precio}$</h4>
                                     </div>
                                 </c:if>
 
-                                <c:if test="${not empty criptos.precio && criptos.pc24h < 0}">
+                                <c:if test="${not empty criptos.precio && pc24h < 0}">
                                     <div class="col-md-6">
                                         <h3>Precio: </h3> <h4 class="organization" style="background-color: red;"><i class="fas fa-arrow-down" style="color: white;"></i> ${criptos.precio}$</h4>
                                     </div>

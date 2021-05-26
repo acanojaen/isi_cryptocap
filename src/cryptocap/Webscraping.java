@@ -272,13 +272,13 @@ public class Webscraping {
 	                } else {
 	                	volTotal = "0";
 	                }
-	                if (!elem.getElementsByClass("js-currency-change-24h greenFont pid-1057391-pcp").text().isEmpty())
+	                if (!elem.getElementsByClass("js-currency-change-24h greenFont").text().isEmpty())
 	                {
 	                	
-	                	lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont").text().substring(0, elem.getElementsByClass("js-currency-change-24h greenFont pid-1057391-pcp").text().length()-1));
+	                	lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h greenFont").text().substring(0, elem.getElementsByClass("js-currency-change-24h greenFont").text().length()-1));
 	                    if(lastdaychange == 0.0f) {
 	                    	if (!elem.getElementsByClass("js-currency-change-24h redFont").text().isEmpty()) {
-	                    		lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h redFont").text().substring(0, elem.getElementsByClass("js-currency-change-24h redFont pid-1061453-pcp").text().length()-1));
+	                    		lastdaychange = Float.parseFloat(elem.getElementsByClass("js-currency-change-24h redFont").text().substring(0, elem.getElementsByClass("js-currency-change-24h redFont").text().length()-1));
 	                    
 	                    	}
 	                    } 

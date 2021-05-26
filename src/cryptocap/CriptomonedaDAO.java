@@ -250,23 +250,25 @@ public class CriptomonedaDAO
 		
 		rs = st.executeQuery();
 		if(rs.next()) {
+			acronimo = rs.getString(1);
 			nombre = rs.getString(2);
-	    	acronimo = rs.getString(1);
 	    	imagen = rs.getString(11);
-	    	urlDatos = rs.getString(3);
+	    	desc = rs.getString(15);
+	    	ultAct = rs.getString(4);
 	    	precio = rs.getFloat(5);
 	    	total_market_cap = rs.getFloat(12);
 	    	total_volume_24h = rs.getFloat(13);
 	    	volTotal = rs.getString(8); 
 	    	lastdaychange = rs.getFloat(9);
 	    	sevendaychange = rs.getFloat(10);
-	    	ultAct = rs.getString(4);
-	    	desc = rs.getString(15);
-			
+	    	percent_change_30d = rs.getFloat(14);
+			total_supply = rs.getInt(16);
+			num_market_pairs = rs.getInt(17);
+            
 			rs.close();
 			st.close();
 
-			return (new Criptomoneda(nombre, acronimo, imagen, urlDatos, precio, total_market_cap, total_volume_24h, volTotal, lastdaychange, sevendaychange, ultAct, desc));				
+			return (new Criptomoneda(acronimo, nombre, imagen, desc, ultAct, status, precio, total_market_cap, lastdaychange, sevendaychange, percent_change_30d, total_supply, num_market_pairs));				
 		}
 		rs.close();
 		st.close();

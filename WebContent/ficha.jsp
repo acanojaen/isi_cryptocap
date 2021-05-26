@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
     <link rel="stylesheet" href="/dist/bootstrap/css/style.css">
-    <link rel='shortcut icon' type='image/x-icon' href='/dist/imgfavicon.ico'/>
+    <link rel='shortcut icon' type='image/x-icon' href='/dist/img/favicon.ico'/>
 
     <style>
         .portfolio-block .heading h2 {
@@ -58,27 +58,31 @@
                                 </c:if>
 
                                 <div class="col-md-6">
-                                    <h3>Capitalizacion: </h3> <h4 class="organization">${criptos.total_market_cap}</h4>
+                                    <h3>Capitalización de mercado total: </h3> <h4 class="organization">${criptos.total_market_cap}</h4>
                                 </div>
 
-                                <c:if test="${not empty criptos.total_volume_24h}">
-                                    <div class="col-md-6">
-                                        <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.total_volume_24h}</h4>
-                                    </div>
-                                </c:if>
+                                <div class="col-md-6">
+                                    <h3>Volumen ultimas 24 horas: </h3> <h4 class="organization">${criptos.total_volume_24h}</h4>
+                                </div>
 
                                 <div class="col-md-6">
-                                    <h3>Volumen ultimos 7 dias: </h3> <h4 class="organization">${criptos.volumenTotal}</h4>
+                                    <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization">${criptos.percent_change_24h}</h4>
                                 </div>
                                 
-                                <c:if test="${not empty criptos.variacion24}"> 
-                                    <div class="col-md-6">
-                                        <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization">${criptos.variacion24}</h4>
-                                    </div>
-                                </c:if>
+                                <div class="col-md-6">
+                                    <h3>Cambio ultimos 7 días: </h3> <h4 class="organization">${criptos.percent_change_7}</h4>
+                                </div>
 
                                 <div class="col-md-6">
-                                    <h3>Cambio ultima semana: </h3> <h4 class="organization">${criptos.variacion7}</h4>
+                                    <h3>Cambio últimos 30 días: </h3> <h4 class="organization">${criptos.percent_change_30}</h4>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3>Suministro total: </h3> <h4 class="organization">${criptos.total_supply}</h4>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3>Total de parejas de mercado: </h3> <h4 class="organization">${criptos.num_market_pairs}</h4>
                                 </div>
                             </div>
                         </div>

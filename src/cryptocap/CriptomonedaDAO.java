@@ -642,9 +642,12 @@ public class CriptomonedaDAO
 	    			st.close();
 	    			
 	    		} 
+	    		
+	            rs.close();
+
         	} 
         }
-
+        
         disconnect();
 
         return criptos;

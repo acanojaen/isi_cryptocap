@@ -259,19 +259,14 @@ public class Webscraping {
                 	
 	                if (!elem.getElementsByClass("js-market-cap").attr("data-value").isEmpty()) {
 	                	total_market_cap = Float.parseFloat(elem.getElementsByClass("js-market-cap").attr("data-value"));
-	                } else {
-	                	total_market_cap = 0;
-	                }
+	                } 
 	                if (!elem.getElementsByClass("js-24h-volume").attr("data-value").isEmpty()) {
 	                	total_volume_24h = Float.parseFloat(elem.getElementsByClass("js-24h-volume").attr("data-value"));
-	                } else {
-	                	total_volume_24h = 0;
-	                }
+	                } 
 	                if (!elem.getElementsByClass("js-total-vol").attr("data-value").isEmpty()) {
 	                	volTotal = elem.getElementsByClass("js-total-vol").text();
-	                } else {
-	                	volTotal = "0";
-	                }
+	                } 
+	                
 	                if (!elem.getElementsByClass("js-currency-change-24h greenFont").text().isEmpty())
 	                {
 	                	

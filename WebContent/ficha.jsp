@@ -126,10 +126,10 @@
                                     <h3>Total de parejas de mercado: </h3> <h4 class="organization" style="background-color: gray;">${criptos.num_market_pairs}</h4>
                                 </div>
                                 </c:if>
-
-                                Si considera que el precio puede estar desactualizado: 
-                                <a href="/apicrypto?case=single&id=<c:out value='${c.acronimo}'/>" class="btn btn-danger btn-sm float-right" role="button"><i class="fas fa-redo"></i></a>
                             </div>
+
+                            Si considera que el precio puede estar desactualizado: 
+                                <a href="/apicrypto?case=single&id=<c:out value='${c.acronimo}'/>" class="btn btn-danger btn-sm float-right" role="button"><i class="fas fa-redo"></i></a>
                         </div>
 
                         <p class="text-muted">${criptos.desc}</p>

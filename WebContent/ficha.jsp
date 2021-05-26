@@ -113,13 +113,17 @@
                                     </div>
                                 </c:if>
 
-                                <div class="col-md-6">
-                                    <h3>Suministro total: </h3> <h4 class="organization">${criptos.total_supply}</h4>
-                                </div>
+                                <c:if test="${criptos.total_supply != 0}">
+                                    <div class="col-md-6">
+                                        <h3>Suministro total: </h3> <h4 class="organization">${criptos.total_supply}</h4>
+                                    </div>
+                                </c:if>
 
+                                <c:if test="${criptos.num_market_pairs != 0}">
                                 <div class="col-md-6">
                                     <h3>Total de parejas de mercado: </h3> <h4 class="organization">${criptos.num_market_pairs}</h4>
                                 </div>
+                                </c:if>
                             </div>
                         </div>
 

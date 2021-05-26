@@ -53,6 +53,8 @@
                         <div class="item">
                             <div class="row">
                                 <fmt:parseNumber var = "pc24h" type = "number" value = "${criptos.variacion24}" />
+                                <fmt:parseNumber var = "pc7d" type = "number" value = "${criptos.variacion7}" />
+                                <fmt:parseNumber var = "pc30d" type = "number" value = "${criptos.variacion30}" />
 
                                 <c:if test="${not empty criptos.precio && pc24h > 0}">
                                     <div class="col-md-6">
@@ -86,31 +88,31 @@
                                         <h3>Cambio ultimas 24 horas: </h3> <h4 class="organization" style="background-color: red;" >${criptos.percent_change_24h}%</h4>
                                     </div>
                                 </c:if>
-                                <!--
-                                <c:if test="${not empty criptos.percent_change_7d && Float.parseFloat(criptos.percent_change_7d) > 0}">
+                                
+                                <c:if test="${not empty criptos.percent_change_7d && pc7d > 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio ultimos 7 días: </h3> <h4 class="organization" style="background-color: green;">${criptos.percent_change_7d}%</h4>
                                     </div>
                                 </c:if>
 
-                                <c:if test="${not empty criptos.percent_change_7d && Float.parseFloat(criptos.percent_change_7d) < 0}">
+                                <c:if test="${not empty criptos.percent_change_7d && pc7d < 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio ultimos 7 días: </h3> <h4 class="organization" style="background-color: red;">${criptos.percent_change_7d}%</h4>
                                     </div>
                                 </c:if>
 
-                                <c:if test="${not empty criptos.percent_change_30d && Float.parseFloat(criptos.percent_change_30d) > 0}">
+                                <c:if test="${not empty criptos.percent_change_30d && pc30d > 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio últimos 30 días: </h3> <h4 class="organization" style="background-color: green;">${criptos.percent_change_30d}%</h4>
                                     </div>
                                 </c:if>
 
-                                <c:if test="${not empty criptos.percent_change_30d && criptos.percent_change_30d < 0}">
+                                <c:if test="${not empty criptos.percent_change_30d && pc30d < 0}">
                                     <div class="col-md-6">
                                         <h3>Cambio últimos 30 días: </h3> <h4 class="organization" style="background-color: red;">${criptos.percent_change_30d}%</h4>
                                     </div>
                                 </c:if>
--->
+
                                 <div class="col-md-6">
                                     <h3>Suministro total: </h3> <h4 class="organization">${criptos.total_supply}</h4>
                                 </div>

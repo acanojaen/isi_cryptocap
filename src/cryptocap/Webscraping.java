@@ -368,7 +368,7 @@ public class Webscraping {
     
     public Float parsePrecioInvesting(String precio) {
     	precio = precio.replace("+","");
-
+    	precio = precio.replace(",",".");
     	
     	return (Float.parseFloat(precio));
     }

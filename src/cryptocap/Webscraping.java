@@ -159,7 +159,7 @@ public class Webscraping {
 	
 	// Scraping - Coinranking.com/es
 		public Criptomoneda Coinmarketcap(String acron) throws IOException {
-			String url = " https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest ";
+			String url = " https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest";
 			int code;
 			
 			code = connect(url);
@@ -237,6 +237,7 @@ public class Webscraping {
 	// Scraping - Investing.com/es
 	public Criptomoneda Investing(String acron) throws IOException {
 		String url2 = "https://es.investing.com/crypto/currencies";
+		String change24, change7;
 		int code;
 		ultAct = getActualHour();
 		
@@ -247,49 +248,34 @@ public class Webscraping {
 			// cargamos el html de la p�gina
 			Document doc = html(url2);
 			
-			Elements element = doc.select("table > tbody > tr:has(td)");
+			Elements element = doc.select("table > tbody > tr");
 			
 			// recorremos todas las criptomonedas
 			for (Element elem : element) {
-				acronimo = elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text();
-				nombre = elem.getElementsByClass("left bold elp name cryptoName first js-currency-name").text();
-                precio = parsePrecio(elem.getElementsByClass("price js-currency-price").text());
-                
-                if(elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text().equals(acron)) {
-                	
-	                if (!elem.getElementsByClass("js-market-cap").attr("data-value").isEmpty()) {
-	                	total_market_cap = Float.parseFloat(elem.getElementsByClass("js-market-cap").attr("data-value"));
-	                } 
-	                if (!elem.getElementsByClass("js-24h-volume").attr("data-value").isEmpty()) {
-	                	total_volume_24h = Float.parseFloat(elem.getElementsByClass("js-24h-volume").attr("data-value"));
-	                } 
-	                if (!elem.getElementsByClass("js-total-vol").attr("data-value").isEmpty()) {
-	                	volTotal = elem.getElementsByClass("js-total-vol").text();
-	                } 
-	                
-	                String h24pos = elem.getElementsByClass("js-currency-change-24h greenFont").text();
-	                String h24n = elem.getElementsByClass("js-currency-change-24h redFont").text();    
-	                String d7pos = elem.getElementsByClass("js-currency-change-7d greenFont").text();
-	                String d7neg = elem.getElementsByClass("js-currency-change-7d redFont").text();
-	                
-	                if (!h24pos.isEmpty() && h24pos != "0%" && h24pos.length() > 2)
-	                {
-	                	lastdaychange = parsePrecioInvesting(h24pos.substring(1, h24pos.length()-1));
-	                } 
-	                if (!h24n.isEmpty() && h24n.length() > 2) {
-	                	lastdaychange = parsePrecioInvesting(h24n.substring(0, h24n.length()-1));
-	                }
-	                if (!d7pos.isEmpty() && d7pos != "0%" && d7pos.length() > 2) {
-	                	sevendaychange = parsePrecioInvesting(d7pos.substring(1, d7pos.length()-1));
-                	} else if (!d7neg.isEmpty() && h24n.length() > 2) {
-                		sevendaychange = parsePrecioInvesting(d7neg.substring(0, d7neg.length()-1));
-                	}
-	                
-	                
-	                
-	                ultAct = getActualHour();
-
-                    return (new Criptomoneda(acronimo, nombre, precio, total_market_cap, total_volume_24h, volTotal, lastdaychange, sevendaychange, ultAct, "enabled"));
+				if(elem.select("td").size() == 10) {
+					nombre = elem.select("td").get(2).text();
+					acronimo = elem.select("td").get(3).text();
+					precio = parsePrecio(elem.select("td").get(4).text());
+					total_market_cap = Float.parseFloat(elem.select("td").get(5).attr("data-value"));
+					total_volume_24h =  Float.parseFloat(elem.select("td").get(6).text());
+					change24 = elem.select("td").get(8).text();
+					change7 = elem.select("td").get(9).text();
+					
+					if(change24.charAt(0) == '+') {
+						lastdaychange = parsePrecioInvesting(change24.substring(1, change24.length() - 1));
+					} else if(change24.charAt(0) == '-') {
+						lastdaychange = parsePrecioInvesting(change24.substring(0, change24.length() - 1));
+					} 
+					
+					if(change7.charAt(0) == '+') {
+						sevendaychange = parsePrecioInvesting(change7.substring(1, change7.length() - 1));
+					} else if(change7.charAt(0) == '-') {
+						sevendaychange = parsePrecioInvesting(change7.substring(0, change7.length() - 1));
+					}
+					
+					ultAct = getActualHour();
+					
+                    return (new Criptomoneda(acronimo, nombre, precio, total_market_cap, total_volume_24h, lastdaychange, sevendaychange, ultAct, "enabled"));
                 }
 			}
 			
@@ -301,6 +287,44 @@ public class Webscraping {
 			return (new Criptomoneda("ERROR", ultAct, "disabled"));
 		}
 	}
+			
+//				acronimo = elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text();
+//				nombre = elem.getElementsByClass("left bold elp name cryptoName first js-currency-name").text();
+//                precio = parsePrecio(elem.getElementsByClass("price js-currency-price").text());
+//                
+//                if(elem.getElementsByClass("left noWrap elp symb js-currency-symbol").text().equals(acron)) {
+//                	
+//	                if (!elem.getElementsByClass("js-market-cap").attr("data-value").isEmpty()) {
+//	                	total_market_cap = Float.parseFloat(elem.getElementsByClass("js-market-cap").attr("data-value"));
+//	                } 
+//	                if (!elem.getElementsByClass("js-24h-volume").attr("data-value").isEmpty()) {
+//	                	total_volume_24h = Float.parseFloat(elem.getElementsByClass("js-24h-volume").attr("data-value"));
+//	                } 
+//	                if (!elem.getElementsByClass("js-total-vol").attr("data-value").isEmpty()) {
+//	                	volTotal = elem.getElementsByClass("js-total-vol").text();
+//	                } 
+//	                
+//	                String h24pos = elem.getElementsByClass("js-currency-change-24h greenFont").text();
+//	                String h24n = elem.getElementsByClass("js-currency-change-24h redFont").text();    
+//	                String d7pos = elem.getElementsByClass("js-currency-change-7d greenFont").text();
+//	                String d7neg = elem.getElementsByClass("js-currency-change-7d redFont").text();
+//	                
+//	                if (!h24pos.isEmpty() && h24pos != "0%" && h24pos.length() > 2)
+//	                {
+//	                	lastdaychange = parsePrecioInvesting(h24pos.substring(1, h24pos.length()-1));
+//	                } 
+//	                if (!h24n.isEmpty() && h24n.length() > 2) {
+//	                	lastdaychange = parsePrecioInvesting(h24n.substring(0, h24n.length()-1));
+//	                }
+//	                if (!d7pos.isEmpty() && d7pos != "0%" && d7pos.length() > 2) {
+//	                	sevendaychange = parsePrecioInvesting(d7pos.substring(1, d7pos.length()-1));
+//                	} else if (!d7neg.isEmpty() && h24n.length() > 2) {
+//                		sevendaychange = parsePrecioInvesting(d7neg.substring(0, d7neg.length()-1));
+//                	}
+//	                
+//	                
+//	                
+//	                ultAct = getActualHour();
 
 	public static JsonObject makeAPICall(String uri, List<NameValuePair> parameters)
 		      throws URISyntaxException, IOException {

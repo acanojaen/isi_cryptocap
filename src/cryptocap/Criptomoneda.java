@@ -129,13 +129,12 @@ public class Criptomoneda {
 	}
 	
 	
-	public Criptomoneda(String acron, String nombre, float prec, float total_market_cap, float total_volume_24h, String volTotal, float var24, float var7, String ultAct, String status){
+	public Criptomoneda(String acron, String nombre, float prec, float total_market_cap, float total_volume_24h, float var24, float var7, String ultAct, String status){
 		this.acronimo = acron;
 		this.nombre = nombre;
 		this.precio = prec;
 		this.total_market_cap = total_market_cap;
 		this.total_volume_24h = total_volume_24h;
-		this.volumenTotal = volTotal;
 		this.variacion24 = var24;
 		this.variacion7 = var7;
 

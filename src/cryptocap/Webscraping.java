@@ -267,8 +267,8 @@ public class Webscraping {
 	                	volTotal = elem.getElementsByClass("js-total-vol").text();
 	                } 
 	                
-	                String h24pos = elem.getElementsByClass("js-currency-change-24h greenFont pid-1167226-pcp").text();
-	                String h24n = elem.getElementsByClass("js-currency-change-24h redFont pid-1057391-pcp").text();    
+	                String h24pos = elem.getElementsByClass("js-currency-change-24h greenFont").text();
+	                String h24n = elem.getElementsByClass("js-currency-change-24h redFont").text();    
 	                String d7pos = elem.getElementsByClass("js-currency-change-7d greenFont").text();
 	                String d7neg = elem.getElementsByClass("js-currency-change-7d redFont").text();
 	                
@@ -279,7 +279,6 @@ public class Webscraping {
 	                if (!h24n.isEmpty() && h24n.length() > 2) {
 	                	lastdaychange = parsePrecioInvesting(h24n.substring(0, h24n.length()-1));
 	                }
-	                
 	                if (!d7pos.isEmpty() && d7pos != "0%" && d7pos.length() > 2) {
 	                	sevendaychange = parsePrecioInvesting(d7pos.substring(1, d7pos.length()-1));
                 	} else if (!d7neg.isEmpty() && h24n.length() > 2) {

@@ -252,10 +252,10 @@ public class Webscraping {
 			// recorremos todas las criptomonedas
 			for (Element elem : element) {
 				if(elem.select("td").size() == 10) {
-					acronimo = elem.select("td").get(3).text();
+					acronimo = elem.select("td").get(3).attr("title");
 
 					if(acronimo.equals(acron)) {
-						nombre = elem.select("td").get(2).text();
+						nombre = elem.select("td").get(2).attr("title");
 						precio = parsePrecio(elem.select("td").get(4).text());
 						total_market_cap = Float.parseFloat(elem.select("td").get(5).attr("data-value"));
 						total_volume_24h =  Float.parseFloat(elem.select("td").get(6).attr("data-value"));

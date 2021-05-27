@@ -269,20 +269,18 @@ public class Webscraping {
 	                
 	                if (!elem.getElementsByClass("js-currency-change-24h greenFont").text().isEmpty())
 	                {
-	                	
-	                	lastdaychange = parsePrecioInvesting(elem.getElementsByClass("js-currency-change-24h greenFont").text().substring(0, elem.getElementsByClass("js-currency-change-24h greenFont").text().length()-1));
+	                	lastdaychange = parsePrecio(elem.getElementsByClass("js-currency-change-24h greenFont").text().substring(1, elem.getElementsByClass("js-currency-change-24h greenFont").text().length()-1));
 	                    if(lastdaychange == 0.0f) {
 	                    	if (!elem.getElementsByClass("js-currency-change-24h redFont").text().isEmpty()) {
-	                    		lastdaychange = parsePrecioInvesting(elem.getElementsByClass("js-currency-change-24h redFont").text().substring(0, elem.getElementsByClass("js-currency-change-24h redFont").text().length()-1));
-	                    
+	                    		lastdaychange = parsePrecio(elem.getElementsByClass("js-currency-change-24h redFont").text().substring(1, elem.getElementsByClass("js-currency-change-24h redFont").text().length()-1));
 	                    	}
 	                    } 
 	                }
 	                if (!elem.getElementsByClass("js-currency-change-7d greenFont").text().isEmpty()) {
-	                	sevendaychange = parsePrecioInvesting(elem.getElementsByClass("js-currency-change-7d greenFont").text().substring(0, elem.getElementsByClass("js-currency-change-7d greenFont").text().length()-1));
+	                	sevendaychange = parsePrecio(elem.getElementsByClass("js-currency-change-7d greenFont").text().substring(1, elem.getElementsByClass("js-currency-change-7d greenFont").text().length()-1));
 	                	if(sevendaychange == 0.0f) {
 	                		 if (!elem.getElementsByClass("js-currency-change-7d redFont").text().isEmpty()) {
-	                			 sevendaychange = parsePrecioInvesting(elem.getElementsByClass("js-currency-change-7d redFont").text().substring(0, elem.getElementsByClass("js-currency-change-7d redFont").text().length()-1));
+	                			 sevendaychange = parsePrecio(elem.getElementsByClass("js-currency-change-7d redFont").text().substring(1, elem.getElementsByClass("js-currency-change-7d redFont").text().length()-1));
 	                		}
 	                	}
 	                }
@@ -359,7 +357,6 @@ public class Webscraping {
 	}
 	
     public Float parsePrecio(String precio) {
-    	precio = precio.replace("+","");
     	precio = precio.replace(".","");
     	precio = precio.replace(",",".");
     	
@@ -367,7 +364,6 @@ public class Webscraping {
     }
     
     public Float parsePrecioInvesting(String precio) {
-    	precio = precio.replace("+","");
     	precio = precio.replace(",",".");
     	
     	return (Float.parseFloat(precio));

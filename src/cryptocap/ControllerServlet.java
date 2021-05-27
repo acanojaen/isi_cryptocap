@@ -103,6 +103,10 @@ public class ControllerServlet extends HttpServlet {
                 case "/apimarket":
                 	apimarket(request, response);
                 break;
+                
+                case "/":
+                	response.sendRedirect("list.jsp");
+                break; 
                 	
                 	
             }

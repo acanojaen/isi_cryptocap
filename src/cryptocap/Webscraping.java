@@ -257,7 +257,7 @@ public class Webscraping {
 					acronimo = elem.select("td").get(3).text();
 					precio = parsePrecio(elem.select("td").get(4).text());
 					total_market_cap = Float.parseFloat(elem.select("td").get(5).attr("data-value"));
-					total_volume_24h =  Float.parseFloat(elem.select("td").get(6).text());
+					total_volume_24h =  Float.parseFloat(elem.select("td").get(6).attr("data-value"));
 					change24 = elem.select("td").get(8).text();
 					change7 = elem.select("td").get(9).text();
 					

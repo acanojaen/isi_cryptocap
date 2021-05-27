@@ -158,7 +158,7 @@
                         </div>
                         
                         <div class="heading" style="display: inline !important">
-                            <h2 class="text-center text-body"><i class="fas fa-history"></i> Gráfica</h2>
+                            <h2 class="text-center text-body"><i class="fas fa-chart-line"></i> Gráfica de precios</h2>
                         </div>
 
                         <div class="col-md-12">

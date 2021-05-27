@@ -212,6 +212,13 @@
   <script src="https://kit.fontawesome.com/7a8b17dfb3.js" crossorigin="anonymous"></script>
 
   <script>
+      var error =  '<div class="alert alert-danger" role="alert">'
+                    + 'Se ha producido un error.'
+                    +  '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
+                    +  '<span aria-hidden="true">&times;</span>'
+                    +  '</button>'
+                    + '</div>';
+
       var exito =     '<div class="alert alert-success">' 
                     + '¡El scrapeado se ha realizado <strong>con éxito</strong>!'
                     +  '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
@@ -235,7 +242,9 @@
                 $('html,body').animate({scrollTop:distance},0);
             },
             error: function(){
-                $('#scrap_coinranking').modal('show');
+                $('#alerta').html(error);
+                var distance = $('.education.group').offset().top
+                $('html,body').animate({scrollTop:distance},0);
             }
         });
       }
@@ -250,7 +259,9 @@
                 $('html,body').animate({scrollTop:distance},0);
             },
             error: function(){
-                $('#scrap_investing').modal('show');
+                $('#alerta').html(error);
+                var distance = $('.education.group').offset().top
+                $('html,body').animate({scrollTop:distance},0);
             }
         });
       }
@@ -265,7 +276,9 @@
                 $('html,body').animate({scrollTop:distance},0);
             },
             error: function(){
-                $('#api_prices').modal('show');
+                $('#alerta').html(error);
+                var distance = $('.education.group').offset().top
+                $('html,body').animate({scrollTop:distance},0);
             }
         });
       }

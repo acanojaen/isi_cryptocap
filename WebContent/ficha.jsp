@@ -157,7 +157,13 @@
                             </table>
                         </div>
                         
-                       
+                        <div class="heading" style="display: inline !important">
+                            <h2 class="text-center text-body"><i class="fas fa-history"></i> Gráfica</h2>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div id="mychart"></div>
+                        </div>
                     </div>
                     
                 </div>
@@ -179,6 +185,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
     <script src="/dist/js/script.min.js"></script>
     <script src="https://kit.fontawesome.com/7a8b17dfb3.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cryptocharts"></script>
+
+    <script>
+        CryptoCharts.roiComparison({
+            chart_id: "mychart",
+            cryptocompare_tickers: ["<%=criptos.acron%>"],
+            iconomi_tickers: ["USD"],
+            last_days: 90
+        });
+    </script>
 </body>
 
 </html>

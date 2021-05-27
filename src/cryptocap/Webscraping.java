@@ -267,21 +267,21 @@ public class Webscraping {
 	                	volTotal = elem.getElementsByClass("js-total-vol").text();
 	                } 
 	                
-	                String h24pos = elem.getElementsByClass("js-currency-change-24h greenFont").text(); "+3.03%"
-	                String h24n = elem.getElementsByClass("js-currency-change-24h redFont").text();      012345
+	                String h24pos = elem.getElementsByClass("js-currency-change-24h greenFont pid-1167226-pcp").text();
+	                String h24n = elem.getElementsByClass("js-currency-change-24h redFont pid-1057391-pcp").text();    
 	                String d7pos = elem.getElementsByClass("js-currency-change-7d greenFont").text();
 	                String d7neg = elem.getElementsByClass("js-currency-change-7d redFont").text();
 	                
-	                if (!h24pos.isEmpty() || h24pos != "0%")
+	                if (!h24pos.isEmpty() && h24pos != "0%" && h24pos.length() > 2)
 	                {
-	                	lastdaychange = Float.parseFloat(h24pos.substring(0, h24pos.length()-1));
-	                } else if (!h24n.isEmpty()) {
+	                	lastdaychange = Float.parseFloat(h24pos.substring(1, h24pos.length()-1));
+	                } else if (!h24n.isEmpty() && h24n.length() > 2) {
 	                	lastdaychange = Float.parseFloat(h24n.substring(0, h24n.length()-1));
 	                }
 	                
-	                if (!d7pos.isEmpty() || d7pos != "0%") {
-	                	sevendaychange = Float.parseFloat(d7pos.substring(0, d7pos.length()-1));
-                	} else if (!d7neg.isEmpty()) {
+	                if (!d7pos.isEmpty() && d7pos != "0%" && d7pos.length() > 2) {
+	                	sevendaychange = Float.parseFloat(d7pos.substring(1, d7pos.length()-1));
+                	} else if (!d7neg.isEmpty() && h24n.length() > 2) {
                 		sevendaychange = Float.parseFloat(d7neg.substring(0, d7neg.length()-1));
                 	}
 	                

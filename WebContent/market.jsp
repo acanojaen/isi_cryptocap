@@ -97,6 +97,11 @@
                         </tr>
                     </c:forEach>
                 </table>
+
+                <div class="heading">
+                    <h2 class="text-capitalize text-center text-body"><a href="/market"><i class="fas fa-globe"></i></a> Gráfico</h2>
+                </div>
+                <div id="mychart"></div>
             </div>
         </section>
     </main>

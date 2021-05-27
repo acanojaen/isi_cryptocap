@@ -82,7 +82,7 @@
                         <tr>
                             <td>
                                 <img class="responsive" src="${c.imagen}"/> <b>${c.nombre}</b> <span>${c.acronimo}</span>
-                                <c:if test="${c.total_market_cap == 0 || c.total_volume_24h == 0 || c.percent_change_24h == 0.0 || c.percent_change_7d == 0.0 ||c.perchent_change_30d == 0.0}">
+                                <c:if test="${c.total_market_cap == 0 || c.total_volume_24h == 0 || c.percent_change_24h == 0.0 || c.percent_change_7d == 0.0 ||c.percent_change_30d == 0.0}">
                                     <a href="/apicrypto?case=single&id=<c:out value='${c.acronimo}'/>" class="btn btn-danger btn-sm float-right" role="button"><i class="fas fa-redo"></i></a>
                                 </c:if>
                             </td>

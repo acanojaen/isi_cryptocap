@@ -274,15 +274,16 @@ public class Webscraping {
 	                
 	                if (!h24pos.isEmpty() && h24pos != "0%" && h24pos.length() > 2)
 	                {
-	                	lastdaychange = Float.parseFloat(h24pos.substring(1, h24pos.length()-1));
-	                } else if (!h24n.isEmpty() && h24n.length() > 2) {
-	                	lastdaychange = Float.parseFloat(h24n.substring(0, h24n.length()-1));
+	                	lastdaychange = parsePrecioInvesting(h24pos.substring(1, h24pos.length()-1));
+	                } 
+	                if (!h24n.isEmpty() && h24n.length() > 2) {
+	                	lastdaychange = parsePrecioInvesting(h24n.substring(0, h24n.length()-1));
 	                }
 	                
 	                if (!d7pos.isEmpty() && d7pos != "0%" && d7pos.length() > 2) {
-	                	sevendaychange = Float.parseFloat(d7pos.substring(1, d7pos.length()-1));
+	                	sevendaychange = parsePrecioInvesting(d7pos.substring(1, d7pos.length()-1));
                 	} else if (!d7neg.isEmpty() && h24n.length() > 2) {
-                		sevendaychange = Float.parseFloat(d7neg.substring(0, d7neg.length()-1));
+                		sevendaychange = parsePrecioInvesting(d7neg.substring(0, d7neg.length()-1));
                 	}
 	                
 	                
@@ -366,6 +367,7 @@ public class Webscraping {
     }
     
     public Float parsePrecioInvesting(String precio) {
+    	precio = precio.replace(".",".");
     	precio = precio.replace(",",".");
     	
     	return (Float.parseFloat(precio));

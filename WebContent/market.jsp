@@ -38,6 +38,7 @@
           </div>
         </div>
     </nav>
+
     <main class="page project-page">
         <section class="portfolio-block project-no-images">
             <div class="container">
@@ -96,9 +97,6 @@
                         </tr>
                     </c:forEach>
                 </table>
-
-
-
             </div>
         </section>
     </main>
@@ -114,7 +112,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
     <script src="/dist/js/script.min.js"></script>
     <script src="https://kit.fontawesome.com/7a8b17dfb3.js" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/cryptocharts"></script>
     <script>
         $(document).ready(function(){
                 $('td').each(function(){
@@ -129,6 +127,15 @@
                         
                     }
                 });
+        });
+    </script>
+
+    <script>
+        CryptoCharts.roiComparison({
+            chart_id: "mychart",
+            cryptocompare_tickers: ["BTC","ETH"],
+            iconomi_tickers: ["BLX","CAR"],
+            last_days: 90
         });
     </script>
 </body>

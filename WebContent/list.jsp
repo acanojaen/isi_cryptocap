@@ -201,8 +201,8 @@
 
   <footer class="page-footer">
       <div class="container">
-        <div class="links"><a href="#">ISI 2021</a><a href="https://github.com/acanojaen/isi_cryptocap">Github</a></div>
-          <div class="social-icons"></div>
+        <div class="links"><a href="#">ISI 2021</a><a href="https://github.com/acanojaen/isi_cryptocap" target="_blank">Github</a></div>
+        <div class="social-icons"></div>
       </div>
   </footer>
   <script src="/dist/js/jquery.min.js"></script>

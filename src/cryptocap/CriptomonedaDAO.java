@@ -490,7 +490,7 @@ public class CriptomonedaDAO
 		ResultSet rs;
     	boolean stat = false;
 		
-		connect();
+
     	
 		// lista de criptomonedas recopilada en la tabla "currency"
 		// status: enabled (aquellas encontradas)
@@ -501,6 +501,7 @@ public class CriptomonedaDAO
         	// scrapeamos --> Class Webscraping
         	crip = it.Investing(lista.get(i));
         	if(crip.getStatus().equals("enabled")) {
+        		connect();
 	    		criptos.add(crip);
 	    		       		
 	    		acronimo = crip.getAcronimo();
@@ -563,10 +564,11 @@ public class CriptomonedaDAO
 	    			st.close();
 	    			
 	    		} 
+	    		
+	            disconnect();
         	}
         }
         
-        disconnect();
 
         return criptos;
     }

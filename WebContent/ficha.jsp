@@ -190,7 +190,7 @@
     <script>
         CryptoCharts.roiComparison({
             chart_id: "mychart",
-            cryptocompare_tickers: ["<%=criptos.acron%>"],
+            cryptocompare_tickers: ["${criptos.acronimo}"],
             iconomi_tickers: ["USD"],
             last_days: 90
         });

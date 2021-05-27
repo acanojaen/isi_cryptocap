@@ -253,30 +253,33 @@ public class Webscraping {
 			// recorremos todas las criptomonedas
 			for (Element elem : element) {
 				if(elem.select("td").size() == 10) {
-					nombre = elem.select("td").get(2).text();
 					acronimo = elem.select("td").get(3).text();
-					precio = parsePrecio(elem.select("td").get(4).text());
-					total_market_cap = Float.parseFloat(elem.select("td").get(5).attr("data-value"));
-					total_volume_24h =  Float.parseFloat(elem.select("td").get(6).attr("data-value"));
-					change24 = elem.select("td").get(8).text();
-					change7 = elem.select("td").get(9).text();
+
+					if(acronimo.equals(acron)) {
+						nombre = elem.select("td").get(2).text();
+						precio = parsePrecio(elem.select("td").get(4).text());
+						total_market_cap = Float.parseFloat(elem.select("td").get(5).attr("data-value"));
+						total_volume_24h =  Float.parseFloat(elem.select("td").get(6).attr("data-value"));
+						change24 = elem.select("td").get(8).text();
+						change7 = elem.select("td").get(9).text();
+						
+						if(change24.charAt(0) == '+') {
+							lastdaychange = parsePrecioInvesting(change24.substring(1, change24.length() - 1));
+						} else if(change24.charAt(0) == '-') {
+							lastdaychange = parsePrecioInvesting(change24.substring(0, change24.length() - 1));
+						} 
+						
+						if(change7.charAt(0) == '+') {
+							sevendaychange = parsePrecioInvesting(change7.substring(1, change7.length() - 1));
+						} else if(change7.charAt(0) == '-') {
+							sevendaychange = parsePrecioInvesting(change7.substring(0, change7.length() - 1));
+						}
+						
+						ultAct = getActualHour();
 					
-					if(change24.charAt(0) == '+') {
-						lastdaychange = parsePrecioInvesting(change24.substring(1, change24.length() - 1));
-					} else if(change24.charAt(0) == '-') {
-						lastdaychange = parsePrecioInvesting(change24.substring(0, change24.length() - 1));
-					} 
-					
-					if(change7.charAt(0) == '+') {
-						sevendaychange = parsePrecioInvesting(change7.substring(1, change7.length() - 1));
-					} else if(change7.charAt(0) == '-') {
-						sevendaychange = parsePrecioInvesting(change7.substring(0, change7.length() - 1));
+						return (new Criptomoneda(acronimo, nombre, precio, total_market_cap, total_volume_24h, lastdaychange, sevendaychange, ultAct, "enabled"));
 					}
-					
-					ultAct = getActualHour();
-					
-                    return (new Criptomoneda(acronimo, nombre, precio, total_market_cap, total_volume_24h, lastdaychange, sevendaychange, ultAct, "enabled"));
-                }
+				}
 			}
 			
 			// si no se encuentra

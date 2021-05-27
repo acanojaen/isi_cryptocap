@@ -508,7 +508,6 @@ public class CriptomonedaDAO
 	        	precio = crip.getPrecio();
 	        	total_market_cap = crip.getTotal_market_cap();
 	        	total_volume_24h = crip.getTotal_volume_24h();
-	        	volTotal = crip.getVolumenTotal(); 
 	        	lastdaychange = crip.getVariacion24();
 	        	sevendaychange = crip.getVariacion7();
 	        	ultAct = crip.getUltimaActualizacion();
@@ -524,8 +523,8 @@ public class CriptomonedaDAO
 	    		
 	    		// INSERCION
 	    		if(!rs.next()) {
-	    			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, total_market_cap, total_volume_24h, volTotal)";
-	    			sql += " VALUES (?, ?, ?, ?, ?, ?, ?)";
+	    			sql = "INSERT INTO criptomonedas (acronimo, nombre, ultAct, precio, total_market_cap, total_volume_24h, percent_change_24h, percent_change_7d)";
+	    			sql += " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 	    			
 	    			st = jdbcConnection.prepareStatement(sql);
 	    			st.setString(1, acronimo);
@@ -534,7 +533,8 @@ public class CriptomonedaDAO
 	    			st.setFloat(4, precio);
 	    			st.setFloat(5, total_market_cap);
 	    			st.setFloat(6, total_volume_24h);
-	    			st.setString(7, volTotal);
+	    			st.setFloat(7, lastdaychange);
+	    			st.setFloat(8, sevendaychange);
 	    			stat = st.executeUpdate() > 0;
 	    			stat = addToHistory(acronimo, precio);
 		            stat = setCurrencyStatus(acronimo, "enabled");

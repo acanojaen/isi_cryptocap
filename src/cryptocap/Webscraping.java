@@ -267,23 +267,25 @@ public class Webscraping {
 	                	volTotal = elem.getElementsByClass("js-total-vol").text();
 	                } 
 	                
-	                if (!elem.getElementsByClass("js-currency-change-24h greenFont").text().isEmpty())
+	                String h24pos = elem.getElementsByClass("js-currency-change-24h greenFont").text();
+	                String h24n = elem.getElementsByClass("js-currency-change-24h redFont").text();
+	                String d7pos = elem.getElementsByClass("js-currency-change-7d greenFont").text();
+	                String d7neg = elem.getElementsByClass("js-currency-change-7d redFont").text();
+	                
+	                if (!h24pos.isEmpty() || h24pos != "0%")
 	                {
-	                	lastdaychange = parsePrecio(elem.getElementsByClass("js-currency-change-24h greenFont").text().substring(1, elem.getElementsByClass("js-currency-change-24h greenFont").text().length()-1));
-	                    if(lastdaychange == 0.0f) {
-	                    	if (!elem.getElementsByClass("js-currency-change-24h redFont").text().isEmpty()) {
-	                    		lastdaychange = parsePrecio(elem.getElementsByClass("js-currency-change-24h redFont").text().substring(1, elem.getElementsByClass("js-currency-change-24h redFont").text().length()-1));
-	                    	}
-	                    } 
+	                	lastdaychange = Float.parseFloat(h24pos.substring(1, h24pos.length()-1));
+	                } else if (!h24n.isEmpty()) {
+	                	lastdaychange = Float.parseFloat(h24n.substring(0, h24n.length()-1));
 	                }
-	                if (!elem.getElementsByClass("js-currency-change-7d greenFont").text().isEmpty()) {
-	                	sevendaychange = parsePrecio(elem.getElementsByClass("js-currency-change-7d greenFont").text().substring(1, elem.getElementsByClass("js-currency-change-7d greenFont").text().length()-1));
-	                	if(sevendaychange == 0.0f) {
-	                		 if (!elem.getElementsByClass("js-currency-change-7d redFont").text().isEmpty()) {
-	                			 sevendaychange = parsePrecio(elem.getElementsByClass("js-currency-change-7d redFont").text().substring(1, elem.getElementsByClass("js-currency-change-7d redFont").text().length()-1));
-	                		}
-	                	}
-	                }
+	                
+	                if (!d7pos.isEmpty() || d7pos != "0%") {
+	                	sevendaychange = Float.parseFloat(d7pos.substring(0, d7pos.length()-1));
+                	} else if (!d7neg.isEmpty()) {
+                		sevendaychange = Float.parseFloat(d7neg.substring(0, d7pos.length()-1));
+                	}
+	                
+	                
 	                
 	                ultAct = getActualHour();
 

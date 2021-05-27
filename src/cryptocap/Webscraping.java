@@ -239,7 +239,6 @@ public class Webscraping {
 		String url2 = "https://es.investing.com/crypto/currencies";
 		String change24, change7;
 		int code;
-		ultAct = getActualHour();
 		
 		code = connect(url2);
 		
